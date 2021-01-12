@@ -1,0 +1,167 @@
+@import "../../styles/Variables.scss";
+
+.button {
+    @include mainsail-button-text-regular();
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: $mainsail-button-border-radius;
+    box-shadow: $mainsail-shadow-near;
+    padding: 10px !important;
+    cursor: pointer;
+
+    &:focus {
+        outline: 5px auto $mainsail-primary-blue;
+    }
+
+    .mainsail-icon-wrapper {
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        &.right {
+            margin-left: 8px;
+        }
+
+        &.left {
+            margin-right: 8px;
+            margin-left: 0px;
+        }
+    }
+
+    &.primary {
+        color: $mainsail-light-blue;
+        border-color: $mainsail-primary-blue;
+        background: $mainsail-primary-blue;
+
+        &:hover {
+            border-color: $mainsail-dark-blue;
+            background: $mainsail-dark-blue;
+            color: $mainsail-light-blue;
+        }
+
+        &:active {
+            box-shadow: $mainsail-shadow-active;
+        }
+
+        &:disabled {
+            box-shadow: none;
+            opacity: 0.3;
+
+            &:hover {
+                background: $mainsail-white;
+            }
+        }
+
+        &.green {
+            color: $color-neutral-6;
+            border-color: transparent;
+            background: $color-product-a2;
+        }
+    }
+
+    &.secondary {
+        color: $mainsail-dark-blue;
+        border-color: $mainsail-dark-blue;
+        background: $mainsail-white;
+
+        &:hover {
+            background: $mainsail-light-blue;
+        }
+
+        &:active {
+            box-shadow: $mainsail-shadow-active;
+        }
+
+        &:disabled {
+            box-shadow: none;
+            opacity: 0.3;
+
+            &:hover {
+                background: $mainsail-white;
+            }
+        }
+    }
+
+    &.tertiary {
+        color: $mainsail-dark-blue;
+        border: 0;
+        box-shadow: none;
+        background: none;
+        background-color: transparent;
+
+        &.close {
+            position: absolute;
+        }
+
+        &:hover {
+            color: $mainsail-primary-blue;
+        }
+
+        &:active {
+            box-shadow: $mainsail-shadow-active;
+        }
+    }
+
+    &.action {
+        height: 26px;
+        padding: 4px 10px;
+        border: 0;
+        box-shadow: $mainsail-shadow-near;
+        border-radius: $mainsail-pill-radius;
+        background: $mainsail-light-blue;
+        color: $mainsail-dark-blue;
+
+        &:hover {
+            border-color: $mainsail-dark-blue;
+            color: $mainsail-primary-blue;
+            box-shadow: none;
+        }
+
+        &:active {
+            box-shadow: $mainsail-shadow-active;
+            color: $mainsail-primary-blue;
+        }
+
+        &:disabled {
+            box-shadow: none;
+            background: none;
+            opacity: 0.3;
+            color: $mainsail-dark-blue;
+
+            &:hover {
+                background: $mainsail-white;
+            }
+        }
+    }
+
+    &.link {
+        @include mainsail-body-text-small();
+        color: $mainsail-primary-blue;
+        border: transparent;
+        background: none;
+        box-shadow: none;
+        padding: 0 !important;
+        margin: 0;
+        height: auto;
+
+        svg {
+            color: $mainsail-primary-blue;
+            width: 12px;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &:hover {
+        box-shadow: none;
+    }
+
+    &.small {
+        @include mainsail-button-text-small();
+    }
+}
