@@ -2629,6 +2629,15 @@
     "@svgr/plugin-svgo" "^5.4.0"
     loader-utils "^2.0.0"
 
+"@tanem/svg-injector@^8.2.1":
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-8.2.2.tgz#70ab9c6942374b85c1151ba9b21b6b07ad0b2e15"
+  integrity sha512-a4C3GMCD15URV+ZNjt8Fibxu04qejJip0G6qIDl/Dne7TGt++2MjJzwV5lRVo7yqT/OIVFOnAQwMH0qfHGWlpw==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    content-type "^1.0.4"
+    tslib "^2.0.3"
+
 "@testing-library/dom@^7.28.1":
   version "7.29.4"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.29.4.tgz#1647c2b478789621ead7a50614ad81ab5ae5b86c"
@@ -4944,6 +4953,11 @@ clone-deep@^4.0.1:
     kind-of "^6.0.2"
     shallow-clone "^3.0.0"
 
+clsx@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
+  integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
+
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
@@ -5157,7 +5171,7 @@ content-disposition@0.5.3:
   dependencies:
     safe-buffer "5.1.2"
 
-content-type@~1.0.4:
+content-type@^1.0.4, content-type@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
   integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
@@ -12105,6 +12119,15 @@ react-sizeme@^2.6.7:
     shallowequal "^1.1.0"
     throttle-debounce "^2.1.0"
 
+react-svg@^11.2.2:
+  version "11.2.2"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-11.2.2.tgz#a8fa0e1c535a13dbae1aae92795d9f3e9b11ec4b"
+  integrity sha512-Q9lAuUgaI8c55OluftgrAyE4GAmIvmqVHJXt1fIzXFHcuIauKqVjhUH/BiizOqjPmY+R27kiTkv9g7AxY7O+wA==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@tanem/svg-injector" "^8.2.1"
+    prop-types "^15.7.2"
+
 react-syntax-highlighter@^13.5.0:
   version "13.5.3"
   resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-13.5.3.tgz#9712850f883a3e19eb858cf93fad7bb357eea9c6"
@@ -13944,7 +13967,7 @@ tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.0.0, tslib@^2.0.1:
+tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
