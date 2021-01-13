@@ -7,6 +7,11 @@ module.exports = function (plop) {
                 name: "componentName",
                 message: "Name of component",
             },
+            {
+                type: "input",
+                name: "componentDescription",
+                message: "(Optional) Description of component",
+            },
         ],
         actions: [
             {
