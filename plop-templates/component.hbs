@@ -1,0 +1,24 @@
+import React from "react";
+import PropTypes from "prop-types";
+import clsx from "clsx";
+
+import "./{{componentName}}.scss";
+
+/**
+ * {{componentDescription}}
+ **/
+export const {{componentName}} = ({
+    className,
+    ...props
+}) => {
+    return (
+        <div className={clsx(className, 'my-other-classes')}></div>
+    );
+};
+
+{{componentName}}.propTypes = {
+    /** (Optional) click handler */
+    onClick: PropTypes.func,
+};
+
+{{componentName}}.defaultProps = {};

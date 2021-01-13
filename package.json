@@ -12,6 +12,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "scaffold": "plop",
+    "plop": "plop",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -51,6 +53,7 @@
     "clsx": "^1.1.1",
     "css-loader": "^5.0.1",
     "node-sass": "4.14.1",
+    "plop": "^2.7.4",
     "react-svg": "^11.2.2",
     "sass-loader": "^10.1.1",
     "style-loader": "^2.0.0"

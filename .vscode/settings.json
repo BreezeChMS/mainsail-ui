@@ -2,11 +2,12 @@
     "prettier.configPath": ".prettierrc",
     "prettier.ignorePath": ".prettierignore",
     "prettier.enable": true,
-    "prettier.disableLanguages": ["json", "markdown", "yaml"],
+    "prettier.disableLanguages": ["json", "markdown", "yaml", "handlebars"],
     "editor.formatOnSave": true,
     "editor.defaultFormatter": null,
     "files.trimTrailingWhitespace": true,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "[handlebars]": { "editor.formatOnSave": false },
 }
