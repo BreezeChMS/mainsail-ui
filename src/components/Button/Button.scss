@@ -1,6 +1,6 @@
 @import "../../styles/Variables.scss";
 
-.button {
+button.button {
     @include mainsail-button-text-regular();
     display: inline-flex;
     justify-content: center;

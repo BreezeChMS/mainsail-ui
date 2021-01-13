@@ -10,7 +10,7 @@
         />
         <path
             d="M1 10.467L9.11935 2.93211L15 2.93211L15.5 8.5506L7 16.5506L1 10.467Z"
-            fill="#003462"
+            fill="currentColor"
         />
         <circle cx="12" cy="6.0506" r="1" fill="#E3F2FA" />
     </svg>
