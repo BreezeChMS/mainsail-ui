@@ -11,6 +11,12 @@ This project [will] contain(s) the library package(s) for using Mainsail as an n
 
 It utilizes [Storybook](https://storybook.js.org/) for local development of components in an isolated environment.
 
+## Installing
+
+1. Clone the repo
+1. `cd mainsail-ui`
+1. `yarn install`
+
 ## Developing 🔨
 
 When working on Mainsail, you can run Storybook locally:
