@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Mainsail-UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-In the project directory, you can run:
+This is the home of [_Mainsail_](https://en.wikipedia.org/wiki/Mainsail) — The Design System UI-kit of [Breeze](https://www.breezechms.com/).
 
-### `yarn start`
+___
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project [will] contain(s) the library package(s) for using Mainsail as an npm package.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+It utilizes [Storybook](https://storybook.js.org/) for local development of components in an isolated environment.
 
-### `yarn test`
+## Developing 🔨
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+When working on Mainsail, you can run Storybook locally:
+#### Requirements
 
-### `yarn build`
+- Node 12 (currently a hard limitation due to some Sass-styling dependencies)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Run Storybook
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+yarn storybook
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Scaffold Your Files 🎉
 
-### `yarn eject`
+When developing components, it can be time-consuming and cumbersome to try to mimic current project conventions.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+We have taken the guesswork out of this and included built-in generators to help you scaffold the proper related component files in their respective locations. This eliminates boilerplate grunt work.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Behind the scenes this uses the fantastic [Plopjs](https://plopjs.com/).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To generate boilerplate and work on a new component:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+yarn scaffold component
+```
 
-## Learn More
+This will prompt you to answer some questions and generate the necessary working files for you.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The structure will look like this:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```src
+├─ assets
+├─ components
+|  ├─ Button
+|  |  ├─ Button.js
+|  |  ├─ Button.scss
+|  |  ├─ Button.stories.js
+|  |  └─ Button.test.js
+```
+___
+## Publishing & Deploying
 
-### Code Splitting
+TODO
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+// Build out the package/deploy process
+```
 
-### Analyzing the Bundle Size
+___
+## Building Storybook to Static Site
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+TODO
 
-### Making a Progressive Web App
+```
+// Build out the static site deploy process
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+___
+## Installing (to a project)
 
-### Advanced Configuration
+TODO
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+// Build out the install process
+```
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
