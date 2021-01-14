@@ -27,6 +27,12 @@ module.exports = function (plop) {
             },
             {
                 type: "add",
+                path:
+                    "src/components/{{componentName}}/{{componentName}}.test.js",
+                templateFile: "plop-templates/component-test.hbs",
+            },
+            {
+                type: "add",
                 path: "src/components/{{componentName}}/{{componentName}}.scss",
                 templateFile: "plop-templates/component-scss.hbs",
             },
