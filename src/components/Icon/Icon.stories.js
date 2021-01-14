@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Icon as MainsailIcon, ICON_LIST } from "./Icon";
-import { IconGallery } from "storybook-icon-gallery";
 
 export default {
     title: "Mainsail UI/Icon",
