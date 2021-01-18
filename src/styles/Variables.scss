@@ -26,6 +26,16 @@ $color-product-d1: #fff1f6;
 $color-product-d2: #ff0056;
 $color-product-d3: #ba003c;
 
+// Color Names
+$mainsail-blue-primary: $color-primary-1;
+$mainsail-blue-dark: $color-primary-2;
+$mainsail-blue-middle: $color-primary-3;
+$mainsail-blue-light: $color-primary-4;
+$mainsail-orange-light: #fff6f1;
+$mainsail-orange-middle: $color-product-b2;
+$mainsail-white: #ffffff;
+$mainsail-green-dark: #008d8d;
+
 $mainsail-font: "Helvetica Neue", "Open Sans", Helvetica, Arial, sans-serif;
 $mainsail-text-body-color: $color-neutral-1;
 
@@ -89,16 +99,6 @@ $mainsail-text-body-color: $color-neutral-1;
     font-size: 12px;
     line-height: 18px;
 }
-
-// Color Names
-$mainsail-primary-blue: $color-primary-1;
-$mainsail-dark-blue: $color-primary-2;
-$mainsail-middle-blue: $color-primary-3;
-$mainsail-light-blue: $color-primary-4;
-$mainsail-light-orange: #fff6f1;
-$mainsail-middle-orange: $color-product-b2;
-$mainsail-white: #ffffff;
-$mainsail-dark-green: #008d8d;
 
 // Input Styling
 $mainsail-input-border-radius: 4px;

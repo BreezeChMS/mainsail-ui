@@ -1,11 +1,15 @@
+@import "../../styles/Variables.scss";
+
 .mainsail-icon {
     &span,
     span {
+        color: inherit;
         display: flex;
         align-content: center;
     }
 
     &.sm {
+        color: inherit;
         svg {
             height: 12px;
             width: 12px;
@@ -13,6 +17,7 @@
     }
 
     &.md {
+        color: inherit;
         svg {
             height: 16px;
             width: 16px;
@@ -20,6 +25,7 @@
     }
 
     &.lg {
+        color: inherit;
         svg {
             height: 32px;
             width: 32px;

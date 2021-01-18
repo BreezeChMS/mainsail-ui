@@ -20,7 +20,7 @@ button.mainsail-button {
     cursor: pointer;
 
     &:focus {
-        outline: 5px auto $mainsail-primary-blue;
+        outline: 5px auto $mainsail-blue-primary;
     }
 
     .mainsail-icon {
@@ -41,14 +41,14 @@ button.mainsail-button {
     }
 
     &.primary {
-        color: $mainsail-light-blue;
-        border-color: $mainsail-primary-blue;
-        background: $mainsail-primary-blue;
+        color: $mainsail-blue-light;
+        border-color: $mainsail-blue-primary;
+        background: $mainsail-blue-primary;
 
         &:hover {
-            border-color: $mainsail-dark-blue;
-            background: $mainsail-dark-blue;
-            color: $mainsail-light-blue;
+            border-color: $mainsail-blue-dark;
+            background: $mainsail-blue-dark;
+            color: $mainsail-blue-light;
         }
 
         &:active {
@@ -72,12 +72,12 @@ button.mainsail-button {
     }
 
     &.secondary {
-        color: $mainsail-dark-blue;
-        border-color: $mainsail-dark-blue;
+        color: $mainsail-blue-dark;
+        border-color: $mainsail-blue-dark;
         background: $mainsail-white;
 
         &:hover {
-            background: $mainsail-light-blue;
+            background: $mainsail-blue-light;
         }
 
         &:active {
@@ -95,7 +95,7 @@ button.mainsail-button {
     }
 
     &.tertiary {
-        color: $mainsail-dark-blue;
+        color: $mainsail-blue-dark;
         border: 0;
         box-shadow: none;
         background: none;
@@ -106,7 +106,7 @@ button.mainsail-button {
         }
 
         &:hover {
-            color: $mainsail-primary-blue;
+            color: $mainsail-blue-primary;
         }
 
         &:active {
@@ -120,25 +120,25 @@ button.mainsail-button {
         border: 0;
         box-shadow: $mainsail-shadow-near;
         border-radius: $mainsail-pill-radius;
-        background: $mainsail-light-blue;
-        color: $mainsail-dark-blue;
+        background: $mainsail-blue-light;
+        color: $mainsail-blue-dark;
 
         &:hover {
-            border-color: $mainsail-dark-blue;
-            color: $mainsail-primary-blue;
+            border-color: $mainsail-blue-dark;
+            color: $mainsail-blue-primary;
             box-shadow: none;
         }
 
         &:active {
             box-shadow: $mainsail-shadow-active;
-            color: $mainsail-primary-blue;
+            color: $mainsail-blue-primary;
         }
 
         &:disabled {
             box-shadow: none;
             background: none;
             opacity: 0.3;
-            color: $mainsail-dark-blue;
+            color: $mainsail-blue-dark;
 
             &:hover {
                 background: $mainsail-white;
@@ -148,7 +148,7 @@ button.mainsail-button {
 
     &.link {
         @include mainsail-body-text-small();
-        color: $mainsail-primary-blue;
+        color: $mainsail-blue-primary;
         border: transparent;
         background: none;
         box-shadow: none;
@@ -157,7 +157,7 @@ button.mainsail-button {
         height: auto;
 
         svg {
-            color: $mainsail-primary-blue;
+            color: $mainsail-blue-primary;
             width: 12px;
         }
 
