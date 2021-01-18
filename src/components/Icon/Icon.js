@@ -80,7 +80,7 @@ export const Icon = ({ name, size, className, ...rest }) => {
 
 Icon.propTypes = {
     /** What type of Icon to use: */
-    name: PropTypes.string.isRequired,
+    name: PropTypes.oneOf(ICON_LIST).isRequired,
     /** What size of Icon to use: */
     size: PropTypes.oneOf(["sm", "md", "lg"]),
     /** Style class to add to Icon wrapper */
