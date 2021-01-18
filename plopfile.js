@@ -1,3 +1,5 @@
+// See documentation for plop here: https://plopjs.com/documentation/
+
 module.exports = function (plop) {
     plop.setGenerator("component", {
         description: "A Component and its related files",
@@ -35,6 +37,16 @@ module.exports = function (plop) {
                 type: "add",
                 path: "src/components/{{componentName}}/{{componentName}}.scss",
                 templateFile: "plop-templates/component-scss.hbs",
+            },
+            {
+                type: "add",
+                path: "src/components/{{componentName}}/index.js",
+                templateFile: "plop-templates/index.hbs",
+            },
+            {
+                type: "append",
+                path: "src/components/core/index.js",
+                template: `export * from "../{{componentName}}";`,
             },
         ],
     });
