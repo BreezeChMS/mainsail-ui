@@ -1,10 +1,18 @@
 @import "../../styles/Variables.scss";
 
-button.button {
+button.mainsail-button {
     @include mainsail-button-text-regular();
+    position: relative;
     display: inline-flex;
-    justify-content: center;
+    appearance: none;
     align-items: center;
+    justify-content: center;
+    user-select: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    transition: all 250ms;
+
+    outline: none;
     border: 1px solid transparent;
     border-radius: $mainsail-button-border-radius;
     box-shadow: $mainsail-shadow-near;
@@ -15,7 +23,7 @@ button.button {
         outline: 5px auto $mainsail-primary-blue;
     }
 
-    .mainsail-icon-wrapper {
+    .mainsail-icon {
         svg {
             width: 16px;
             height: 16px;
@@ -23,6 +31,7 @@ button.button {
 
         &.right {
             margin-left: 8px;
+            margin-right: 0px;
         }
 
         &.left {
