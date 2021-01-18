@@ -1,15 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Icon } from "../Icon/Icon";
+import { Icon, names } from "../Icon/Icon";
 import clsx from "clsx";
 
 import "./Button.scss";
 
 const renderIcon = (i, side) => {
     if (typeof i === "string") {
-        return <Icon name={i} className={side} />;
+        return <Icon name={i} className={clsx(side)} />;
     }
     return i;
+};
+
+export const variants = {
+    primary: "primary",
+    secondary: "secondary",
+    tertiary: "tertiary",
+    link: "link",
+    icon: "icon",
+};
+
+export const textSizes = {
+    small: "small",
+    regular: "regular",
 };
 
 /**
@@ -23,6 +36,7 @@ export const Button = ({
     className,
     iconLeft,
     iconRight,
+    icon,
     ...props
 }) => {
     return (
@@ -31,6 +45,7 @@ export const Button = ({
             {...props}>
             {iconLeft ? renderIcon(iconLeft, "left") : null}
             {text}
+            {icon ? renderIcon(icon) : null}
             {children}
             {iconRight ? renderIcon(iconRight, "right") : null}
         </button>
@@ -39,15 +54,17 @@ export const Button = ({
 
 Button.propTypes = {
     /** What style of button to use: */
-    variant: PropTypes.oneOf(["primary", "secondary", "tertiary", "link"]),
+    variant: PropTypes.oneOf(Object.keys(variants)),
     /** Button text to display */
     text: PropTypes.string,
     /** Button text size */
-    textSize: PropTypes.oneOf(["small", "regular"]),
+    textSize: PropTypes.oneOf(Object.keys(textSizes)),
     /** Display an Icon on the left side of text */
-    iconLeft: PropTypes.string,
+    iconLeft: PropTypes.oneOf(Object.keys(names)),
     /** Display an Icon on the right side of text */
-    iconRight: PropTypes.string,
+    iconRight: PropTypes.oneOf(Object.keys(names)),
+    /** Display an Icon on the right side of text */
+    icon: PropTypes.oneOf(Object.keys(names)),
     /** Style class to add to button element */
     className: PropTypes.string,
     /** (Optional) click handler */
@@ -55,8 +72,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-    variant: "primary",
-    textSize: "regular",
-    iconRight: "",
-    iconLeft: "",
+    variant: variants.primary,
+    textSize: textSizes.regular,
 };

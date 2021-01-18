@@ -166,6 +166,15 @@ button.mainsail-button {
         }
     }
 
+    &.icon {
+        background: none;
+        box-shadow: none;
+        &:hover {
+            background: $mainsail-blue-light;
+            border-radius: $mainsail-button-border-radius-lg;
+        }
+    }
+
     &:hover {
         box-shadow: none;
     }

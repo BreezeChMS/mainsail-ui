@@ -1,7 +1,7 @@
 import React from "react";
-import { ICON_LIST } from "../Icon/Icon";
+import { names } from "../Icon/Icon";
 
-import { Button } from "./Button";
+import { Button, variants } from "./Button";
 
 export default {
     title: "Mainsail UI/Button",
@@ -12,7 +12,7 @@ export default {
             type: { name: "string", required: true },
             control: {
                 type: "select",
-                options: ["", ...ICON_LIST],
+                options: ["", ...Object.keys(names)],
             },
         },
         iconRight: {
@@ -20,7 +20,7 @@ export default {
             type: { name: "string", required: true },
             control: {
                 type: "select",
-                options: ["", ...ICON_LIST],
+                options: ["", ...Object.keys(names)],
             },
         },
     },
@@ -30,38 +30,44 @@ const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    variant: "primary",
+    variant: variants.primary,
     text: "Click me",
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-    variant: "secondary",
+    variant: variants.secondary,
     text: "Click me",
 };
 
 export const Tertiary = Template.bind({});
 Tertiary.args = {
-    variant: "tertiary",
+    variant: variants.tertiary,
     text: "Click me",
 };
 
 export const Link = Template.bind({});
 Link.args = {
-    variant: "link",
+    variant: variants.link,
     text: "Click me",
 };
 
 export const IconLeft = Template.bind({});
 IconLeft.args = {
-    variant: "primary",
+    variant: variants.primary,
     text: "Close Window",
-    iconLeft: "close",
+    iconLeft: names.close,
 };
 
 export const IconRight = Template.bind({});
 IconRight.args = {
-    variant: "primary",
+    variant: variants.primary,
     text: "More",
-    iconRight: "caret",
+    iconRight: names.forward,
+};
+
+export const IconOnly = Template.bind({});
+IconOnly.args = {
+    variant: variants.icon,
+    icon: names.notification,
 };

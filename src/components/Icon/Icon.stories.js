@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Icon as MainsailIcon, ICON_LIST } from "./Icon";
+import { Icon as MainsailIcon, names, sizes } from "./Icon";
 
 export default {
     title: "Mainsail UI/Icon",
@@ -11,7 +11,7 @@ export default {
             type: { name: "string", required: true },
             control: {
                 type: "select",
-                options: ICON_LIST,
+                options: Object.keys(names),
             },
         },
         size: {
@@ -19,7 +19,7 @@ export default {
             type: { name: "string" },
             control: {
                 type: "radio",
-                options: ["sm", "md", "lg"],
+                options: Object.keys(sizes),
             },
         },
     },
@@ -29,8 +29,8 @@ const Template = (args) => <MainsailIcon {...args} />;
 
 export const Icon = Template.bind({});
 Icon.args = {
-    name: "add",
-    size: "lg",
+    name: names.add,
+    size: sizes.md,
 };
 
 export const FullList = (args) => {
@@ -78,7 +78,7 @@ export const FullList = (args) => {
                 gap: "20px",
                 gridTemplateColumns: "auto auto auto auto auto",
             }}>
-            {renderIconList(ICON_LIST, args)}
+            {renderIconList(Object.keys(names), args)}
         </div>
     );
 };
