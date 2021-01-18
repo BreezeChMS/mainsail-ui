@@ -27,14 +27,11 @@ export const Button = ({
 }) => {
     return (
         <button
-            className={clsx("button", className, variant, textSize)}
-            data-testid="button"
+            className={clsx("mainsail-button", className, variant, textSize)}
             {...props}>
             {iconLeft ? renderIcon(iconLeft, "left") : null}
-            <span>
-                {text}
-                {children}
-            </span>
+            {text}
+            {children}
             {iconRight ? renderIcon(iconRight, "right") : null}
         </button>
     );

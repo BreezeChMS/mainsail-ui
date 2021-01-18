@@ -6,35 +6,58 @@ import clsx from "clsx";
 import "./Icon.scss";
 
 export const ICON_LIST = [
+    "add",
     "archive",
-    "box-checked",
-    "box-indeterminate",
-    "box-unchecked",
+    "automate",
+    "back",
+    "bill",
+    "bulktask",
     "calendar",
+    "card",
     "caret",
     "check",
-    "chevron-down",
-    "chevron-left",
-    "chevron-right",
     "close",
     "delete",
+    "download",
+    "drafts",
+    "edit",
     "email",
+    "extensions",
     "fields",
     "filter",
+    "folder-fill",
     "folder",
-    "image",
-    "info-circle",
+    "forward",
+    "gift",
+    "help",
+    "history",
     "link",
+    "list",
     "location",
+    "lock",
+    "logout",
+    "message",
+    "more",
+    "notification",
+    "password",
     "people",
-    "person",
-    "plus",
+    "photo",
+    "private",
+    "profile",
+    "public",
+    "refund",
+    "saved",
     "search",
+    "settings",
+    "shared",
+    "tag-fill",
     "tag",
-    "tags",
+    "template",
     "text",
     "update",
     "upload",
+    "user",
+    "view",
 ];
 
 /**
@@ -44,12 +67,12 @@ export const ICON_LIST = [
  * (Caches icon by default)
  **/
 
-export const Icon = ({ name, className, ...rest }) => {
+export const Icon = ({ name, size, className, ...rest }) => {
     return (
         <ReactSVG
             src={`../icons/${name}.svg`}
             wrapper="span"
-            className={clsx("mainsail-icon-wrapper", className)}
+            className={clsx("mainsail-icon", size, className)}
             {...rest}
         />
     );
@@ -58,6 +81,8 @@ export const Icon = ({ name, className, ...rest }) => {
 Icon.propTypes = {
     /** What type of Icon to use: */
     name: PropTypes.string.isRequired,
+    /** What size of Icon to use: */
+    size: PropTypes.oneOf(["sm", "md", "lg"]),
     /** Style class to add to Icon wrapper */
     className: PropTypes.string,
     /** (Optional) click handler */
@@ -66,4 +91,5 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
     name: "close",
+    size: "md",
 };

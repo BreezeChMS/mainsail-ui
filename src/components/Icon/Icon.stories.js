@@ -9,10 +9,17 @@ export default {
         name: {
             name: "name",
             type: { name: "string", required: true },
-            width: "200px",
             control: {
                 type: "select",
                 options: ICON_LIST,
+            },
+        },
+        size: {
+            name: "size",
+            type: { name: "string" },
+            control: {
+                type: "radio",
+                options: ["sm", "md", "lg"],
             },
         },
     },
@@ -22,7 +29,8 @@ const Template = (args) => <MainsailIcon {...args} />;
 
 export const Icon = Template.bind({});
 Icon.args = {
-    name: "close",
+    name: "add",
+    size: "md",
 };
 
 export const FullList = (args) => {
@@ -35,18 +43,26 @@ export const FullList = (args) => {
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
-                        justifyContent: "flex-start",
-                        marginBottom: "8px",
+                        justifyContent: "center",
+                        marginBottom: "4px",
                     }}>
                     <div
                         style={{
                             fontFamily: "sans-serif",
-                            fontSize: "12px",
+                            fontSize: "10px",
                             marginBottom: "4px",
+                            color: "#333",
                         }}>
-                        {icon}
+                        <pre
+                            style={{
+                                padding: "2px 4px",
+                                background: "#f4f4f4",
+                                borderRadius: "4px",
+                            }}>
+                            {icon && icon.toLowerCase()}
+                        </pre>
                     </div>
-                    <Icon name={icon} />
+                    <Icon name={icon} size={args.size} />
                 </div>
             );
         });
@@ -57,7 +73,7 @@ export const FullList = (args) => {
                 gap: "20px",
                 gridTemplateColumns: "auto auto auto auto auto",
             }}>
-            {renderIconList(ICON_LIST)}
+            {renderIconList(ICON_LIST, args)}
         </div>
     );
 };

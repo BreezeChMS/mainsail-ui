@@ -1,7 +1,28 @@
-.mainsail-icon-wrapper {
+.mainsail-icon {
     &span,
     span {
         display: flex;
         align-content: center;
+    }
+
+    &.sm {
+        svg {
+            height: 12px;
+            width: 12px;
+        }
+    }
+
+    &.md {
+        svg {
+            height: 16px;
+            width: 16px;
+        }
+    }
+
+    &.lg {
+        svg {
+            height: 32px;
+            width: 32px;
+        }
     }
 }
