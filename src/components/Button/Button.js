@@ -44,7 +44,7 @@ export const Button = ({
             className={clsx("mainsail-button", className, variant, textSize)}
             {...props}>
             {iconLeft ? renderIcon(iconLeft, "left") : null}
-            {text}
+            {!icon ? text : null}
             {icon ? renderIcon(icon) : null}
             {children}
             {iconRight ? renderIcon(iconRight, "right") : null}
@@ -63,7 +63,7 @@ Button.propTypes = {
     iconLeft: PropTypes.oneOf(Object.keys(names)),
     /** Display an Icon on the right side of text */
     iconRight: PropTypes.oneOf(Object.keys(names)),
-    /** Display an Icon on the right side of text */
+    /** Make an icon only button */
     icon: PropTypes.oneOf(Object.keys(names)),
     /** Style class to add to button element */
     className: PropTypes.string,

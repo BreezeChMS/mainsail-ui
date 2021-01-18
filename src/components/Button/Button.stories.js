@@ -9,7 +9,7 @@ export default {
     argTypes: {
         iconLeft: {
             name: "iconLeft",
-            type: { name: "string", required: true },
+            type: { name: "string" },
             control: {
                 type: "select",
                 options: ["", ...Object.keys(names)],
@@ -17,7 +17,15 @@ export default {
         },
         iconRight: {
             name: "iconRight",
-            type: { name: "string", required: true },
+            type: { name: "string" },
+            control: {
+                type: "select",
+                options: ["", ...Object.keys(names)],
+            },
+        },
+        icon: {
+            name: "icon",
+            type: { name: "string" },
             control: {
                 type: "select",
                 options: ["", ...Object.keys(names)],
@@ -69,5 +77,5 @@ IconRight.args = {
 export const IconOnly = Template.bind({});
 IconOnly.args = {
     variant: variants.icon,
-    icon: names.notification,
+    icon: names.settings,
 };
