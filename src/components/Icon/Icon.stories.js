@@ -30,7 +30,7 @@ const Template = (args) => <MainsailIcon {...args} />;
 export const Icon = Template.bind({});
 Icon.args = {
     name: "add",
-    size: "md",
+    size: "lg",
 };
 
 export const FullList = (args) => {
@@ -51,7 +51,6 @@ export const FullList = (args) => {
                             fontFamily: "sans-serif",
                             fontSize: "10px",
                             marginBottom: "4px",
-                            color: "#333",
                         }}>
                         <pre
                             style={{
@@ -62,7 +61,13 @@ export const FullList = (args) => {
                             {icon && icon.toLowerCase()}
                         </pre>
                     </div>
-                    <Icon name={icon} size={args.size} />
+                    <Icon
+                        name={icon}
+                        size={args.size}
+                        style={{
+                            color: "#003462",
+                        }}
+                    />
                 </div>
             );
         });
