@@ -212,7 +212,8 @@ The structure will look like this:
 |  |  ├─ Button.js
 |  |  ├─ Button.scss
 |  |  ├─ Button.stories.js
-|  |  └─ Button.test.js
+|  |  ├─ Button.test.js
+|  |  └─ index.js
 ```
 ___
 ## Publishing & Deploying
