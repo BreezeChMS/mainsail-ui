@@ -28,7 +28,7 @@ When it comes to naming conventions, there are two primary driving motivations b
 
 Ideally, developers should be able to immediately look at a prop and understand what it is for without reading the docs. Prop names should immediately denote what they are for and set out to do. Favor verbosity (within reason). We want to make our code easy to reason about.
 
-
+Most of the issues that we are attempting to alleviate with these conventions are safeguarded against simply by using `prop-types`. Even though `prop-types` are used on **every React component** in this library, we still strive for these patterns because they aid in consistency and an improved developer experience.
 
 **DO NOT 🚫**
 
