@@ -179,7 +179,7 @@ ___
 When working on Mainsail, you can run Storybook locally:
 #### Requirements
 
-- Node 12 (currently a hard limitation due to some Sass-styling dependencies)
+- Node 12+
 
 #### Run Storybook
 
