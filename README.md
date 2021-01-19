@@ -41,17 +41,6 @@ update // Context of this is ambiguous, make sure this is not an action/event/ca
 updatePerson = () => {} // While more specific and denotes an action, we want to favor using the `on` convention to denote that this is something that happens when a person is updated
 ```
 
-**DO NOT 🚫**
-```js
-isLoading // usage of "is" is debatable here, if there is no ambiguity that the prop would be a boolean, just leave the is off
-```
-
-**DO NOT 🚫**
-```js
-person // this should be expecting an object, if a name or id is expected, specify that (see next section)
-```
-
-
 **DO ✅**
 
 ```js
@@ -63,9 +52,19 @@ onUpdate // prefixing event/actionable things with "on" will help the next user 
 onPersonUpdate // if current use case has more than one context, specify the context
 ```
 
+**DO NOT 🚫**
+```js
+isLoading // usage of "is" is debatable here, if there is no ambiguity that the prop would be a boolean, just leave the is off
+```
+
 **DO ✅**
 ```js
 loading // prefixing boolean props with "is" can help immediately infer that this should expect a boolean, but it is not always necessary. E.g. "loading" is fairly self-explanatory as a boolean, since you likely wouldn't pass anything else to this prop
+```
+
+**DO NOT 🚫**
+```js
+person // this should be expecting an object, if a name or id is expected, specify that (see next section)
 ```
 
 **DO ✅**
@@ -86,12 +85,6 @@ TODO Expand this section
 .mainsail-dark-blue
 ```
 
-**DO NOT 🚫**
-```js
-person = "Bob" // without knowing assignment, the prop here doesn't tell us that it should be a string, the prop could be expected to receive an object
-```
-
-
 **DO ✅**
 
 
@@ -102,6 +95,12 @@ person = "Bob" // without knowing assignment, the prop here doesn't tell us that
 .mainsail-blue-dark
     /* This specificity ordering convention makes more sense in the context of a group of named items. By itself `mainsail-light-blue` doesn't seem too egregious. If combined with others of similar nomenclature, benefits emerge by flipping the specificity values.*/
 ```
+
+**DO NOT 🚫**
+```js
+person = "Bob" // without knowing assignment, the prop here doesn't tell us that it should be a string, the prop could be expected to receive an object
+```
+
 > ! This applies to file names as well. Structuring files this way will keep them organized and ordered by file systems.
 
 **DO ✅**
