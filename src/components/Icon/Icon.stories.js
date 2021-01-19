@@ -29,7 +29,7 @@ const Template = (args) => <MainsailIcon {...args} />;
 
 export const Icon = Template.bind({});
 Icon.args = {
-    name: names.add,
+    name: names.close,
     size: sizes.md,
 };
 
