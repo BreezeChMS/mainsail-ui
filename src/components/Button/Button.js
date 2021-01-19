@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Icon, names } from "../Icon/Icon";
-import { Icon, names } from "../Icon";
+import { Icon } from "../Icon";
 import clsx from "clsx";
 
 import "./Button.scss";
@@ -61,15 +60,29 @@ Button.propTypes = {
     /** Button text size */
     textSize: PropTypes.oneOf(Object.keys(textSizes)),
     /** Display an Icon on the left side of text */
-    iconLeft: PropTypes.oneOf(Object.keys(names)),
+    iconLeft: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.node,
+        PropTypes.string,
+    ]),
     /** Display an Icon on the right side of text */
-    iconRight: PropTypes.oneOf(Object.keys(names)),
+    iconRight: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.node,
+        PropTypes.string,
+    ]),
     /** Make an icon only button */
-    icon: PropTypes.oneOf(Object.keys(names)),
+    icon: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.node,
+        PropTypes.string,
+    ]),
     /** Style class to add to button element */
     className: PropTypes.string,
     /** (Optional) click handler */
     onClick: PropTypes.func,
+    /** Disabled state */
+    disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {

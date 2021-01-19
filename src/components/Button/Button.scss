@@ -56,11 +56,12 @@ button.mainsail-button {
         }
 
         &:disabled {
-            box-shadow: none;
-            opacity: 0.3;
+            @include mainsail-button-disabled;
 
             &:hover {
-                background: $mainsail-white;
+                color: $mainsail-blue-light;
+                border-color: $mainsail-blue-primary;
+                background: $mainsail-blue-primary;
             }
         }
 
@@ -85,10 +86,11 @@ button.mainsail-button {
         }
 
         &:disabled {
-            box-shadow: none;
-            opacity: 0.3;
+            @include mainsail-button-disabled;
 
             &:hover {
+                color: $mainsail-blue-dark;
+                border-color: $mainsail-blue-dark;
                 background: $mainsail-white;
             }
         }
@@ -111,6 +113,17 @@ button.mainsail-button {
 
         &:active {
             box-shadow: $mainsail-shadow-active;
+        }
+
+        &:disabled {
+            @include mainsail-button-disabled;
+
+            &:hover {
+                color: $mainsail-blue-dark;
+                box-shadow: none;
+                background: none;
+                background-color: transparent;
+            }
         }
     }
 
@@ -135,12 +148,10 @@ button.mainsail-button {
         }
 
         &:disabled {
-            box-shadow: none;
-            background: none;
-            opacity: 0.3;
-            color: $mainsail-blue-dark;
+            @include mainsail-button-disabled;
 
             &:hover {
+                color: $mainsail-blue-dark;
                 background: $mainsail-white;
             }
         }
@@ -163,6 +174,15 @@ button.mainsail-button {
 
         &:hover {
             text-decoration: underline;
+        }
+
+        &:disabled {
+            @include mainsail-button-disabled;
+
+            &:hover {
+                color: $mainsail-blue-dark;
+                background: $mainsail-white;
+            }
         }
     }
 

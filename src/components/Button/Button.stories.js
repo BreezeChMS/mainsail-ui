@@ -10,6 +10,7 @@ export default {
         iconLeft: {
             name: "iconLeft",
             type: { name: "string" },
+            description: `If supplying a string, see list in Icon story`,
             control: {
                 type: "select",
                 options: ["", ...Object.keys(names)],
@@ -18,6 +19,7 @@ export default {
         iconRight: {
             name: "iconRight",
             type: { name: "string" },
+            description: `If supplying a string, see list in Icon story`,
             control: {
                 type: "select",
                 options: ["", ...Object.keys(names)],
@@ -26,6 +28,7 @@ export default {
         icon: {
             name: "icon",
             type: { name: "string" },
+            description: `If supplying a string, see list in Icon story`,
             control: {
                 type: "select",
                 options: ["", ...Object.keys(names)],
@@ -78,4 +81,11 @@ export const IconOnly = Template.bind({});
 IconOnly.args = {
     variant: variants.icon,
     icon: names.settings,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    variant: variants.primary,
+    text: "Disabled",
+    disabled: true,
 };
