@@ -48,7 +48,7 @@ isLoading // usage of "is" is debatable here, if there is no ambiguity that the 
 
 **DO NOT 🚫**
 ```js
-person // this should be expected an object, if a name or id, specify that (see next section)
+person // this should be expecting an object, if a name or id is expected, specify that (see next section)
 ```
 
 
@@ -65,12 +65,12 @@ onPersonUpdate // if current use case has more than one context, specify the con
 
 **DO ✅**
 ```js
-loading // prefixing boolean props with "is" can help immediately infer that this should expect a boolean, but it is not always necessary. E.g. like "loading" is fairly self-explanatory as a boolean, since you likely wouldn't pass anything else to this prop
+loading // prefixing boolean props with "is" can help immediately infer that this should expect a boolean, but it is not always necessary. E.g. "loading" is fairly self-explanatory as a boolean, since you likely wouldn't pass anything else to this prop
 ```
 
 **DO ✅**
 ```js
-personId // if this is a piece of data that is an "id", name it as such. (Note: we use camelCase, unless a class or component name)
+personId // if this prop expects an "id", name it as such. (Note: we use camelCase, unless a class or component name)
 ```
 
 #### Explicitness / Specificity
@@ -80,7 +80,10 @@ TODO Expand this section
 **DO NOT 🚫**
 
 ```css
+/* specificity is jumping back and forth; broadest / specific / middle */
 .mainsail-light-blue
+.mainsail-medium-blue
+.mainsail-dark-blue
 ```
 
 **DO NOT 🚫**
@@ -93,6 +96,7 @@ person = "Bob" // without knowing assignment, the prop here doesn't tell us that
 
 
 ```css
+/* choose to describe in order from least to most specific; broadest (namespace) / middle / specific */
 .mainsail-blue-light
 .mainsail-blue-medium
 .mainsail-blue-dark
@@ -113,17 +117,24 @@ The decision has been made to provide a convention to mitigate [magic string](ht
 Props that are utilized in a component should have their ENUM values exposed and exported as such.
 
 For Example:
+```js
+// The Button Component has a `variant` prop.
 
-The Button Component has a `variant` prop.
+<Button variant="primary" />
+
+// Vs
+
+<Button variant={variants.primary} />
+```
 
 Usage of the prop could be handled by passing a string of "primary" but it is actually better to provide a means for the end-user-developer to not have to use strings at all for their prop if we can.
 
 "But why?" You might ask.
 
 Magic strings are prone to causing bugs. These bugs are likely to only surface at runtime. Here's some quick benefits
-- If you type a string wrong, you likely won't discover it until the component renders.
+- If you type a string wrong, you likely won't discover it until the component renders and maybe not until it hits production
+- Autocomplete in most editors is provided by supplying enums/objects
 - Find/Replace becomes easier when not using strings
-- Autocomplete in most editors is provided by supplying enums
 - Developer friendliness increases as you need to consult the docs less
 
 Setup may look like this:
@@ -157,7 +168,7 @@ Primary.args = {
 
 ```
 ___
-## Installing
+## Installing Locally For Development
 
 1. Clone the repo
 1. `cd mainsail-ui`
