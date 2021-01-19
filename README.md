@@ -11,6 +11,8 @@ This project [will] contain(s) the library package(s) for using Mainsail as an n
 
 It utilizes [Storybook](https://storybook.js.org/) for local development of components in an isolated environment.
 
+Create React App is used solely for the setup of Storybook. At compile time, CRA is not used and a custom webpack config is used.
+
 ## Style, Conventions and Ethos
 
 This section will likely be moved into the Wiki at some point but it will remain here until then.
