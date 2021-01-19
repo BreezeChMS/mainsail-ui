@@ -100,6 +100,12 @@ $mainsail-text-body-color: $color-neutral-1;
     line-height: 18px;
 }
 
+@mixin mainsail-button-disabled {
+    box-shadow: none;
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
 // Input Styling
 $mainsail-input-border-radius: 4px;
 $mainsail-input-border: $color-neutral-4;
