@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ReactSVG } from "react-svg";
+import * as MainsailIcon from "../Icons/index";
+import _ from "lodash";
 import clsx from "clsx";
 
 import "./Icon.scss";
@@ -25,7 +26,7 @@ export const names = {
     extensions: "extensions",
     fields: "fields",
     filter: "filter",
-    folder: "folder-fill",
+    folder_fill: "folder_fill",
     folder: "folder",
     forward: "forward",
     gift: "gift",
@@ -50,7 +51,7 @@ export const names = {
     search: "search",
     settings: "settings",
     shared: "shared",
-    tag: "tag-fill",
+    tag_fill: "tag_fill",
     tag: "tag",
     template: "template",
     text: "text",
@@ -74,13 +75,16 @@ export const sizes = {
  **/
 
 export const Icon = ({ name, size, className, ...rest }) => {
+    const SvgIcon = MainsailIcon[name];
+
+    if (!SvgIcon) {
+        throw Error(`Could not render icon by name of ${name}`);
+    }
+
     return (
-        <ReactSVG
-            src={`../icons/${name}.svg`}
-            wrapper="span"
-            className={clsx("mainsail-icon", size, className)}
-            {...rest}
-        />
+        <span className={clsx("mainsail-icon", size, className)}>
+            <SvgIcon {...rest} />
+        </span>
     );
 };
 

@@ -5,6 +5,7 @@
 
 This is the home of [_Mainsail_](https://en.wikipedia.org/wiki/Mainsail) — The Design System UI-kit of [Breeze](https://www.breezechms.com/).
 
+> WARNING!!! This REPO is under heavy development and should not be used anywhere close to production, yet.
 ___
 
 This project [will] contain(s) the library package(s) for using Mainsail as an npm package.

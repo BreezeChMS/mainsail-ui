@@ -1,10 +1,10 @@
 import React from "react";
 
-import { Icon as MainsailIcon, names, sizes } from "./Icon";
+import { Icon as MsIcon, names, sizes } from "./Icon";
 
 export default {
     title: "Mainsail UI/Icon",
-    component: MainsailIcon,
+    component: MsIcon,
     argTypes: {
         name: {
             name: "name",
@@ -25,7 +25,7 @@ export default {
     },
 };
 
-const Template = (args) => <MainsailIcon {...args} />;
+const Template = (args) => <MsIcon {...args} />;
 
 export const Icon = Template.bind({});
 Icon.args = {
@@ -58,10 +58,10 @@ export const FullList = (args) => {
                                 background: "#f4f4f4",
                                 borderRadius: "4px",
                             }}>
-                            {icon && icon.toLowerCase()}
+                            {icon && icon}
                         </pre>
                     </div>
-                    <Icon
+                    <MsIcon
                         name={icon}
                         size={args.size}
                         style={{

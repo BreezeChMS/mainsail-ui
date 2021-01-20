@@ -1,11 +1,14 @@
 @import "../../styles/Variables.scss";
 
 .mainsail-icon {
-    &span,
-    span {
-        color: inherit;
-        display: flex;
-        align-content: center;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    svg {
+        vertical-align: middle;
+        align-self: center;
     }
 
     &.sm {
