@@ -1,17 +1,15 @@
 {
-  "name": "mainsail-ui",
+  "name": "@breezechms/mainsail-ui",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "^4.0.1",
-    "web-vitals": "^0.2.4"
+    "react-dom": "^17.0.1"
   },
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
-    "dist",
+    "index.js",
     "README.md"
   ],
   "repository": {
@@ -62,6 +60,7 @@
     "@storybook/preset-create-react-app": "^3.1.5",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.1.14",
+    "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.1.10",
@@ -71,12 +70,12 @@
     "clsx": "^1.1.1",
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.1",
-    "file-loader": "^6.2.0",
+    "lodash": "^4.17.20",
     "node-sass": "4.14.1",
     "path": "^0.12.7",
     "plop": "^2.7.4",
-    "react-svg": "^11.2.2",
     "sass-loader": "^10.1.1",
+    "semantic-release": "^17.3.4",
     "style-loader": "^2.0.0",
     "webpack": "^5.16.0",
     "webpack-cli": "^4.4.0",
