@@ -14,6 +14,10 @@ It utilizes [Storybook](https://storybook.js.org/) for local development of comp
 
 Create React App is used solely for the setup of Storybook. At compile time, CRA is not used and a custom webpack config is used.
 
+## Contributing
+
+Please see the wiki for valuable information on [Contributing](https://github.com/BreezeChMS/mainsail-ui/wiki/Contributing-to-Mainsail)
+
 ___
 ## Installing Locally For Development
 
