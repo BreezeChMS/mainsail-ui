@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Icon as MsIcon, names, sizes } from "./Icon";
+import { Icon as MsIcon, ENUMS } from "./Icon";
 
 export default {
     title: "Mainsail UI/Icon",
@@ -11,7 +11,7 @@ export default {
             type: { name: "string", required: true },
             control: {
                 type: "select",
-                options: Object.keys(names),
+                options: Object.keys(ENUMS.names),
             },
         },
         size: {
@@ -19,7 +19,7 @@ export default {
             type: { name: "string" },
             control: {
                 type: "radio",
-                options: Object.keys(sizes),
+                options: Object.keys(ENUMS.sizes),
             },
         },
     },
@@ -29,8 +29,8 @@ const Template = (args) => <MsIcon {...args} />;
 
 export const Icon = Template.bind({});
 Icon.args = {
-    name: names.close,
-    size: sizes.md,
+    name: ENUMS.names.close,
+    size: ENUMS.sizes.md,
 };
 
 export const FullList = (args) => {
@@ -78,7 +78,7 @@ export const FullList = (args) => {
                 gap: "20px",
                 gridTemplateColumns: "auto auto auto auto auto",
             }}>
-            {renderIconList(Object.keys(names), args)}
+            {renderIconList(Object.keys(ENUMS.names), args)}
         </div>
     );
 };

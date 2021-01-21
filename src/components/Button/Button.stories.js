@@ -1,7 +1,7 @@
 import React from "react";
-import { names } from "../Icon";
+import { ENUMS } from "../Icon";
 
-import { Button, variants } from "./Button";
+import { Button, ENUMS as ButtonENUMS } from "./Button";
 
 export default {
     title: "Mainsail UI/Button",
@@ -13,7 +13,7 @@ export default {
             description: `If supplying a string, see list in Icon story`,
             control: {
                 type: "select",
-                options: ["", ...Object.keys(names)],
+                options: ["", ...Object.keys(ENUMS.names)],
             },
         },
         iconRight: {
@@ -22,7 +22,7 @@ export default {
             description: `If supplying a string, see list in Icon story`,
             control: {
                 type: "select",
-                options: ["", ...Object.keys(names)],
+                options: ["", ...Object.keys(ENUMS.names)],
             },
         },
         icon: {
@@ -31,7 +31,7 @@ export default {
             description: `If supplying a string, see list in Icon story`,
             control: {
                 type: "select",
-                options: ["", ...Object.keys(names)],
+                options: ["", ...Object.keys(ENUMS.names)],
             },
         },
     },
@@ -41,51 +41,51 @@ const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    variant: variants.primary,
+    variant: ButtonENUMS.variants.primary,
     text: "Click me",
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-    variant: variants.secondary,
+    variant: ButtonENUMS.variants.secondary,
     text: "Click me",
 };
 
 export const Tertiary = Template.bind({});
 Tertiary.args = {
-    variant: variants.tertiary,
+    variant: ButtonENUMS.variants.tertiary,
     text: "Click me",
 };
 
 export const Link = Template.bind({});
 Link.args = {
-    variant: variants.link,
+    variant: ButtonENUMS.variants.link,
     text: "Click me",
 };
 
 export const IconLeft = Template.bind({});
 IconLeft.args = {
-    variant: variants.primary,
+    variant: ButtonENUMS.variants.primary,
     text: "Close Window",
-    iconLeft: names.close,
+    iconLeft: ENUMS.names.close,
 };
 
 export const IconRight = Template.bind({});
 IconRight.args = {
-    variant: variants.primary,
+    variant: ButtonENUMS.variants.primary,
     text: "More",
-    iconRight: names.forward,
+    iconRight: ENUMS.names.forward,
 };
 
 export const IconOnly = Template.bind({});
 IconOnly.args = {
-    variant: variants.icon,
-    icon: names.settings,
+    variant: ButtonENUMS.variants.icon,
+    icon: ENUMS.names.settings,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-    variant: variants.primary,
+    variant: ButtonENUMS.variants.primary,
     text: "Disabled",
     disabled: true,
 };

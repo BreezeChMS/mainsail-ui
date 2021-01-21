@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import * as MainsailIcon from "../Icons/index";
-import _ from "lodash";
 import clsx from "clsx";
 
 import "./Icon.scss";
@@ -67,11 +66,14 @@ export const sizes = {
     lg: "lg",
 };
 
+export const ENUMS = {
+    names,
+    sizes,
+};
+
 /**
  * Load an embedded svg component by name. Embedded SVGs can be styled with css! 🎉
  *
- * Uses https://www.npmjs.com/package/react-svg under the hood.
- * (Caches icon by default)
  **/
 
 export const Icon = ({ name, size, className, ...rest }) => {

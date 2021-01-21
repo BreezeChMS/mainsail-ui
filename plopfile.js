@@ -18,35 +18,52 @@ module.exports = function (plop) {
         actions: [
             {
                 type: "add",
-                path: "src/components/{{componentName}}/{{componentName}}.js",
+                path:
+                    "src/components/{{pascalCase componentName}}/{{pascalCase componentName}}.js",
                 templateFile: "plop-templates/component.hbs",
             },
             {
                 type: "add",
                 path:
-                    "src/components/{{componentName}}/{{componentName}}.stories.js",
+                    "src/components/{{pascalCase componentName}}/{{pascalCase componentName}}.stories.js",
                 templateFile: "plop-templates/component-stories.hbs",
             },
             {
                 type: "add",
                 path:
-                    "src/components/{{componentName}}/{{componentName}}.test.js",
+                    "src/components/{{pascalCase componentName}}/{{pascalCase componentName}}.test.js",
                 templateFile: "plop-templates/component-test.hbs",
             },
             {
                 type: "add",
-                path: "src/components/{{componentName}}/{{componentName}}.scss",
+                path:
+                    "src/components/{{pascalCase componentName}}/{{pascalCase componentName}}.scss",
                 templateFile: "plop-templates/component-scss.hbs",
             },
             {
                 type: "add",
-                path: "src/components/{{componentName}}/index.js",
+                path: "src/components/{{pascalCase componentName}}/index.js",
                 templateFile: "plop-templates/index.hbs",
+            },
+
+            // Add Export/Imports for Components
+            {
+                type: "append",
+                path: "src/components/core/index.js",
+                pattern: /Components Global Export for plopjs/gi,
+                template: `export { {{pascalCase componentName}} } from "../{{pascalCase componentName}}";`,
             },
             {
                 type: "append",
                 path: "src/components/core/index.js",
-                template: `export * from "../{{componentName}}";`,
+                pattern: /ENUM Import for plopjs/gi,
+                template: `import { ENUMS as {{pascalCase componentName}}ENUMS } from "../{{pascalCase componentName}}";`,
+            },
+            {
+                type: "append",
+                path: "src/components/core/index.js",
+                pattern: /export const ENUMS = {/gi,
+                template: `\t{{pascalCase componentName}}: {{pascalCase componentName}}ENUMS,`,
             },
         ],
     });

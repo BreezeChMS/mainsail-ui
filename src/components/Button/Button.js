@@ -12,17 +12,18 @@ const renderIcon = (i, side) => {
     return i;
 };
 
-export const variants = {
-    primary: "primary",
-    secondary: "secondary",
-    tertiary: "tertiary",
-    link: "link",
-    icon: "icon",
-};
-
-export const textSizes = {
-    small: "small",
-    regular: "regular",
+export const ENUMS = {
+    variants: {
+        primary: "primary",
+        secondary: "secondary",
+        tertiary: "tertiary",
+        link: "link",
+        icon: "icon",
+    },
+    textSizes: {
+        small: "small",
+        regular: "regular",
+    },
 };
 
 /**
@@ -54,11 +55,11 @@ export const Button = ({
 
 Button.propTypes = {
     /** What style of button to use: */
-    variant: PropTypes.oneOf(Object.keys(variants)),
+    variant: PropTypes.oneOf(Object.keys(ENUMS.variants)),
     /** Button text to display */
     text: PropTypes.string,
     /** Button text size */
-    textSize: PropTypes.oneOf(Object.keys(textSizes)),
+    textSize: PropTypes.oneOf(Object.keys(ENUMS.textSizes)),
     /** Display an Icon on the left side of text */
     iconLeft: PropTypes.oneOfType([
         PropTypes.func,
@@ -86,6 +87,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-    variant: variants.primary,
-    textSize: textSizes.regular,
+    variant: ENUMS.variants.primary,
+    textSize: ENUMS.textSizes.regular,
 };
