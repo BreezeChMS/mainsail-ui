@@ -71,7 +71,7 @@ export const FullList = (args) => {
             style={{
                 display: "grid",
                 gap: "20px",
-                gridTemplateColumns: "auto auto auto auto auto",
+                gridTemplateColumns: "auto auto auto auto auto auto",
             }}>
             {renderIconList(Object.keys(ENUMS.names), args)}
         </div>
