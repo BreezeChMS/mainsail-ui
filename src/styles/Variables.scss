@@ -39,6 +39,20 @@ $mainsail-green-dark: #008d8d;
 $mainsail-font: "Helvetica Neue", "Open Sans", Helvetica, Arial, sans-serif;
 $mainsail-text-body-color: $color-neutral-1;
 
+$icon-colors: (
+    default: $mainsail-blue-primary,
+    dark: $mainsail-blue-dark,
+    light: $mainsail-blue-light,
+);
+
+@mixin icon-colors() {
+    @each $name, $color in $icon-colors {
+        &.#{$name} {
+            color: $color;
+        }
+    }
+}
+
 // Body Text Mixins
 @mixin mainsail-body-text-large {
     font-style: normal;

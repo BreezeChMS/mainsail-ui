@@ -66,9 +66,16 @@ export const sizes = {
     lg: "lg",
 };
 
+export const colors = {
+    default: "default",
+    dark: "dark",
+    light: "light",
+};
+
 export const ENUMS = {
     names,
     sizes,
+    colors,
 };
 
 /**
@@ -76,7 +83,7 @@ export const ENUMS = {
  *
  **/
 
-export const Icon = ({ name, size, className, ...rest }) => {
+export const Icon = ({ name, size, color, className, ...rest }) => {
     const SvgIcon = MainsailIcon[name];
 
     if (!SvgIcon) {
@@ -84,7 +91,7 @@ export const Icon = ({ name, size, className, ...rest }) => {
     }
 
     return (
-        <span className={clsx("mainsail-icon", size, className)}>
+        <span className={clsx("mainsail-icon", size, color, className)}>
             <SvgIcon {...rest} />
         </span>
     );
@@ -95,6 +102,8 @@ Icon.propTypes = {
     name: PropTypes.oneOf(Object.keys(names)).isRequired,
     /** What size of Icon to use: */
     size: PropTypes.oneOf(Object.keys(sizes)),
+    /** What color tint should the Icon be (omit for default): */
+    color: PropTypes.oneOf(Object.keys(colors)),
     /** Style class to add to Icon wrapper */
     className: PropTypes.string,
     /** (Optional) click handler */
@@ -102,6 +111,7 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-    name: "close",
+    name: names.close,
     size: sizes.md,
+    color: colors.default,
 };

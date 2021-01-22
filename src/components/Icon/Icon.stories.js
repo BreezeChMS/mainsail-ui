@@ -61,16 +61,11 @@ export const FullList = (args) => {
                             {icon && icon}
                         </pre>
                     </div>
-                    <MsIcon
-                        name={icon}
-                        size={args.size}
-                        style={{
-                            color: "#003462",
-                        }}
-                    />
+                    <Template name={icon} size={args.size} color={args.color} />
                 </div>
             );
         });
+
     return (
         <div
             style={{

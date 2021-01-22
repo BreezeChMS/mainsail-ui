@@ -1,7 +1,7 @@
 @import "../../styles/Variables.scss";
 
 .mainsail-icon {
-    color: inherit;
+    color: $mainsail-blue-primary;
     display: inline-flex;
     align-items: center;
     align-content: center;
@@ -34,4 +34,6 @@
             width: 32px;
         }
     }
+
+    @include icon-colors();
 }
