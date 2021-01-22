@@ -13,8 +13,13 @@ ___
 
 [Storybook](https://storybook.js.org/) is used for local development of components in an isolated environment.
 
-Create React App is used solely for the setup of Storybook. At compile time, CRA is not used and a custom webpack config is used.
+- Create React App is used solely for the setup of Storybook.
+- At compile time, CRA is not used and a custom rollup config is used.
 
+
+## Live Storybook Demo
+
+[View the current Storybook here.](https://master--6000b9fe63cdbd0021082b92.chromatic.com)
 ## Contributing
 
 Please see the wiki for valuable information on [Contributing](https://github.com/BreezeChMS/mainsail-ui/wiki/Contributing-to-Mainsail)
