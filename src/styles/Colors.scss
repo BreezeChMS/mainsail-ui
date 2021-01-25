@@ -1,0 +1,81 @@
+/* Brand Color Names */
+
+$mainsail-blue-primary: #006fba;
+$mainsail-blue-light: #e3f2fa;
+$mainsail-blue-middle: #055484;
+$mainsail-blue-dark: #003462;
+
+$mainsail-green-light: #f0fbfb;
+$mainsail-green-middle: #00acac;
+$mainsail-green-dark: #005b5a;
+
+$mainsail-violet-light: #f8f4f9;
+$mainsail-violet-middle: #621f86;
+$mainsail-violet-dark: #37004d;
+
+$mainsail-orange-light: #fff6f1;
+$mainsail-orange-middle: #ff5900;
+$mainsail-orange-dark: #b93e00;
+
+$mainsail-red-light: #fff1f6;
+$mainsail-red-middle: #ff0056;
+$mainsail-red-dark: #ba003c;
+
+$mainsail-neutral-1: #2d3e4c;
+$mainsail-neutral-2: #526270;
+$mainsail-neutral-3: #93a5b4;
+$mainsail-neutral-4: #c2cfda;
+$mainsail-neutral-5: #e2eaf0;
+$mainsail-neutral-6: #f4f8fa;
+
+$mainsail-white: #ffffff;
+
+/*
+    Color Sets:
+    Defined for Dynamic class creation
+*/
+
+$blue: (
+    light: $mainsail-blue-light,
+    middle: $mainsail-blue-middle,
+    dark: $mainsail-blue-dark,
+);
+
+$green: (
+    light: $mainsail-green-light,
+    middle: $mainsail-green-middle,
+    dark: $mainsail-green-dark,
+);
+
+$violet: (
+    light: $mainsail-violet-light,
+    middle: $mainsail-violet-middle,
+    dark: $mainsail-violet-dark,
+);
+
+$orange: (
+    light: $mainsail-orange-light,
+    middle: $mainsail-orange-middle,
+    dark: $mainsail-orange-dark,
+);
+
+$red: (
+    light: $mainsail-red-light,
+    middle: $mainsail-red-middle,
+    dark: $mainsail-red-dark,
+);
+
+$neutral: (
+    1: $mainsail-neutral-1,
+    2: $mainsail-neutral-2,
+    3: $mainsail-neutral-3,
+    4: $mainsail-neutral-4,
+    5: $mainsail-neutral-5,
+    6: $mainsail-neutral-6,
+);
+
+$icon-colors: (
+    default: $mainsail-blue-primary,
+    dark: $mainsail-blue-dark,
+    light: $mainsail-blue-light,
+);

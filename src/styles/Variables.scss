@@ -1,129 +1,13 @@
-$color-primary-1: #006fba;
-$color-primary-2: #003462;
-$color-primary-3: #055484;
-$color-primary-4: #e3f2fa;
+@import "./Colors.scss";
+@import "./Text.scss";
 
-$color-neutral-1: #2d3e4c;
-$color-neutral-2: #526270;
-$color-neutral-3: #93a5b4;
-$color-neutral-4: #c2cfda;
-$color-neutral-5: #e2eaf0;
-$color-neutral-6: #f4f8fa;
-
-$color-product-a1: #f0fbfb;
-$color-product-a2: #00acac;
-$color-product-a3: #005b5a;
-
-$color-product-b1: #fff6f1;
-$color-product-b2: #ff5900;
-$color-product-b3: #b93e00;
-
-$color-product-c1: #f8f4f9;
-$color-product-c2: #621f86;
-$color-product-c3: #37004d;
-
-$color-product-d1: #fff1f6;
-$color-product-d2: #ff0056;
-$color-product-d3: #ba003c;
-
-// Color Names
-$mainsail-blue-primary: $color-primary-1;
-$mainsail-blue-dark: $color-primary-2;
-$mainsail-blue-middle: $color-primary-3;
-$mainsail-blue-light: $color-primary-4;
-$mainsail-orange-light: #fff6f1;
-$mainsail-orange-middle: $color-product-b2;
-$mainsail-white: #ffffff;
-$mainsail-green-dark: #008d8d;
-
-$mainsail-font: "Helvetica Neue", "Open Sans", Helvetica, Arial, sans-serif;
-$mainsail-text-body-color: $color-neutral-1;
-
-$icon-colors: (
-    default: $mainsail-blue-primary,
-    dark: $mainsail-blue-dark,
-    light: $mainsail-blue-light,
-);
-
-@mixin icon-colors() {
-    @each $name, $color in $icon-colors {
-        &.#{$name} {
-            color: $color;
-        }
-    }
-}
-
-// Body Text Mixins
-@mixin mainsail-body-text-large {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-}
-
-@mixin mainsail-body-text-regular {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 20px;
-}
-
-@mixin mainsail-body-text-small {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 16px;
-}
-
-@mixin mainsail-body-text-tiny {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 9px;
-    line-height: 12px;
-}
-
-// Label Text Mixins
-@mixin mainsail-label-text-large {
-    font-weight: 500;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 20px;
-}
-
-@mixin mainsail-label-text-small {
-    font-weight: bold;
-    font-style: normal;
-    font-size: 12px;
-    line-height: 16px;
-}
-
-// Button Text Mixins
-@mixin mainsail-button-text-regular() {
-    font-family: $mainsail-font;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 18px;
-}
-
-@mixin mainsail-button-text-small() {
-    font-family: $mainsail-font;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
-}
-
-@mixin mainsail-button-disabled {
-    box-shadow: none;
-    opacity: 0.3;
-    cursor: not-allowed;
-}
+// Utility Sass (mixins)
+@import "./Utility.scss";
 
 // Input Styling
 $mainsail-input-border-radius: 4px;
-$mainsail-input-border: $color-neutral-4;
-$mainsail-input-border-active: $color-primary-1;
+$mainsail-input-border: $mainsail-neutral-4;
+$mainsail-input-border-active: $mainsail-blue-primary;
 
 // Shadows
 $mainsail-shadow-sticky-bar: 0px 4px 22px -13px rgba(0, 52, 98, 0.2);
@@ -148,3 +32,5 @@ $mainsail-alert-radius: 4px;
 $mainsail-tab-radius: 8px;
 $mainsail-button-border-radius: 4px;
 $mainsail-button-border-radius-lg: 8px;
+
+$text-body-color: $mainsail-neutral-1;

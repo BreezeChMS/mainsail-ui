@@ -1,0 +1,75 @@
+/* Icon Color Generation */
+@mixin icon-colors() {
+    @each $name, $color in $icon-colors {
+        &.#{$name} {
+            color: $color;
+        }
+    }
+}
+
+/* Body Text Mixins */
+@mixin mainsail-body-text-large {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+@mixin mainsail-body-text-regular {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+@mixin mainsail-body-text-small {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+@mixin mainsail-body-text-tiny {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 12px;
+}
+
+// Label Text Mixins
+@mixin mainsail-label-text-large {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+@mixin mainsail-label-text-small {
+    font-weight: bold;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+// Button Text Mixins
+@mixin mainsail-button-text-regular() {
+    font-family: $font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+@mixin mainsail-button-text-small() {
+    font-family: $font;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+@mixin mainsail-button-disabled {
+    box-shadow: none;
+    opacity: 0.3;
+    cursor: not-allowed;
+}
