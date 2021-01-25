@@ -24,6 +24,7 @@ button.mainsail-button {
     }
 
     .mainsail-icon {
+        color: currentColor;
         svg {
             width: 16px;
             height: 16px;
@@ -187,6 +188,7 @@ button.mainsail-button {
     }
 
     &.icon {
+        color: $mainsail-blue-primary;
         background: none;
         box-shadow: none;
         &:hover {
