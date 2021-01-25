@@ -73,30 +73,33 @@ The structure will look like this:
 |  |  └─ index.js
 ```
 ___
-## Publishing & Deploying
+
+## Installing (to a project)
+
+Install the npm package just like any other.
+
+```
+npm install @breezechms/mainsail-ui
+
+// or
+
+yarn add @breezechms/mainsail-ui
+```
+
+Then import and use your desired component:
+
+```js
+import { Button } from "@breezechms/mainsail-ui";
+
+<Button text="Do Stuff" />
+```
+
+___
+
+## Publishing & Deploying Changes
 
 TODO
 
 ```
 // Build out the package/deploy process
 ```
-
-___
-## Building Storybook to Static Site
-
-TODO
-
-```
-// Build out the static site deploy process
-```
-
-___
-## Installing (to a project)
-
-TODO
-
-```
-// Build out the install process
-```
-
-
