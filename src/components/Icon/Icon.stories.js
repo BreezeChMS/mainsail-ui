@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Icon as MsIcon, ENUMS } from "./Icon";
 
@@ -34,8 +34,12 @@ Icon.args = {
 };
 
 export const FullList = (args) => {
+    let [filterVal, setFilterVal] = useState("");
+    let filterIcons = (icon) =>
+        filterVal ? new RegExp(filterVal, "g").test(icon) : icon;
+
     let renderIconList = (LIST) =>
-        LIST.map((icon, i) => {
+        LIST.filter(filterIcons).map((icon, i) => {
             return (
                 <div
                     key={i}
@@ -45,6 +49,7 @@ export const FullList = (args) => {
                         alignItems: "center",
                         justifyContent: "center",
                         marginBottom: "4px",
+                        transition: "all 0.5s",
                     }}>
                     <div
                         style={{
@@ -69,10 +74,24 @@ export const FullList = (args) => {
     return (
         <div
             style={{
+                fontFamily: "sans-serif",
                 display: "grid",
                 gap: "20px",
                 gridTemplateColumns: "auto auto auto auto auto auto",
             }}>
+            <input
+                style={{
+                    width: "100%",
+                    fontSize: 12,
+                    borderRadius: "4px",
+                    padding: "4px",
+                    border: "1px solid #ccc",
+                    gridColumn: "span 6",
+                }}
+                value={filterVal}
+                onChange={({ target }) => setFilterVal(target.value)}
+                placeholder="Filter by Icon Name"
+            />
             {renderIconList(Object.keys(ENUMS.names), args)}
         </div>
     );
