@@ -96,6 +96,16 @@ import { Button } from "@breezechms/mainsail-ui";
 
 ___
 
+## Building & Deploying Storybook
+
+Storybook can be built locally using the following command:
+
+```
+yarn build-storybook
+```
+
+This will output a static site to `./storybook-static`.
+
 ## Publishing & Deploying Changes
 
 TODO
