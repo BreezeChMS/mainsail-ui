@@ -96,3 +96,5 @@ export const FullList = (args) => {
         </div>
     );
 };
+
+FullList.argTypes = { name: { control: { disable: true } } };
