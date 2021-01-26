@@ -24,7 +24,7 @@
     "build": "rollup -c",
     "start": "start-storybook -p 6006 -s src/assets",
     "storybook": "start-storybook -p 6006 -s src/assets",
-    "build-storybook": "build-storybook -s src/assets"
+    "build-storybook": "build-storybook -o docs-build"
   },
   "engines": {
     "node": ">=12.0.0"

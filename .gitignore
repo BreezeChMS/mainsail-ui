@@ -117,6 +117,7 @@ dist
 # production
 /build
 /storybook-static
+/docs-build
 
 # misc
 .DS_Store

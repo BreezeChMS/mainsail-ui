@@ -104,7 +104,7 @@ Storybook can be built locally using the following command:
 yarn build-storybook
 ```
 
-This will output a static site to `./storybook-static`.
+This will output a static site to `./docs-build` folder.
 
 ## Publishing & Deploying Changes
 
