@@ -89,3 +89,11 @@ Disabled.args = {
     text: "Disabled",
     disabled: true,
 };
+
+export const Loading = Template.bind({});
+Loading.args = {
+    variant: ButtonENUMS.variants.primary,
+    loadingText: "Waiting",
+    text: "Confirm",
+    loading: true,
+};

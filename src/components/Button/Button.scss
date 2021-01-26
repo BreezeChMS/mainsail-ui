@@ -19,8 +19,13 @@ button.mainsail-button {
     padding: 10px !important;
     cursor: pointer;
 
-    &:focus {
-        outline: 5px auto $mainsail-blue-primary;
+    /* Owl selector supplies space between elements */
+    > * + * {
+        margin-left: 8px !important;
+    }
+
+    .spinner {
+        color: currentColor;
     }
 
     .mainsail-icon {
@@ -28,16 +33,6 @@ button.mainsail-button {
         svg {
             width: 16px;
             height: 16px;
-        }
-
-        &.right {
-            margin-left: 8px;
-            margin-right: 0px;
-        }
-
-        &.left {
-            margin-right: 8px;
-            margin-left: 0px;
         }
     }
 
@@ -195,7 +190,15 @@ button.mainsail-button {
         box-shadow: none;
     }
 
+    &:focus {
+        outline: 5px auto $mainsail-blue-primary;
+    }
+
     &.small {
         @include mainsail-button-text-small();
+    }
+
+    &.full-width {
+        width: 100%;
     }
 }

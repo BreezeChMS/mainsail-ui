@@ -5,11 +5,16 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
-import { Primary } from "./Button.stories";
+import { Primary, Loading } from "./Button.stories";
 
 it("renders the button in the primary state", () => {
     render(<Primary {...Primary.args} />);
     expect(screen.getByRole("button")).toHaveTextContent("Click me");
+});
+
+it("renders the loading text if in loading state", () => {
+    render(<Loading {...Loading.args} />);
+    expect(screen.getByRole("button")).toHaveTextContent("Waiting");
 });
 
 it("fires a provided onClick handler", () => {

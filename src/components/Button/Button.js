@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Icon } from "../Icon";
+import { Spinner } from "../Spinner";
 import clsx from "clsx";
 
 import "./Button.scss";
@@ -37,15 +38,35 @@ export const Button = ({
     className,
     iconLeft,
     iconRight,
+    loading,
+    loadingText,
     icon,
     ...props
 }) => {
+    if (loading) {
+        return (
+            <button
+                className={clsx(
+                    { loading },
+                    "mainsail-button",
+                    className,
+                    variant,
+                    textSize
+                )}
+                {...props}>
+                <Spinner />
+                {loadingText ? <span>{loadingText}</span> : null}
+                {children}
+            </button>
+        );
+    }
+
     return (
         <button
             className={clsx("mainsail-button", className, variant, textSize)}
             {...props}>
             {iconLeft ? renderIcon(iconLeft, "left") : null}
-            {!icon ? text : null}
+            {!icon ? <span>{text}</span> : null}
             {icon ? renderIcon(icon) : null}
             {children}
             {iconRight ? renderIcon(iconRight, "right") : null}
@@ -84,6 +105,10 @@ Button.propTypes = {
     onClick: PropTypes.func,
     /** Disabled state */
     disabled: PropTypes.bool,
+    /** Loading state */
+    loading: PropTypes.bool,
+    /** Loading state */
+    loadingText: PropTypes.string,
 };
 
 Button.defaultProps = {
