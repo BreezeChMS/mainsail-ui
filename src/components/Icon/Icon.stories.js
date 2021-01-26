@@ -84,7 +84,7 @@ export const FullList = (args) => {
                     width: "100%",
                     fontSize: 12,
                     borderRadius: "4px",
-                    padding: "4px",
+                    padding: "4px 8px",
                     border: "1px solid #ccc",
                     gridColumn: "span 6",
                 }}
