@@ -95,5 +95,5 @@ Loading.args = {
     variant: ButtonENUMS.variants.primary,
     loadingText: "Waiting",
     text: "Confirm",
-    loading: true,
+    isLoading: true,
 };

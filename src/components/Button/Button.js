@@ -38,16 +38,16 @@ export const Button = ({
     className,
     iconLeft,
     iconRight,
-    loading,
+    isLoading,
     loadingText,
     icon,
     ...props
 }) => {
-    if (loading) {
+    if (isLoading) {
         return (
             <button
                 className={clsx(
-                    { loading },
+                    { loading: isLoading },
                     "mainsail-button",
                     className,
                     variant,
@@ -106,7 +106,7 @@ Button.propTypes = {
     /** Disabled state */
     disabled: PropTypes.bool,
     /** Loading state */
-    loading: PropTypes.bool,
+    isLoading: PropTypes.bool,
     /** Loading state */
     loadingText: PropTypes.string,
 };
