@@ -22,6 +22,7 @@
     "plop": "plop",
     "test": "react-scripts test",
     "build": "rollup -c",
+    "build-icons": "npx @svgr/cli --icon --out-dir src/components/Icons src/assets/icons --replace-attr-values '#003462=currentColor'",
     "start": "start-storybook -p 6006 -s src/assets",
     "storybook": "start-storybook -p 6006 -s src/assets",
     "build-storybook": "build-storybook -o docs-build"
@@ -68,11 +69,12 @@
     "@storybook/preset-create-react-app": "^3.1.5",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.1.14",
-    "@svgr/webpack": "^5.5.0",
+    "@svgr/cli": "^5.5.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.1.10",
     "babel-loader": "^8.2.2",
+    "babel-plugin-add-module-exports": "^1.0.4",
     "chromatic": "^5.6.0",
     "clsx": "^1.1.1",
     "lodash": "^4.17.20",
@@ -86,7 +88,6 @@
     "rollup-plugin-postcss": "^4.0.0",
     "semantic-release": "^17.3.4",
     "webpack": "^5.16.0",
-    "webpack-cli": "^4.4.0",
-    "babel-plugin-add-module-exports": "^1.0.4"
+    "webpack-cli": "^4.4.0"
   }
 }
