@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Storybook Build & Deploy
 on: 
   push:
     paths: ["src/components/**", "src/styles/**"] # Trigger the action only when files change in the folders defined here
