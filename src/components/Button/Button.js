@@ -60,7 +60,6 @@ export const Button = ({
             </button>
         );
     }
-
     return (
         <button
             className={clsx("mainsail-button", className, variant, textSize)}
