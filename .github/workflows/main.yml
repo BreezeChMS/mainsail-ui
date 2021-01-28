@@ -13,4 +13,6 @@ jobs:
       - name: Install and Deploy 🚀
         run: | # Install npm packages and Deploy the Storybook files
           yarn install
-          yarn run deploy-storybook -- --ci
+          yarn run deploy-storybook -- --ci --host-token-env-variable=GITHUB_TOKEN
+        env:
+          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}        
