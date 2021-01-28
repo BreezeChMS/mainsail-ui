@@ -17,9 +17,9 @@ ___
 - At compile time, CRA is not used and a custom rollup config is used.
 
 
-## Live Storybook Demo
+## Live Storybook
 
-[View the current Storybook here.](https://master--6000b9fe63cdbd0021082b92.chromatic.com)
+[View the current Storybook here.](https://mainsail-ui.breezechms.com/)
 ## Contributing
 
 Please see the wiki for valuable information on [Contributing](https://github.com/BreezeChMS/mainsail-ui/wiki/Contributing-to-Mainsail)
