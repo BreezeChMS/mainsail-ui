@@ -25,7 +25,7 @@
     "build-icons": "npx @svgr/cli --icon --out-dir src/components/Icons src/assets/icons --replace-attr-values '#003462=currentColor'",
     "start": "start-storybook -p 6006 -s src/assets",
     "storybook": "start-storybook -p 6006 -s src/assets",
-    "build-storybook": "build-storybook -o docs-build"
+    "build-storybook": "build-storybook -o docs"
   },
   "engines": {
     "node": ">=12.0.0"
