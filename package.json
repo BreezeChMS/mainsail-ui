@@ -25,7 +25,8 @@
     "build-icons": "npx @svgr/cli --icon --out-dir src/components/Icons src/assets/icons --replace-attr-values '#003462=currentColor'",
     "start": "start-storybook -p 6006 -s src/assets",
     "storybook": "start-storybook -p 6006 -s src/assets",
-    "build-storybook": "build-storybook -o docs-build"
+    "build-storybook": "build-storybook -o docs-build",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "engines": {
     "node": ">=12.0.0"
@@ -69,6 +70,7 @@
     "@storybook/preset-create-react-app": "^3.1.5",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.1.14",
+    "@storybook/storybook-deployer": "^2.8.7",
     "@svgr/cli": "^5.5.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
