@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Icon as MsIcon, ENUMS } from "./Icon";
 
 export default {
-    title: "Mainsail UI/Icon",
+    title: "Elements/Icon",
     component: MsIcon,
     argTypes: {
         name: {

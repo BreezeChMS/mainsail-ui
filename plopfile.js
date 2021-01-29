@@ -14,6 +14,12 @@ module.exports = function (plop) {
                 name: "componentDescription",
                 message: "(Optional) Description of component",
             },
+            {
+                type: "list",
+                name: "category",
+                message: "What category does this component fall under?",
+                choices: ["Elements", "Layout", "Overlay", "User Feedback"],
+            },
         ],
         actions: [
             {

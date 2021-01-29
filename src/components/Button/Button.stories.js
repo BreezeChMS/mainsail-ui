@@ -4,7 +4,7 @@ import { ENUMS } from "../Icon";
 import { Button, ENUMS as ButtonENUMS } from "./Button";
 
 export default {
-    title: "Mainsail UI/Button",
+    title: "Elements/Button",
     component: Button,
     argTypes: {
         iconLeft: {

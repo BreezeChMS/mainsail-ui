@@ -10,7 +10,7 @@ import { ENUMS as IconENUMS } from "../Icon";
 
 // ENUM Export for plopjs
 export const ENUMS = {
-	Spinner: SpinnerENUMS,
+    Spinner: SpinnerENUMS,
     Button: ButtonENUMS,
     Icon: IconENUMS,
 };

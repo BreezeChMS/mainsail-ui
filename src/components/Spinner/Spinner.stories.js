@@ -3,7 +3,7 @@ import React from "react";
 import { Spinner, ENUMS } from "./Spinner";
 
 export default {
-    title: "Mainsail UI/Spinner",
+    title: "Elements/Spinner",
     component: Spinner,
     argTypes: {},
 };
