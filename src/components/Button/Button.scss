@@ -10,6 +10,7 @@ button.mainsail-button {
     user-select: none;
     white-space: nowrap;
     vertical-align: middle;
+    -webkit-box-pack: center;
     transition: all 250ms;
 
     outline: none;
@@ -26,6 +27,7 @@ button.mainsail-button {
 
     .spinner {
         color: currentColor;
+        padding: 5px !important;
     }
 
     .mainsail-icon {

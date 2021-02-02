@@ -5,12 +5,13 @@
     Adapted from https://github.com/tobiasahlin/SpinKit
 */
 .spinner {
+    line-height: 18px;
     display: flex;
     width: auto;
     text-align: center;
 
     > * + * {
-        margin-left: 1px;
+        margin-left: 2px;
     }
 
     &.default {

@@ -13,6 +13,13 @@ const renderIcon = (i, side) => {
     return i;
 };
 
+const renderChild = (child) => {
+    if (typeof child === "string") {
+        return <span>{child}</span>;
+    }
+    return child;
+};
+
 export const ENUMS = {
     variants: {
         primary: "primary",
@@ -55,7 +62,7 @@ export const Button = ({
                 )}
                 {...props}>
                 <Spinner />
-                {loadingText ? <span>{loadingText}</span> : null}
+                {loadingText ? renderChild(loadingText) : null}
                 {children}
             </button>
         );
@@ -65,7 +72,7 @@ export const Button = ({
             className={clsx("mainsail-button", className, variant, textSize)}
             {...props}>
             {iconLeft ? renderIcon(iconLeft, "left") : null}
-            {!icon ? <span>{text}</span> : null}
+            {!icon ? renderChild(text) : null}
             {icon ? renderIcon(icon) : null}
             {children}
             {iconRight ? renderIcon(iconRight, "right") : null}
