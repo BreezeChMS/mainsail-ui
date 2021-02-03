@@ -66,7 +66,12 @@ export const FullList = (args) => {
                             {icon && icon}
                         </pre>
                     </div>
-                    <Template name={icon} size={args.size} color={args.color} />
+                    <Template
+                        name={icon}
+                        size={args.size}
+                        disabled={args.disabled}
+                        color={args.color}
+                    />
                 </div>
             );
         });

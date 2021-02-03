@@ -30,9 +30,22 @@
     &.lg {
         color: inherit;
         svg {
+            height: 24px;
+            width: 24px;
+        }
+    }
+
+    &.xl {
+        color: inherit;
+        svg {
             height: 32px;
             width: 32px;
         }
+    }
+
+    &.disabled {
+        opacity: 0.3;
+        user-select: none;
     }
 
     @include icon-colors();

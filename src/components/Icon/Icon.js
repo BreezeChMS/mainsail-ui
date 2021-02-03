@@ -80,6 +80,7 @@ export const sizes = {
     sm: "sm",
     md: "md",
     lg: "lg",
+    xl: "xl",
 };
 
 export const colors = {
@@ -99,7 +100,7 @@ export const ENUMS = {
  *
  **/
 
-export const Icon = ({ name, size, color, className, ...rest }) => {
+export const Icon = ({ name, size, color, className, disabled, ...rest }) => {
     const SvgIcon = MainsailIcon[name];
 
     if (!SvgIcon) {
@@ -107,7 +108,14 @@ export const Icon = ({ name, size, color, className, ...rest }) => {
     }
 
     return (
-        <span className={clsx("mainsail-icon", size, color, className)}>
+        <span
+            className={clsx(
+                "mainsail-icon",
+                { disabled },
+                size,
+                color,
+                className
+            )}>
             <SvgIcon {...rest} />
         </span>
     );
@@ -124,6 +132,8 @@ Icon.propTypes = {
     className: PropTypes.string,
     /** (Optional) click handler */
     onClick: PropTypes.func,
+    /** Disabled state */
+    disabled: PropTypes.bool,
 };
 
 Icon.defaultProps = {
