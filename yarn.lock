@@ -71,7 +71,7 @@
     typescript-memoize "^1.0.0-alpha.3"
     url-join "^4.0.0"
 
-"@auto-it/npm@10.15.0":
+"@auto-it/npm@10.15.0", "@auto-it/npm@^10.15.0":
   version "10.15.0"
   resolved "https://registry.yarnpkg.com/@auto-it/npm/-/npm-10.15.0.tgz#59d95defb57b0f5b5ffe7b5d38f35c6a7acdc4e9"
   integrity sha512-+Ofxj+6qf5aDcdeN0+yUyWdudb9CjFdCUnFqiAtIhgDMceNi1ei5yeTGfZQPvRKrjUpVShhq3v+/koEVNRmKWQ==
