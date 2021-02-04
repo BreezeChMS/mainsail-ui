@@ -20,12 +20,13 @@ import { Button, Icon, ENUMS } from "mainsail-ui";
 
 Utilizing these constants in this way, not only reduce the number of [magic strings](https://softwareengineering.stackexchange.com/questions/365339/what-is-wrong-with-magic-strings) in your codebase, but also make remembering the various prop values easy since most code editors and IDEs will provide auto-completion for such imported objects.
 
-It might look more verbose at first, but it has a couple of immediate benefits:
+It might look more verbose at first, but it has a few of immediate benefits:
 
 1. Less cognitive overhead for remember props and their values
 1. Easier to change the value of the prop if the library introduces new values
 1. Find and replace becomes easier if necessary
 1. IDE Support of auto-completion
+1. Don't have to make it to runtime to discover the wrong prop is used
 
 ## Spacing Props
 
