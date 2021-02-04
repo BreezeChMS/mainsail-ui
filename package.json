@@ -95,6 +95,6 @@
     "plugins": [
       "npm"
     ],
-    "onlyPublishWithReleaseLabel": true
+    "onlyPublishWithReleaseLabel": false
   }
 }
