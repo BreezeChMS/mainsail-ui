@@ -113,7 +113,7 @@ Button.propTypes = {
     disabled: PropTypes.bool,
     /** Loading state */
     isLoading: PropTypes.bool,
-    /** Loading state */
+    /** Loading text to display */
     loadingText: PropTypes.string,
 };
 
