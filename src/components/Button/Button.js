@@ -35,7 +35,7 @@ export const ENUMS = {
 };
 
 /**
- * An epic, clickable button that does things!
+ * A Basic button with configurable options!
  **/
 export const Button = ({
     text,
