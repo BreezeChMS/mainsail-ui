@@ -57,6 +57,7 @@
     "lodash": "^4.17.20"
   },
   "devDependencies": {
+    "@auto-it/npm": "^10.15.0",
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/plugin-transform-react-jsx": "^7.12.12",
