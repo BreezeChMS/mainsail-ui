@@ -99,6 +99,7 @@
     "plugins": [
       "npm"
     ],
+    "baseBranch": "master",
     "onlyPublishWithReleaseLabel": true
   }
 }
