@@ -92,11 +92,5 @@
     "rollup": "^2.37.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.0"
-  },
-  "auto": {
-    "plugins": [
-      "npm"
-    ],
-    "onlyPublishWithReleaseLabel": false
   }
 }
