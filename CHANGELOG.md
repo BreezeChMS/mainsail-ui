@@ -1,3 +1,15 @@
+# v0.3.0 (Mon Feb 08 2021)
+
+#### 🚀 Enhancement
+
+- Button up buttons [#11](https://github.com/BreezeChMS/mainsail-ui/pull/11) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.2.2 (Thu Feb 04 2021)
 
 #### 🐛 Bug Fix
