@@ -86,8 +86,8 @@ IconOnly.args = {
 export const Intent = Template.bind({});
 Intent.args = {
     variant: ButtonENUMS.variants.primary,
-    intent: ButtonENUMS.intents.destructive,
-    text: "I am destructive",
+    intent: ButtonENUMS.intents.danger,
+    text: "I am dangerous",
 };
 
 export const FullWidth = Template.bind({});

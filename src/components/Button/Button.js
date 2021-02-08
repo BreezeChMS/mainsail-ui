@@ -35,7 +35,7 @@ export const ENUMS = {
     intents: {
         default: "default",
         filtering: "filtering",
-        destructive: "destructive",
+        danger: "danger",
     },
 };
 

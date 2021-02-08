@@ -43,7 +43,7 @@ it("renders the button in the link variant", () => {
 
 it("renders the button with intent props", () => {
     render(<Intent {...Intent.args} />);
-    expect(screen.getByRole("button")).toHaveClass("destructive");
+    expect(screen.getByRole("button")).toHaveClass("danger");
 });
 
 it("renders the button with a left icon", () => {
