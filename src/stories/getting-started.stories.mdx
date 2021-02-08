@@ -1,0 +1,100 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import { Button } from "../components/Button";
+import { Icon } from "../components/Icon";
+
+<Meta title="Intro/Getting Started" />
+
+# Getting Started
+
+Import the component. Use the component.
+
+```jsx
+import { Button } from "mainsail-ui";
+
+<Button text="Look at me" />;
+```
+
+# Usage
+
+Mainsail UI provides some common conventions for developer experience and happiness.
+
+## Variants
+
+When a component has a broad selection of different styles available, these styles will be available under the **variant** property.
+
+```jsx
+<Button variant="primary" />
+<Button variant="secondary" />
+<Button variant="tertiary" />
+```
+
+<Canvas>
+    <Button text="Button" variant="primary" />
+    <Button text="Button" variant="secondary" />
+    <Button text="Button" variant="tertiary" />
+</Canvas>
+
+## Intent vs Colors
+
+Some components (icons for example) have a small variety of colors available to use. These are accessed via the **color** prop.
+
+Most components are designed for Mainsail-ui to be used in very specific use cases.
+
+For context-specific coloring, the **intent** prop is used. Unlike a holistic style prop of **variant**, the _intent_ prop is _intended_ 😉 to be used to color a particular component variant for a particular use case.
+
+_Note: In the case where any prop value is `default`, it can be omitted_
+
+**Examples**
+
+```jsx
+// Using Intent
+<Button intent="default" text="Safe to Press" />
+<Button intent="danger" text="Dragons Ahead!" />
+
+```
+
+<Canvas>
+    <Button intent="default" text="Safe to Press" />
+    <Button intent="danger" text="Dragons Ahead!" />
+</Canvas>
+
+```jsx
+// Using Colors
+<Icon name="text" color="default"/>
+<Icon name="text" color="light"/>
+<Icon name="text" color="dark"/>
+```
+
+<Canvas>
+    <Icon name="text" color="default" />
+    <Icon name="text" color="light" />
+    <Icon name="text" color="dark" />
+</Canvas>
+
+## ENUM prop values (Recommended)
+
+Like many modern component libraries, utilizing [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) helps development along by throwing errors to your console if you pass an improper type to a component prop. While this is true of Mainsail, you can also utilize exposed ENUM prop values for each component.
+
+The **exported ENUMS** object is namespaced for each component **by component name**.
+
+So the ENUMS for the `<Icon/>` component are available under `ENUMS.Icon.<prop_name>.<prop_value>`.
+
+**Example**
+
+```jsx
+import { Icon, ENUMS } from "mainsail-ui";
+
+<Icon name={ENUMS.Icon.names.calendar} color={ENUMS.Icon.colors.light} />;
+```
+
+#### Why do this?
+
+Utilizing these constants in this way, not only reduce the number of [magic strings](https://softwareengineering.stackexchange.com/questions/365339/what-is-wrong-with-magic-strings) in your codebase, but also make remembering the various prop values easy since most code editors and IDEs will provide auto-completion for such imported objects.
+
+It might look more verbose at first, but **here are some benefits**:
+
+1. Less cognitive overhead for remember props and their values
+1. Strings are prone to typos whereas improperly typed constants should fail compilation
+1. IDE Support of auto-completion
+1. Easier to change the value of the prop if the library introduces new values
+1. Find and replace becomes easier if necessary
