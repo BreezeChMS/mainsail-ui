@@ -68,10 +68,51 @@
     line-height: 18px;
 }
 
-@mixin mainsail-button-disabled {
-    box-shadow: none;
-    opacity: 0.3;
-    cursor: not-allowed;
+@mixin disabled {
+    &:disabled {
+        box-shadow: none;
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+}
+
+@mixin hover {
+    &:not([disabled]):not([active]):hover {
+        @content;
+    }
+}
+
+@mixin focus {
+    &:not([disabled]):not([hover]):focus {
+        outline: 1px solid $mainsail-blue-primary;
+        outline-offset: 2px;
+        @content;
+    }
+}
+
+@mixin active {
+    &:not([disabled]):not([hover]):active {
+        outline: none;
+        outline-offset: 0;
+        @content;
+    }
+}
+
+@mixin mainsail-button-intents {
+    .filtering {
+        background: $mainsail-green-middle;
+        color: $mainsail-blue-light;
+        border-color: $mainsail-green-middle;
+
+        @include hover {
+        }
+    }
+
+    .destructive {
+        background: $mainsail-danger;
+        color: $mainsail-blue-light;
+        border-color: $mainsail-danger;
+    }
 }
 
 /// Slightly lighten a color

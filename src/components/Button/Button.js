@@ -32,6 +32,11 @@ export const ENUMS = {
         small: "small",
         regular: "regular",
     },
+    intents: {
+        default: "default",
+        filtering: "filtering",
+        danger: "danger",
+    },
 };
 
 /**
@@ -48,6 +53,8 @@ export const Button = ({
     isLoading,
     loadingText,
     icon,
+    isFullWidth,
+    intent,
     ...props
 }) => {
     if (isLoading) {
@@ -69,7 +76,18 @@ export const Button = ({
     }
     return (
         <button
-            className={clsx("mainsail-button", className, variant, textSize)}
+            data-loading={isLoading}
+            className={clsx(
+                "mainsail-button",
+                className,
+                variant,
+                textSize,
+                intent,
+                {
+                    "text-small": textSize === "small",
+                    "full-width": isFullWidth,
+                }
+            )}
             {...props}>
             {iconLeft ? renderIcon(iconLeft, "left") : null}
             {!icon ? renderChild(text) : null}
@@ -81,9 +99,11 @@ export const Button = ({
 };
 
 Button.propTypes = {
-    /** What style of button to use: */
+    /** Changes the overall style of button: */
     variant: PropTypes.oneOf(Object.keys(ENUMS.variants)),
-    /** Button text to display */
+    /** Modifies the color for different uses */
+    intent: PropTypes.oneOf(Object.keys(ENUMS.intents)),
+    /** Button text to display, can also optionally provide children. */
     text: PropTypes.string,
     /** Button text size */
     textSize: PropTypes.oneOf(Object.keys(ENUMS.textSizes)),
@@ -113,11 +133,14 @@ Button.propTypes = {
     disabled: PropTypes.bool,
     /** Loading state */
     isLoading: PropTypes.bool,
+    /** If true, will cause button to take up full width of parent */
+    isFullWidth: PropTypes.bool,
     /** Text to display while loading */
     loadingText: PropTypes.string,
 };
 
 Button.defaultProps = {
     variant: ENUMS.variants.primary,
+    intent: ENUMS.intents.default,
     textSize: ENUMS.textSizes.regular,
 };

@@ -58,6 +58,8 @@
     "@auto-it/npm": "^10.15.0",
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
+    "@babel/helper-builder-react-jsx": "^7.12.13",
+    "@babel/helper-builder-react-jsx-experimental": "^7.12.11",
     "@babel/plugin-transform-react-jsx": "^7.12.12",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
