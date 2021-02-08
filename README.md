@@ -1,13 +1,13 @@
 # Mainsail-UI
 
-This is the home of [_Mainsail_](https://en.wikipedia.org/wiki/Mainsail) — The Design System UI-kit of [Breeze](https://www.breezechms.com/).
+This is the home of [_Mainsail_](https://en.wikipedia.org/wiki/Mainsail) — The React UI-kit of [Breeze](https://www.breezechms.com/).
 
+![NPM](https://img.shields.io/npm/v/mainsail-ui?color=%23006fba)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Auto Release](https://img.shields.io/badge/release-auto.svg?colorA=888888&colorB=9B065A&label=auto)](https://github.com/intuit/auto)
 [![Uses Storybook](https://raw.githubusercontent.com/storybookjs/brand/master/badge/badge-storybook.svg)](https://storybook.js.org/)
 
 
-> WARNING!!! This REPO is under heavy development and should not be used anywhere close to production, yet.
-___
 
 [Storybook](https://storybook.js.org/) is used for local development of components in an isolated environment.
 
@@ -15,9 +15,11 @@ ___
 - Rollup is used for bundling the library
 - Auto is used for releases
 
-## Live Storybook
+> WARNING: This project is under heavy early development!
 
-[View the current Storybook here.](http://shared.breezechms.com/mainsail-ui/)
+## Getting Started
+
+[View the current Storybook for more documentation and usage details.](http://shared.breezechms.com/mainsail-ui/)
 ___
 
 ## Installing (to a project)
@@ -42,4 +44,4 @@ import { Button } from "@breezechms/mainsail-ui";
 ___
 ## Contributing
 
-Please see the wiki for valuable information on [Contributing](https://github.com/BreezeChMS/mainsail-ui/wiki/Contributing-to-Mainsail)
+Please see the wiki for valuable information on [Contributing](https://github.com/BreezeChMS/mainsail-ui/wiki/Contributing-to-Mainsail).
