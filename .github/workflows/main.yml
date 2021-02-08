@@ -1,7 +1,7 @@
 name: Storybook Build & Deploy
-on: [push] 
-#  push:
-#    paths: ["src/components/**", "src/styles/**"] # Trigger the action only when files change in the folders defined here
+on:
+  push:
+    paths: ["src/**"] # Trigger the action only when files change in the folders defined here
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -15,4 +15,4 @@ jobs:
           yarn install
           yarn run deploy-storybook -- --ci --host-token-env-variable=GITHUB_TOKEN
         env:
-          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}        
+          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
