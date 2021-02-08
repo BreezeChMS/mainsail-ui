@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   tests:
-      name: Components
+      name: Component Unit Tests
       runs-on: ubuntu-latest
       timeout-minutes: 5
       steps:

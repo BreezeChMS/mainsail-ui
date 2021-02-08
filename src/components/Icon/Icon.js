@@ -109,6 +109,7 @@ export const Icon = ({ name, size, color, className, disabled, ...rest }) => {
 
     return (
         <span
+            role="img"
             className={clsx(
                 "mainsail-icon",
                 { disabled },

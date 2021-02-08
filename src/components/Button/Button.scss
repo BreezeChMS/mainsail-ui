@@ -253,6 +253,7 @@ button.mainsail-button {
 
     &.text-small {
         @include mainsail-button-text-small();
+        padding: 6px 10px !important;
     }
 
     &.full-width {
