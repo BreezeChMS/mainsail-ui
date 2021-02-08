@@ -43,23 +43,48 @@ button.mainsail-button {
         border-color: $mainsail-blue-primary;
         background: $mainsail-blue-primary;
 
-        &:hover {
+        @include hover {
             border-color: $mainsail-blue-dark;
             background: $mainsail-blue-dark;
             color: $mainsail-blue-light;
         }
-
-        &:active {
+        @include active {
             box-shadow: $mainsail-shadow-active;
         }
 
-        &:disabled {
-            @include mainsail-button-disabled;
+        @include focus {
+            outline: none;
+        }
 
-            &:hover {
-                color: $mainsail-blue-light;
-                border-color: $mainsail-blue-primary;
-                background: $mainsail-blue-primary;
+        @include disabled;
+
+        &.filtering {
+            background: $mainsail-green-middle;
+            color: $mainsail-blue-light;
+            border-color: $mainsail-green-middle;
+
+            @include hover {
+                background: $mainsail-green-dark;
+                border-color: $mainsail-green-dark;
+            }
+
+            @include active {
+                @include mainsail-shadow-active($mainsail-green-middle);
+            }
+        }
+
+        &.destructive {
+            background: $mainsail-red-middle;
+            color: $mainsail-blue-light;
+            border-color: $mainsail-red-middle;
+
+            @include hover {
+                background: $mainsail-red-dark;
+                border-color: $mainsail-red-dark;
+            }
+
+            @include active {
+                @include mainsail-shadow-active($mainsail-red-middle);
             }
         }
     }
@@ -69,82 +94,91 @@ button.mainsail-button {
         border-color: $mainsail-blue-dark;
         background: $mainsail-white;
 
-        &:hover {
+        @include hover {
             background: $mainsail-blue-light;
         }
-
-        &:active {
+        @include active {
             box-shadow: $mainsail-shadow-active;
         }
+        @include focus {
+            outline: none;
+        }
 
-        &:disabled {
-            @include mainsail-button-disabled;
+        @include disabled;
 
-            &:hover {
-                color: $mainsail-blue-dark;
-                border-color: $mainsail-blue-dark;
-                background: $mainsail-white;
+        &.filtering {
+            color: $mainsail-green-middle;
+            background: $mainsail-white;
+            border-color: $mainsail-green-middle;
+
+            @include hover {
+                background: $mainsail-green-light;
+                border-color: $mainsail-green-dark;
+            }
+
+            @include active {
+                @include mainsail-shadow-active($mainsail-green-middle);
+            }
+        }
+
+        &.destructive {
+            background: $mainsail-white;
+            color: $mainsail-red-middle;
+            border-color: $mainsail-red-middle;
+
+            @include hover {
+                background: $mainsail-red-light;
+                border-color: $mainsail-red-dark;
+            }
+
+            @include active {
+                @include mainsail-shadow-active($mainsail-red-middle);
             }
         }
     }
 
     &.tertiary {
         color: $mainsail-blue-dark;
-        border: 0;
+        border: none;
         box-shadow: none;
         background: none;
         background-color: transparent;
 
-        &.close {
-            position: absolute;
-        }
-
-        &:hover {
+        @include hover {
             color: $mainsail-blue-primary;
         }
 
-        &:active {
-            box-shadow: $mainsail-shadow-active;
+        @include active {
         }
 
-        &:disabled {
-            @include mainsail-button-disabled;
+        @include disabled;
 
-            &:hover {
-                color: $mainsail-blue-dark;
-                box-shadow: none;
+        &.filtering {
+            color: $mainsail-green-middle;
+            background: none;
+            border-color: $mainsail-green-middle;
+
+            @include hover {
                 background: none;
-                background-color: transparent;
+                color: $mainsail-green-dark;
+            }
+
+            @include active {
             }
         }
-    }
 
-    &.action {
-        height: 26px;
-        padding: 4px 10px;
-        border: 0;
-        box-shadow: $mainsail-shadow-near;
-        border-radius: $mainsail-pill-radius;
-        background: $mainsail-blue-light;
-        color: $mainsail-blue-dark;
+        &.destructive {
+            background: $mainsail-white;
+            color: $mainsail-red-middle;
+            border-color: $mainsail-red-middle;
 
-        &:hover {
-            border-color: $mainsail-blue-dark;
-            color: $mainsail-blue-primary;
-            box-shadow: none;
-        }
+            @include hover {
+                color: $mainsail-red-middle;
+                background: none;
+            }
 
-        &:active {
-            box-shadow: $mainsail-shadow-active;
-            color: $mainsail-blue-primary;
-        }
-
-        &:disabled {
-            @include mainsail-button-disabled;
-
-            &:hover {
-                color: $mainsail-blue-dark;
-                background: $mainsail-white;
+            @include active {
+                @include mainsail-shadow-active($mainsail-red-middle);
             }
         }
     }
@@ -159,21 +193,42 @@ button.mainsail-button {
         margin: 0;
         height: auto;
 
-        svg {
-            color: $mainsail-blue-primary;
-            width: 12px;
-        }
-
-        &:hover {
+        @include hover {
             text-decoration: underline;
         }
 
-        &:disabled {
-            @include mainsail-button-disabled;
+        @include focus {
+            outline-offset: 4px;
+        }
 
-            &:hover {
-                color: $mainsail-blue-dark;
-                background: $mainsail-white;
+        @include disabled;
+
+        &.filtering {
+            color: $mainsail-green-middle;
+            background: none;
+            border-color: $mainsail-green-middle;
+
+            @include hover {
+                background: none;
+                color: $mainsail-green-dark;
+            }
+
+            @include active {
+            }
+        }
+
+        &.destructive {
+            background: $mainsail-white;
+            color: $mainsail-red-middle;
+            border-color: $mainsail-red-middle;
+
+            @include hover {
+                color: $mainsail-red-middle;
+                background: none;
+            }
+
+            @include active {
+                @include mainsail-shadow-active($mainsail-red-middle);
             }
         }
     }
@@ -196,7 +251,7 @@ button.mainsail-button {
         outline: 5px auto $mainsail-blue-primary;
     }
 
-    &.small {
+    &.text-small {
         @include mainsail-button-text-small();
     }
 

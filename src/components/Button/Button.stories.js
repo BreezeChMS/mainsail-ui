@@ -28,7 +28,7 @@ export default {
         icon: {
             name: "icon",
             type: { name: "string" },
-            description: `If supplying a string, see list in Icon story`,
+            description: `Will make an icon only button if prop is provided a value. If supplying a string, see list in Icon story`,
             control: {
                 type: "select",
                 options: ["", ...Object.keys(ENUMS.names)],
@@ -83,6 +83,20 @@ IconOnly.args = {
     icon: ENUMS.names.settings,
 };
 
+export const Intent = Template.bind({});
+Intent.args = {
+    variant: ButtonENUMS.variants.primary,
+    intent: ButtonENUMS.intents.destructive,
+    text: "I am destructive",
+};
+
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+    variant: ButtonENUMS.variants.primary,
+    text: "Wide Load",
+    isFullWidth: true,
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
     variant: ButtonENUMS.variants.primary,
@@ -93,7 +107,20 @@ Disabled.args = {
 export const Loading = Template.bind({});
 Loading.args = {
     variant: ButtonENUMS.variants.primary,
+    text: "Confirm",
+    isLoading: true,
+};
+
+export const LoadingWithText = Template.bind({});
+LoadingWithText.args = {
+    variant: ButtonENUMS.variants.primary,
     loadingText: "Waiting",
     text: "Confirm",
     isLoading: true,
+};
+
+export const WithChildren = Template.bind({});
+WithChildren.args = {
+    variant: ButtonENUMS.variants.primary,
+    children: <span>Button has children</span>,
 };
