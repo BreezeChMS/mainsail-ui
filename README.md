@@ -37,7 +37,7 @@ yarn add mainsail-ui
 Then import and use your desired component:
 
 ```js
-import { Button } from "@breezechms/mainsail-ui";
+import { Button } from "mainsail-ui";
 
 <Button text="Do Stuff" />
 ```
