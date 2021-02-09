@@ -1,0 +1,26 @@
+name: Release
+
+on: [pull_request]
+
+jobs:
+  tests:
+    name: Component Unit Tests 🧪
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout Pull Request Branch
+        uses: actions/checkout@v2
+
+      - name: Cache Node Modules
+        id: node-modules
+        uses: actions/cache@v1
+        with:
+          path: ui/node_modules/
+          key: ${{ runner.os }}-npm_directory-${{ github.head_ref }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.node-modules.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
+      - name: Run Jest Tests
+        run: yarn test --silent --colors || { echo "Component Tests Failed! (╯°□°）╯︵ ┻━┻"; exit 1; }
