@@ -100,7 +100,7 @@ export const ENUMS = {
  *
  **/
 
-export const Icon = ({ name, size, color, className, disabled, ...rest }) => {
+export const Icon = ({ name, size, color, className, isDisabled, ...rest }) => {
     const SvgIcon = MainsailIcon[name];
 
     if (!SvgIcon) {
@@ -112,7 +112,7 @@ export const Icon = ({ name, size, color, className, disabled, ...rest }) => {
             role="img"
             className={clsx(
                 "mainsail-icon",
-                { disabled },
+                { disabled: isDisabled },
                 size,
                 color,
                 className
@@ -134,7 +134,7 @@ Icon.propTypes = {
     /** (Optional) click handler */
     onClick: PropTypes.func,
     /** Disabled state */
-    disabled: PropTypes.bool,
+    isDisabled: PropTypes.bool,
 };
 
 Icon.defaultProps = {
