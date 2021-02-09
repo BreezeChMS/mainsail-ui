@@ -28,7 +28,7 @@ jobs:
           restore-keys: |
             yarn-deps-${{ hashFiles('yarn.lock') }}
 
-      - name: Create Release
+      - name: Create Release 🚀
         env:
           GITHUB_TOKEN: ${{ secrets.BREEZECI_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
