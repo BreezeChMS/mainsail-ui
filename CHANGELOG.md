@@ -1,3 +1,15 @@
+# v0.3.3 (Tue Feb 09 2021)
+
+#### 🐛 Bug Fix
+
+- Misc disabled prop fixes [#18](https://github.com/BreezeChMS/mainsail-ui/pull/18) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.3.0 (Mon Feb 08 2021)
 
 #### 🚀 Enhancement
