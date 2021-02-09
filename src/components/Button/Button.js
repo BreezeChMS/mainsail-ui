@@ -55,13 +55,16 @@ export const Button = ({
     icon,
     isFullWidth,
     intent,
+    isDisabled,
     ...props
 }) => {
     if (isLoading) {
         return (
             <button
+                data-loading={isLoading}
+                disabled={isDisabled || isLoading}
                 className={clsx(
-                    { loading: isLoading },
+                    { loading: isLoading, disabled: isDisabled },
                     "mainsail-button",
                     className,
                     variant,
@@ -77,6 +80,7 @@ export const Button = ({
     return (
         <button
             data-loading={isLoading}
+            disabled={isDisabled || isLoading}
             className={clsx(
                 "mainsail-button",
                 className,
@@ -130,7 +134,7 @@ Button.propTypes = {
     /** (Optional) click handler */
     onClick: PropTypes.func,
     /** Disabled state */
-    disabled: PropTypes.bool,
+    isDisabled: PropTypes.bool,
     /** Loading state */
     isLoading: PropTypes.bool,
     /** If true, will cause button to take up full width of parent */
