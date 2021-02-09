@@ -1,3 +1,26 @@
+# v0.3.1 (Tue Feb 09 2021)
+
+#### 🐛 Bug Fix
+
+- fixes loading state not disabling button [#17](https://github.com/BreezeChMS/mainsail-ui/pull/17) ([@3CordGuy](https://github.com/3CordGuy))
+- Misc updates [#13](https://github.com/BreezeChMS/mainsail-ui/pull/13) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### ⚠️ Pushed to `master`
+
+- Update auto-release.yml ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- Update README.md [#16](https://github.com/BreezeChMS/mainsail-ui/pull/16) ([@3CordGuy](https://github.com/3CordGuy))
+- Fix grammar in docs [#15](https://github.com/BreezeChMS/mainsail-ui/pull/15) ([@3CordGuy](https://github.com/3CordGuy))
+- Fix jest tests [#14](https://github.com/BreezeChMS/mainsail-ui/pull/14) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.3.0 (Mon Feb 08 2021)
 
 #### 🚀 Enhancement
