@@ -27,11 +27,11 @@ ___
 Install the npm package just like any other.
 
 ```
-npm install @breezechms/mainsail-ui
+npm install mainsail-ui
 
 // or
 
-yarn add @breezechms/mainsail-ui
+yarn add mainsail-ui
 ```
 
 Then import and use your desired component:
