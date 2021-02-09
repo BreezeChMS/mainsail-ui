@@ -101,7 +101,7 @@ export const Disabled = Template.bind({});
 Disabled.args = {
     variant: ButtonENUMS.variants.primary,
     text: "Disabled",
-    disabled: true,
+    isDisabled: true,
 };
 
 export const Loading = Template.bind({});
