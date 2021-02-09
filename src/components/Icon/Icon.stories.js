@@ -69,7 +69,7 @@ export const FullList = (args) => {
                     <Template
                         name={icon}
                         size={args.size}
-                        disabled={args.disabled}
+                        disabled={args.isDisabled}
                         color={args.color}
                     />
                 </div>
