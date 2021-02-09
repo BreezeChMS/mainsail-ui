@@ -85,6 +85,17 @@ it("renders the loading text if in loading state", () => {
     expect(screen.getByRole("button")).toHaveTextContent("Waiting");
 });
 
+it("disables the button if in loading state", () => {
+    let onClick = jest.fn();
+    render(<Loading {...LoadingWithText.args} onClick={onClick} />);
+    expect(screen.getByRole("button")).toHaveTextContent("Waiting");
+
+    userEvent.click(screen.getByRole("button"));
+
+    expect(onClick).toHaveBeenCalledTimes(0);
+    expect(screen.getByRole("button")).toBeDisabled();
+});
+
 it("renders the button in a disabled state", () => {
     render(<Disabled {...Disabled.args} />);
     expect(screen.getByRole("button")).toHaveTextContent("Disabled");

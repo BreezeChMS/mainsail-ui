@@ -259,4 +259,13 @@ button.mainsail-button {
     &.full-width {
         width: 100%;
     }
+
+    &.loading {
+        &:disabled {
+            opacity: 1;
+        }
+        &.disabled {
+            opacity: 0.3;
+        }
+    }
 }
