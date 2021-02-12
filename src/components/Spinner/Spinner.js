@@ -31,6 +31,8 @@ export const Spinner = ({ className, color }) => {
 };
 
 Spinner.propTypes = {
+    /** Style class to add to Spinner */
+    className: PropTypes.string,
     /** Color tint of spinner */
     color: PropTypes.oneOf(Object.keys(colors)),
 };
