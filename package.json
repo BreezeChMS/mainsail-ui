@@ -51,7 +51,6 @@
     ]
   },
   "peerDependencies": {
-    "clsx": "^1.1.1",
     "lodash": "^4.17.20"
   },
   "devDependencies": {
