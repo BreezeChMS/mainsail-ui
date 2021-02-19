@@ -28,5 +28,15 @@
           "Hyperlink",
           {"name": "Link", "linkAttribute": "to"}
         ]
-      }
+      },
+      "overrides": [
+        {
+          "files": [
+            "**/*.test.js"
+          ],
+          "env": {
+            "jest": true
+          }
+        }
+      ]
 }

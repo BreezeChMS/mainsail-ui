@@ -19,7 +19,6 @@ import {
     Disabled,
     LoadingWithText,
 } from "./Button.stories";
-import { ENUMS } from "../Icon";
 
 it("renders the button in the primary variant by default", () => {
     render(<Primary {...Primary.args} />);
