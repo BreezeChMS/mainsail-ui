@@ -20,3 +20,14 @@ it("renders the an Icon in the dark color", () => {
     render(<Icon {...Icon.args} color="dark" />);
     expect(screen.getByRole("img")).toHaveClass("dark");
 });
+
+it("should return null (with console error) if passed no name", () => {
+    let warning = {};
+    console.warn = (w) => {
+        warning = w;
+        return w;
+    };
+    render(<Icon name="" color="dark" />);
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    expect(warning).toEqual("Could not render icon by name of ");
+});

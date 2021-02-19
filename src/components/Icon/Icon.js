@@ -104,7 +104,8 @@ export const Icon = ({ name, size, color, className, isDisabled, ...rest }) => {
     const SvgIcon = MainsailIcon[name];
 
     if (!SvgIcon) {
-        throw Error(`Could not render icon by name of ${name}`);
+        console.warn(`Could not render icon by name of ${name}`);
+        return null;
     }
 
     return (
