@@ -6,6 +6,10 @@
             "jsx": true
         }
     },
+    "env": {
+      "browser": true,
+      "node": true
+    },
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended"
