@@ -1,3 +1,16 @@
+# v0.3.8 (Fri Feb 19 2021)
+
+#### 🐛 Bug Fix
+
+- Thrown Error Fix [#23](https://github.com/BreezeChMS/mainsail-ui/pull/23) ([@3CordGuy](https://github.com/3CordGuy))
+- Eslint updates [#22](https://github.com/BreezeChMS/mainsail-ui/pull/22) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.3.3 (Tue Feb 09 2021)
 
 #### 🐛 Bug Fix
