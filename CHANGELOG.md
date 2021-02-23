@@ -1,3 +1,15 @@
+# v0.3.10 (Tue Feb 23 2021)
+
+#### 🐛 Bug Fix
+
+- includes the css dist files [#25](https://github.com/BreezeChMS/mainsail-ui/pull/25) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.3.9 (Tue Feb 23 2021)
 
 #### 🐛 Bug Fix
