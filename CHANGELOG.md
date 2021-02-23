@@ -1,3 +1,15 @@
+# v0.3.9 (Tue Feb 23 2021)
+
+#### 🐛 Bug Fix
+
+- Externalize css build for css-only availability [#24](https://github.com/BreezeChMS/mainsail-ui/pull/24) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.3.8 (Fri Feb 19 2021)
 
 #### 🐛 Bug Fix
