@@ -71,6 +71,14 @@ module.exports = function (plop) {
                 pattern: /export const ENUMS = {/gi,
                 template: `\t{{pascalCase componentName}}: {{pascalCase componentName}}ENUMS,`,
             },
+
+            // Add SCSS Imports to index for CSS Build
+            {
+                type: "append",
+                path: "src/components/core/index.scss",
+                pattern: /SASS Global Import for plopjs/gi,
+                template: `@import "../{{pascalCase componentName}}/{{pascalCase componentName}}.scss";`,
+            },
         ],
     });
 };
