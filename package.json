@@ -10,6 +10,8 @@
   "module": "dist/index.module.js",
   "files": [
     "dist/index.js",
+    "dist/css/mainsail.min.css",
+    "dist/css/mainsail.css.map",
     "README.md",
     "LICENSE"
   ],
