@@ -32,7 +32,7 @@
 @mixin mainsail-body-text-tiny {
     font-style: normal;
     font-weight: normal;
-    font-size: 9px;
+    font-size: 10px;
     line-height: 12px;
 }
 
@@ -131,4 +131,58 @@
 /// @return {Color}
 @function shade($color, $percentage) {
     @return mix(black, $color, $percentage);
+}
+
+/* Spacing Utility Generators */
+$spacing: (
+    0: 0px,
+    4: 4px,
+    8: 8px,
+    10: 10px,
+    12: 12px,
+    15: 15px,
+    20: 20px,
+    30: 30px,
+    48: 48px,
+);
+
+@mixin spacing-modifiers($attribute: "margin") {
+    @each $name, $size in $spacing {
+        &-#{$name} {
+            #{$attribute}: $size !important;
+        }
+    }
+}
+
+@mixin color-modifiers($attribute: "background-color") {
+    @each $name, $color in $blue {
+        &-blue-#{$name} {
+            #{$attribute}: $color !important;
+        }
+    }
+    @each $name, $color in $green {
+        &-green-#{$name} {
+            #{$attribute}: $color !important;
+        }
+    }
+    @each $name, $color in $violet {
+        &-violet-#{$name} {
+            #{$attribute}: $color !important;
+        }
+    }
+    @each $name, $color in $orange {
+        &-orange-#{$name} {
+            #{$attribute}: $color !important;
+        }
+    }
+    @each $name, $color in $red {
+        &-red-#{$name} {
+            #{$attribute}: $color !important;
+        }
+    }
+    @each $name, $color in $neutral {
+        &-neutral-#{$name} {
+            #{$attribute}: $color !important;
+        }
+    }
 }

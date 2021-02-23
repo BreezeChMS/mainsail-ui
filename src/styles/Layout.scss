@@ -1,0 +1,90 @@
+@import "./Variables";
+@import "./Utility";
+/*
+    Mainsail Utility Classes -- (Configured in Variables.scss)
+    While Bootstrap has Spacing Utility classes, these utilize
+    our new Design specs sizing scales and a simpler naming
+    convention that uses explicit values in the class numeral
+    e.g. mb-4 or mb-12
+    for 4px or 12px equivalent of bottom margin respectively
+*/
+.m {
+    @include spacing-modifiers($attribute: "margin");
+}
+.mx {
+    @include spacing-modifiers($attribute: "margin-left");
+    @include spacing-modifiers($attribute: "margin-right");
+}
+.my {
+    @include spacing-modifiers($attribute: "margin-top");
+    @include spacing-modifiers($attribute: "margin-bottom");
+}
+.mt {
+    @include spacing-modifiers($attribute: "margin-top");
+}
+.mr {
+    @include spacing-modifiers($attribute: "margin-right");
+}
+.mb {
+    @include spacing-modifiers($attribute: "margin-bottom");
+}
+.ml {
+    @include spacing-modifiers($attribute: "margin-left");
+}
+
+.p {
+    @include spacing-modifiers($attribute: "padding");
+}
+.px {
+    @include spacing-modifiers($attribute: "padding-left");
+    @include spacing-modifiers($attribute: "padding-right");
+}
+.py {
+    @include spacing-modifiers($attribute: "padding-top");
+    @include spacing-modifiers($attribute: "padding-bottom");
+}
+.pt {
+    @include spacing-modifiers($attribute: "padding-top");
+}
+.pr {
+    @include spacing-modifiers($attribute: "padding-right");
+}
+.pb {
+    @include spacing-modifiers($attribute: "padding-bottom");
+}
+.pl {
+    @include spacing-modifiers($attribute: "padding-left");
+}
+
+.max-w-1400 {
+    max-width: 1400px;
+}
+
+/* Shadows */
+
+.box-shadow-near {
+    box-shadow: $mainsail-shadow-near;
+}
+
+.box-shadow-far {
+    box-shadow: $mainsail-shadow-far;
+}
+
+.box-shadow-sticky {
+    box-shadow: $mainsail-shadow-sticky-bar;
+}
+/* End Shadows */
+
+/* Background Colors */
+
+.bg {
+    @include color-modifiers();
+}
+
+.text {
+    @include color-modifiers($attribute: "color");
+}
+
+.border {
+    @include color-modifiers($attribute: "border-color");
+}
