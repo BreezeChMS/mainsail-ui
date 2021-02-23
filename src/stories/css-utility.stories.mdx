@@ -1,0 +1,91 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+import "../components/core/index.scss";
+
+<Meta title="CSS Only/Utility Classes" />
+
+# Utility Classes
+
+Utility classes can offer some convenient access to Mainsail styling. They are inspired by [Tailwind CSS](https://tailwindcss.com).
+
+## Table of Contents
+
+-   [Spacing](#spacing)
+-   [Shadows](#shadows)
+
+### Spacing
+
+For common Mainsail spec spacing margins and padding, you can use `p-<size>` and `m-<size>` classes.
+
+These are controllable with an intuitive explicit sizing scale.
+
+**Available Sizes**
+
+```
+0px,
+4px,
+8px,
+10px,
+12px,
+15px,
+20px,
+30px,
+48px,
+```
+
+Explicit directional margin/padding can be applied by adding a `t`/`b`/`l`/`r` designation to the class.
+
+E.g. `mr-8` will apply `margin-right: 8px` and `ml-8` will apply `margin-left: 8px`.
+
+If desired, you can supply `x` or `y` to apply to both sides.
+
+**Examples**
+
+```html
+// Using margin utility with 8px of top margin
+<button class="mainsail-button secondary mt-8">Cancel</button>
+
+// Using margin utility with 8px of top and 20px of left/right margin
+<button class="mainsail-button primary mt-8 mx-20">Confirm</button>
+```
+
+<Canvas>
+    <div>
+        <div class="my-0 p-4 bg-neutral-1"></div>
+        <button class="mainsail-button secondary mt-8">Cancel</button>
+        <button class="mainsail-button primary mt-8 mx-20">Confirm</button>
+    </div>
+</Canvas>
+
+<Canvas>
+    <div class="body-text">
+        <h3>Margin Top</h3>
+        <div class="bg-neutral-1 p-4"></div>
+        <div class="bg-blue-light p-8 mt-4">mt-4</div>
+        <div class="bg-blue-light p-8 mt-8">mt-8</div>
+        <div class="bg-blue-light p-8 mt-10">mt-10</div>
+        <div class="bg-blue-light p-8 mt-12">mt-12</div>
+        <div class="bg-blue-light p-8 mt-15">mt-15</div>
+        <div class="bg-blue-light p-8 mt-20">mt-20</div>
+        <div class="bg-blue-light p-8 mt-30">mt-30</div>
+        <div class="bg-blue-light p-8 mt-48">mt-48</div>
+    </div>
+</Canvas>
+
+### Shadows
+
+Box shadows can be applied easily with the shadow utility.
+
+```html
+<div class="px-15 py-8">Shadow Box</div>
+```
+
+<Canvas>
+    <div class="px-15 py-8 bg-neutral-6 body-text box-shadow-near">
+        Box Shadow Near
+    </div>
+    <div class="px-15 py-8  body-text box-shadow-far">Box Shadow Far</div>
+    <div class="px-15 py-8  body-text box-shadow-sticky">
+        Box Shadow Sticky Bar
+    </div>
+</Canvas>

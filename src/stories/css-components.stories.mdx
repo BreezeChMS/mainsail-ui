@@ -1,0 +1,205 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+import "../components/core/index.scss";
+
+<Meta title="CSS Only/Components" />
+
+# CSS Component Styling
+
+## Table of Contents
+
+-   [Buttons](#buttons)
+-   [Icons](#icons)
+-   [Spinner](#spinner)
+
+## Buttons
+
+Buttons have variants and intent styles available as sub classes.
+
+```html
+<button class="mainsail-button primary">Primary Button</button>
+<button class="mainsail-button secondary">Secondary Button</button>
+<button class="mainsail-button tertiary">Tertiary Button</button>
+<button class="mainsail-button link">Link Button</button>
+<button class="mainsail-button primary" disabled>Disabled Button</button>
+<button class="mainsail-button primary loading" disabled>
+    <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</button>
+```
+
+**Examples**
+
+<Canvas>
+    <button class="mainsail-button primary">Primary Button</button>
+    <button class="mainsail-button secondary">Secondary Button</button>
+    <button class="mainsail-button tertiary">Tertiary Button</button>
+    <button class="mainsail-button link">Link Button</button>
+    <button class="mainsail-button primary" disabled>
+        Disabled Button
+    </button>
+    <button class="mainsail-button primary loading" disabled>
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </button>
+</Canvas>
+
+**Danger Intent**
+
+<Canvas>
+    <button class="mainsail-button danger primary">Primary Button</button>
+    <button class="mainsail-button danger secondary">Secondary Button</button>
+    <button class="mainsail-button danger tertiary">Tertiary Button</button>
+    <button class="mainsail-button danger link">Link Button</button>
+</Canvas>
+
+**Filtering Intent**
+
+<Canvas>
+    <button class="mainsail-button filtering primary">Primary Button</button>
+    <button class="mainsail-button filtering secondary">
+        Secondary Button
+    </button>
+    <button class="mainsail-button filtering tertiary">Tertiary Button</button>
+    <button class="mainsail-button filtering link">Link Button</button>
+</Canvas>
+
+## Icons
+
+Icon svg files may be added directly to the html code and have styling and sizing classes ready to go in Mainsail css.
+
+**How to use Mainsail icons directly:**
+
+1. Create a wrapping element. `<span class="mainsail-icon lg default"></span>`
+1. Copy and paste the desired svg code inside it (copy from react component [Full List](?path=/story/elements-icon--full-list)).
+
+You need to just provide a wrapping element to the svg tag with the desired style classes.
+
+There are **4 sizes** available `sm` `md` `lg` and `xl`.
+
+There are **3 color** variants available `default` `light` and `dark`.
+
+> Note: As long as a path includes the `fill="currentColor"` attribute, it can be styled via css directly and can inherit its parent's text color.
+
+**A Full Example**
+
+```html
+<!-- The icon wrapper with size and color-->
+<span class="mainsail-icon lg dark">
+    <!-- Your preferred icon goes here-->
+    <svg
+        width="19"
+        height="32"
+        viewBox="0 0 19 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            id="back"
+            d="M0.704658 17.0464C0.315288 16.6557 0.315837 16.0235 0.705882 15.6334L16.1299 0.209394C16.1299 0.209394 16.9929 -0.392341 17.8296 0.44431C18.6675 1.28097 17.8296 2.01334 17.8296 2.01334L3.47715 16.3671L17.1501 30.04C17.1501 30.04 17.8611 30.8968 17.0973 31.6605C16.3348 32.4243 15.2682 31.6605 15.2682 31.6605L0.704658 17.0464Z"
+            fill="currentColor"
+        />
+    </svg>
+</span>
+```
+
+**Sizes and Colors**
+
+<Canvas>
+    <span class="mainsail-icon sm dark">
+        <svg
+            width="19"
+            height="32"
+            viewBox="0 0 19 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                id="back"
+                d="M0.704658 17.0464C0.315288 16.6557 0.315837 16.0235 0.705882 15.6334L16.1299 0.209394C16.1299 0.209394 16.9929 -0.392341 17.8296 0.44431C18.6675 1.28097 17.8296 2.01334 17.8296 2.01334L3.47715 16.3671L17.1501 30.04C17.1501 30.04 17.8611 30.8968 17.0973 31.6605C16.3348 32.4243 15.2682 31.6605 15.2682 31.6605L0.704658 17.0464Z"
+                fill="currentColor"
+            />
+        </svg>
+    </span>
+    <span class="mainsail-icon md light">
+        <svg
+            width="19"
+            height="32"
+            viewBox="0 0 19 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                id="back"
+                d="M0.704658 17.0464C0.315288 16.6557 0.315837 16.0235 0.705882 15.6334L16.1299 0.209394C16.1299 0.209394 16.9929 -0.392341 17.8296 0.44431C18.6675 1.28097 17.8296 2.01334 17.8296 2.01334L3.47715 16.3671L17.1501 30.04C17.1501 30.04 17.8611 30.8968 17.0973 31.6605C16.3348 32.4243 15.2682 31.6605 15.2682 31.6605L0.704658 17.0464Z"
+                fill="currentColor"
+            />
+        </svg>
+    </span>
+    <span class="mainsail-icon lg dark">
+        <svg
+            width="19"
+            height="32"
+            viewBox="0 0 19 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                id="back"
+                d="M0.704658 17.0464C0.315288 16.6557 0.315837 16.0235 0.705882 15.6334L16.1299 0.209394C16.1299 0.209394 16.9929 -0.392341 17.8296 0.44431C18.6675 1.28097 17.8296 2.01334 17.8296 2.01334L3.47715 16.3671L17.1501 30.04C17.1501 30.04 17.8611 30.8968 17.0973 31.6605C16.3348 32.4243 15.2682 31.6605 15.2682 31.6605L0.704658 17.0464Z"
+                fill="currentColor"
+            />
+        </svg>
+    </span>
+    <span class="mainsail-icon xl default">
+        <svg
+            width="19"
+            height="32"
+            viewBox="0 0 19 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                id="back"
+                d="M0.704658 17.0464C0.315288 16.6557 0.315837 16.0235 0.705882 15.6334L16.1299 0.209394C16.1299 0.209394 16.9929 -0.392341 17.8296 0.44431C18.6675 1.28097 17.8296 2.01334 17.8296 2.01334L3.47715 16.3671L17.1501 30.04C17.1501 30.04 17.8611 30.8968 17.0973 31.6605C16.3348 32.4243 15.2682 31.6605 15.2682 31.6605L0.704658 17.0464Z"
+                fill="currentColor"
+            />
+        </svg>
+    </span>
+</Canvas>
+
+## Spinner
+
+A pure-css spinner that can be applied to indicate a loading state.
+
+The spinner class has **3 color variants** `light` `dark` and `default`.
+
+It requires a small amount of markup:
+
+```html
+<div class="spinner dark">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+</div>
+```
+
+<Canvas>
+    <div class="spinner default">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+    <div class="spinner light">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+    <div class="spinner dark">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</Canvas>
