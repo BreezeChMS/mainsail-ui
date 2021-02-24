@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import { Icon as MsIcon, ENUMS } from "./Icon";
 
@@ -35,8 +35,18 @@ Icon.args = {
 
 export const FullList = (args) => {
     let [filterVal, setFilterVal] = useState("");
+    let copyTextarea = useRef(null);
     let filterIcons = (icon) =>
         filterVal ? new RegExp(filterVal, "g").test(icon) : icon;
+
+    let copyToClipboard = (e) => {
+        if (!args.allowCopy) {
+            return;
+        }
+        copyTextarea.current.value = e.currentTarget.outerHTML;
+        copyTextarea.current.select();
+        document.execCommand("copy");
+    };
 
     let renderIconList = (LIST) =>
         LIST.filter(filterIcons).map((icon, i) => {
@@ -67,6 +77,7 @@ export const FullList = (args) => {
                         </pre>
                     </div>
                     <Template
+                        onClick={(e) => copyToClipboard(e, icon)}
                         name={icon}
                         size={args.size}
                         disabled={args.isDisabled}
@@ -77,27 +88,44 @@ export const FullList = (args) => {
         });
 
     return (
-        <div
-            style={{
-                fontFamily: "sans-serif",
-                display: "grid",
-                gap: "20px",
-                gridTemplateColumns: "auto auto auto auto auto auto",
-            }}>
-            <input
+        <div>
+            {/* {copiedNotice ? (
+                <span style={{ marginBottom: "20px" }}>{copiedNotice}</span>
+            ) : null} */}
+            <div
                 style={{
-                    width: "100%",
-                    fontSize: 12,
-                    borderRadius: "4px",
-                    padding: "4px 8px",
-                    border: "1px solid #ccc",
-                    gridColumn: "span 6",
-                }}
-                value={filterVal}
-                onChange={({ target }) => setFilterVal(target.value)}
-                placeholder="Filter by Icon Name"
-            />
-            {renderIconList(Object.keys(ENUMS.names), args)}
+                    fontFamily: "sans-serif",
+                    display: "grid",
+                    gap: "20px",
+                    gridTemplateColumns: "auto auto auto auto auto auto",
+                }}>
+                <input
+                    style={{
+                        width: "100%",
+                        fontSize: 12,
+                        borderRadius: "4px",
+                        padding: "4px 8px",
+                        border: "1px solid #ccc",
+                        gridColumn: "span 6",
+                    }}
+                    value={filterVal}
+                    onChange={({ target }) => setFilterVal(target.value)}
+                    placeholder="Filter by Icon Name"
+                />
+
+                <textarea
+                    ref={copyTextarea}
+                    readOnly
+                    style={{
+                        borderRadius: "4px",
+                        gridColumnStart: "span 6",
+                        border: "1px solid #ccc",
+                        fontSize: 12,
+                        color: "#ccc",
+                    }}
+                    defaultValue="Click icon to display/copy src"></textarea>
+                {renderIconList(Object.keys(ENUMS.names), args)}
+            </div>
         </div>
     );
 };
