@@ -1,4 +1,5 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { FullList } from "../components/Icon/Icon.stories.js";
 
 import "../components/core/index.scss";
 
@@ -111,12 +112,12 @@ Buttons have variants and intent styles available as sub classes.
 
 ## Icons
 
-Icon svg files may be added directly to the html code and have styling and sizing classes ready to go in Mainsail css.
+Icon svg files may be added directly to the html code and have size and color classes available.
 
 **How to use Mainsail icons directly:**
 
 1. Create a wrapping element. `<span class="mainsail-icon lg default"></span>`
-1. Copy and paste the desired svg code inside it (copy from react component [Full List](?path=/story/elements-icon--full-list)).
+1. Copy and paste the desired svg code inside it (copy from the [Full List](#icon-list)).
 
 You need to just provide a wrapping element to the svg tag with the desired style classes.
 
@@ -207,6 +208,12 @@ There are **3 color** variants available `default` `light` and `dark`.
             />
         </svg>
     </span>
+</Canvas>
+
+### Icon List
+
+<Canvas>
+    <FullList allowCopy />
 </Canvas>
 
 ## Spinner
