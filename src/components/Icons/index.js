@@ -28,6 +28,7 @@ export { default as gift } from "./Gift";
 export { default as giving } from "./Giving";
 export { default as help } from "./Help";
 export { default as history } from "./History";
+export { default as hamburger } from "./Hamburger";
 export { default as home } from "./Home";
 export { default as install } from "./Install";
 export { default as link } from "./Link";
