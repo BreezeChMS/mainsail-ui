@@ -113,17 +113,19 @@ export const FullList = (args) => {
                     placeholder="Filter by Icon Name"
                 />
 
-                <textarea
-                    ref={copyTextarea}
-                    readOnly
-                    style={{
-                        borderRadius: "4px",
-                        gridColumnStart: "span 6",
-                        border: "1px solid #ccc",
-                        fontSize: 12,
-                        color: "#ccc",
-                    }}
-                    defaultValue="Click icon to display/copy src"></textarea>
+                {args.allowCopy ? (
+                    <textarea
+                        ref={copyTextarea}
+                        readOnly
+                        style={{
+                            borderRadius: "4px",
+                            gridColumnStart: "span 6",
+                            border: "1px solid #ccc",
+                            fontSize: 12,
+                            color: "#ccc",
+                        }}
+                        defaultValue="Click icon to display/copy src"></textarea>
+                ) : null}
                 {renderIconList(Object.keys(ENUMS.names), args)}
             </div>
         </div>
