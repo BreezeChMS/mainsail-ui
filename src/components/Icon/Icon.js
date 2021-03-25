@@ -36,6 +36,7 @@ export const names = {
     giving: "giving",
     help: "help",
     history: "history",
+    hamburger: "hamburger",
     home: "home",
     install: "install",
     link: "link",
