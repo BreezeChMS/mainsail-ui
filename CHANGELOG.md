@@ -1,3 +1,20 @@
+# v0.3.11 (Thu Mar 25 2021)
+
+#### 🐛 Bug Fix
+
+- Add hamburger icon [#28](https://github.com/BreezeChMS/mainsail-ui/pull/28) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- Add icon list to css only docs [#27](https://github.com/BreezeChMS/mainsail-ui/pull/27) ([@3CordGuy](https://github.com/3CordGuy))
+- adds icon button example to css-only docs [#26](https://github.com/BreezeChMS/mainsail-ui/pull/26) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.3.10 (Tue Feb 23 2021)
 
 #### 🐛 Bug Fix
