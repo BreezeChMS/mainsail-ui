@@ -1,3 +1,15 @@
+# v0.3.12 (Fri Mar 26 2021)
+
+#### 🐛 Bug Fix
+
+- Icon adjustments [#29](https://github.com/BreezeChMS/mainsail-ui/pull/29) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.3.11 (Thu Mar 25 2021)
 
 #### 🐛 Bug Fix
