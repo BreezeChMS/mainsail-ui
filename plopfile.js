@@ -1,8 +1,9 @@
 // See documentation for plop here: https://plopjs.com/documentation/
+const _ = require("lodash");
 
 module.exports = function (plop) {
     plop.setGenerator("component", {
-        description: "A Component and its related files",
+        description: "Add a component and its related files",
         prompts: [
             {
                 type: "input",
@@ -80,5 +81,57 @@ module.exports = function (plop) {
                 template: `@import "../{{pascalCase componentName}}/{{pascalCase componentName}}.scss";`,
             },
         ],
+    });
+
+    plop.setGenerator("icons", {
+        description: "Add svg icon(s) to the Mainsail-ui icon set",
+        prompts: [
+            {
+                type: "input",
+                name: "iconNames",
+                message:
+                    "Filename(s) of icon(s) to add (lower snake_case space-delimited if multiple e.g. recycle trash)",
+            },
+        ],
+        actions: function ({ iconNames }) {
+            var actions = [];
+
+            if (iconNames) {
+                let names = iconNames.split(" ");
+                let enumNameStr = "";
+                let exportStr = "";
+
+                names.forEach((name, idx) => {
+                    // Get string for Enums names list
+                    enumNameStr += `\t${_.snakeCase(name)}: "${_.snakeCase(
+                        name
+                    )}",${names.length > idx + 1 ? "\n" : ""}`;
+
+                    // Get string for Icons/index exports
+                    let noSpaces = _.replace(_.startCase(name), / /g, "");
+                    exportStr += `export { default as ${noSpaces} } from "./${noSpaces}";${
+                        names.length > idx + 1 ? "\n" : ""
+                    }`;
+                });
+
+                actions.push("Adding to ENUMS names");
+                actions.push({
+                    type: "append",
+                    path: "src/components/Icon/Icon.js",
+                    pattern: /export const names = {/gi,
+                    template: enumNameStr,
+                });
+
+                actions.push("Adding to Icons/index.js exports");
+                actions.push({
+                    type: "append",
+                    path: "src/components/Icons/index.js",
+                    pattern: /\/\/ added by plopjs/gi,
+                    template: exportStr,
+                });
+            }
+
+            return actions;
+        },
     });
 };

@@ -103,7 +103,7 @@ export const ENUMS = {
  **/
 
 export const Icon = ({ name, size, color, className, isDisabled, ...rest }) => {
-    const fileCase = _.replace(_.startCase(name), " ", "");
+    const fileCase = _.replace(_.startCase(name), / /g, "");
     const SvgIcon = MainsailIcon[fileCase];
 
     if (!SvgIcon) {
