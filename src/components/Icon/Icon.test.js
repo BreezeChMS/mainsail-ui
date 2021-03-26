@@ -27,7 +27,9 @@ it("should return null (with console error) if passed no name", () => {
         warning = w;
         return w;
     };
-    render(<Icon name="" color="dark" />);
+    render(<Icon name="cheese" color="dark" />);
     expect(screen.queryByRole("img")).not.toBeInTheDocument();
-    expect(warning).toEqual("Could not render icon by name of ");
+    expect(warning).toEqual(
+        "Could not render icon by name of cheese from Icons/Cheese.js"
+    );
 });

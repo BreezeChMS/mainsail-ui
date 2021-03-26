@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as MainsailIcon from "../Icons";
 import clsx from "clsx";
+import _ from "lodash";
 
 import "./Icon.scss";
 
@@ -102,10 +103,13 @@ export const ENUMS = {
  **/
 
 export const Icon = ({ name, size, color, className, isDisabled, ...rest }) => {
-    const SvgIcon = MainsailIcon[name];
+    const fileCase = _.replace(_.startCase(name), " ", "");
+    const SvgIcon = MainsailIcon[fileCase];
 
     if (!SvgIcon) {
-        console.warn(`Could not render icon by name of ${name}`);
+        console.warn(
+            `Could not render icon by name of ${name} from Icons/${fileCase}.js`
+        );
         return null;
     }
 
