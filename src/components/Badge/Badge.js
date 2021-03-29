@@ -1,71 +1,33 @@
 import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import _ from "lodash";
 import { Icon, ENUMS as IconENUMS } from "../Icon/Icon";
 
 import "./Badge.scss";
 
 export const sizes = {
     sm: "sm",
-    md: "md",
     lg: "lg",
 };
 
 export const variants = {
     basic: "basic",
     removable: "removable",
-    icon: "icon",
 };
 
 export const ENUMS = {
     sizes,
     variants,
     colors: {
-        blue: {
-            light: "blue-light",
-            primary: "blue-primary",
-            middle: "blue-middle",
-            dark: "blue-dark",
-        },
-        green: {
-            light: "green-light",
-            middle: "green-middle",
-            dark: "green-dark",
-        },
-        violet: {
-            light: "violet-light",
-            middle: "violet-middle",
-            dark: "violet-dark",
-        },
-        orange: {
-            light: "orange-light",
-            middle: "orange-middle",
-            dark: "orange-dark",
-        },
-        red: {
-            light: "red-light",
-            middle: "red-middle",
-            dark: "red-dark",
-        },
-        neutral: {
-            one: "neutral-1",
-            two: "neutral-2",
-            three: "neutral-3",
-            four: "neutral-4",
-            five: "neutral-5",
-            six: "neutral-6",
-        },
+        blue: "blue",
+        green: "green",
+        violet: "violet",
+        orange: "orange",
+        pink: "pink",
+        red: "red",
+        neutral: "neutral",
     },
 };
-const colorsMap = _.flatMapDeep(ENUMS.colors);
-export const flatColorList = [];
-
-for (let color in colorsMap) {
-    for (let v in colorsMap[color]) {
-        flatColorList.push(colorsMap[color][v]);
-    }
-}
 
 /**
  * A small component for presenting a small amount of text or data.
@@ -74,26 +36,23 @@ export const Badge = ({
     className,
     text,
     children,
-    textColor,
     color,
     variant,
     size,
-    icon,
     isRounded,
     onRemove,
     ...rest
 }) => {
-    if (variant !== ENUMS.variants.removable && icon) {
-        variant = ENUMS.variants.icon;
-    }
+    let bgColor = `bg-${color}-${color !== "neutral" ? "light" : "5"}`;
+    let textColor = `text-${color}-${color !== "neutral" ? "middle" : "2"}`;
 
     return (
         <div
             className={clsx(
                 className,
                 "mainsail-badge",
-                `bg-${color}`,
-                `text-${textColor}`,
+                bgColor,
+                textColor,
                 size,
                 variant,
                 isRounded ? "rounded" : "square"
@@ -104,14 +63,11 @@ export const Badge = ({
             {variant === ENUMS.variants.removable ? (
                 <button onClick={onRemove}>
                     <Icon
-                        className={`text-${textColor}`}
+                        className={textColor}
                         size={IconENUMS.sizes.sm}
-                        name={icon || IconENUMS.names.close}
+                        name={IconENUMS.names.close}
                     />
                 </button>
-            ) : null}
-            {variant === ENUMS.variants.icon ? (
-                <Icon name={icon} size={size} className={`text-${textColor}`} />
             ) : null}
         </div>
     );
@@ -127,21 +83,16 @@ Badge.propTypes = {
     /** Style class to add to badge element */
     className: PropTypes.string,
     /** Background color (omit for default): */
-    color: PropTypes.oneOf(flatColorList),
-    /** Color of text (omit for default): */
-    textColor: PropTypes.oneOf(flatColorList),
+    color: PropTypes.oneOf(ENUMS.colors),
     /** Size of Badge to use: */
     size: PropTypes.oneOf(Object.keys(sizes)),
     /** Fully round or square: */
     isRounded: PropTypes.bool,
-    /** Icon to display if icon only */
-    icon: PropTypes.oneOf(Object.keys(IconENUMS.names)),
 };
 
 Badge.defaultProps = {
     variant: ENUMS.variants.basic,
-    color: ENUMS.colors.neutral.six,
-    textColor: ENUMS.colors.neutral.one,
-    size: sizes.md,
-    isRounded: true,
+    color: ENUMS.colors.neutral,
+    size: sizes.lg,
+    isRounded: false,
 };

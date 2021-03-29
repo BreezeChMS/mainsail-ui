@@ -2,20 +2,20 @@
 
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
-
-import { Primary } from "./Badge.stories";
+import { Basic, Removable } from "./Badge.stories";
 
 it("renders the badge in the primary state", () => {
-  render(<Primary {...Primary.args} />);
-  expect(screen.getByRole("")).toHaveTextContent("Primary");
+    render(<Basic {...Basic.args} />);
+    expect(screen.getByText("Badge")).toBeInTheDocument();
 });
 
-it("fires a provided onClick handler", () => {
+it("fires a provided onRemove handler", () => {
     let onClick = jest.fn();
-    render(<Primary {...Primary.args} onClick={onClick} />);
+    render(<Removable {...Removable.args} onClick={onClick} />);
 
-    userEvent.click(screen.getByRole(""));
+    userEvent.click(screen.getByRole("button"));
     expect(onClick).toHaveBeenCalled();
 });
