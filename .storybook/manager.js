@@ -3,5 +3,4 @@ import mainsailTheme from "./mainsail";
 
 addons.setConfig({
     theme: mainsailTheme,
-    panelPosition: "right",
 });
