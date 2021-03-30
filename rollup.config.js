@@ -14,6 +14,9 @@ export default {
             sourcemap: true,
             file: pkg.main,
             format: "umd",
+            globals: {
+                lodash: "_",
+            },
         },
     ],
     plugins: [

@@ -1,0 +1,84 @@
+@import "../../styles/Variables.scss";
+
+/** Badge Component Styles */
+.mainsail-badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: $font;
+    font-size: 0.75em;
+    padding: 4px;
+    border-radius: 9999px;
+
+    &.sm {
+        @include mainsail-body-text-small();
+        font-weight: 700;
+        padding: 5px 7px;
+
+        svg {
+            height: 12px;
+            width: 12px;
+        }
+    }
+    &.lg {
+        @include mainsail-body-text-regular();
+        font-weight: 700;
+        padding: 5px 9px;
+
+        svg {
+            height: 14px;
+            width: 14px;
+        }
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        margin-left: 2px;
+        padding: 2px 3px;
+    }
+
+    &.removable {
+        &.sm {
+            padding-right: 3px;
+            padding-left: 8px;
+        }
+        &.lg {
+            padding-right: 4px;
+        }
+    }
+
+    &.rounded {
+        border-radius: 9999px;
+
+        button {
+            &:focus,
+            &:active {
+                border-radius: 9999px;
+            }
+            border-radius: 9999px;
+        }
+    }
+
+    &.square {
+        border-radius: $mainsail-button-border-radius;
+
+        button {
+            &:focus,
+            &:active {
+                border-radius: $mainsail-button-border-radius-lg;
+            }
+            border-radius: $mainsail-button-border-radius-lg;
+        }
+    }
+
+    .bg {
+        @include color-modifiers();
+    }
+
+    .text {
+        @include color-modifiers($attribute: "color");
+    }
+}

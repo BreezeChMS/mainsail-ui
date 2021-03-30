@@ -180,6 +180,11 @@ $spacing: (
             #{$attribute}: $color !important;
         }
     }
+    @each $name, $color in $pink {
+        &-pink-#{$name} {
+            #{$attribute}: $color !important;
+        }
+    }
     @each $name, $color in $neutral {
         &-neutral-#{$name} {
             #{$attribute}: $color !important;
