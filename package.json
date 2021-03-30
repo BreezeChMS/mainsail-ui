@@ -10,8 +10,6 @@
   "module": "dist/index.module.js",
   "files": [
     "dist/index.js",
-    "dist/css/mainsail.min.css",
-    "dist/css/mainsail.css.map",
     "README.md",
     "LICENSE"
   ],
@@ -23,7 +21,7 @@
     "scaffold": "plop",
     "plop": "plop",
     "test": "react-scripts test",
-    "build": "rollup -c && npm run build-sass-external",
+    "build": "rollup -c",
     "build-sass-external": "rimraf css && node-sass --output-style expanded src/components/core/index.scss ./dist/css/mainsail.css && postcss --use autoprefixer --map --output ./dist/css/mainsail.css ./dist/css/mainsail.css && cleancss -o ./dist/css/mainsail.min.css ./dist/css/mainsail.css",
     "build-icons": "npx @svgr/cli --icon --out-dir src/components/Icons src/assets/icons --replace-attr-values '#003462=currentColor'",
     "start": "start-storybook -p 6006 -s src/assets",
