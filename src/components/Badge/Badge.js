@@ -74,25 +74,25 @@ export const Badge = ({
 };
 
 Badge.propTypes = {
-    /** Changes the overall style of badge: */
+    /** Changes the overall style of badge */
     variant: PropTypes.oneOf(Object.keys(ENUMS.variants)),
-    /** Badge text to display, can also optionally provide children. */
+    /** Badge text to display, can also optionally provide children */
     text: PropTypes.string,
     /** (Optional click handler) when using the removable variant */
     onRemove: PropTypes.func,
     /** Style class to add to badge element */
     className: PropTypes.string,
-    /** Background color (omit for default): */
+    /** Background color (omit for default) */
     color: PropTypes.oneOf(ENUMS.colors),
-    /** Size of Badge to use: */
+    /** Size of Badge to use */
     size: PropTypes.oneOf(Object.keys(sizes)),
-    /** Fully round or square: */
+    /** Creates a fully rounded badge */
     isRounded: PropTypes.bool,
 };
 
 Badge.defaultProps = {
     variant: ENUMS.variants.basic,
     color: ENUMS.colors.neutral,
-    size: sizes.lg,
+    size: sizes.sm,
     isRounded: false,
 };
