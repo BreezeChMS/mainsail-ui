@@ -1,3 +1,15 @@
+# v0.4.0 (Tue Mar 30 2021)
+
+#### 🚀 Enhancement
+
+- CO-96 New Badges Component [#30](https://github.com/BreezeChMS/mainsail-ui/pull/30) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.3.12 (Fri Mar 26 2021)
 
 #### 🐛 Bug Fix
