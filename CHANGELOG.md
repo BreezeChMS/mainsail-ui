@@ -1,3 +1,15 @@
+# v0.4.1 (Wed Mar 31 2021)
+
+#### 🐛 Bug Fix
+
+- Badge improvements [#31](https://github.com/BreezeChMS/mainsail-ui/pull/31) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.4.0 (Tue Mar 30 2021)
 
 #### 🚀 Enhancement
