@@ -43,16 +43,14 @@ export const Badge = ({
     onRemove,
     ...rest
 }) => {
-    let bgColor = `bg-${color}-${color !== "neutral" ? "light" : "5"}`;
-    let textColor = `text-${color}-${color !== "neutral" ? "middle" : "2"}`;
+    let textColor = `text-${color}-${color === "neutral" ? "2" : "middle"}`;
 
     return (
-        <div
+        <span
             className={clsx(
                 className,
                 "mainsail-badge",
-                bgColor,
-                textColor,
+                color,
                 size,
                 variant,
                 isRounded ? "rounded" : "square"
@@ -69,7 +67,7 @@ export const Badge = ({
                     />
                 </button>
             ) : null}
-        </div>
+        </span>
     );
 };
 
