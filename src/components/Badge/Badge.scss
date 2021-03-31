@@ -30,6 +30,41 @@
         }
     }
 
+    &.blue {
+        background-color: $mainsail-blue-light;
+        color: $mainsail-blue-middle;
+    }
+
+    &.green {
+        background-color: $mainsail-green-light;
+        color: $mainsail-green-middle;
+    }
+
+    &.violet {
+        background-color: $mainsail-violet-light;
+        color: $mainsail-violet-middle;
+    }
+
+    &.orange {
+        background-color: $mainsail-orange-light;
+        color: $mainsail-orange-middle;
+    }
+
+    &.pink {
+        background-color: $mainsail-pink-light;
+        color: $mainsail-pink-middle;
+    }
+
+    &.red {
+        background-color: $mainsail-red-light;
+        color: $mainsail-red-middle;
+    }
+
+    &.neutral {
+        background-color: $mainsail-neutral-5;
+        color: $mainsail-neutral-2;
+    }
+
     button {
         background-color: transparent;
         border: none;
@@ -72,13 +107,5 @@
             }
             border-radius: $mainsail-button-border-radius-lg;
         }
-    }
-
-    .bg {
-        @include color-modifiers();
-    }
-
-    .text {
-        @include color-modifiers($attribute: "color");
     }
 }
