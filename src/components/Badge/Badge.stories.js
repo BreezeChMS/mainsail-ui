@@ -41,9 +41,9 @@ Removable.args = {
     onRemove: () => alert("You removed the badge!"),
 };
 
-export const WithChildren = () => {
+export const WithChildren = (args) => {
     return (
-        <Badge>
+        <Badge {...args}>
             <span>Child span</span>
         </Badge>
     );
