@@ -9,6 +9,7 @@
 
 /* Body Text Mixins */
 @mixin mainsail-body-text-large {
+    font-family: $font;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -16,6 +17,7 @@
 }
 
 @mixin mainsail-body-text-regular {
+    font-family: $font;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -23,6 +25,7 @@
 }
 
 @mixin mainsail-body-text-small {
+    font-family: $font;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
@@ -30,6 +33,7 @@
 }
 
 @mixin mainsail-body-text-tiny {
+    font-family: $font;
     font-style: normal;
     font-weight: normal;
     font-size: 10px;
@@ -38,6 +42,7 @@
 
 // Label Text Mixins
 @mixin mainsail-label-text-large {
+    font-family: $font;
     font-weight: 500;
     font-style: normal;
     font-size: 16px;
@@ -45,6 +50,7 @@
 }
 
 @mixin mainsail-label-text-small {
+    font-family: $font;
     font-weight: bold;
     font-style: normal;
     font-size: 12px;

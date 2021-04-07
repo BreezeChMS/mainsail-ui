@@ -2,6 +2,7 @@
 @import "./Utility.scss";
 
 $font: "Roboto", Helvetica, Arial, sans-serif;
+$mainsail-font: $font;
 
 h1,
 .h1,
@@ -72,4 +73,11 @@ p,
     &.xs {
         @include mainsail-body-text-tiny();
     }
+}
+
+.truncated {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
 }

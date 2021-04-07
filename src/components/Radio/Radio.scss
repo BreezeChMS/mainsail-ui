@@ -1,0 +1,125 @@
+@import "../../styles/Variables.scss";
+@import "../../styles/Layout.scss";
+
+/** Radio Component Styles */
+.mainsail-radio {
+    @include mainsail-body-text-regular();
+    margin: 0;
+    display: flex;
+
+    &.inline {
+        display: inline-flex;
+        margin-right: 20px;
+    }
+
+    .mainsail-radio__input-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: flex-start;
+        position: relative;
+        min-width: 0; /* Helps truncation work for flex children */
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        width: 18px;
+        height: 18px;
+        top: 0;
+        left: 0;
+        margin: 0;
+
+        &:focus + .mainsail-radio__icon {
+            box-shadow: $mainsail-shadow-active;
+        }
+
+        &:checked + .mainsail-radio__icon .circle {
+            transition: 0.1s ease 50ms;
+            transform: scale(1);
+        }
+
+        &:disabled + .mainsail-radio__icon {
+            box-shadow: none;
+            border-color: $mainsail-neutral-4;
+            .circle {
+                background-color: $mainsail-neutral-4;
+            }
+        }
+        &:disabled ~ .mainsail-radio__label-text {
+            color: $mainsail-neutral-4;
+        }
+    }
+
+    .mainsail-radio__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        border: 1px solid $mainsail-blue-primary;
+        box-shadow: $mainsail-shadow-near;
+        margin-right: 10px;
+
+        &.blue {
+            border: 1px solid $mainsail-blue-primary;
+            .circle {
+                background-color: $mainsail-blue-primary;
+            }
+        }
+
+        &.green {
+            border: 1px solid $mainsail-green-middle;
+            .circle {
+                background-color: $mainsail-green-middle;
+            }
+        }
+
+        &.violet {
+            border: 1px solid $mainsail-violet-middle;
+            .circle {
+                background-color: $mainsail-violet-middle;
+            }
+        }
+
+        &.orange {
+            border: 1px solid $mainsail-orange-middle;
+            .circle {
+                background-color: $mainsail-orange-middle;
+            }
+        }
+
+        &.pink {
+            border: 1px solid $mainsail-pink-middle;
+            .circle {
+                background-color: $mainsail-pink-middle;
+            }
+        }
+
+        &.red {
+            border: 1px solid $mainsail-red-middle;
+            .circle {
+                background-color: $mainsail-red-middle;
+            }
+        }
+
+        &.neutral {
+            border: 1px solid $mainsail-neutral-2;
+            .circle {
+                background-color: $mainsail-neutral-2;
+            }
+        }
+
+        .circle {
+            justify-self: center;
+            transform-origin: center;
+            transform: scale(0);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: inherit;
+        }
+    }
+}
