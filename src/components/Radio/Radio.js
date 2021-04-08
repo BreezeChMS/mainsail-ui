@@ -28,15 +28,12 @@ export const Radio = ({
     children,
     isDefaultChecked,
     isChecked,
-    isInline,
     isDisabled,
-    id,
     ...props
 }) => {
     return (
         <label
-            id={id}
-            className={clsx("mainsail-radio", className, isInline && "inline")}
+            className={clsx("mainsail-radio", className)}
             data-testid="radio">
             <span className="mainsail-radio__input-wrapper">
                 <input
@@ -70,13 +67,15 @@ export const Radio = ({
 Radio.propTypes = {
     /** (Optional) click handler */
     onChange: PropTypes.func,
+    /** Links Radio inputs together by a common field name */
+    name: PropTypes.string,
     /** Label text to display, can also optionally provide children */
     text: PropTypes.string,
     /** Radio color (omit for default) */
     color: PropTypes.oneOf(Object.keys(ENUMS.colors)),
     /** Style class to add to radio label wrapper element */
     className: PropTypes.string,
-    /** Truncates the text of the radio choice labels */
+    /** Truncates the text of the radio choice labels (driven by parent width) */
     isTruncated: PropTypes.bool,
     /** Initializes a radio selection as checked (uncontrolled component) */
     isDefaultChecked: PropTypes.bool,
@@ -84,12 +83,27 @@ Radio.propTypes = {
     isChecked: PropTypes.bool,
     /** Controls a radio selection as checked */
     isDisabled: PropTypes.bool,
-    /** Renders the checkboxes inline instead of stacked */
-    isInline: PropTypes.bool,
-    id: PropTypes.string,
 };
 
 Radio.defaultProps = {
     isTruncated: false,
     color: ENUMS.colors.blue,
+};
+
+export const RadioGroup = ({ children, className, labelText }) => {
+    return (
+        <div className={clsx("mainsail-radiogroup", className)}>
+            {labelText ? (
+                <label className="radiogroup-label">{labelText}</label>
+            ) : null}
+            {children}
+        </div>
+    );
+};
+
+RadioGroup.propTypes = {
+    /** Optional Label text to display, can also optionally provide children */
+    labelText: PropTypes.string,
+    /** Style class to add to RadioGroup label wrapper element */
+    className: PropTypes.string,
 };

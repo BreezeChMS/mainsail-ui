@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Radio as RadioComponent, ENUMS } from "./Radio";
+import { Radio as RadioComponent, RadioGroup, ENUMS } from "./Radio";
+import { Icon, ENUMS as IconEnums } from "../Icon";
 
 export default {
     title: "Elements/Radio",
@@ -25,12 +26,46 @@ export default {
             control: false,
         },
     },
+    parameters: {
+        controls: { sort: "requiredFirst" },
+        docs: {
+            description: {
+                component: `A multiple choice input element common in forms for making an \`OR\` type of choice
+                \n**Special Usage Notes**
+                \nThe Radio is intended to be used inside a [RadioGroup](./?path=/docs/elements-radiogroup--basic) for spacing styling.
+                \n🚨 The \`name\` property links radios together (if you find multiple radios are being selected)
+            `,
+            },
+        },
+    },
 };
 
 const Radio = (args) => <RadioComponent {...args} />;
 
 export const Basic = Radio.bind({});
-Basic.args = { text: "A fine choice" };
+Basic.args = { text: "A Fine Choice" };
+
+export const Grouped = () => (
+    <RadioGroup>
+        <Radio name="nerd_type" text="Star Wars" isDefaultChecked />
+        <Radio name="nerd_type" text="Star Trek" />
+    </RadioGroup>
+);
+Grouped.parameters = {
+    docs: {
+        description: {
+            story:
+                "[RadioGroup](./?path=/docs/elements-radiogroup--basic) is used to space and align Radio components together and can have `labelText`",
+        },
+    },
+};
+
+export const Colored = Radio.bind({});
+Colored.args = {
+    color: ENUMS.colors.green,
+    text: "This Radio has a different color",
+    isDefaultChecked: true,
+};
 
 export const Controlled = Radio.bind({});
 Controlled.args = {
@@ -58,6 +93,12 @@ DefaultChecked.parameters = {
     },
 };
 
+export const Disabled = Radio.bind({});
+Disabled.args = {
+    text: "No choice for you",
+    isDisabled: true,
+};
+
 export const TruncatedLabels = (args) => (
     <>
         <div style={{ maxWidth: "200px" }}>
@@ -70,54 +111,23 @@ TruncatedLabels.args = {
     text:
         "A really long label that might come from user generated data because they are users and cannot be trusted",
 };
-
-export const GroupStacked = (args) => {
-    return (
-        <>
-            <Radio
-                color={args.color}
-                name="cheeses"
-                text="Cheddar"
-                className="mb-10"
-                isInline={args.isInline}
-                onChange={args.onChange}
-            />
-            <Radio
-                color={args.color}
-                name="cheeses"
-                text="Swiss"
-                className="mb-10"
-                onChange={args.onChange}
-                isInline={args.isInline}
-                isDefaultChecked={true}
-            />
-        </>
-    );
+TruncatedLabels.parameters = {
+    docs: {
+        description: {
+            story: "Note: Will be truncated by the width of the parent",
+        },
+    },
 };
 
-export const GroupInline = (args) => {
-    return (
-        <>
-            <Radio
-                color={args.color}
-                name="snacks"
-                text="Pretzels"
-                className="mb-10"
-                isDefaultChecked
-                isInline={true}
-                {...args}
-            />
-            <Radio
-                color={args.color}
-                name="snacks"
-                text="Popcorn"
-                className="mb-10"
-                isInline={true}
-                {...args}
-            />
-        </>
-    );
-};
-GroupInline.argTypes = {
-    isInline: { control: { disable: true } },
-};
+export const WithChildren = (args) => (
+    <Radio {...args}>
+        <div
+            style={{
+                display: "flex",
+                alignItems: "center",
+            }}>
+            This has children{" "}
+            <Icon name={IconEnums.names.photo} style={{ marginLeft: "4px" }} />
+        </div>
+    </Radio>
+);

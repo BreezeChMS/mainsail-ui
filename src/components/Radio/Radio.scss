@@ -5,12 +5,6 @@
 .mainsail-radio {
     @include mainsail-body-text-regular();
     margin: 0;
-    display: flex;
-
-    &.inline {
-        display: inline-flex;
-        margin-right: 20px;
-    }
 
     .mainsail-radio__input-wrapper {
         display: flex;
@@ -41,6 +35,7 @@
 
         &:disabled + .mainsail-radio__icon {
             box-shadow: none;
+            cursor: not-allowed;
             border-color: $mainsail-neutral-4;
             .circle {
                 background-color: $mainsail-neutral-4;
@@ -48,6 +43,7 @@
         }
         &:disabled ~ .mainsail-radio__label-text {
             color: $mainsail-neutral-4;
+            cursor: not-allowed;
         }
     }
 
@@ -120,6 +116,31 @@
             height: 12px;
             border-radius: 50%;
             background-color: inherit;
+        }
+    }
+}
+
+.mainsail-radiogroup {
+    display: flex;
+    flex-direction: column;
+
+    .mainsail-radio {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    label.radiogroup-label {
+        @include mainsail-label-text-small;
+        font-family: $mainsail-font;
+        color: $mainsail-neutral-2;
+        margin-bottom: 8px;
+
+        &.large {
+            @include mainsail-label-text-large;
+        }
+
+        &:disabled {
+            opacity: 0.5;
         }
     }
 }
