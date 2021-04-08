@@ -5,6 +5,7 @@
 .mainsail-radio {
     @include mainsail-body-text-regular();
     margin: 0;
+    color: $mainsail-neutral-2;
 
     .mainsail-radio__input-wrapper {
         display: flex;
