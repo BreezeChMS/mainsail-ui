@@ -81,7 +81,7 @@ Badge.propTypes = {
     /** Style class to add to badge element */
     className: PropTypes.string,
     /** Background color (omit for default) */
-    color: PropTypes.oneOf(ENUMS.colors),
+    color: PropTypes.oneOf(Object.keys(ENUMS.colors)),
     /** Size of Badge to use */
     size: PropTypes.oneOf(Object.keys(sizes)),
     /** Creates a fully rounded badge */
