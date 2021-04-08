@@ -45,10 +45,10 @@ const Radio = (args) => <RadioComponent {...args} />;
 export const Basic = Radio.bind({});
 Basic.args = { text: "A Fine Choice" };
 
-export const Grouped = () => (
+export const Grouped = (args) => (
     <RadioGroup>
-        <Radio name="nerd_type" text="Star Wars" isDefaultChecked />
-        <Radio name="nerd_type" text="Star Trek" />
+        <Radio name="nerd_type" text="Star Wars" isDefaultChecked {...args} />
+        <Radio name="nerd_type" text="Star Trek" {...args} />
     </RadioGroup>
 );
 Grouped.parameters = {
@@ -100,11 +100,9 @@ Disabled.args = {
 };
 
 export const TruncatedLabels = (args) => (
-    <>
-        <div style={{ maxWidth: "200px" }}>
-            <Radio {...args} />
-        </div>
-    </>
+    <RadioGroup style={{ maxWidth: "200px" }}>
+        <Radio {...args} />
+    </RadioGroup>
 );
 TruncatedLabels.args = {
     isTruncated: true,

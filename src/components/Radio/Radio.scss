@@ -26,7 +26,33 @@
         margin: 0;
 
         &:focus + .mainsail-radio__icon {
-            box-shadow: $mainsail-shadow-active;
+            &.blue {
+                @include mainsail-shadow-active($mainsail-blue-primary);
+            }
+
+            &.green {
+                @include mainsail-shadow-active($mainsail-green-middle);
+            }
+
+            &.violet {
+                @include mainsail-shadow-active($mainsail-violet-middle);
+            }
+
+            &.orange {
+                @include mainsail-shadow-active($mainsail-orange-middle);
+            }
+
+            &.pink {
+                @include mainsail-shadow-active($mainsail-pink-middle);
+            }
+
+            &.red {
+                @include mainsail-shadow-active($mainsail-red-middle);
+            }
+
+            &.neutral {
+                @include mainsail-shadow-active($mainsail-neutral-2);
+            }
         }
 
         &:checked + .mainsail-radio__icon .circle {

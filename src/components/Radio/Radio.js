@@ -49,16 +49,16 @@ export const Radio = ({
                 <span className={clsx("mainsail-radio__icon", color)}>
                     <span className="circle"></span>
                 </span>
-                {text ? (
+                {text || children ? (
                     <span
                         className={clsx(
                             "mainsail-radio__label-text",
                             isTruncated && "truncated"
                         )}>
                         {text}
+                        {children}
                     </span>
                 ) : null}
-                {children}
             </span>
         </label>
     );
@@ -90,9 +90,9 @@ Radio.defaultProps = {
     color: ENUMS.colors.blue,
 };
 
-export const RadioGroup = ({ children, className, labelText }) => {
+export const RadioGroup = ({ children, className, labelText, ...props }) => {
     return (
-        <div className={clsx("mainsail-radiogroup", className)}>
+        <div className={clsx("mainsail-radiogroup", className)} {...props}>
             {labelText ? (
                 <label className="radiogroup-label">{labelText}</label>
             ) : null}
