@@ -1,0 +1,180 @@
+@import "../../styles/Variables.scss";
+@import "../../styles/Layout.scss";
+
+/** Checkbox Component Styles */
+.mainsail-checkbox {
+    @include mainsail-body-text-regular();
+    margin: 0;
+    color: $mainsail-neutral-2;
+
+    .mainsail-checkbox__input-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: flex-start;
+        position: relative;
+        min-width: 0; /* Helps truncation work for flex children */
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        width: 16px;
+        height: 16px;
+        top: 0;
+        left: 0;
+        margin: 0;
+
+        &:focus + .mainsail-checkbox__icon {
+            &.blue {
+                @include mainsail-shadow-active($mainsail-blue-primary);
+            }
+
+            &.green {
+                @include mainsail-shadow-active($mainsail-green-middle);
+            }
+
+            &.violet {
+                @include mainsail-shadow-active($mainsail-violet-middle);
+            }
+
+            &.orange {
+                @include mainsail-shadow-active($mainsail-orange-middle);
+            }
+
+            &.pink {
+                @include mainsail-shadow-active($mainsail-pink-middle);
+            }
+
+            &.red {
+                @include mainsail-shadow-active($mainsail-red-middle);
+            }
+
+            &.neutral {
+                @include mainsail-shadow-active($mainsail-neutral-2);
+            }
+        }
+
+        &:checked + .mainsail-checkbox__icon svg {
+            transition: transform 0.1s ease 25ms;
+            transform: scale(1);
+        }
+
+        &:checked + .mainsail-checkbox__icon {
+            box-shadow: none;
+            width: 1em;
+            height: 1em;
+        }
+
+        &:not(:checked) + .mainsail-checkbox__icon {
+            background-color: transparent;
+        }
+
+        &:disabled + .mainsail-checkbox__icon {
+            box-shadow: none;
+            border-color: $mainsail-neutral-4;
+            cursor: not-allowed;
+        }
+
+        &:checked:disabled + .mainsail-checkbox__icon {
+            background-color: $mainsail-neutral-4;
+        }
+
+        &:disabled ~ .mainsail-checkbox__label-text {
+            color: $mainsail-neutral-4;
+            cursor: not-allowed;
+        }
+    }
+
+    .mainsail-checkbox__label-text {
+        margin-top: -0.125em;
+        svg {
+            margin-left: 4px;
+        }
+    }
+
+    .mainsail-checkbox__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        border: 1px solid $mainsail-blue-primary;
+        box-shadow: $mainsail-shadow-near;
+        margin-right: 10px;
+
+        &.blue {
+            border: 1px solid $mainsail-blue-primary;
+            background-color: $mainsail-blue-primary;
+            color: $mainsail-blue-primary;
+        }
+
+        &.green {
+            border: 1px solid $mainsail-green-middle;
+            background-color: $mainsail-green-middle;
+            color: $mainsail-green-middle;
+        }
+
+        &.violet {
+            border: 1px solid $mainsail-violet-middle;
+            background-color: $mainsail-violet-middle;
+            color: $mainsail-violet-middle;
+        }
+
+        &.orange {
+            border: 1px solid $mainsail-orange-middle;
+            background-color: $mainsail-orange-middle;
+            color: $mainsail-orange-middle;
+        }
+
+        &.pink {
+            border: 1px solid $mainsail-pink-middle;
+            background-color: $mainsail-pink-middle;
+            color: $mainsail-pink-middle;
+        }
+
+        &.red {
+            border: 1px solid $mainsail-red-middle;
+            background-color: $mainsail-red-middle;
+            color: $mainsail-red-middle;
+        }
+
+        &.neutral {
+            border: 1px solid $mainsail-neutral-2;
+            background-color: $mainsail-neutral-2;
+            color: $mainsail-neutral-2;
+        }
+
+        svg {
+            transform: scale(0);
+            transform-origin: center;
+            color: $mainsail-white;
+        }
+    }
+}
+
+.mainsail-checkboxgroup {
+    display: flex;
+    flex-direction: column;
+
+    .mainsail-checkbox {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    label.checkboxgroup-label {
+        @include mainsail-label-text-small;
+        font-family: $mainsail-font;
+        color: $mainsail-neutral-2;
+        margin-bottom: 8px;
+
+        &.large {
+            @include mainsail-label-text-large;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+        }
+    }
+}
