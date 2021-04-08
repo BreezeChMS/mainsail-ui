@@ -1,3 +1,15 @@
+# v0.5.0 (Thu Apr 08 2021)
+
+#### 🚀 Enhancement
+
+- Adds Radio buttons [#33](https://github.com/BreezeChMS/mainsail-ui/pull/33) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.4.2 (Thu Apr 01 2021)
 
 #### 🐛 Bug Fix
