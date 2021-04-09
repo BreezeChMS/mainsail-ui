@@ -117,11 +117,9 @@ export const Checkbox = ({
 Checkbox.propTypes = {
     /** (Optional) change event handler */
     onChange: PropTypes.func,
-    /** Links Radio inputs together by a common field name */
-    name: PropTypes.string,
     /** Label text to display, can also optionally provide children */
     text: PropTypes.string,
-    /** Radio color (omit for default) */
+    /** Checkbox color (omit for default) */
     color: PropTypes.oneOf(Object.keys(ENUMS.colors)),
     /** Style class to add to checkbox label wrapper element */
     className: PropTypes.string,
