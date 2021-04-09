@@ -14,9 +14,10 @@
         align-items: flex-start;
         position: relative;
         min-width: 0; /* Helps truncation work for flex children */
+        cursor: pointer;
     }
 
-    input {
+    input[type="checkbox"] {
         position: absolute;
         opacity: 0;
         width: 16px;
@@ -55,15 +56,66 @@
             }
         }
 
+        &:indeterminate + .mainsail-checkbox__icon svg,
         &:checked + .mainsail-checkbox__icon svg {
             transition: transform 0.1s ease 25ms;
             transform: scale(1);
         }
 
+        &:indeterminate + .mainsail-checkbox__icon,
         &:checked + .mainsail-checkbox__icon {
             box-shadow: none;
             width: 1em;
             height: 1em;
+        }
+
+        &:indeterminate + .mainsail-checkbox__icon {
+            box-shadow: none;
+            width: 1em;
+            height: 1em;
+            // background-color: transparent !important;
+
+            &.blue {
+                svg {
+                    color: $mainsail-blue-primary;
+                }
+            }
+
+            &.green {
+                svg {
+                    color: $mainsail-green-middle;
+                }
+            }
+
+            &.violet {
+                svg {
+                    color: $mainsail-violet-middle;
+                }
+            }
+
+            &.orange {
+                svg {
+                    color: $mainsail-orange-middle;
+                }
+            }
+
+            &.pink {
+                svg {
+                    color: $mainsail-pink-middle;
+                }
+            }
+
+            &.red {
+                svg {
+                    color: $mainsail-red-middle;
+                }
+            }
+
+            &.neutral {
+                svg {
+                    color: $mainsail-neutral-2;
+                }
+            }
         }
 
         &:not(:checked) + .mainsail-checkbox__icon {
@@ -78,6 +130,10 @@
 
         &:checked:disabled + .mainsail-checkbox__icon {
             background-color: $mainsail-neutral-4;
+        }
+
+        &:indeterminate:disabled + .mainsail-checkbox__icon svg {
+            color: $mainsail-neutral-4;
         }
 
         &:disabled ~ .mainsail-checkbox__label-text {
@@ -107,49 +163,48 @@
         &.blue {
             border: 1px solid $mainsail-blue-primary;
             background-color: $mainsail-blue-primary;
-            color: $mainsail-blue-primary;
+            color: $mainsail-white;
         }
 
         &.green {
             border: 1px solid $mainsail-green-middle;
             background-color: $mainsail-green-middle;
-            color: $mainsail-green-middle;
+            color: $mainsail-white;
         }
 
         &.violet {
             border: 1px solid $mainsail-violet-middle;
             background-color: $mainsail-violet-middle;
-            color: $mainsail-violet-middle;
+            color: $mainsail-white;
         }
 
         &.orange {
             border: 1px solid $mainsail-orange-middle;
             background-color: $mainsail-orange-middle;
-            color: $mainsail-orange-middle;
+            color: $mainsail-white;
         }
 
         &.pink {
             border: 1px solid $mainsail-pink-middle;
             background-color: $mainsail-pink-middle;
-            color: $mainsail-pink-middle;
+            color: $mainsail-white;
         }
 
         &.red {
             border: 1px solid $mainsail-red-middle;
             background-color: $mainsail-red-middle;
-            color: $mainsail-red-middle;
+            color: $mainsail-white;
         }
 
         &.neutral {
             border: 1px solid $mainsail-neutral-2;
             background-color: $mainsail-neutral-2;
-            color: $mainsail-neutral-2;
+            color: $mainsail-white;
         }
 
         svg {
             transform: scale(0);
             transform-origin: center;
-            color: $mainsail-white;
         }
     }
 }

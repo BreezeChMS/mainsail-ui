@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import CheckIcon from "../Icons/Check";
@@ -30,8 +30,40 @@ export const Checkbox = ({
     isDefaultChecked,
     isChecked,
     isDisabled,
+    isIndeterminate,
     ...props
 }) => {
+    let checkboxRef = useRef();
+    let checkedViaProps = isDefaultChecked || isChecked;
+    let shouldBeCheckedState = checkedViaProps && !isIndeterminate;
+    const stateFromProps = shouldBeCheckedState ? 1 : isIndeterminate ? -1 : 0;
+
+    let [isCheckedState, setCheckedState] = useState(null);
+
+    /*
+     * The input needs to be programmatically set to indeterminate
+     * we will use useEffect to do this on a ref to respond to
+     * user-interacted state changes
+     */
+    useEffect(() => {
+        checkboxRef.current.checked = isCheckedState === 1;
+        checkboxRef.current.indeterminate = isCheckedState === -1;
+    }, [isCheckedState]);
+
+    /*
+     * The Checkbox should build its state from props if passed
+     */
+    useEffect(() => {
+        checkboxRef.current.checked = isCheckedState === 1;
+        checkboxRef.current.indeterminate = isCheckedState === -1;
+        setCheckedState(stateFromProps);
+    }, [isIndeterminate, isChecked]);
+
+    const handleOnChange = (e) => {
+        setCheckedState(e.target.checked ? 1 : 0);
+        onChange && onChange(e);
+    };
+
     return (
         <label
             className={clsx("mainsail-checkbox", className)}
@@ -40,15 +72,32 @@ export const Checkbox = ({
                 <input
                     className="mainsail-checkbox__input"
                     type="checkbox"
-                    onChange={onChange}
+                    onChange={handleOnChange}
                     readOnly={typeof onChange !== "function"}
-                    defaultChecked={isDefaultChecked}
-                    checked={isChecked}
+                    checked={isCheckedState === 1}
                     disabled={isDisabled}
+                    ref={checkboxRef}
                     {...props}
                 />
                 <span className={clsx("mainsail-checkbox__icon", color)}>
-                    <CheckIcon />
+                    {isIndeterminate && isCheckedState !== 1 ? (
+                        <svg
+                            width="1em"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect
+                                x="3"
+                                y="7"
+                                width="10"
+                                height="2"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    ) : null}
+
+                    {isCheckedState === 1 ? <CheckIcon /> : null}
                 </span>
                 {text || children ? (
                     <span
@@ -74,16 +123,18 @@ Checkbox.propTypes = {
     text: PropTypes.string,
     /** Radio color (omit for default) */
     color: PropTypes.oneOf(Object.keys(ENUMS.colors)),
-    /** Style class to add to radio label wrapper element */
+    /** Style class to add to checkbox label wrapper element */
     className: PropTypes.string,
-    /** Truncates the text of the radio choice labels (driven by parent width) */
+    /** Truncates the text of the checkbox choice labels (driven by parent width) */
     isTruncated: PropTypes.bool,
-    /** Initializes a radio selection as checked (uncontrolled component) */
+    /** Initializes a checkbox selection as checked (uncontrolled component) */
     isDefaultChecked: PropTypes.bool,
-    /** Controls a radio selection as checked */
+    /** Marks a checkbox selection as checked (controlled component) */
     isChecked: PropTypes.bool,
-    /** Controls a radio selection as checked */
+    /** Marks a checkbox selection as checked */
     isDisabled: PropTypes.bool,
+    /** Marks a checkbox selection as indeterminate */
+    isIndeterminate: PropTypes.bool,
 };
 
 Checkbox.defaultProps = {

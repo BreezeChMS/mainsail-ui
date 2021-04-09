@@ -5,7 +5,7 @@ import {
     CheckboxGroup,
     ENUMS,
 } from "./Checkbox";
-// import { Icon, ENUMS as IconEnums } from "../Icon";
+import { IndeterminateGroup as IndeterminateGroupStory } from "./CheckboxGroup.stories";
 
 export default {
     title: "Elements/Checkbox",
@@ -30,16 +30,6 @@ export default {
             control: false,
         },
     },
-    // parameters: {
-    //     controls: { sort: "requiredFirst" },
-    //     docs: {
-    //         description: {
-    //             component: `A multiple choice input element common in forms for making an \`OR\` type of choice
-    //             \n**Special Usage Notes**
-    //         `,
-    //         },
-    //     },
-    // },
 };
 
 const Checkbox = (args) => <CheckboxComponent {...args} />;
@@ -49,6 +39,14 @@ Basic.args = {
     text: "Option 1",
     isDefaultChecked: true,
 };
+
+export const Indeterminate = Checkbox.bind({});
+Indeterminate.args = {
+    text: "Not quite selected",
+    isIndeterminate: true,
+};
+
+export const IndeterminateGroup = IndeterminateGroupStory;
 
 export const Grouped = (args) => (
     <CheckboxGroup labelText="Fancy Group">

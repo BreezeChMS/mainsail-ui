@@ -5,7 +5,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
-import { Basic, DefaultChecked } from "./Checkbox.stories";
+import { Basic, DefaultChecked, IndeterminateGroup } from "./Checkbox.stories";
 import { CheckboxGroup } from "./Checkbox";
 
 it("renders the checkbox in the primary state", () => {
@@ -92,4 +92,32 @@ it("can select multiples in a group", () => {
     userEvent.click(choices[1]);
     expect(choices[1]).not.toBeChecked();
     expect(choices[0]).toBeChecked();
+});
+
+it("can handle indeterminate states properly", () => {
+    // First child is pre-checked in this story!
+    render(<IndeterminateGroup />);
+    let choices = screen.getAllByRole("checkbox");
+
+    expect(choices[0]).not.toBeChecked();
+    expect(choices[0].indeterminate).toBe(true);
+    expect(choices[1]).toBeChecked();
+
+    // Let's deselect the first child
+    userEvent.click(choices[1]);
+
+    // Everything should be unchecked
+    expect(choices[0]).not.toBeChecked();
+    expect(choices[0].indeterminate).toBe(false);
+    expect(choices[1]).not.toBeChecked();
+
+    // Let's deselect the first child
+    userEvent.click(choices[1]);
+    userEvent.click(choices[2]);
+
+    // Everything should be checked
+    expect(choices[0]).toBeChecked();
+    expect(choices[0].indeterminate).toBe(false);
+    expect(choices[1]).toBeChecked();
+    expect(choices[2]).toBeChecked();
 });
