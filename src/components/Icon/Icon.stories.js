@@ -80,7 +80,7 @@ export const FullList = (args) => {
                         onClick={(e) => copyToClipboard(e, icon)}
                         name={icon}
                         size={args.size}
-                        disabled={args.isDisabled}
+                        isDisabled={args.isDisabled}
                         color={args.color}
                     />
                 </div>
