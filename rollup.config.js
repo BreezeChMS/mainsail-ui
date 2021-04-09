@@ -16,14 +16,21 @@ export default {
             format: "umd",
             globals: {
                 lodash: "_",
+                react: "React",
             },
         },
     ],
     plugins: [
         peerDepsExternal(),
         postcss({
-            extract: false,
             use: ["sass"],
+            config: {
+                path: "./postcss.config.js",
+            },
+            minimize: true,
+            inject: {
+                insertAt: "bottom",
+            },
         }),
         babel({ exclude: "node_modules/**", babelHelpers: "bundled" }),
         resolve(),

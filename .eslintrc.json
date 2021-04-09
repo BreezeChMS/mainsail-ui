@@ -12,7 +12,8 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended"
       ],
     "rules": {
         "import/no-anonymous-default-export": 0,
