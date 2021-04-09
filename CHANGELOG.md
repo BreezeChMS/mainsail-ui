@@ -1,3 +1,15 @@
+# v0.6.0 (Fri Apr 09 2021)
+
+#### 🚀 Enhancement
+
+- Checkbox [#34](https://github.com/BreezeChMS/mainsail-ui/pull/34) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.5.0 (Thu Apr 08 2021)
 
 #### 🚀 Enhancement
