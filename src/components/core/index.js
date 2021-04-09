@@ -1,6 +1,6 @@
 // Components Global Export for plopjs
-export { Checkbox } from "../Checkbox";
-export { Radio } from "../Radio";
+export { Checkbox, CheckboxGroup } from "../Checkbox";
+export { Radio, RadioGroup } from "../Radio";
 export { Badge } from "../Badge";
 export { Spinner } from "../Spinner";
 export { Button } from "../Button";
@@ -16,9 +16,9 @@ import { ENUMS as IconENUMS } from "../Icon";
 
 // ENUM Export for plopjs
 export const ENUMS = {
-	Checkbox: CheckboxENUMS,
-	Radio: RadioENUMS,
-	Badge: BadgeENUMS,
+    Checkbox: CheckboxENUMS,
+    Radio: RadioENUMS,
+    Badge: BadgeENUMS,
     Spinner: SpinnerENUMS,
     Button: ButtonENUMS,
     Icon: IconENUMS,

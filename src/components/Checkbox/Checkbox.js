@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import CheckIcon from "../Icons/Check";
@@ -34,35 +34,15 @@ export const Checkbox = ({
     ...props
 }) => {
     let checkboxRef = useRef();
-    let checkedViaProps = isDefaultChecked || isChecked;
-    let shouldBeCheckedState = checkedViaProps && !isIndeterminate;
-    const stateFromProps = shouldBeCheckedState ? 1 : isIndeterminate ? -1 : 0;
-
-    let [isCheckedState, setCheckedState] = useState(null);
-
     /*
      * The input needs to be programmatically set to indeterminate
      * we will use useEffect to do this on a ref to respond to
      * user-interacted state changes
      */
     useEffect(() => {
-        checkboxRef.current.checked = isCheckedState === 1;
-        checkboxRef.current.indeterminate = isCheckedState === -1;
-    }, [isCheckedState]);
-
-    /*
-     * The Checkbox should build its state from props if passed
-     */
-    useEffect(() => {
-        checkboxRef.current.checked = isCheckedState === 1;
-        checkboxRef.current.indeterminate = isCheckedState === -1;
-        setCheckedState(stateFromProps);
-    }, [isIndeterminate, isChecked]);
-
-    const handleOnChange = (e) => {
-        setCheckedState(e.target.checked ? 1 : 0);
-        onChange && onChange(e);
-    };
+        checkboxRef.current.checked = isChecked || isDefaultChecked;
+        checkboxRef.current.indeterminate = isIndeterminate;
+    });
 
     return (
         <label
@@ -72,15 +52,16 @@ export const Checkbox = ({
                 <input
                     className="mainsail-checkbox__input"
                     type="checkbox"
-                    onChange={handleOnChange}
+                    onChange={onChange}
                     readOnly={typeof onChange !== "function"}
-                    checked={isCheckedState === 1}
+                    checked={isChecked}
+                    defaultChecked={isDefaultChecked}
                     disabled={isDisabled}
                     ref={checkboxRef}
                     {...props}
                 />
                 <span className={clsx("mainsail-checkbox__icon", color)}>
-                    {isIndeterminate && isCheckedState !== 1 ? (
+                    {isIndeterminate && !isChecked ? (
                         <svg
                             width="1em"
                             height="1em"
@@ -97,7 +78,9 @@ export const Checkbox = ({
                         </svg>
                     ) : null}
 
-                    {isCheckedState === 1 ? <CheckIcon /> : null}
+                    {isChecked || (isDefaultChecked && !isIndeterminate) ? (
+                        <CheckIcon />
+                    ) : null}
                 </span>
                 {text || children ? (
                     <span

@@ -14,13 +14,7 @@ it("renders the checkbox in the primary state", () => {
 });
 
 it("renders the checkbox with default checked state", () => {
-    render(
-        <DefaultChecked
-            {...DefaultChecked.args}
-            text="Nifty"
-            isDefaultChecked
-        />
-    );
+    render(<DefaultChecked text="Nifty" isDefaultChecked />);
     expect(screen.getByRole("checkbox")).toBeChecked();
 });
 

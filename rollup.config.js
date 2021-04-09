@@ -22,8 +22,15 @@ export default {
     plugins: [
         peerDepsExternal(),
         postcss({
-            extract: false,
             use: ["sass"],
+            config: {
+                path: "./postcss.config.js",
+            },
+            // extensions: [".css"],
+            minimize: true,
+            inject: {
+                insertAt: "bottom",
+            },
         }),
         babel({ exclude: "node_modules/**", babelHelpers: "bundled" }),
         resolve(),
