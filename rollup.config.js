@@ -16,6 +16,7 @@ export default {
             format: "umd",
             globals: {
                 lodash: "_",
+                react: "React",
             },
         },
     ],
@@ -26,7 +27,6 @@ export default {
             config: {
                 path: "./postcss.config.js",
             },
-            // extensions: [".css"],
             minimize: true,
             inject: {
                 insertAt: "bottom",
