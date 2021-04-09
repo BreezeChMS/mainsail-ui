@@ -16,7 +16,7 @@
         min-width: 0; /* Helps truncation work for flex children */
     }
 
-    input {
+    input[type="radio"] {
         position: absolute;
         opacity: 0;
         width: 18px;
