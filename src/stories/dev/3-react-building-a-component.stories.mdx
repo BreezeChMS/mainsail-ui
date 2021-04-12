@@ -68,16 +68,16 @@ The generated scaffolding should provide a decent starting point with the follow
 ```jsx
 import React from "react";
 import PropTypes from "prop-types"; // Declare used props and their types
-import clsx from "clsx"; // A helpful className concatinator
+import clsx from "clsx"; // A helpful className concatenator
 
 import "./MyComponent.scss"; // The scss required for the component styles
 
 export const ENUMS = {
-    // Add any prop enums here (see Icon.js for example) - exported for dev convenience
+    // Add any prop enums here (see Icon.js for example) - exported for easy access elsewhere
 };
 
 /**
- * MyComponent Description provided by plop scaffolding prompts
+ * MyComponent Description provided by plop scaffolding prompts (used by Storybook)
  **/
 export const MyComponent = ({ className, children, ...props }) => {
     return (
@@ -127,14 +127,15 @@ import React from "react";
 import { MyComponent, ENUMS } from "./MyComponent";
 
 export default {
-    title: "MyComponentCategory/MyComponent",
-    component: MyComponent,
+    title: "MyComponentCategory/MyComponent", // Determines the title and nesting structure for navigation in Storybook
+    component: MyComponent, // Actual component code
     argTypes: {
+        // Arg types can be configured with more options for the docs and addons sections of Storybook (see Badges.stories.js)
         ...CustomConfigThatYouMightUse,
     },
 };
 
-const Template = (args) => <MyComponent {...args} />;
+const Template = (args) => <MyComponent {...args} />; // Template component pattern aids in code reuse throughout stories
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -143,15 +144,18 @@ Primary.args = {
 };
 
 export const Secondary = Template.bind({});
+// Defining args this way aids in code reuse and simplicity
 Secondary.args = {
-    variant: ENUMS.variant.secondary,
+    variant: ENUMS.variant.secondary, // No magic strings here, ENUMS imported directly from the component
     text: "Click me",
 };
 ```
 
-The **default export** is the primary story for your component. It will dictate what shows up in the **Docs** tab/section of your component.
+The **default export** is the primary story for your component. It will dictate what shows up in the **Docs** tab/section of your Story.
 
-Any additional **named exports** will be included as additional stories for your component. Storybook will utilize their export name to generate naming for documentation. This behavior can be overridden.
+Any additional **named exports** will be included as additional stories for your component.
+
+Storybook will utilize their export name to generate naming for documentation. This behavior can be overridden (see below _Helpful Story Configuration_).
 
 Note: the pattern used above for defining stories. This `Template.bind({})` + `args` pattern reduces the unique code necessary per story.
 
@@ -201,13 +205,15 @@ Primary.storyName = "Fancier Name";
 
 ## Writing the Tests 🧪
 
-While it can be argued that Tests should come first, when working with Storybook, it makes sense to write stories first. Which means you will likely work in the following flow:
+While it can be argued that Tests should come first, when working with Storybook, it makes sense to write stories before tests.
 
-1. Build Component logic
+This means you will likely work in the following flow:
+
+1. Build a Component
 1. Write a Story
 1. Write a test
 
-The reasoning here is because oftentimes exported Story code can be reused in test code to prevent brittle tests and provide direct access to how the use-case should operate coming directly from the story.
+The reasoning here is because exported Story code can be reused in test code to prevent brittle tests and provide direct access to how the Component should operate (its use-case) coming directly from the story.
 
 Here's an example:
 
@@ -224,10 +230,10 @@ import {
     Indeterminate,
     DefaultChecked,
     IndeterminateGroup,
-} from "./Checkbox.stories";
+} from "./Checkbox.stories"; // Imported stories are available for testing
 
 it("renders the proper icon with the indeterminate state", () => {
-    render(<Indeterminate {...Indeterminate.args} />);
+    render(<Indeterminate {...Indeterminate.args} />); // Render the Story, not the Component, reuse its Story args!
 
     expect(screen.getByRole("checkbox").indeterminate).toBe(true);
     expect(screen.getByTestId("indeterminate-svg")).toBeInTheDocument();
@@ -247,7 +253,7 @@ Notice that because we exported the stories with the suggested pattern, we can *
 
 -   🎉 Shorter
 -   🧐 Easier to read
--   🔗 Stay up-to-date with their component/story
+-   🔗 Stay up-to-date with their component/story with less duplication
 -   🏖 Focus less on implementation details
 
 ## Running Tests 🏃‍♂️
