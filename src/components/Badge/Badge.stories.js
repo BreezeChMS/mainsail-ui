@@ -11,7 +11,7 @@ export default {
             type: { color: "string" },
             control: {
                 type: "select",
-                options: ENUMS.colors,
+                options: Object.keys(ENUMS.colors),
             },
         },
         size: {
