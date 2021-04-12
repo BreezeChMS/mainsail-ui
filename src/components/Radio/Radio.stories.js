@@ -32,7 +32,7 @@ export default {
             description: {
                 component: `A multiple choice input element common in forms for making an \`OR\` type of choice
                 \n**Special Usage Notes**
-                \nThe Radio is intended to be used inside a [RadioGroup](./?path=/docs/elements-radiogroup--basic) for spacing styling.
+                \nThe Radio component is stateless and is also intended to be used inside a [RadioGroup](./?path=/docs/elements-radiogroup--basic) for spacing styling.
                 \n🚨 The \`name\` property links radios together (if you find multiple radios are being selected)
             `,
             },
