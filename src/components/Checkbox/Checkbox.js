@@ -19,6 +19,8 @@ export const ENUMS = {
 
 /**
  * An on/off, multiple choice selection input for `AND` options
+ *
+ * This component is stateless and intended to have state mangaged externally
  **/
 export const Checkbox = ({
     className,
@@ -67,6 +69,7 @@ export const Checkbox = ({
                             height="1em"
                             viewBox="0 0 16 16"
                             fill="none"
+                            data-testid="indeterminate-svg"
                             xmlns="http://www.w3.org/2000/svg">
                             <rect
                                 x="3"
@@ -78,8 +81,8 @@ export const Checkbox = ({
                         </svg>
                     ) : null}
 
-                    {isChecked || (isDefaultChecked && !isIndeterminate) ? (
-                        <CheckIcon />
+                    {!isIndeterminate ? (
+                        <CheckIcon data-testid="check-svg" />
                     ) : null}
                 </span>
                 {text || children ? (
