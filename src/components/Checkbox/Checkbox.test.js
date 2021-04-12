@@ -5,7 +5,12 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
-import { Basic, DefaultChecked, IndeterminateGroup } from "./Checkbox.stories";
+import {
+    Basic,
+    Indeterminate,
+    DefaultChecked,
+    IndeterminateGroup,
+} from "./Checkbox.stories";
 import { CheckboxGroup } from "./Checkbox";
 
 it("renders the checkbox in the primary state", () => {
@@ -22,6 +27,18 @@ it("renders the checkbox with controlled checked state", () => {
     render(<DefaultChecked {...DefaultChecked.args} text="Nifty" isChecked />);
     expect(screen.getByRole("checkbox")).toBeChecked();
     expect(screen.getByRole("checkbox")).toHaveAttribute("readonly");
+});
+
+it("renders the proper icon with the indeterminate state", () => {
+    render(<Indeterminate {...Indeterminate.args} />);
+
+    expect(screen.getByTestId("indeterminate-svg")).toBeInTheDocument();
+});
+
+it("renders the proper icon with the checked state", () => {
+    render(<Basic {...Basic.args} isDefaultChecked />);
+
+    expect(screen.getByTestId("check-svg")).toBeInTheDocument();
 });
 
 it("fires a provided onChange handler", () => {

@@ -37,7 +37,6 @@ const Checkbox = (args) => <CheckboxComponent {...args} />;
 export const Basic = Checkbox.bind({});
 Basic.args = {
     text: "Option 1",
-    isDefaultChecked: true,
 };
 
 export const Indeterminate = Checkbox.bind({});
