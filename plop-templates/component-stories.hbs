@@ -1,6 +1,6 @@
 import React from "react";
 
-import { {{componentName}} } from "./{{componentName}}";
+import { {{componentName}}, ENUMS } from "./{{componentName}}";
 
 export default {
     title: "{{category}}/{{componentName}}",
@@ -13,6 +13,6 @@ const Template = (args) => <{{componentName}} {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    variant: "primary",
+    variant: ENUMS.variant.primary,
     text: "Click me",
 };

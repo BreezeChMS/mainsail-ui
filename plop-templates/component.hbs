@@ -16,7 +16,7 @@ export const {{componentName}} = ({
     ...props
 }) => {
     return (
-        <div className={clsx(className, 'my-other-classes')}></div>
+        <div className={clsx('mainsail-{{kebabCase componentName}}', className)}>{children}</div>
     );
 };
 
