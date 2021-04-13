@@ -24,6 +24,7 @@
     "storybook": "start-storybook -p 6006 -s src/assets",
     "build-storybook": "build-storybook -o docs-build -s src/assets",
     "deploy-storybook": "storybook-to-ghpages",
+    "lint": "eslint \"src/**/*.js\" -c .eslintrc.json",
     "release": "auto shipit"
   },
   "engines": {
