@@ -22,7 +22,7 @@ jobs:
         if: steps.node-modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
-      - name: Run Jest Tests
+      - name: Run ESLINT
         run: yarn lint || { echo "Component Linting Failed! (ಥ﹏ಥ)"; exit 1; }
 
   tests:
