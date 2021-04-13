@@ -88,7 +88,6 @@ Badge.propTypes = {
     size: PropTypes.oneOf(Object.keys(sizes)),
     /** Creates a fully rounded badge */
     isRounded: PropTypes.bool,
-    bad: PropTypes.bool,
 };
 
 Badge.defaultProps = {
