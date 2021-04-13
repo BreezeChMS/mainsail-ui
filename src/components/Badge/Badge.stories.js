@@ -11,16 +11,16 @@ export default {
             type: { color: "string" },
             control: {
                 type: "select",
-                options: ENUMS.colors,
             },
+            options: Object.keys(ENUMS.colors),
         },
         size: {
             name: "size",
             type: { size: "string" },
             control: {
                 type: "select",
-                options: ENUMS.sizes,
             },
+            options: Object.keys(ENUMS.sizes),
         },
     },
 };

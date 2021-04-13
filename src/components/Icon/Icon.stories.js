@@ -11,16 +11,16 @@ export default {
             type: { name: "string", required: true },
             control: {
                 type: "select",
-                options: Object.keys(ENUMS.names),
             },
+            options: Object.keys(ENUMS.names),
         },
         size: {
             name: "size",
             type: { name: "string" },
             control: {
                 type: "radio",
-                options: Object.keys(ENUMS.sizes),
             },
+            options: Object.keys(ENUMS.sizes),
         },
     },
 };

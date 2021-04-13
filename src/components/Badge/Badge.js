@@ -15,18 +15,20 @@ export const variants = {
     removable: "removable",
 };
 
+export const colors = {
+    blue: "blue",
+    green: "green",
+    violet: "violet",
+    orange: "orange",
+    pink: "pink",
+    red: "red",
+    neutral: "neutral",
+};
+
 export const ENUMS = {
     sizes,
     variants,
-    colors: {
-        blue: "blue",
-        green: "green",
-        violet: "violet",
-        orange: "orange",
-        pink: "pink",
-        red: "red",
-        neutral: "neutral",
-    },
+    colors,
 };
 
 /**

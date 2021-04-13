@@ -19,12 +19,12 @@ it("renders the checkbox in the primary state", () => {
 });
 
 it("renders the checkbox with default checked state", () => {
-    render(<DefaultChecked text="Nifty" isDefaultChecked />);
+    render(<DefaultChecked {...DefaultChecked.args} />);
     expect(screen.getByRole("checkbox")).toBeChecked();
 });
 
 it("renders the checkbox with controlled checked state", () => {
-    render(<DefaultChecked {...DefaultChecked.args} text="Nifty" isChecked />);
+    render(<Basic {...Basic.args} isChecked />);
     expect(screen.getByRole("checkbox")).toBeChecked();
     expect(screen.getByRole("checkbox")).toHaveAttribute("readonly");
 });
@@ -32,12 +32,14 @@ it("renders the checkbox with controlled checked state", () => {
 it("renders the proper icon with the indeterminate state", () => {
     render(<Indeterminate {...Indeterminate.args} />);
 
+    expect(screen.getByRole("checkbox").indeterminate).toBe(true);
     expect(screen.getByTestId("indeterminate-svg")).toBeInTheDocument();
 });
 
 it("renders the proper icon with the checked state", () => {
-    render(<Basic {...Basic.args} isDefaultChecked />);
+    render(<Basic {...Basic.args} isChecked />);
 
+    expect(screen.getByRole("checkbox")).toBeChecked();
     expect(screen.getByTestId("check-svg")).toBeInTheDocument();
 });
 

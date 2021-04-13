@@ -13,8 +13,8 @@ export default {
             description: `If supplying a string, see list in Icon story`,
             control: {
                 type: "select",
-                options: ["", ...Object.keys(ENUMS.names)],
             },
+            options: ["", ...Object.keys(ENUMS.names)],
         },
         iconRight: {
             name: "iconRight",
@@ -22,8 +22,8 @@ export default {
             description: `If supplying a string, see list in Icon story`,
             control: {
                 type: "select",
-                options: ["", ...Object.keys(ENUMS.names)],
             },
+            options: ["", ...Object.keys(ENUMS.names)],
         },
         icon: {
             name: "icon",
@@ -31,8 +31,8 @@ export default {
             description: `Will make an icon only button if prop is provided a value. If supplying a string, see list in Icon story`,
             control: {
                 type: "select",
-                options: ["", ...Object.keys(ENUMS.names)],
             },
+            options: ["", ...Object.keys(ENUMS.names)],
         },
     },
 };
