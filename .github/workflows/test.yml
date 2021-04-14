@@ -1,10 +1,10 @@
-name: Linting & Tests 👕 🧪
+name: Linting 👕 & Tests 🧪
 
 on: [pull_request]
 
 jobs:
   lint:
-    name: Lint 👕
+    name: Lint
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -26,7 +26,7 @@ jobs:
         run: yarn lint || { echo "Component Linting Failed! (ಥ﹏ಥ)"; exit 1; }
 
   tests:
-    name: Component Unit Tests 🧪
+    name: Component Unit Tests
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
