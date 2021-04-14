@@ -1,4 +1,4 @@
-name: NPM Release 📦
+name: NPM Release
 
 on:
   push:
@@ -7,11 +7,13 @@ on:
 
 jobs:
   release:
-    name: Auto Release
+    name: Auto Release 📦
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.BREEZECI_TOKEN }}
 
       - name: Prepare repository
         run: git fetch --unshallow --tags
@@ -32,8 +34,6 @@ jobs:
       - name: Create Release 🚀
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        with:
-          token: ${{ secrets.BREEZECI_TOKEN }}
         run: |
           yarn install --frozen-lockfile
           yarn build
