@@ -32,10 +32,9 @@ jobs:
             yarn-deps-${{ hashFiles('yarn.lock') }}
 
       - name: Create Release 🚀
-        with:
-          token: ${{ secrets.BREEZECI_TOKEN }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BREEZECI_TOKEN }}
         run: |
           yarn install --frozen-lockfile
           yarn build
