@@ -13,6 +13,8 @@ jobs:
       - name: Prepare repository
       - uses: actions/checkout@v2
         run: git fetch --unshallow --tags
+        with:
+          token: ${{ secrets.BREEZECI_TOKEN }}
 
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
@@ -28,8 +30,9 @@ jobs:
             yarn-deps-${{ hashFiles('yarn.lock') }}
 
       - name: Create Release 🚀
+        with:
+          token: ${{ secrets.BREEZECI_TOKEN }}
         env:
-          GITHUB_TOKEN: ${{ secrets.BREEZECI_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           yarn install --frozen-lockfile
