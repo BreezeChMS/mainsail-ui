@@ -49,6 +49,8 @@ jobs:
     
   chromatic:
     name: Chromatic Visual Tests 🌈
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Cache Node Modules
         id: node-modules
