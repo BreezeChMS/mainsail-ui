@@ -20,23 +20,29 @@ const renderChild = (child) => {
     return child;
 };
 
+export const variants = {
+    primary: "primary",
+    secondary: "secondary",
+    tertiary: "tertiary",
+    link: "link",
+    icon: "icon",
+};
+
+export const textSizes = {
+    small: "small",
+    regular: "regular",
+};
+
+export const intents = {
+    default: "default",
+    filtering: "filtering",
+    danger: "danger",
+};
+
 export const ENUMS = {
-    variants: {
-        primary: "primary",
-        secondary: "secondary",
-        tertiary: "tertiary",
-        link: "link",
-        icon: "icon",
-    },
-    textSizes: {
-        small: "small",
-        regular: "regular",
-    },
-    intents: {
-        default: "default",
-        filtering: "filtering",
-        danger: "danger",
-    },
+    variants,
+    textSizes,
+    intents,
 };
 
 /**
