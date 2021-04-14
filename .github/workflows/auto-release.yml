@@ -10,13 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
     steps:
-
+      - name: Prepare repository
       - uses: actions/checkout@v2
+        run: git fetch --unshallow --tags
         with:
           token: ${{ secrets.BREEZECI_TOKEN }}
-
-      - name: Prepare repository
-        run: git fetch --unshallow --tags
 
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
