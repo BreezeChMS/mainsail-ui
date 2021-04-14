@@ -32,6 +32,8 @@ jobs:
     steps:
       - name: Checkout Pull Request Branch
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Cache Node Modules
         id: node-modules
