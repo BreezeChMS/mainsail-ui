@@ -1,3 +1,30 @@
+# v0.6.3 (Wed Apr 14 2021)
+
+#### 🐛 Bug Fix
+
+- please please please work [#45](https://github.com/BreezeChMS/mainsail-ui/pull/45) ([@3CordGuy](https://github.com/3CordGuy))
+- changes release workflow [#44](https://github.com/BreezeChMS/mainsail-ui/pull/44) ([@3CordGuy](https://github.com/3CordGuy))
+- moves prop on button [#43](https://github.com/BreezeChMS/mainsail-ui/pull/43) ([@3CordGuy](https://github.com/3CordGuy))
+- tests some ci changes [#42](https://github.com/BreezeChMS/mainsail-ui/pull/42) ([@3CordGuy](https://github.com/3CordGuy))
+- test out some ci changes [#41](https://github.com/BreezeChMS/mainsail-ui/pull/41) ([@3CordGuy](https://github.com/3CordGuy))
+- cleans up some button code for consistency [#40](https://github.com/BreezeChMS/mainsail-ui/pull/40) ([@3CordGuy](https://github.com/3CordGuy))
+- Use Chromatic for visual diffing [#39](https://github.com/BreezeChMS/mainsail-ui/pull/39) ([@alexortizrosado](https://github.com/alexortizrosado))
+
+#### 🏠 Internal
+
+- adds ESLINT github action [#38](https://github.com/BreezeChMS/mainsail-ui/pull/38) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- Dev docs [#37](https://github.com/BreezeChMS/mainsail-ui/pull/37) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 2
+
+- Alex Ortiz-Rosado ([@alexortizrosado](https://github.com/alexortizrosado))
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.6.2 (Mon Apr 12 2021)
 
 #### 🐛 Bug Fix
