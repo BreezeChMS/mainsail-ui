@@ -1,4 +1,4 @@
-name: Release
+name: Linting & Tests 👕 🧪 🌈 
 
 on: [pull_request]
 
@@ -46,3 +46,31 @@ jobs:
 
       - name: Run Jest Tests
         run: yarn test --silent --colors || { echo "Component Tests Failed! (╯°□°）╯︵ ┻━┻"; exit 1; }
+    
+  chromatic:
+    name: Chromatic Visual Tests 🌈
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout Pull Request Branch
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Cache Node Modules
+        id: node-modules
+        uses: actions/cache@v1
+        with:
+          path: ui/node_modules/
+          key: ${{ runner.os }}-npm_directory-${{ github.head_ref }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.node-modules.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          exitZeroOnChanges: true
