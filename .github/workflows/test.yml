@@ -1,4 +1,4 @@
-name: Linting & Tests 👕 🧪
+name: Linting & Tests
 
 on: [pull_request]
 

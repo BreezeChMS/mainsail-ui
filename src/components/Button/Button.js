@@ -141,10 +141,10 @@ Button.propTypes = {
     onClick: PropTypes.func,
     /** Disabled state */
     isDisabled: PropTypes.bool,
-    /** Loading state */
-    isLoading: PropTypes.bool,
     /** If true, will cause button to take up full width of parent */
     isFullWidth: PropTypes.bool,
+    /** Loading state (adds/removes spinner) */
+    isLoading: PropTypes.bool,
     /** Text to display while loading */
     loadingText: PropTypes.string,
 };

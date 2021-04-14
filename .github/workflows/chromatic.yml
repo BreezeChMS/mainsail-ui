@@ -1,4 +1,4 @@
-name: Chromatic 🌈
+name: Chromatic
 
 on: push
 
@@ -24,7 +24,7 @@ jobs:
         if: steps.node-modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
-      - name: Publish to Chromatic
+      - name: Publish to Chromatic 🚀
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
