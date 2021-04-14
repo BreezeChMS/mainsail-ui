@@ -1,4 +1,4 @@
-name: Release
+name: Linting & Tests 👕 🧪 🌈 
 
 on: [pull_request]
 
