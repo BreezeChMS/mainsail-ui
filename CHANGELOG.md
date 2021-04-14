@@ -1,3 +1,25 @@
+# v0.6.3 (Wed Apr 14 2021)
+
+#### 🐛 Bug Fix
+
+- cleans up some button code for consistency [#40](https://github.com/BreezeChMS/mainsail-ui/pull/40) ([@3CordGuy](https://github.com/3CordGuy))
+- Use Chromatic for visual diffing [#39](https://github.com/BreezeChMS/mainsail-ui/pull/39) ([@alexortizrosado](https://github.com/alexortizrosado))
+
+#### 🏠 Internal
+
+- adds ESLINT github action [#38](https://github.com/BreezeChMS/mainsail-ui/pull/38) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- Dev docs [#37](https://github.com/BreezeChMS/mainsail-ui/pull/37) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 2
+
+- Alex Ortiz-Rosado ([@alexortizrosado](https://github.com/alexortizrosado))
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.6.2 (Mon Apr 12 2021)
 
 #### 🐛 Bug Fix
