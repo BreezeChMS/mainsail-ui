@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Badge as BadgeComponent, ENUMS } from "./Badge";
+import { Badge as BadgeComponent } from "components/Badge";
 
 export default {
     title: "Elements/Badge",
@@ -12,7 +12,7 @@ export default {
             control: {
                 type: "select",
             },
-            options: Object.keys(ENUMS.colors),
+            options: Object.keys(BadgeComponent.colors),
         },
         size: {
             name: "size",
@@ -20,7 +20,7 @@ export default {
             control: {
                 type: "select",
             },
-            options: Object.keys(ENUMS.sizes),
+            options: Object.keys(BadgeComponent.sizes),
         },
     },
 };
@@ -30,14 +30,14 @@ const Badge = (args) => <BadgeComponent {...args} />;
 export const Basic = Badge.bind({});
 Basic.args = {
     text: "Badge",
-    variant: ENUMS.variants.basic,
+    variant: BadgeComponent.variants.basic,
 };
 
 export const Removable = Badge.bind({});
 Removable.args = {
     text: "Removable",
-    variant: ENUMS.variants.removable,
-    color: ENUMS.colors.blue,
+    variant: BadgeComponent.variants.removable,
+    color: BadgeComponent.colors.blue,
     onRemove: () => alert("You removed the badge!"),
 };
 

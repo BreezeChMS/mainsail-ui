@@ -14,6 +14,8 @@ it("renders the badge in the primary state", () => {
 
 it("fires a provided onRemove handler", () => {
     let onClick = jest.fn();
+    window.alert = () => {};
+
     render(<Removable {...Removable.args} onClick={onClick} />);
 
     userEvent.click(screen.getByRole("button"));
