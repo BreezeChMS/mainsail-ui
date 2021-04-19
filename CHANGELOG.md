@@ -1,3 +1,16 @@
+# v0.7.1 (Mon Apr 19 2021)
+
+#### 🐛 Bug Fix
+
+- warning icon + icon docs [#48](https://github.com/BreezeChMS/mainsail-ui/pull/48) ([@3CordGuy](https://github.com/3CordGuy))
+- updates prop template to avoid some errors [#47](https://github.com/BreezeChMS/mainsail-ui/pull/47) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.7.0 (Mon Apr 19 2021)
 
 #### 🚀 Enhancement
