@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import clsx from "clsx";
+import { classify } from "utility/classify";
 
 import "./{{componentName}}.scss";
 
@@ -16,7 +16,7 @@ export const {{componentName}} = ({
     ...props
 }) => {
     return (
-        <div className={clsx('mainsail-{{kebabCase componentName}}', className)}>{children}</div>
+        <div className={classify('mainsail-{{kebabCase componentName}}', className)}>{children}</div>
     );
 };
 
@@ -26,3 +26,9 @@ export const {{componentName}} = ({
 };
 
 {{componentName}}.defaultProps = {};
+
+/*
+* Tip: Be sure to attach any prop enums separately for convenience
+* use the plural form of the prop name
+* {{componentName}}.variants = variants
+*/
