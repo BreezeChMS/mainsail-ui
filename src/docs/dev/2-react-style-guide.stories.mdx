@@ -143,22 +143,52 @@ coding/sorting benefits emerge by inverting theses specificity values to `mainsa
 
 > 📂 This applies to file names as well. Structuring files this way will keep them organized and ordered by file systems.
 
+## Imports
+
+Regarding importing, the `mainsail-ui` developer environment supports a few convenient absolute alias resolvers (set up in `jsconfig.json`, `package.json`, and `.storybook/main.js` for editors, jest, and storybook respectively).
+
+The following paths are aliased:
+
+-   components
+-   styles
+-   utility
+
+These folders are resolved for you so you don't need to use relative paths that leave you scratching your head wondering how deep something should be in a folder import.
+
+**DO NOT 🚫**
+
+```js
+// Button.stories.js uses icon component
+import { Icon } from "../Icon";
+```
+
+**DO ✅**
+
+```js
+// Use the absolute alias instead
+import { Icon } from "components/Icon";
+```
+
+This results in clearer, more readable imports.
+
+💡 **As a rule of thumb, if you have more than one dot in the path, try to make it absolute with an included alias.**
+
 ## Enumerable Props
 
 The decision has been made to provide a convention to mitigate [magic string](https://softwareengineering.stackexchange.com/questions/365339/what-is-wrong-with-magic-strings) usage in/for this library.
 
-Props that are utilized in a component should have their ENUM values exposed and exported as such.
+Props with enum type of values that are utilized in a component should have their values exposed and exported as such. See [Building a Component](<(./?path=/docs/react-developing-building-a-component--page)>) for more details.
 
 For Example:
 
 ```js
-// The Button Component has a `variant` prop.
+// Okay: The Button Component has a `variant` prop.
 
 <Button variant="primary" />
 
-// Vs
+// Better
 
-<Button variant={variants.primary} />
+<Button variant={Button.variants.primary} />
 ```
 
 Usage of the prop could be handled by passing a string of "primary" but it is actually better to provide a means for the end-user-developer to not have to use strings at all for their prop if we can.
@@ -177,31 +207,44 @@ Setup may look like this:
 ```js
 // Button.js
 ...
-
-export const ENUMS = {
-    variants: {
+export const variants = {
         primary: "primary",
         secondary: "secondary",
         tertiary: "tertiary",
         link: "link",
         icon: "icon",
     }
+
+// The global export is being deprecated in favor of Component-specific prop name attaching
+export const ENUMS = {
+    variants
 };
 
 ...
 
-// Component code below
+// Button Component code
+...
+
+// Attached prop values
+Button.variants = variants
+
 ```
 
 Usage may look like this:
 
 ```js
 // Button.stories.js
-import { Button, ENUMS } from "./Button";
+import { Button } from "./Button";
 
 export const Primary = Template.bind({});
 Primary.args = {
-    variant: ENUMS.variants.primary,
+    variant: Button.variants.primary,
     text: "Click me",
 };
 ```
+
+## Exports Concepts
+
+Individual component directories are exported with an `index.js` file solely for cleaner imports within this project.
+
+Also, there are some plop-driven export bits of logic that aid in the building of the libary for distribution.

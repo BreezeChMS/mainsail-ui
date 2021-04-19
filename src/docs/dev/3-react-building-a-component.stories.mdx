@@ -68,13 +68,14 @@ The generated scaffolding should provide a decent starting point with the follow
 ```jsx
 import React from "react";
 import PropTypes from "prop-types"; // Declare used props and their types
-import clsx from "clsx"; // A helpful className concatenator
+import { classify } from "utility/classify"; // A helpful className concatenator
 
 import "./MyComponent.scss"; // The scss required for the component styles
 
-export const ENUMS = {
-    // Add any prop enums here (see Icon.js for example) - exported for easy access elsewhere
-};
+// Declare exported enums props up here
+export const variants = {
+    ...
+}
 
 /**
  * MyComponent Description provided by plop scaffolding prompts (used by Storybook)
@@ -93,6 +94,9 @@ MyComponent.propTypes = {
 MyComponent.defaultProps = {
     // Specify the default values of any props here
 };
+
+// attach your prop enums to the component directly for convenient use to avoid magic strings in component implementation (see Getting Started)
+MyComponent.variants = variants
 ```
 
 **A few things of importance about the component structure:**
@@ -124,7 +128,7 @@ Stories have a scaffolded initial structure.
 ```jsx
 import React from "react";
 
-import { MyComponent, ENUMS } from "./MyComponent";
+import { MyComponent } from "./MyComponent";
 
 export default {
     title: "MyComponentCategory/MyComponent", // Determines the title and nesting structure for navigation in Storybook
@@ -139,14 +143,14 @@ const Template = (args) => <MyComponent {...args} />; // Template component patt
 
 export const Primary = Template.bind({});
 Primary.args = {
-    variant: ENUMS.variant.primary,
+    variant: MyComponent.variants.primary,
     text: "Click me",
 };
 
 export const Secondary = Template.bind({});
 // Defining args this way aids in code reuse and simplicity
 Secondary.args = {
-    variant: ENUMS.variant.secondary, // No magic strings here, ENUMS imported directly from the component
+    variant: MyComponent.variants.secondary, // No magic strings here, ENUMS accessed directly from the component
     text: "Click me",
 };
 ```
@@ -164,7 +168,7 @@ const Template = (args) => <MyComponent {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    variant: ENUMS.variant.primary,
+    variant: MyComponent.variants.primary,
     text: "Click me",
 };
 ```
