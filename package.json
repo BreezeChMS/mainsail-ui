@@ -1,6 +1,6 @@
 {
   "name": "mainsail-ui",
-  "version": "0.6.4",
+  "version": "0.7.0",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.module.js",
@@ -112,9 +112,9 @@
   },
   "jest": {
     "moduleNameMapper": {
-        "^components(.*)$": "<rootDir>/src/components$1",
-        "^styles(.*)$": "<rootDir>/src/styles$1",
-        "^utility(.*)$": "<rootDir>/src/utility$1"
+      "^components(.*)$": "<rootDir>/src/components$1",
+      "^styles(.*)$": "<rootDir>/src/styles$1",
+      "^utility(.*)$": "<rootDir>/src/utility$1"
     }
   }
 }
