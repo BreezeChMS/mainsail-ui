@@ -13,16 +13,19 @@ export const ENUMS = {
  **/
 export const {{componentName}} = ({
     className,
+    children,
     ...props
 }) => {
     return (
-        <div className={classify('mainsail-{{kebabCase componentName}}', className)}>{children}</div>
+        <div className={classify('mainsail-{{kebabCase componentName}}', className)} {...props}>{children}</div>
     );
 };
 
 {{componentName}}.propTypes = {
     /** (Optional) click handler */
     onClick: PropTypes.func,
+    /** Style class to add to Icon wrapper */
+    className: PropTypes.string,
 };
 
 {{componentName}}.defaultProps = {};
