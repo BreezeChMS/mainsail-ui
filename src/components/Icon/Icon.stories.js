@@ -49,49 +49,48 @@ export const FullList = (args) => {
     };
 
     let renderIconList = (LIST) =>
-        LIST.filter(filterIcons).map((icon, i) => {
-            return (
-                <div
-                    key={i}
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        marginBottom: "4px",
-                        transition: "all 0.5s",
-                    }}>
+        LIST.filter(filterIcons)
+            .sort()
+            .map((icon, i) => {
+                return (
                     <div
+                        key={i}
                         style={{
-                            fontFamily: "sans-serif",
-                            fontSize: "10px",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
                             marginBottom: "4px",
+                            transition: "all 0.5s",
                         }}>
-                        <pre
+                        <div
                             style={{
-                                padding: "2px 4px",
-                                background: "#f4f4f4",
-                                borderRadius: "4px",
+                                fontFamily: "sans-serif",
+                                fontSize: "10px",
+                                marginBottom: "4px",
                             }}>
-                            {icon && icon}
-                        </pre>
+                            <pre
+                                style={{
+                                    padding: "2px 4px",
+                                    background: "#f4f4f4",
+                                    borderRadius: "4px",
+                                }}>
+                                {icon && icon}
+                            </pre>
+                        </div>
+                        <Template
+                            onClick={(e) => copyToClipboard(e, icon)}
+                            name={icon}
+                            size={args.size}
+                            isDisabled={args.isDisabled}
+                            color={args.color}
+                        />
                     </div>
-                    <Template
-                        onClick={(e) => copyToClipboard(e, icon)}
-                        name={icon}
-                        size={args.size}
-                        isDisabled={args.isDisabled}
-                        color={args.color}
-                    />
-                </div>
-            );
-        });
+                );
+            });
 
     return (
         <div>
-            {/* {copiedNotice ? (
-                <span style={{ marginBottom: "20px" }}>{copiedNotice}</span>
-            ) : null} */}
             <div
                 style={{
                     fontFamily: "sans-serif",
