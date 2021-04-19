@@ -1,19 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import clsx from "clsx";
+import { classify } from "utility/classify";
 
 import "./Radio.scss";
 
+export const colors = {
+    blue: "blue",
+    green: "green",
+    violet: "violet",
+    orange: "orange",
+    pink: "pink",
+    red: "red",
+    neutral: "neutral",
+};
+
 export const ENUMS = {
-    colors: {
-        blue: "blue",
-        green: "green",
-        violet: "violet",
-        orange: "orange",
-        pink: "pink",
-        red: "red",
-        neutral: "neutral",
-    },
+    colors,
 };
 
 /**
@@ -33,7 +35,7 @@ export const Radio = ({
 }) => {
     return (
         <label
-            className={clsx("mainsail-radio", className)}
+            className={classify("mainsail-radio", className)}
             data-testid="radio">
             <span className="mainsail-radio__input-wrapper">
                 <input
@@ -46,12 +48,12 @@ export const Radio = ({
                     disabled={isDisabled}
                     {...props}
                 />
-                <span className={clsx("mainsail-radio__icon", color)}>
+                <span className={classify("mainsail-radio__icon", color)}>
                     <span className="circle"></span>
                 </span>
                 {text || children ? (
                     <span
-                        className={clsx(
+                        className={classify(
                             "mainsail-radio__label-text",
                             isTruncated && "truncated"
                         )}>
@@ -92,7 +94,7 @@ Radio.defaultProps = {
 
 export const RadioGroup = ({ children, className, labelText, ...props }) => {
     return (
-        <div className={clsx("mainsail-radiogroup", className)} {...props}>
+        <div className={classify("mainsail-radiogroup", className)} {...props}>
             {labelText ? (
                 <label className="radiogroup-label">{labelText}</label>
             ) : null}
@@ -107,3 +109,5 @@ RadioGroup.propTypes = {
     /** Style class to add to RadioGroup label wrapper element */
     className: PropTypes.string,
 };
+
+Radio.colors = colors;

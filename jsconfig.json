@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "components/*": ["src/components/*"],
+            "styles/*": ["src/styles/*"],
+            "utility/*": ["src/utility/*"]
+        }
+    },
+    "exclude": ["node_modules", "dist", ".storybook"]
+}

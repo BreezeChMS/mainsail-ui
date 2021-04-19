@@ -1,20 +1,22 @@
 import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import clsx from "clsx";
-import CheckIcon from "../Icons/Check";
+import { classify } from "utility/classify";
+import CheckIcon from "components/Icons/Check";
 
 import "./Checkbox.scss";
 
+export const colors = {
+    blue: "blue",
+    green: "green",
+    violet: "violet",
+    orange: "orange",
+    pink: "pink",
+    red: "red",
+    neutral: "neutral",
+};
+
 export const ENUMS = {
-    colors: {
-        blue: "blue",
-        green: "green",
-        violet: "violet",
-        orange: "orange",
-        pink: "pink",
-        red: "red",
-        neutral: "neutral",
-    },
+    colors,
 };
 
 /**
@@ -48,7 +50,7 @@ export const Checkbox = ({
 
     return (
         <label
-            className={clsx("mainsail-checkbox", className)}
+            className={classify("mainsail-checkbox", className)}
             data-testid="checkbox">
             <span className="mainsail-checkbox__input-wrapper">
                 <input
@@ -62,7 +64,7 @@ export const Checkbox = ({
                     ref={checkboxRef}
                     {...props}
                 />
-                <span className={clsx("mainsail-checkbox__icon", color)}>
+                <span className={classify("mainsail-checkbox__icon", color)}>
                     {isIndeterminate && !isChecked ? (
                         <svg
                             width="1em"
@@ -87,7 +89,7 @@ export const Checkbox = ({
                 </span>
                 {text || children ? (
                     <span
-                        className={clsx(
+                        className={classify(
                             "mainsail-checkbox__label-text",
                             isTruncated && "truncated"
                         )}>
@@ -128,7 +130,9 @@ Checkbox.defaultProps = {
 
 export const CheckboxGroup = ({ children, className, labelText, ...props }) => {
     return (
-        <div className={clsx("mainsail-checkboxgroup", className)} {...props}>
+        <div
+            className={classify("mainsail-checkboxgroup", className)}
+            {...props}>
             {labelText ? (
                 <label className="checkboxgroup-label">{labelText}</label>
             ) : null}
@@ -143,3 +147,5 @@ CheckboxGroup.propTypes = {
     /** Style class to add to CheckboxGroup label wrapper element */
     className: PropTypes.string,
 };
+
+Checkbox.colors = colors;

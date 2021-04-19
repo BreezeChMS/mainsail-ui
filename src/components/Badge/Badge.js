@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import clsx from "clsx";
-import { Icon, ENUMS as IconENUMS } from "../Icon/Icon";
+import { classify } from "utility/classify";
+import { Icon } from "components/Icon/Icon";
 
 import "./Badge.scss";
 
@@ -49,7 +49,7 @@ export const Badge = ({
 
     return (
         <span
-            className={clsx(
+            className={classify(
                 className,
                 "mainsail-badge",
                 color,
@@ -64,8 +64,8 @@ export const Badge = ({
                 <button onClick={onRemove}>
                     <Icon
                         className={textColor}
-                        size={IconENUMS.sizes.sm}
-                        name={IconENUMS.names.close}
+                        size={Icon.sizes.sm}
+                        name={Icon.names.close}
                     />
                 </button>
             ) : null}
@@ -96,3 +96,7 @@ Badge.defaultProps = {
     size: sizes.sm,
     isRounded: false,
 };
+
+Badge.sizes = sizes;
+Badge.colors = colors;
+Badge.variants = variants;

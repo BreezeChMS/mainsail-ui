@@ -79,19 +79,29 @@ _Note: In the case where any prop value is `default`, it can be omitted_
 
 Like many modern component libraries, utilizing [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) helps development along by throwing errors to your console if you pass an improper type to a component prop. While this is true of Mainsail, you can also utilize exposed ENUM prop values for each component.
 
-The **exported ENUMS** object is namespaced for each component **by component name**.
+> 🚨 The global exported ENUMS prop name object will be deprecated in the future in support of Component-specific ENUMS inclusion.
 
-So the ENUMS for the `<Icon/>` component are available under `ENUMS.Icon.<prop_name>.<prop_value>`.
+**Instead of importing:**
 
-**Example**
+`import { Button, ENUMS } from "mainsail-ui"`
+
+**For use like this:**
 
 ```jsx
-import { Icon, ENUMS } from "mainsail-ui";
-
-<Icon name={ENUMS.Icon.names.calendar} color={ENUMS.Icon.colors.light} />;
+<Button variant={ENUMS.Button.variants.secondary} text="Nope" />
 ```
 
-#### Why do this?
+**Do this:**
+
+`import { Button } from "mainsail-ui"`
+
+```jsx
+<Button variant={Button.variants.secondary} text="Nope" />
+```
+
+This not only is less verbose but it also keeps the current usage and import smaller because you don't need to pull in unnecessary prop names from other components. When tree-shaking is available, this will help reduce size.
+
+### Why not just use strings?
 
 Utilizing these constants in this way, not only reduce the number of [magic strings](https://softwareengineering.stackexchange.com/questions/365339/what-is-wrong-with-magic-strings) in your codebase, but also make remembering the various prop values easy since most code editors and IDEs will provide auto-completion for such imported objects.
 

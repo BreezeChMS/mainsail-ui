@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Icon } from "../Icon";
-import { Spinner } from "../Spinner";
-import clsx from "clsx";
+import { Icon } from "components/Icon";
+import { Spinner } from "components/Spinner";
+import { classify } from "utility/classify";
 
 import "./Button.scss";
 
 const renderIcon = (i, side) => {
     if (typeof i === "string") {
-        return <Icon name={i} className={clsx(side)} />;
+        return <Icon name={i} className={classify(side)} />;
     }
     return i;
 };
@@ -69,7 +69,7 @@ export const Button = ({
             <button
                 data-loading={isLoading}
                 disabled={isDisabled || isLoading}
-                className={clsx(
+                className={classify(
                     { loading: isLoading, disabled: isDisabled },
                     "mainsail-button",
                     className,
@@ -87,7 +87,7 @@ export const Button = ({
         <button
             data-loading={isLoading}
             disabled={isDisabled || isLoading}
-            className={clsx(
+            className={classify(
                 "mainsail-button",
                 className,
                 variant,
@@ -154,3 +154,7 @@ Button.defaultProps = {
     intent: ENUMS.intents.default,
     textSize: ENUMS.textSizes.regular,
 };
+
+Button.variants = variants;
+Button.textSizes = textSizes;
+Button.intents = intents;

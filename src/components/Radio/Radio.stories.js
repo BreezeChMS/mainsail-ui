@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Radio as RadioComponent, RadioGroup, ENUMS } from "./Radio";
-import { Icon, ENUMS as IconEnums } from "../Icon";
+import { Radio as RadioComponent, RadioGroup } from "./Radio";
+import { Icon } from "../Icon";
 
 export default {
     title: "Elements/Radio",
@@ -13,7 +13,7 @@ export default {
             control: {
                 type: "select",
             },
-            options: Object.keys(ENUMS.colors),
+            options: Object.keys(RadioComponent.colors),
         },
         isDefaultChecked: {
             name: "isDefaultChecked",
@@ -62,7 +62,7 @@ Grouped.parameters = {
 
 export const Colored = Radio.bind({});
 Colored.args = {
-    color: ENUMS.colors.green,
+    color: RadioComponent.colors.green,
     text: "This Radio has a different color",
     isDefaultChecked: true,
 };
@@ -125,7 +125,7 @@ export const WithChildren = (args) => (
                 alignItems: "center",
             }}>
             This has children{" "}
-            <Icon name={IconEnums.names.photo} style={{ marginLeft: "4px" }} />
+            <Icon name={Icon.names.photo} style={{ marginLeft: "4px" }} />
         </div>
     </Radio>
 );

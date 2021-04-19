@@ -1,10 +1,6 @@
 import React from "react";
 
-import {
-    Checkbox as CheckboxComponent,
-    CheckboxGroup,
-    ENUMS,
-} from "./Checkbox";
+import { Checkbox as CheckboxComponent, CheckboxGroup } from "./Checkbox";
 import { IndeterminateGroup as IndeterminateGroupStory } from "./CheckboxGroup.stories";
 
 export default {
@@ -17,7 +13,7 @@ export default {
             control: {
                 type: "select",
             },
-            options: Object.keys(ENUMS.colors),
+            options: Object.keys(CheckboxComponent.colors),
         },
         isDefaultChecked: {
             name: "isDefaultChecked",
@@ -65,7 +61,7 @@ Grouped.parameters = {
 
 export const Colored = Checkbox.bind({});
 Colored.args = {
-    color: ENUMS.colors.green,
+    color: CheckboxComponent.colors.green,
     text: "This checkbox has a different color",
     isDefaultChecked: true,
 };
