@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import clsx from "clsx";
+import { classify } from "utility/classify";
 
 import "./Spinner.scss";
 
@@ -22,7 +22,7 @@ export const Spinner = ({ className, color }) => {
     return (
         <div
             data-testid="spinner"
-            className={clsx(className, "spinner", color)}>
+            className={classify(className, "spinner", color)}>
             <div className="bounce1"></div>
             <div className="bounce2"></div>
             <div className="bounce3"></div>
@@ -40,3 +40,5 @@ Spinner.propTypes = {
 Spinner.defaultProps = {
     color: colors.default,
 };
+
+Spinner.colors = colors;

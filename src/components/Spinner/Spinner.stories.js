@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Spinner, ENUMS } from "./Spinner";
+import { Spinner } from "./Spinner";
 
 export default {
     title: "Elements/Spinner",
@@ -12,15 +12,15 @@ const Template = (args) => <Spinner {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    color: ENUMS.colors.default,
+    color: Spinner.colors.default,
 };
 
 export const Light = Template.bind({});
 Light.args = {
-    color: ENUMS.colors.light,
+    color: Spinner.colors.light,
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
-    color: ENUMS.colors.dark,
+    color: Spinner.colors.dark,
 };
