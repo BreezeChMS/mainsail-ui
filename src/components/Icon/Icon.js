@@ -7,6 +7,7 @@ import _ from "lodash";
 import "./Icon.scss";
 
 export const names = {
+    warning: "warning",
     add: "add",
     apps: "apps",
     archive: "archive",
