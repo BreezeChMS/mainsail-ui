@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-import { Icon as MsIcon, ENUMS } from "./Icon";
+import { Icon as MsIcon } from "./Icon";
 
 export default {
     title: "Elements/Icon",
@@ -12,7 +12,7 @@ export default {
             control: {
                 type: "select",
             },
-            options: Object.keys(ENUMS.names),
+            options: Object.keys(MsIcon.names),
         },
         size: {
             name: "size",
@@ -20,7 +20,7 @@ export default {
             control: {
                 type: "radio",
             },
-            options: Object.keys(ENUMS.sizes),
+            options: Object.keys(MsIcon.sizes),
         },
     },
 };
@@ -29,8 +29,8 @@ const Template = (args) => <MsIcon {...args} />;
 
 export const Icon = Template.bind({});
 Icon.args = {
-    name: ENUMS.names.close,
-    size: ENUMS.sizes.md,
+    name: MsIcon.names.close,
+    size: MsIcon.sizes.md,
 };
 
 export const FullList = (args) => {
@@ -126,7 +126,7 @@ export const FullList = (args) => {
                         }}
                         defaultValue="Click icon to display/copy src"></textarea>
                 ) : null}
-                {renderIconList(Object.keys(ENUMS.names), args)}
+                {renderIconList(Object.keys(MsIcon.names), args)}
             </div>
         </div>
     );

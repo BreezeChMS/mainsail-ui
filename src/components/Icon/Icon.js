@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import * as MainsailIcon from "../Icons";
-import clsx from "clsx";
+import * as MainsailIcon from "components/Icons";
+import { classify } from "utility/classify";
 import _ from "lodash";
 
 import "./Icon.scss";
@@ -116,7 +116,7 @@ export const Icon = ({ name, size, color, className, isDisabled, ...rest }) => {
     return (
         <span
             role="img"
-            className={clsx(
+            className={classify(
                 "mainsail-icon",
                 { disabled: isDisabled },
                 size,
@@ -148,3 +148,7 @@ Icon.defaultProps = {
     size: sizes.md,
     color: colors.default,
 };
+
+Icon.names = names;
+Icon.sizes = sizes;
+Icon.colors = colors;
