@@ -1,22 +1,35 @@
 // Tooltip.test.js
 
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
+import { Simple, WithChildren, Disabled } from "./Tooltip.stories";
 
-import { Primary } from "./Tooltip.stories";
+it("renders the tooltip in the Simple form with built-in icon", async () => {
+    render(<Simple {...Simple.args} />);
+    let hoverable = screen.getByRole("img");
 
-it("renders the tooltip in the primary state", () => {
-  render(<Primary {...Primary.args} />);
-  expect(screen.getByRole("")).toHaveTextContent("Primary");
+    act(() => userEvent.hover(hoverable));
+
+    let tip = screen.getByTestId("tooltip");
+
+    expect(tip).toBeInTheDocument();
 });
 
-it("fires a provided onClick handler", () => {
-    let onClick = jest.fn();
-    render(<Primary {...Primary.args} onClick={onClick} />);
+it("can wrap another component for ultra tooltip flexibility", () => {
+    render(<WithChildren {...WithChildren.args} />);
+    let hoverableButton = screen.getByRole("button");
+    act(() => userEvent.hover(hoverableButton));
 
-    userEvent.click(screen.getByRole(""));
-    expect(onClick).toHaveBeenCalled();
+    expect(screen.getByTestId("tooltip")).toBeInTheDocument();
+});
+
+it("can be disabled and prevent (override) visibility", () => {
+    render(<Disabled {...Disabled.args} isVisible={true} />);
+    let hoverableButton = screen.getByRole("button");
+    act(() => userEvent.hover(hoverableButton));
+
+    expect(screen.queryByTestId("tooltip")).not.toBeInTheDocument();
 });
