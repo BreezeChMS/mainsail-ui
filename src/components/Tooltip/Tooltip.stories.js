@@ -92,3 +92,44 @@ Disabled.parameters = {
         },
     },
 };
+
+export const WithCustomModifiers = (args) => {
+    return (
+        <div>
+            <div
+                id="boundary"
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    border: "1px dashed tomato",
+                    width: "300px",
+                    height: "300px",
+                    overflow: "hidden",
+                    padding: "30px",
+                }}>
+                <Simple text={args.text} {...args} />
+                <span className="body-text">
+                    This box is set up to display overflow avoidance.
+                </span>
+            </div>
+        </div>
+    );
+};
+
+WithCustomModifiers.args = {
+    text: "This text would overflow the parent without the modifiers.",
+    modifiers: [
+        {
+            name: "preventOverflow",
+            options: {
+                altBoundary: true,
+            },
+        },
+    ],
+    isVisible: true,
+};
+
+WithCustomModifiers.parameters = {
+    layout: "centered",
+};

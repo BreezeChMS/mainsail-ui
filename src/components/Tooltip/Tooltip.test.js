@@ -5,7 +5,12 @@ import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
-import { Simple, WithChildren, Disabled } from "./Tooltip.stories";
+import {
+    Simple,
+    WithChildren,
+    Disabled,
+    WithCustomModifiers,
+} from "./Tooltip.stories";
 
 it("renders the tooltip in the Simple form with built-in icon", async () => {
     render(<Simple {...Simple.args} />);
@@ -32,4 +37,15 @@ it("can be disabled and prevent (override) visibility", () => {
     act(() => userEvent.hover(hoverableButton));
 
     expect(screen.queryByTestId("tooltip")).not.toBeInTheDocument();
+});
+
+it("renders the tooltip with modifiers", async () => {
+    render(<WithCustomModifiers {...WithCustomModifiers.args} />);
+    let hoverable = screen.getByRole("img");
+
+    act(() => userEvent.hover(hoverable));
+
+    let tip = screen.getByTestId("tooltip");
+
+    expect(tip).toBeInTheDocument();
 });
