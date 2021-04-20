@@ -1,11 +1,14 @@
 name: Chromatic
 
-on: push
+on:
+  push:
+    paths: ["src/**"]
 
 jobs:
   chromatic:
     name: Chromatic Visual Tests 🌈
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'chromatic skip') && !contains(github.event.head_commit.message, 'skip chromatic')"
     timeout-minutes: 5
     steps:
       - name: Checkout Repository
