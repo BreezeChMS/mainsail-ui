@@ -1,6 +1,8 @@
 name: Chromatic
 
-on: push
+on:
+  push:
+    paths: ["src/**"]
 
 jobs:
   chromatic:
@@ -14,15 +16,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: dorny/paths-filter@v2
-        id: changes
-        with:
-          filters: |
-            src:
-              - 'src/**'
-
       - name: Cache Node Modules
-        if: steps.changes.outputs.src == 'true'
         id: node-modules
         uses: actions/cache@v1
         with:
@@ -30,11 +24,10 @@ jobs:
           key: ${{ runner.os }}-npm_directory-${{ github.head_ref }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
-        if: steps.changes.outputs.src == 'true' && steps.node-modules.outputs.cache-hit != 'true'
+        if: steps.node-modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
       - name: Publish to Chromatic 🚀
-        if: steps.changes.outputs.src == 'true'
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
