@@ -1,0 +1,61 @@
+@import "../../styles/Variables.scss";
+
+/** Tooltip Component Styles */
+.mainsail-tooltip {
+    @include mainsail-body-text-small();
+    position: relative;
+    align-items: center;
+    font-family: $font;
+    font-size: 0.75em;
+    border-radius: $mainsail-tip-radius;
+    font-weight: 400;
+    padding: 9px 8px;
+    max-width: 170px;
+    background-color: $mainsail-blue-dark;
+    color: $mainsail-blue-light;
+
+    .tip-icon {
+        cursor: pointer;
+    }
+
+    .tip-arrow {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+
+        &::after {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            content: "";
+            pointer-events: none;
+            background-color: $mainsail-blue-dark;
+            transform: rotate(-45deg);
+            border-radius: 2zpx;
+        }
+    }
+
+    &[data-popper-placement*="top"] {
+        .tip-arrow {
+            bottom: -4px;
+        }
+    }
+
+    &[data-popper-placement*="bottom"] {
+        .tip-arrow {
+            top: -4px;
+        }
+    }
+
+    &[data-popper-placement*="left"] {
+        .tip-arrow {
+            right: -4px;
+        }
+    }
+
+    &[data-popper-placement*="right"] {
+        .tip-arrow {
+            left: -4px;
+        }
+    }
+}

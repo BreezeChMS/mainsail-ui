@@ -117,5 +117,9 @@
       "^styles(.*)$": "<rootDir>/src/styles$1",
       "^utility(.*)$": "<rootDir>/src/utility$1"
     }
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "react-popper": "^2.2.5"
   }
 }
