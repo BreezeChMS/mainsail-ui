@@ -110,7 +110,9 @@ export const WithCustomModifiers = (args) => {
                 }}>
                 <Simple text={args.text} {...args} />
                 <span className="body-text">
-                    This box is set up to display overflow avoidance.
+                    This box is set up to display overflow avoidance in a case
+                    where we cannot determine the placement position concretely.
+                    Try adjusting the modifiers below.
                 </span>
             </div>
         </div>
