@@ -25,6 +25,9 @@ export const colors = {
     neutral: "neutral",
 };
 
+/**
+ * @deprecated since version 7.0 - Instead, use enums directly off of the imported component; e.g. Button.variants.secondary
+ */
 export const ENUMS = {
     sizes,
     variants,
