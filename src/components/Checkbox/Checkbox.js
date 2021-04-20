@@ -15,6 +15,9 @@ export const colors = {
     neutral: "neutral",
 };
 
+/**
+ * @deprecated since version 7.0 - use directly attached ComponentName.<propNames>.value; e.g. Button.variants.secondary
+ */
 export const ENUMS = {
     colors,
 };
