@@ -30,7 +30,13 @@ WithChildren.args = {
     placement: Tooltip.placements.bottom,
     text: "If you click, you'll regret it!",
     offset: 20,
-    children: <Button text="Click" intent={Button.intents.danger} />,
+    children: (
+        <Button
+            text="Dangerous Button"
+            intent={Button.intents.danger}
+            onClick={() => alert("How dare you!")}
+        />
+    ),
 };
 WithChildren.parameters = {
     layout: "centered",
