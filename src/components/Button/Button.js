@@ -39,6 +39,9 @@ export const intents = {
     danger: "danger",
 };
 
+/**
+ * @deprecated since version 7.0 - use directly attached ComponentName.<propNames>.value; e.g. Button.variants.secondary
+ */
 export const ENUMS = {
     variants,
     textSizes,

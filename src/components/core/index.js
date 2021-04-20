@@ -16,6 +16,9 @@ import { ENUMS as SpinnerENUMS } from "../Spinner";
 import { ENUMS as ButtonENUMS } from "../Button";
 import { ENUMS as IconENUMS } from "../Icon";
 
+/**
+ * @deprecated since version 7.0 - use directly attached ComponentName.<propNames>.value; e.g. Button.variants.secondary
+ */
 // ENUM Export for plopjs
 export const ENUMS = {
 	Tooltip: TooltipENUMS,

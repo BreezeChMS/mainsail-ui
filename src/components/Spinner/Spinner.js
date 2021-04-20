@@ -10,6 +10,9 @@ export const colors = {
     light: "light",
 };
 
+/**
+ * @deprecated since version 7.0 - use directly attached ComponentName.<propNames>.value; e.g. Button.variants.secondary
+ */
 export const ENUMS = {
     colors,
 };

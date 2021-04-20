@@ -1,3 +1,27 @@
+# v0.7.3 (Tue Apr 20 2021)
+
+#### 🐛 Bug Fix
+
+- fixes rollup build [#50](https://github.com/BreezeChMS/mainsail-ui/pull/50) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
+# v0.7.2 (Tue Apr 20 2021)
+
+#### 🐛 Bug Fix
+
+- Add deprecation warning [#49](https://github.com/BreezeChMS/mainsail-ui/pull/49) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.7.1 (Mon Apr 19 2021)
 
 #### 🐛 Bug Fix
