@@ -147,8 +147,8 @@ export const Tooltip = ({
 };
 
 Tooltip.propTypes = {
-    /** Object containing popperjs modifiers array for deeper customization of tooltip */
-    modifiers: PropTypes.array,
+    /** Exposes a [Popperjs](https://popper.js.org/docs/v2/modifiers) api that enables further fine-tuning. */
+    modifiers: PropTypes.arrayOf(PropTypes.object),
     /** Offset distance from trigger element to tooltip */
     offset: PropTypes.number,
     /** Location relative to the tip item to display tooltip */

@@ -134,4 +134,10 @@ WithCustomModifiers.args = {
 
 WithCustomModifiers.parameters = {
     layout: "centered",
+    docs: {
+        description: {
+            story:
+                "The `modifiers` prop exposes a [Popperjs](https://popper.js.org/docs/v2/modifiers) api that enables further fine-tuning.",
+        },
+    },
 };
