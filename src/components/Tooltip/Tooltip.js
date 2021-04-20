@@ -56,6 +56,8 @@ export const Tooltip = ({
     offset,
     modifiers = [],
     placement,
+    isVisible,
+    isDisabled,
 }) => {
     const [referenceElement, setReferenceElement] = useState(null);
     const [visible, setVisibility] = useState(false);
@@ -80,6 +82,8 @@ export const Tooltip = ({
         setVisibility(e.type === "mouseover" ? true : false);
     }
 
+    let isOpen = (isVisible || visible) && !isDisabled;
+
     return (
         <>
             {children ? (
@@ -91,6 +95,8 @@ export const Tooltip = ({
                 </span>
             ) : (
                 <svg
+                    role="img"
+                    data-testid="tip-icon"
                     className="tip-icon"
                     width="12"
                     height="12"
@@ -120,8 +126,10 @@ export const Tooltip = ({
                 </svg>
             )}
 
-            {visible ? (
+            {isOpen ? (
                 <div
+                    data-testid="tooltip"
+                    aria-hidden={isOpen ? "true" : "false"}
                     className={classify("mainsail-tooltip", className)}
                     ref={setPopperElement}
                     style={styles.popper}
@@ -147,10 +155,12 @@ Tooltip.propTypes = {
     placement: PropTypes.oneOf(Object.values(placements)),
     /** Text to display on tooltip */
     text: PropTypes.string.isRequired,
-    /** (Optional) click handler */
-    onClick: PropTypes.func,
     /** Style class to add to Icon wrapper */
     className: PropTypes.string,
+    /** Show and hide the tip programmatically */
+    isVisible: PropTypes.bool,
+    /** Prevent visibility/functionality by passing a boolean */
+    isDisabled: PropTypes.bool,
 };
 
 Tooltip.defaultProps = {

@@ -2,6 +2,7 @@ import React from "react";
 
 import { Tooltip } from "./Tooltip";
 import { Button } from "components/Button";
+import { Icon } from "components/Icon";
 
 export default {
     title: "Overlay/Tooltip",
@@ -25,15 +26,35 @@ Simple.parameters = {
     },
 };
 
+export const TipTop = Template.bind({});
+TipTop.args = {
+    placement: Tooltip.placements.top,
+    text: "This text helps alot up top!",
+    isVisible: true,
+};
+TipTop.parameters = {
+    layout: "centered",
+};
+
+export const TipBottom = Template.bind({});
+TipBottom.args = {
+    placement: Tooltip.placements.bottom,
+    text: "This text helps from below!",
+    isVisible: true,
+};
+TipBottom.parameters = {
+    layout: "centered",
+};
+
 export const WithChildren = Template.bind({});
 WithChildren.args = {
     placement: Tooltip.placements.bottom,
-    text: "If you click, you'll regret it!",
+    text: "If you click, you'll edit it!",
     offset: 20,
     children: (
         <Button
-            text="Dangerous Button"
-            intent={Button.intents.danger}
+            variant={Button.variants.icon}
+            icon={Icon.names.edit}
             onClick={() => alert("How dare you!")}
         />
     ),
@@ -42,7 +63,32 @@ WithChildren.parameters = {
     layout: "centered",
     docs: {
         description: {
-            story: "Provides its own warning/info icon",
+            story: "Can wrap any component to provide a tooltip",
+        },
+    },
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    placement: Tooltip.placements.bottom,
+    text: "I'm so sad you don't get to see this epic tip!",
+    offset: 20,
+    isDisabled: true,
+    children: (
+        <Button
+            variant={Button.variants.secondary}
+            text="Disabled"
+            isDisabled
+            onClick={() => alert("How dare you!")}
+        />
+    ),
+};
+Disabled.parameters = {
+    layout: "centered",
+    docs: {
+        description: {
+            story:
+                "If you need to override the hover visibility on a child when the child is disabled, this can help.",
         },
     },
 };
