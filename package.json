@@ -17,6 +17,7 @@
     "scaffold": "plop",
     "plop": "plop",
     "test": "react-scripts test",
+    "prebuild": "rimraf dist",
     "build": "rollup -c --failAfterWarnings",
     "build-sass-external": "rimraf css && node-sass --output-style expanded src/components/core/index.scss ./dist/css/mainsail.css && postcss --use autoprefixer --map --output ./dist/css/mainsail.css ./dist/css/mainsail.css && cleancss -o ./dist/css/mainsail.min.css ./dist/css/mainsail.css",
     "build-icons": "npx @svgr/cli --icon --out-dir src/components/Icons src/assets/icons --replace-attr-values '#003462=currentColor'",
@@ -101,7 +102,8 @@
     "react-scripts": "^4.0.1",
     "rollup": "^2.37.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^4.0.0"
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-visualizer": "^5.4.1"
   },
   "author": "Josh Weaver <joshweaver@breezechms.com>",
   "auto": {
