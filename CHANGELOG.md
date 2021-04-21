@@ -1,3 +1,23 @@
+# v0.8.0 (Wed Apr 21 2021)
+
+#### 🚀 Enhancement
+
+- Adds Tooltips [#52](https://github.com/BreezeChMS/mainsail-ui/pull/52) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🐛 Bug Fix
+
+- Fix build [#53](https://github.com/BreezeChMS/mainsail-ui/pull/53) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🏠 Internal
+
+- makes the ci workflows more robust [#51](https://github.com/BreezeChMS/mainsail-ui/pull/51) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.7.3 (Tue Apr 20 2021)
 
 #### 🐛 Bug Fix
