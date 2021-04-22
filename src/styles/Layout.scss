@@ -88,3 +88,8 @@
 .border {
     @include color-modifiers($attribute: "border-color");
 }
+
+.content-blur {
+    filter: blur(3px);
+    overflow-x: hidden;
+}

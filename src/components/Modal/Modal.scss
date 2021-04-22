@@ -1,0 +1,86 @@
+@import "../../styles/Variables.scss";
+
+/** Modal Component Styles */
+.mainsail-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+    .mainsail-modal-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $mainsail-overlay;
+        z-index: 0;
+    }
+
+    .mainsail-modal-content {
+        background-color: $mainsail-white;
+        min-width: 500px;
+        width: 500px;
+        box-shadow: $mainsail-shadow-far;
+        border-radius: $mainsail-modal-radius;
+        z-index: 1;
+
+        .mainsail-modal-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: $mainsail-neutral-1;
+            border-bottom: 1px solid $mainsail-neutral-6;
+
+            .header-section {
+                flex: 3;
+                display: flex;
+                justify-content: center;
+
+                &:first-child {
+                    flex: 1;
+                    justify-content: flex-start;
+                }
+
+                &:last-child {
+                    flex: 1;
+                    justify-content: flex-end;
+                }
+
+                .mainsail-button {
+                    padding: 0 !important;
+                }
+            }
+
+            .close-button {
+                color: $mainsail-blue-dark;
+            }
+        }
+        .mainsail-modal-body {
+            @include mainsail-body-text-regular;
+            padding: 20px;
+        }
+        .mainsail-modal-footer {
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+
+            * + * {
+                margin-left: 10px;
+            }
+        }
+
+        &.danger {
+            border-top: 8px solid $mainsail-red-middle;
+        }
+    }
+}

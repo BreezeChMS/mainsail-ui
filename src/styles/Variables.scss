@@ -43,7 +43,11 @@ $mainsail-pill-radius: 20px;
 $mainsail-alert-radius: 4px;
 $mainsail-tip-radius: 4px;
 $mainsail-tab-radius: 8px;
+$mainsail-modal-radius: 8px;
 $mainsail-button-border-radius: 4px;
 $mainsail-button-border-radius-lg: 8px;
 
 $text-body-color: $mainsail-neutral-1;
+
+// Overlays
+$mainsail-overlay: rgba(0, 52, 98, 0.1);
