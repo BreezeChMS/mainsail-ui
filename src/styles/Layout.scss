@@ -89,7 +89,12 @@
     @include color-modifiers($attribute: "border-color");
 }
 
+.rounded {
+    border-radius: $mainsail-button-border-radius;
+}
+
 .content-blur {
     filter: blur(3px);
     overflow-x: hidden;
+    transition: filter 0.25s;
 }

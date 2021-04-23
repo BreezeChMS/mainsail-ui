@@ -122,6 +122,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.9.2",
-    "react-popper": "^2.2.5"
+    "react-popper": "^2.2.5",
+    "react-transition-group": "^4.4.1"
   }
 }

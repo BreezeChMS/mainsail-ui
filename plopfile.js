@@ -19,7 +19,13 @@ module.exports = function (plop) {
                 type: "list",
                 name: "category",
                 message: "What category does this component fall under?",
-                choices: ["Elements", "Layout", "Overlay", "User Feedback"],
+                choices: [
+                    "Elements",
+                    "Layout",
+                    "Overlay",
+                    "User Feedback",
+                    "Animation",
+                ],
             },
         ],
         actions: [
