@@ -2,13 +2,14 @@ import React from "react";
 
 import { Transition } from "components/Transition";
 
-const TestBlock = () => (
+const TestBlock = (props) => (
     <div
         className="bg-blue-dark rounded"
         style={{
             width: "100px",
             height: "100px",
-        }}></div>
+        }}
+        {...props}></div>
 );
 
 export default {
@@ -40,7 +41,7 @@ const Template = (args) => (
             in Canvas view.
         </p>
         <Transition {...args}>
-            <TestBlock />
+            <TestBlock data-testid="animated-block" />
         </Transition>
     </div>
 );
@@ -53,6 +54,11 @@ Fade.args = {
 export const FadeAndScale = Template.bind({});
 FadeAndScale.args = {
     animation: Transition.animations.fadeScale,
+};
+
+export const FadeAndSlideDown = Template.bind({});
+FadeAndSlideDown.args = {
+    animation: Transition.animations.fadeSlideDown,
 };
 
 export const CustomAnimation = (args) => {

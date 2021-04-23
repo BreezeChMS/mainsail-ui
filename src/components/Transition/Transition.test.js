@@ -2,21 +2,16 @@
 
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
+import { FadeAndScale } from "./Transition.stories";
 
-import { Primary } from "./Transition.stories";
-
-it("renders the transition in the primary state", () => {
-  render(<Primary {...Primary.args} />);
-  expect(screen.getByRole("")).toHaveTextContent("Primary");
+it("renders the component if isActive", () => {
+    render(<FadeAndScale {...FadeAndScale.args} isActive />);
+    expect(screen.getByTestId("animated-block")).toBeInTheDocument();
 });
 
-it("fires a provided onClick handler", () => {
-    let onClick = jest.fn();
-    render(<Primary {...Primary.args} onClick={onClick} />);
-
-    userEvent.click(screen.getByRole(""));
-    expect(onClick).toHaveBeenCalled();
+it("is unmounted when not active", () => {
+    render(<FadeAndScale {...FadeAndScale.args} isActive={false} />);
+    expect(screen.queryByTestId("animated-block")).not.toBeInTheDocument();
 });
