@@ -63,14 +63,47 @@ FadeAndSlideDown.args = {
 
 export const CustomAnimation = (args) => {
     return (
-        <Transition {...args}>
-            <TestBlock />
-        </Transition>
+        <>
+            <p className="body-text">
+                This custom set of animation css is applied in our storybook
+                head style tag. Inspect the DOM to see it.
+            </p>
+            <p className="body-text">
+                Toggle the <code>isActive</code> control to see the animation in
+                action while on the Canvas view.
+            </p>
+            <pre>
+                {`
+.custom-anim-enter {
+    opacity: 0;
+    transform: translateX(-50%);
+}
+.custom-anim-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: opacity 300ms, transform 300ms;
+}
+.custom-anim-exit {
+    opacity: 1;
+}
+.custom-anim-exit-active {
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity 300ms, transform 300ms;
+}
+.custom-anim-exit-done {
+    opacity: 0;
+}
+                    `}
+            </pre>
+            <Transition {...args}>
+                <TestBlock />
+            </Transition>
+        </>
     );
 };
 CustomAnimation.args = {
     className: "custom-anim",
-    children: <div>This is a custom animation box</div>,
 };
 CustomAnimation.parameters = {
     docs: {
