@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import { Button } from "components/Button";
 import { Icon } from "components/Icon";
-import { WithPortal } from "utility/hooks";
+import { WithPortal, useKeydown, useUniqueId } from "utility/hooks";
+import { Transition } from "components/Transition";
 
 import "./Modal.scss";
 
@@ -42,6 +43,14 @@ export const Modal = ({
     ...props
 }) => {
     const showBackButton = typeof onClickBack === "function";
+    const [openClass, setOpenClass] = useState(isOpen ? "open" : "");
+    const modalId = useUniqueId("modal");
+
+    useKeydown((e) => {
+        if (e.charCode === 27 || e.keyCode === 27) {
+            handleDismiss();
+        }
+    });
 
     // Handle blurring of content
     useEffect(() => {
@@ -57,80 +66,107 @@ export const Modal = ({
         }
     }, [isOpen, blurContentRef]);
 
-    if (!isOpen) {
-        return null;
-    }
-
     const handleDismiss = () => {
         onCancel && onCancel();
         onClose && onClose();
     };
 
     return (
-        <WithPortal id="mainsail-modal">
-            <div className={classify("mainsail-modal", className)} {...props}>
+        <WithPortal id="mainsail-modal" className="mainsail-modal-container">
+            <div
+                className={classify("mainsail-modal", className, openClass)}
+                {...props}>
                 {hasOverlay === true ? (
-                    <div
-                        className="mainsail-modal-overlay"
-                        onClick={
-                            isDismissable ? handleDismiss : () => {}
-                        }></div>
+                    <Transition
+                        animation={Transition.animations.fade}
+                        isActive={isOpen}>
+                        <div
+                            className="mainsail-modal-overlay"
+                            onClick={
+                                isDismissable ? handleDismiss : () => {}
+                            }></div>
+                    </Transition>
                 ) : null}
-
-                <div className={classify("mainsail-modal-content", intent)}>
-                    <div className="mainsail-modal-header">
-                        <div className="header-section">
-                            {showBackButton ? (
+                <Transition
+                    animation={Transition.animations.fadeScale}
+                    isActive={isOpen}
+                    onEnter={() => {
+                        setOpenClass("open");
+                    }}
+                    onExited={() => {
+                        setOpenClass("");
+                    }}>
+                    <div
+                        role="dialog"
+                        aria-labelledby={`${modalId}-title`}
+                        aria-describedby={`${modalId}-desc`}
+                        className={classify("mainsail-modal-content", intent)}>
+                        <div className="mainsail-modal-header">
+                            <div className="header-section">
+                                {showBackButton ? (
+                                    <Button
+                                        className={"back-button"}
+                                        onClick={onClickBack}
+                                        variant={Button.variants.tertiary}
+                                        iconLeft={Icon.names.back}
+                                        text="Back"
+                                    />
+                                ) : null}
+                            </div>
+                            <div className="header-section">
+                                <h2
+                                    id={`${modalId}-title`}
+                                    className="mainsail-modal-title m-0">
+                                    {title}
+                                </h2>
+                            </div>
+                            <div className="header-section">
                                 <Button
-                                    className={"back-button"}
-                                    onClick={onClickBack}
+                                    className={"close-button"}
+                                    onClick={handleDismiss}
                                     variant={Button.variants.tertiary}
-                                    iconLeft={Icon.names.back}
-                                    text="Back"
+                                    icon={Icon.names.close}
                                 />
-                            ) : null}
+                            </div>
                         </div>
-                        <div className="header-section">
-                            <h2 className="mainsail-modal-title m-0">
-                                {title}
-                            </h2>
+
+                        <div
+                            id={`${modalId}-desc`}
+                            className="mainsail-modal-body">
+                            {children}
                         </div>
-                        <div className="header-section">
-                            <Button
-                                className={"close-button"}
-                                onClick={handleDismiss}
-                                variant={Button.variants.tertiary}
-                                icon={Icon.names.close}
-                            />
+
+                        <div className="mainsail-modal-footer">
+                            {footer ? (
+                                footer
+                            ) : (
+                                <>
+                                    <Button
+                                        onClick={onCancel}
+                                        variant={Button.variants.tertiary}
+                                        text={
+                                            cancelText ? cancelText : "Cancel"
+                                        }
+                                    />
+                                    <Button
+                                        onClick={onConfirm}
+                                        variant={
+                                            intent === intents.danger
+                                                ? Button.variants.primary
+                                                : Button.variants.secondary
+                                        }
+                                        intent={intent}
+                                        text={
+                                            confirmText
+                                                ? confirmText
+                                                : "Confirm"
+                                        }
+                                    />
+                                </>
+                            )}
                         </div>
                     </div>
-
-                    <div className="mainsail-modal-body">{children}</div>
-
-                    <div className="mainsail-modal-footer">
-                        {footer ? (
-                            footer
-                        ) : (
-                            <>
-                                <Button
-                                    onClick={onCancel}
-                                    variant={Button.variants.tertiary}
-                                    text={cancelText ? cancelText : "Cancel"}
-                                />
-                                <Button
-                                    onClick={onConfirm}
-                                    variant={
-                                        intent === intents.danger
-                                            ? Button.variants.primary
-                                            : Button.variants.secondary
-                                    }
-                                    intent={intent}
-                                    text={confirmText ? confirmText : "Confirm"}
-                                />
-                            </>
-                        )}
-                    </div>
-                </div>
+                </Transition>
             </div>
         </WithPortal>
     );

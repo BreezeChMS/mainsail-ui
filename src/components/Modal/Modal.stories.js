@@ -10,16 +10,17 @@ export default {
     argTypes: {},
 };
 
+let setModalTemplateOpen;
+
 const Template = (args) => {
-    const [isModalOpen, setModalOpen] = useState(args.isOpen);
+    const [isModalOpen, setIsModalOpen] = useState(args.isOpen);
     const blurContent = useRef(null);
 
-    const handleClose = () => {
-        setModalOpen(false);
-    };
+    // We need a handle on the state setter for other stories
+    setModalTemplateOpen = setIsModalOpen;
 
     useEffect(() => {
-        setModalOpen(args.isOpen);
+        setIsModalOpen(args.isOpen);
     }, [args.isOpen]);
 
     return (
@@ -27,13 +28,15 @@ const Template = (args) => {
             <div className="body-text" ref={blurContent}>
                 <Modal
                     isOpen={isModalOpen}
-                    onCancel={handleClose}
-                    onConfirm={handleClose}
+                    onCancel={() => setIsModalOpen(false)}
+                    onConfirm={() => setIsModalOpen(false)}
                     intent={args.intent}
                     blurContentRef={blurContent}
                     hasOverlay={args.hasOverlay}
                     title={args.title}
                     isDismissable={args.isDismissable}
+                    confirmText={args.confirmText}
+                    cancelText={args.cancelText}
                     footer={args.footer}>
                     {args.children}
                 </Modal>
@@ -58,20 +61,10 @@ const Template = (args) => {
                     ipsa laudantium esse, totam, explicabo nulla harum velit
                     magnam culpa neque magni sapiente!
                 </p>
-
-                <p className="mb-20">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Repudiandae quia dolorum magnam quasi perspiciatis explicabo
-                    cumque iusto saepe quibusdam corrupti.
-                </p>
-
-                <p className="mb-20">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Autem dolor iste expedita quaerat ullam et quidem beatae
-                    ipsa laudantium esse, totam, explicabo nulla harum velit
-                    magnam culpa neque magni sapiente!
-                </p>
-                <Button onClick={() => setModalOpen(true)} text="Open Modal" />
+                <Button
+                    onClick={() => setIsModalOpen(true)}
+                    text="Open Modal"
+                />
             </div>
         </div>
     );
@@ -80,18 +73,40 @@ const Template = (args) => {
 export const BasicConfirm = Template.bind({});
 BasicConfirm.args = {
     title: "Confirm",
-    isOpen: true,
+    isDismissable: false,
     onClickBack: null,
+    onCancel: () => setModalTemplateOpen(false),
+    onConfirm: () => setModalTemplateOpen(false),
     children:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint expedita placeat, cupiditate pariatur ea ab recusandae.",
 };
 
-export const DangerConfirm = Template.bind({});
-DangerConfirm.args = {
+export const OverlayDismissable = Template.bind({});
+OverlayDismissable.args = {
+    title: "Confirm",
+    isDismissable: true,
+    onClickBack: null,
+    onCancel: () => setModalTemplateOpen(false),
+    onConfirm: () => setModalTemplateOpen(false),
+    children:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint expedita placeat, cupiditate pariatur ea ab recusandae.",
+};
+OverlayDismissable.parameters = {
+    docs: {
+        description: {
+            story: "Can be configured to allow clicking the overlay to dismiss",
+        },
+    },
+};
+
+export const DangerIntent = Template.bind({});
+DangerIntent.args = {
     title: "Bulk Delete",
-    isOpen: true,
     intent: Modal.intents.danger,
     onClickBack: null,
+    isDismissable: false,
+    onCancel: () => setModalTemplateOpen(false),
+    onConfirm: () => setModalTemplateOpen(false),
     children: (
         <div className="modal-wrapper__body-text">
             Deleting people will remove them and all of their information from
@@ -110,8 +125,10 @@ DangerConfirm.args = {
 export const WithCustomFooter = Template.bind({});
 WithCustomFooter.args = {
     title: "Fancy Footwork",
-    isOpen: true,
     onClickBack: null,
+    isDismissable: false,
+    onCancel: () => setModalTemplateOpen(false),
+    onConfirm: () => setModalTemplateOpen(false),
     children:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus perspiciatis quibusdam nemo id magnam, accusamus rerum a, saepe quis eum debitis amet consequatur, architecto repellat labore doloribus magni? Sed deserunt molestiae quia quaerat. Sint expedita placeat, cupiditate pariatur ea ab recusandae.",
 
@@ -123,8 +140,35 @@ WithCustomFooter.args = {
             <Button
                 text="I'd rather not..."
                 variant={Button.variants.tertiary}
+                onClick={() => setModalTemplateOpen(false)}
             />
-            <Button text="Let's Dance!" variant={Button.variants.primary} />
+            <Button
+                text="Let's Dance!"
+                variant={Button.variants.primary}
+                onClick={() => setModalTemplateOpen(false)}
+            />
         </>
     ),
+};
+WithCustomFooter.parameters = {
+    docs: {
+        page: null,
+    },
+};
+
+export const CustomButtonText = Template.bind({});
+CustomButtonText.args = {
+    onClickBack: null,
+    title: "Get to Da Choppa",
+    confirmText: "Do it naow!",
+    cancelText: "Hasta La Vista",
+    children:
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis, vitae.",
+    onCancel: () => setModalTemplateOpen(false),
+    onConfirm: () => setModalTemplateOpen(false),
+};
+CustomButtonText.parameters = {
+    docs: {
+        page: null,
+    },
 };

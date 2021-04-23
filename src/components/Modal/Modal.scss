@@ -1,16 +1,21 @@
 @import "../../styles/Variables.scss";
 
 /** Modal Component Styles */
-.mainsail-modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.mainsail-modal-container {
     z-index: 1000;
+}
+
+.mainsail-modal {
+    &.open {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
     .mainsail-modal-overlay {
         position: fixed;
@@ -19,7 +24,7 @@
         bottom: 0;
         left: 0;
         background-color: $mainsail-overlay;
-        z-index: 0;
+        z-index: 1;
     }
 
     .mainsail-modal-content {
