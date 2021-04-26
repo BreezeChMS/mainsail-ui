@@ -20,7 +20,6 @@ export const ENUMS = {};
 
 /**
  * A dialog that can overlay a page or other modals, thus preventing interaction with content behind the modal.
- * Has subcomponents that aid in positioning and styling
  **/
 export const Modal = ({
     isOpen,
@@ -36,6 +35,7 @@ export const Modal = ({
     hasOverlay,
     isDismissable,
     blurContentRef,
+    maxWidth,
     // initialFocusRef,
     // onCloseFocusRef,
     className,
@@ -66,21 +66,39 @@ export const Modal = ({
         }
     }, [isOpen, blurContentRef]);
 
+    /**
+     * We need to handle all dismisses
+     * after the transition has finished (exited)
+     */
     const handleDismiss = () => {
         onCancel && onCancel();
+    };
+
+    /**
+     * We need to handle all confirms
+     * after the transition has finished (exited)
+     */
+    const handleConfirm = () => {
+        onConfirm && onConfirm();
+    };
+
+    /**
+     * When animation is done, called by Transition exit
+     */
+    const handleOnClose = () => {
+        setOpenClass("");
         onClose && onClose();
     };
 
     return (
         <WithPortal id="mainsail-modal" className="mainsail-modal-container">
-            <div
-                className={classify("mainsail-modal", className, openClass)}
-                {...props}>
+            <div className={classify("mainsail-modal", openClass)} {...props}>
                 {hasOverlay === true ? (
                     <Transition
                         animation={Transition.animations.fade}
                         isActive={isOpen}>
                         <div
+                            data-testid="modal-overlay"
                             className="mainsail-modal-overlay"
                             onClick={
                                 isDismissable ? handleDismiss : () => {}
@@ -93,14 +111,17 @@ export const Modal = ({
                     onEnter={() => {
                         setOpenClass("open");
                     }}
-                    onExited={() => {
-                        setOpenClass("");
-                    }}>
+                    onExited={handleOnClose}>
                     <div
                         role="dialog"
                         aria-labelledby={`${modalId}-title`}
                         aria-describedby={`${modalId}-desc`}
-                        className={classify("mainsail-modal-content", intent)}>
+                        className={classify(
+                            "mainsail-modal-content",
+                            intent,
+                            className
+                        )}
+                        style={{ maxWidth, ...props.style }}>
                         <div className="mainsail-modal-header">
                             <div className="header-section">
                                 {showBackButton ? (
@@ -122,6 +143,7 @@ export const Modal = ({
                             </div>
                             <div className="header-section">
                                 <Button
+                                    data-testid="modal-close"
                                     className={"close-button"}
                                     onClick={handleDismiss}
                                     variant={Button.variants.tertiary}
@@ -149,7 +171,7 @@ export const Modal = ({
                                         }
                                     />
                                     <Button
-                                        onClick={onConfirm}
+                                        onClick={handleConfirm}
                                         variant={
                                             intent === intents.danger
                                                 ? Button.variants.primary
@@ -173,6 +195,10 @@ export const Modal = ({
 };
 
 Modal.propTypes = {
+    /** Max width of the modal (height is calculated based on viewport) */
+    maxWidth: PropTypes.string,
+    /** Escape Hatch for modal content wrapper style */
+    style: PropTypes.object,
     /** Style class to add to modal wrapper */
     className: PropTypes.string,
     /** The title text of the modal */
@@ -189,7 +215,7 @@ Modal.propTypes = {
     onConfirm: PropTypes.func,
     /** Callback fired when the default cancel button is clicked */
     onCancel: PropTypes.func,
-    /** Callback fired when the modal is closed or dismissed */
+    /** Callback fired when the modal is fully closed or dismissed (animation is finished) */
     onClose: PropTypes.func,
     /** Controls the visibility of the modal overlay */
     hasOverlay: PropTypes.bool,
@@ -223,8 +249,8 @@ Modal.propTypes = {
 Modal.defaultProps = {
     isDismissable: false,
     intent: intents.default,
-    onClickBack: null,
     hasOverlay: true,
+    maxWidth: "500px",
 };
 
 /*
