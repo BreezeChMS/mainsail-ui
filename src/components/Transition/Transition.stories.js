@@ -2,6 +2,30 @@ import React from "react";
 
 import { Transition } from "components/Transition";
 
+const CUSTOM_ANIM_CSS = `
+.custom-anim-enter {
+    opacity: 0;
+    transform: translateX(-50%);
+}
+.custom-anim-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: opacity 300ms, transform 300ms;
+}
+.custom-anim-exit {
+    opacity: 1;
+}
+.custom-anim-exit-active {
+    opacity: 0;
+    transform: translateX(50%);
+    transition: opacity 300ms, transform 300ms;
+}
+.custom-anim-exit-done {
+    opacity: 0;
+    transform: translateX(0%);
+}
+`;
+
 const TestBlock = (props) => (
     <div
         className="bg-blue-dark rounded"
@@ -56,56 +80,48 @@ FadeAndScale.args = {
     animation: Transition.animations.fadeScale,
 };
 
-export const FadeAndSlideDown = Template.bind({});
-FadeAndSlideDown.args = {
+export const FadeAndSlideInDown = Template.bind({});
+FadeAndSlideInDown.args = {
     animation: Transition.animations.fadeSlideDown,
 };
 
-export const CustomAnimation = (args) => {
+export const FadeAndSlideInRight = Template.bind({});
+FadeAndSlideInRight.args = {
+    animation: Transition.animations.fadeSlideRight,
+};
+
+export const FadeAndSlideInLeft = Template.bind({});
+FadeAndSlideInLeft.args = {
+    animation: Transition.animations.fadeSlideLeft,
+};
+
+export const Custom = (args) => {
     return (
         <>
             <p className="body-text">
-                This custom set of animation css is applied in our storybook
-                head style tag. Inspect the DOM to see it.
+                <strong>
+                    This custom In/Out animation travels in one way in then out
+                    another!
+                </strong>{" "}
+                The css (shown below) is applied in our storybook head style
+                tag.
             </p>
             <p className="body-text">
                 Toggle the <code>isActive</code> control to see the animation in
                 action while on the Canvas view.
             </p>
-            <pre>
-                {`
-.custom-anim-enter {
-    opacity: 0;
-    transform: translateX(-50%);
-}
-.custom-anim-enter-active {
-    opacity: 1;
-    transform: translateX(0%);
-    transition: opacity 300ms, transform 300ms;
-}
-.custom-anim-exit {
-    opacity: 1;
-}
-.custom-anim-exit-active {
-    opacity: 0;
-    transform: translateX(-50%);
-    transition: opacity 300ms, transform 300ms;
-}
-.custom-anim-exit-done {
-    opacity: 0;
-}
-                    `}
-            </pre>
+
             <Transition {...args}>
                 <TestBlock />
             </Transition>
+            <pre>{CUSTOM_ANIM_CSS}</pre>
         </>
     );
 };
-CustomAnimation.args = {
+Custom.args = {
     className: "custom-anim",
 };
-CustomAnimation.parameters = {
+Custom.parameters = {
     docs: {
         page: null,
     },

@@ -9,6 +9,8 @@ export const animations = {
     fade: "fade",
     fadeScale: "fade-scale",
     fadeSlideDown: "fade-slide-down",
+    fadeSlideLeft: "fade-slide-left",
+    fadeSlideRight: "fade-slide-right",
 };
 
 /**
