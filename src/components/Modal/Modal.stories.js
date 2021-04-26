@@ -18,6 +18,7 @@ let setModalTemplateOpen;
  */
 const Template = (args) => {
     const [isModalOpen, setIsModalOpen] = useState(args.isOpen);
+    const [isLoading, setIsLoading] = useState(false);
     const blurContent = useRef(null);
 
     // We need a handle on the state setter for other stories
@@ -27,14 +28,35 @@ const Template = (args) => {
         setIsModalOpen(args.isOpen);
     }, [args.isOpen]);
 
+    useEffect(() => {
+        let timeout;
+
+        if (isLoading) {
+            timeout = setTimeout(() => {
+                setIsLoading(false);
+                args.onConfirm && args.onConfirm();
+            }, 3500);
+        }
+
+        return () => {
+            clearTimeout(timeout);
+        };
+    }, [isLoading, args]);
+
     const handleOnCancel = () => {
         setIsModalOpen(false);
         args.onCancel && args.onCancel();
     };
 
     const handleOnConfirm = () => {
-        setIsModalOpen(false);
-        args.onConfirm && args.onConfirm();
+        // If not using loading text, we assume we can close
+        if (!args.loadingText) {
+            setIsModalOpen(false);
+            args.onConfirm && args.onConfirm();
+        } else {
+            // If using loading text, we defer closing to useEffect ☝️
+            setIsLoading(true);
+        }
     };
 
     return (
@@ -43,18 +65,10 @@ const Template = (args) => {
                 <Modal
                     {...args}
                     isOpen={isModalOpen}
-                    onClickBack={args.onClickBack}
-                    onClose={args.onClose}
                     onCancel={handleOnCancel}
                     onConfirm={handleOnConfirm}
-                    intent={args.intent}
                     blurContentRef={blurContent}
-                    hasOverlay={args.hasOverlay}
-                    title={args.title}
-                    isDismissable={args.isDismissable}
-                    confirmText={args.confirmText}
-                    cancelText={args.cancelText}
-                    footer={args.footer}>
+                    isLoading={args.isLoading || isLoading}>
                     {args.children}
                 </Modal>
                 <h2>A Pretend Page</h2>
@@ -109,7 +123,6 @@ BasicConfirm.args = {
 
 export const ScrollingContent = Template.bind({});
 ScrollingContent.args = {
-    isOpen: true,
     title: "Confirm",
     isDismissable: false,
     onClickBack: null,
@@ -246,6 +259,14 @@ ScrollingContent.args = {
             </p>
         </div>
     ),
+};
+ScrollingContent.parameters = {
+    docs: {
+        description: {
+            story:
+                "If the modal body content is too tall, it will produce vertical scroll bars.",
+        },
+    },
 };
 
 export const OverlayDismissable = Template.bind({});
@@ -324,7 +345,10 @@ WithCustomFooter.args = {
 };
 WithCustomFooter.parameters = {
     docs: {
-        page: null,
+        description: {
+            story:
+                "A modal can include an entirely custom footer. Code may be better viewed in the `src` file due to this _Show code_ option inlining the `footer` prop.",
+        },
     },
 };
 
@@ -345,10 +369,28 @@ CustomButtonText.args = {
     onCancel: () => setModalTemplateOpen(false),
     onConfirm: () => setModalTemplateOpen(false),
 };
-CustomButtonText.parameters = {
-    docs: {
-        page: null,
-    },
+
+export const LoadingState = Template.bind({});
+LoadingState.args = {
+    onClickBack: null,
+    title: "Confirm",
+    confirmText: "Submit",
+    loadingText: "Submitting",
+    cancelText: "Cancel",
+    children: (
+        <div>
+            <p className="mb-20">
+                Loading states may be indicated on default footer buttons by
+                using
+                <code>loadingText</code> and <code>isLoading</code> props.
+            </p>
+            <p className="mb-20">
+                Hit <strong>Submit</strong> to see it!
+            </p>
+        </div>
+    ),
+    onCancel: () => setModalTemplateOpen(false),
+    onConfirm: () => setModalTemplateOpen(false),
 };
 
 export const MutiStepBody = (args) => {
@@ -433,6 +475,68 @@ MutiStepBody.parameters = {
         description: {
             story:
                 "A Multi-step modal example. Uses `<Transition />` on inner view components.\nNOTE: If transitioning inner view components, absolute position may be necessary allow child view stacking in the DOM. `<ViewOne/>` and `<ViewTwo/` are absolutely positioned in the following example.",
+        },
+    },
+};
+
+export const FocusHandling = (args) => {
+    const [isModalOpen, setIsModalOpen] = useState(args.isOpen);
+    const openedFocusRef = useRef(null);
+    const closedFocusRef = useRef(null);
+    const blurRef = useRef(null);
+
+    return (
+        <div className="body-text" ref={blurRef}>
+            <Modal
+                isOpen={isModalOpen}
+                title="Handle Focus"
+                onClickBack={null}
+                blurContentRef={blurRef}
+                initialFocusRef={openedFocusRef}
+                onCloseFocusRef={closedFocusRef}
+                isDismissable={false}
+                onCancel={() => setIsModalOpen(false)}
+                onConfirm={() => setIsModalOpen(false)}>
+                <div>
+                    <p className="mb-20">
+                        This modal will apply focus to the{" "}
+                        <code>initialFocusRef</code> element if that prop is
+                        used.
+                    </p>
+                    <label htmlFor="modal_input">Modal Input</label>
+                    <input
+                        style={{ display: "block", width: "300px" }}
+                        className="mb-20 p-4 body-text"
+                        type="text"
+                        id="modal_input"
+                        ref={openedFocusRef}
+                        placeholder="When opened, I will have focus"
+                    />
+                    <p className="mb-20">
+                        On close, It will then pass focus back to{" "}
+                        <code>onCloseFocusRef</code> if used.
+                    </p>
+                </div>
+            </Modal>
+            <label htmlFor="page_input">Page Input</label>
+            <input
+                style={{ display: "block", width: "300px" }}
+                className="mb-20 p-4 body-text"
+                type="text"
+                id="page_input"
+                ref={closedFocusRef}
+                placeholder="After modal is closed, I will have focus"
+            />
+            <Button text="Open Modal" onClick={() => setIsModalOpen(true)} />
+        </div>
+    );
+};
+
+FocusHandling.parameters = {
+    docs: {
+        description: {
+            story:
+                "A modal can include an entirely custom footer. Code may be better viewed in the `src` file due to this _Show code_ option inlining the `footer` prop.",
         },
     },
 };

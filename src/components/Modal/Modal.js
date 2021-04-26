@@ -27,7 +27,9 @@ export const Modal = ({
     onClose,
     onClickBack,
     onConfirm,
+    isLoading,
     confirmText,
+    loadingText,
     onCancel,
     cancelText,
     footer,
@@ -193,6 +195,8 @@ export const Modal = ({
                                                 ? confirmText
                                                 : "Confirm"
                                         }
+                                        isLoading={isLoading}
+                                        loadingText={loadingText}
                                     />
                                 </>
                             )}
@@ -215,6 +219,10 @@ Modal.propTypes = {
     title: PropTypes.string.isRequired,
     /** The confirm button text of the modal (if using default footer)*/
     confirmText: PropTypes.string,
+    /** The confirm button text of the modal when confirm clicked (if using default footer)*/
+    loadingText: PropTypes.string,
+    /** The confirm button loading state of the modal when confirm clicked (if using default footer)*/
+    isLoading: PropTypes.bool,
     /** The cancel button text of the modal (if using default footer)*/
     cancelText: PropTypes.string,
     /** Controls the visibility of the modal window */

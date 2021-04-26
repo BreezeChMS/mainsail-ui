@@ -66,7 +66,13 @@ it("can be dismissed by hitting the default cancel", async () => {
     });
 });
 
-it("renders the modal with default footer and default button text", async () => {
+it("renders with a default footer in a loading/submission state", () => {
+    render(<BasicConfirm {...BasicConfirm.args} isLoading={true} />);
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+    expect(screen.getByTestId("spinner")).toBeInTheDocument();
+});
+
+it("renders with default footer and default button text", async () => {
     render(<BasicConfirm {...BasicConfirm.args} isOpen={true} />);
     expect(screen.getByRole("dialog")).toBeInTheDocument();
     expect(
@@ -81,7 +87,7 @@ it("renders the modal with default footer and default button text", async () => 
     ).toBeInTheDocument();
 });
 
-it("renders the default confirm modal with default buttons and custom button text", async () => {
+it("renders with default buttons and custom button text", async () => {
     render(<CustomButtonText {...CustomButtonText.args} isOpen={true} />);
     expect(screen.getByRole("dialog")).toBeInTheDocument();
     expect(
