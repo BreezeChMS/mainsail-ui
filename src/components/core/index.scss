@@ -6,6 +6,8 @@
 @import "../../styles/Text.scss";
 
 // SASS Global Import for plopjs
+@import "../Transition/Transition.scss";
+@import "../Modal/Modal.scss";
 @import "../Tooltip/Tooltip.scss";
 @import "../Checkbox/Checkbox.scss";
 @import "../Radio/Radio.scss";

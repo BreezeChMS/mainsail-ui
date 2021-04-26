@@ -7,6 +7,19 @@
     }
 }
 
+/* Responsive Utility Mixins */
+@mixin mobile-size-up {
+    @media only screen and (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin mobile-size-down {
+    @media only screen and (max-width: 991.98px) {
+        @content;
+    }
+}
+
 /* Body Text Mixins */
 @mixin mainsail-body-text-large {
     font-family: $font;

@@ -1,0 +1,107 @@
+@import "../../styles/Variables.scss";
+
+/** Modal Component Styles */
+.mainsail-modal-container {
+    z-index: 1000;
+}
+
+.mainsail-modal {
+    &.open {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mainsail-modal-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $mainsail-overlay;
+        z-index: 1;
+    }
+
+    .mainsail-modal-content {
+        background-color: $mainsail-white;
+        min-height: 250px;
+        max-width: 80%;
+        max-height: 80%;
+        box-shadow: $mainsail-shadow-far;
+        border-radius: $mainsail-modal-radius;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+
+        @include mobile-size-down {
+            max-width: 100%;
+            min-width: 100%;
+        }
+        @include mobile-size-up {
+            min-width: 500px;
+        }
+
+        .mainsail-modal-header {
+            display: flex;
+            flex-grow: 0;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: $mainsail-neutral-1;
+            border-bottom: 1px solid $mainsail-neutral-6;
+
+            .header-section {
+                flex: 3;
+                display: flex;
+                justify-content: center;
+
+                &:first-child {
+                    flex: 1;
+                    justify-content: flex-start;
+                }
+
+                &:last-child {
+                    flex: 1;
+                    justify-content: flex-end;
+                }
+
+                .mainsail-button {
+                    padding: 0 !important;
+                }
+            }
+
+            .close-button {
+                color: $mainsail-blue-dark;
+            }
+        }
+        .mainsail-modal-body {
+            @include mainsail-body-text-regular;
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: calc(80% - 150px); // 150 = head + foot
+        }
+        .mainsail-modal-footer {
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+
+            * + * {
+                margin-left: 10px;
+            }
+        }
+
+        &.danger {
+            border-top: 8px solid $mainsail-red-middle;
+        }
+    }
+}

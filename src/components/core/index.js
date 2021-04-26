@@ -1,4 +1,6 @@
 // Components Global Export for plopjs
+export { Transition } from "../Transition";
+export { Modal } from "../Modal";
 export { Tooltip } from "../Tooltip";
 export { Checkbox, CheckboxGroup } from "../Checkbox";
 export { Radio, RadioGroup } from "../Radio";
@@ -8,6 +10,8 @@ export { Button } from "../Button";
 export { Icon } from "../Icon";
 
 // ENUM Import for plopjs
+import { ENUMS as TransitionENUMS } from "../Transition";
+import { ENUMS as ModalENUMS } from "../Modal";
 import { ENUMS as TooltipENUMS } from "../Tooltip";
 import { ENUMS as CheckboxENUMS } from "../Checkbox";
 import { ENUMS as RadioENUMS } from "../Radio";
@@ -21,6 +25,8 @@ import { ENUMS as IconENUMS } from "../Icon";
  */
 // ENUM Export for plopjs
 export const ENUMS = {
+	Transition: TransitionENUMS,
+	Modal: ModalENUMS,
     Tooltip: TooltipENUMS,
     Checkbox: CheckboxENUMS,
     Radio: RadioENUMS,

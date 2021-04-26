@@ -32,4 +32,32 @@
     font-weight: 700;
 }
 
+
+.custom-anim-enter {
+    opacity: 0;
+    transform: translateX(-50%);
+}
+.custom-anim-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: opacity 300ms, transform 300ms;
+}
+.custom-anim-exit {
+    opacity: 1;
+}
+.custom-anim-exit-active {
+    opacity: 0;
+    transform: translateX(50%);
+    transition: opacity 300ms, transform 300ms;
+}
+.custom-anim-exit-done {
+    opacity: 0;
+    transform: translateX(0%);
+}
+
+code:not(.language-jsx), pre:not(.prismjs) {
+    border-radius: 4px;
+    padding: 2px 4px;
+    background-color: rgb(243, 243, 243);
+}
 </style>

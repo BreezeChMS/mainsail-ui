@@ -57,8 +57,7 @@ p,
     font-style: normal;
     font-weight: normal;
     color: $mainsail-neutral-1;
-    &,
-    .md {
+    &.md {
         @include mainsail-body-text-regular();
     }
 
