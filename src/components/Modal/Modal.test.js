@@ -5,7 +5,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
-import { BasicConfirm, CustomButtonText } from "./Modal.stories";
+import { BasicConfirm, CustomButtonText, FocusHandling } from "./Modal.stories";
 
 it("can render a basic confirm modal in the open state", () => {
     render(<BasicConfirm {...BasicConfirm.args} isOpen={true} />);
@@ -137,4 +137,23 @@ it("will fire the onConfirm handler when the default modal confirm button is pre
 
     // Wait for animation to finish
     await waitFor(() => expect(onConfirm).toHaveBeenCalled());
+});
+
+it("will handle focus on elements when opened and closed", async () => {
+    render(<FocusHandling {...FocusHandling.args} />);
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+
+    userEvent.click(screen.getByRole("button", { name: "Open Modal" }));
+
+    expect(screen.queryByRole("dialog")).toBeInTheDocument();
+
+    expect(screen.getByRole("textbox", { name: "Modal Input" })).toHaveFocus();
+
+    userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+
+    await waitFor(() => {
+        expect(
+            screen.getByRole("textbox", { name: "Page Input" })
+        ).toHaveFocus();
+    });
 });

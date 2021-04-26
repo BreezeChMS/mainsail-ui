@@ -36,8 +36,8 @@ export const Modal = ({
     isDismissable,
     blurContentRef,
     maxWidth,
-    // initialFocusRef,
-    // onCloseFocusRef,
+    initialFocusRef,
+    onCloseFocusRef,
     className,
     children,
     ...props
@@ -66,6 +66,12 @@ export const Modal = ({
         }
     }, [isOpen, blurContentRef]);
 
+    useEffect(() => {
+        if (isOpen && initialFocusRef) {
+            initialFocusRef.current && initialFocusRef.current.focus();
+        }
+    }, [initialFocusRef, onCloseFocusRef, isOpen]);
+
     /**
      * We need to handle all dismisses
      * after the transition has finished (exited)
@@ -88,6 +94,10 @@ export const Modal = ({
     const handleOnClose = () => {
         setOpenClass("");
         onClose && onClose();
+
+        onCloseFocusRef &&
+            onCloseFocusRef.current &&
+            onCloseFocusRef.current.focus();
     };
 
     return (
