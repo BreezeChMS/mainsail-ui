@@ -21,6 +21,7 @@ module.exports = function (plop) {
                 message: "What category does this component fall under?",
                 choices: [
                     "Elements",
+                    "Forms",
                     "Layout",
                     "Overlay",
                     "User Feedback",
