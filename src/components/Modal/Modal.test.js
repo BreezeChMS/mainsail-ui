@@ -67,7 +67,9 @@ it("can be dismissed by hitting the default cancel", async () => {
 });
 
 it("renders with a default footer in a loading/submission state", () => {
-    render(<BasicConfirm {...BasicConfirm.args} isLoading={true} />);
+    render(
+        <BasicConfirm {...BasicConfirm.args} isOpen={true} isLoading={true} />
+    );
     expect(screen.getByRole("dialog")).toBeInTheDocument();
     expect(screen.getByTestId("spinner")).toBeInTheDocument();
 });

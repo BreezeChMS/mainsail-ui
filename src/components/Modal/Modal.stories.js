@@ -103,7 +103,6 @@ const Template = (args) => {
 
 export const BasicConfirm = Template.bind({});
 BasicConfirm.args = {
-    isOpen: true,
     title: "Confirm",
     isDismissable: false,
     onClickBack: null,
