@@ -8,7 +8,16 @@ import { Transition } from "components/Transition";
 export default {
     title: "Overlay/Modal",
     component: Modal,
-    argTypes: {},
+    argTypes: {
+        confirmVariant: {
+            name: "confirmVariant",
+            type: { confirmVariant: "string" },
+            control: {
+                type: "select",
+            },
+            options: Object.keys(Modal.confirmVariants),
+        },
+    },
 };
 
 let setModalTemplateOpen;

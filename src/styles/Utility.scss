@@ -103,8 +103,8 @@
 
 @mixin focus {
     &:not([disabled]):not([hover]):focus {
-        outline: 1px solid $mainsail-blue-primary;
-        outline-offset: 2px;
+        outline: none;
+        box-shadow: 0 0 0 2px $mainsail-blue-primary;
         @content;
     }
 }
@@ -112,7 +112,7 @@
 @mixin active {
     &:not([disabled]):not([hover]):active {
         outline: none;
-        outline-offset: 0;
+        box-shadow: 0 0 0 2px $mainsail-blue-primary;
         @content;
     }
 }

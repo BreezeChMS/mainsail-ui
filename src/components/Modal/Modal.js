@@ -13,6 +13,11 @@ export const intents = {
     danger: "danger",
 };
 
+export const confirmVariants = {
+    [Button.variants.primary]: Button.variants.primary,
+    [Button.variants.secondary]: Button.variants.secondary,
+};
+
 /**
  * @deprecated since version 7.0 - use directly attached ComponentName.<propNames>.value; e.g. Button.variants.secondary
  */
@@ -29,6 +34,7 @@ export const Modal = ({
     onConfirm,
     isLoading,
     confirmText,
+    confirmVariant,
     loadingText,
     onCancel,
     cancelText,
@@ -219,7 +225,7 @@ export const Modal = ({
                                         variant={
                                             intent === intents.danger
                                                 ? Button.variants.primary
-                                                : Button.variants.secondary
+                                                : confirmVariant
                                         }
                                         intent={intent}
                                         text={
@@ -249,6 +255,8 @@ Modal.propTypes = {
     className: PropTypes.string,
     /** The title text of the modal */
     title: PropTypes.string.isRequired,
+    /** The confirm button variant of the modal (if using default footer)*/
+    confirmVariant: PropTypes.oneOf(Object.keys(confirmVariants)),
     /** The confirm button text of the modal (if using default footer)*/
     confirmText: PropTypes.string,
     /** The confirm button text of the modal when confirm clicked (if using default footer)*/
@@ -297,6 +305,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
+    confirmVariant: Button.variants.secondary,
     isDismissable: false,
     intent: intents.default,
     hasOverlay: true,
@@ -309,3 +318,4 @@ Modal.defaultProps = {
  * Modal.variants = variants
  */
 Modal.intents = intents;
+Modal.confirmVariants = confirmVariants;
