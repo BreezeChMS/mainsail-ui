@@ -1,3 +1,19 @@
+# v0.9.0 (Tue Apr 27 2021)
+
+#### 🚀 Enhancement
+
+- C0-11 adds modals [#54](https://github.com/BreezeChMS/mainsail-ui/pull/54) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🐛 Bug Fix
+
+- Modal focus issues [#55](https://github.com/BreezeChMS/mainsail-ui/pull/55) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.8.0 (Wed Apr 21 2021)
 
 #### 🚀 Enhancement
