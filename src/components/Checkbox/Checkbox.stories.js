@@ -4,7 +4,7 @@ import { Checkbox as CheckboxComponent, CheckboxGroup } from "./Checkbox";
 import { IndeterminateGroup as IndeterminateGroupStory } from "./CheckboxGroup.stories";
 
 export default {
-    title: "Elements/Checkbox",
+    title: "Forms/Checkbox",
     component: CheckboxComponent,
     argTypes: {
         color: {

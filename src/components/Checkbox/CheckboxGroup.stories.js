@@ -3,7 +3,7 @@ import React from "react";
 import { Checkbox, CheckboxGroup as CheckboxGroupComponent } from "./Checkbox";
 
 export default {
-    title: "Elements/CheckboxGroup",
+    title: "Forms/CheckboxGroup",
     component: CheckboxGroupComponent,
     subcomponents: {
         Checkbox: Checkbox,

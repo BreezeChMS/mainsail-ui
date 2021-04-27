@@ -3,7 +3,7 @@ import React from "react";
 import { Radio, RadioGroup as RadioGroupComponent } from "./Radio";
 
 export default {
-    title: "Elements/RadioGroup",
+    title: "Forms/RadioGroup",
     component: RadioGroupComponent,
     subcomponents: {
         Radio: Radio,
