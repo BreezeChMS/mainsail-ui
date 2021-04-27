@@ -259,9 +259,9 @@ Modal.propTypes = {
     confirmVariant: PropTypes.oneOf(Object.keys(confirmVariants)),
     /** The confirm button text of the modal (if using default footer)*/
     confirmText: PropTypes.string,
-    /** The confirm button text of the modal when confirm clicked (if using default footer)*/
+    /** (Optional) confirm button text of the modal when in loading state (if using default footer)*/
     loadingText: PropTypes.string,
-    /** The confirm button loading state of the modal when confirm clicked (if using default footer)*/
+    /** Places the modal in a loading state for primary action button (if using default footer)*/
     isLoading: PropTypes.bool,
     /** The cancel button text of the modal (if using default footer)*/
     cancelText: PropTypes.string,
