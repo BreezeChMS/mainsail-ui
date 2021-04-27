@@ -8,7 +8,16 @@ import { Transition } from "components/Transition";
 export default {
     title: "Overlay/Modal",
     component: Modal,
-    argTypes: {},
+    argTypes: {
+        confirmVariant: {
+            name: "confirmVariant",
+            type: { confirmVariant: "string" },
+            control: {
+                type: "select",
+            },
+            options: Object.keys(Modal.confirmVariants),
+        },
+    },
 };
 
 let setModalTemplateOpen;
@@ -101,21 +110,26 @@ const Template = (args) => {
     );
 };
 
-export const BasicConfirm = Template.bind({});
+export const BasicConfirm = (args) => <Modal {...args} />;
 BasicConfirm.args = {
     isOpen: true,
     title: "Confirm",
+    maxWidth: "600px",
     isDismissable: false,
     onClickBack: null,
-    onCancel: () => setModalTemplateOpen(false),
-    onConfirm: () => setModalTemplateOpen(false),
     children: (
         <div>
-            <p>
+            <p className="mb-20">
                 The size of the modal is defined by its content or the{" "}
-                <code>maxWidth</code> prop. Modal height and padding is handled
-                for you. If you need to force height, style your content
-                accordingly.
+                <code>maxWidth</code> prop.
+                <br /> Modal height and padding is handled for you. If you need
+                to force height, style your content accordingly.
+            </p>
+
+            <p className="mb-20">
+                This example has no page wrapper or state mangagement. Because
+                of this, you can see the callbacks fire in the{" "}
+                <strong>Actions</strong> tab.
             </p>
         </div>
     ),

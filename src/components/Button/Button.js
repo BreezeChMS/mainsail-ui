@@ -80,7 +80,7 @@ export const Button = ({
                     textSize
                 )}
                 {...props}>
-                <Spinner />
+                {!loadingText ? <Spinner /> : null}
                 {loadingText ? renderChild(loadingText) : null}
                 {children}
             </button>

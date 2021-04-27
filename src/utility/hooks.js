@@ -31,14 +31,14 @@ export const WithPortal = memo(Portal);
 /**
  *  useKeydown - detect keypress and respond via a provided callback
  */
-export const useKeydown = (callback) => {
+export const useKeydown = (callback, deps = []) => {
     useEffect(() => {
         document.body.addEventListener("keydown", callback);
 
         return () => {
             document.body.removeEventListener("keydown", callback);
         };
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    }, deps); // eslint-disable-line react-hooks/exhaustive-deps
 };
 
 /**

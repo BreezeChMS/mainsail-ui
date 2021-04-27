@@ -52,9 +52,7 @@ button.mainsail-button {
             box-shadow: $mainsail-shadow-active;
         }
 
-        @include focus {
-            outline: none;
-        }
+        @include focus;
 
         @include disabled;
 
@@ -100,10 +98,7 @@ button.mainsail-button {
         @include active {
             box-shadow: $mainsail-shadow-active;
         }
-        @include focus {
-            outline: none;
-        }
-
+        @include focus;
         @include disabled;
 
         &.filtering {
@@ -153,6 +148,8 @@ button.mainsail-button {
 
         @include disabled;
 
+        @include focus;
+
         &.filtering {
             color: $mainsail-green-middle;
             background: none;
@@ -197,9 +194,7 @@ button.mainsail-button {
             text-decoration: underline;
         }
 
-        @include focus {
-            outline-offset: 4px;
-        }
+        @include focus;
 
         @include disabled;
 
@@ -237,18 +232,13 @@ button.mainsail-button {
         color: $mainsail-blue-primary;
         background: none;
         box-shadow: none;
-        &:hover {
+
+        @include focus;
+        @include hover {
+            color: $mainsail-blue-primary;
             background: $mainsail-blue-light;
             border-radius: $mainsail-button-border-radius-lg;
         }
-    }
-
-    &:hover {
-        box-shadow: none;
-    }
-
-    &:focus {
-        outline: 5px auto $mainsail-blue-primary;
     }
 
     &.text-small {

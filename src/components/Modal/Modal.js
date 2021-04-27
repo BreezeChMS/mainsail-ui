@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import { Button } from "components/Button";
@@ -11,6 +11,11 @@ import "./Modal.scss";
 export const intents = {
     default: "default",
     danger: "danger",
+};
+
+export const confirmVariants = {
+    [Button.variants.primary]: Button.variants.primary,
+    [Button.variants.secondary]: Button.variants.secondary,
 };
 
 /**
@@ -29,6 +34,7 @@ export const Modal = ({
     onConfirm,
     isLoading,
     confirmText,
+    confirmVariant,
     loadingText,
     onCancel,
     cancelText,
@@ -47,10 +53,41 @@ export const Modal = ({
     const showBackButton = typeof onClickBack === "function";
     const [openClass, setOpenClass] = useState(isOpen ? "open" : "");
     const modalId = useUniqueId("modal");
+    const modalRef = useRef(null);
 
     useKeydown((e) => {
         if (e.charCode === 27 || e.keyCode === 27) {
             handleDismiss();
+        }
+    });
+
+    // Handle focus trap
+    useKeydown((e) => {
+        const focusableElements =
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+        let isTabPressed = e.key === "Tab" || e.keyCode === 9;
+
+        if (!isTabPressed || !modalRef) {
+            return;
+        }
+
+        const focusableContent =
+            modalRef.current &&
+            modalRef.current.querySelectorAll(focusableElements);
+        const firstFocusableElement =
+            modalRef.current &&
+            modalRef.current.querySelectorAll(focusableElements)[0];
+        const lastFocusableElement =
+            focusableContent && focusableContent[focusableContent.length - 1];
+
+        if (e.shiftKey) {
+            if (document.activeElement === firstFocusableElement) {
+                lastFocusableElement.focus();
+                e.preventDefault();
+            }
+        } else if (document.activeElement === lastFocusableElement) {
+            firstFocusableElement.focus();
+            e.preventDefault();
         }
     });
 
@@ -125,6 +162,7 @@ export const Modal = ({
                     }}
                     onExited={handleOnClose}>
                     <div
+                        ref={modalRef}
                         role="dialog"
                         aria-labelledby={`${modalId}-title`}
                         aria-describedby={`${modalId}-desc`}
@@ -187,7 +225,7 @@ export const Modal = ({
                                         variant={
                                             intent === intents.danger
                                                 ? Button.variants.primary
-                                                : Button.variants.secondary
+                                                : confirmVariant
                                         }
                                         intent={intent}
                                         text={
@@ -217,6 +255,8 @@ Modal.propTypes = {
     className: PropTypes.string,
     /** The title text of the modal */
     title: PropTypes.string.isRequired,
+    /** The confirm button variant of the modal (if using default footer)*/
+    confirmVariant: PropTypes.oneOf(Object.keys(confirmVariants)),
     /** The confirm button text of the modal (if using default footer)*/
     confirmText: PropTypes.string,
     /** The confirm button text of the modal when confirm clicked (if using default footer)*/
@@ -265,6 +305,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
+    confirmVariant: Button.variants.secondary,
     isDismissable: false,
     intent: intents.default,
     hasOverlay: true,
@@ -277,3 +318,4 @@ Modal.defaultProps = {
  * Modal.variants = variants
  */
 Modal.intents = intents;
+Modal.confirmVariants = confirmVariants;
