@@ -15,6 +15,7 @@ export const ENUMS = {};
 export const FormLabel = ({
     className,
     isRequired,
+    isDisabled,
     htmlFor,
     text,
     children,
@@ -22,7 +23,11 @@ export const FormLabel = ({
     return (
         <label
             htmlFor={htmlFor}
-            className={classify("mainsail-form-label", className)}>
+            className={classify(
+                "mainsail-form-label",
+                className,
+                isDisabled && "disabled"
+            )}>
             {text}
             {children}
             {isRequired && (
@@ -38,14 +43,16 @@ export const FormLabel = ({
 };
 
 FormLabel.propTypes = {
+    /** Disables input field */
+    isDisabled: PropTypes.bool,
+    /** Marks a label as required for an input */
+    isRequired: PropTypes.bool,
     /** Specifies the id of the form element the label should be bound to  */
     htmlFor: PropTypes.string,
     /** Label text (simpler alternative to using children) */
     text: PropTypes.string,
     /** Style class to add to component wrapper */
     className: PropTypes.string,
-    /** Marks a label as required for an input */
-    isRequired: PropTypes.bool,
 };
 
 FormLabel.defaultProps = {};

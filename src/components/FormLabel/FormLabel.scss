@@ -13,4 +13,8 @@ label.mainsail-form-label {
         margin-left: 2px;
         color: $mainsail-red-middle;
     }
+
+    &.disabled {
+        opacity: 0.5;
+    }
 }
