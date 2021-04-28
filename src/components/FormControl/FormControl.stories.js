@@ -4,18 +4,37 @@ import { FormControl } from "./FormControl";
 import { Input } from "components/Input";
 import { Textarea } from "components/Textarea";
 import { FormLabel } from "components/FormLabel";
+import { FormHelpText } from "components/FormHelpText";
 
 export default {
     title: "Forms/FormControl",
     component: FormControl,
     argTypes: {},
-    subcomponents: { Input, FormLabel },
+    subcomponents: { Input, FormLabel, FormHelpText },
+    parameters: {
+        docs: {
+            description: {
+                component: `Wrapper for form elements
+             \n- Provides context to children such as \`isInvalid\`, \`isDisabled\`, \`isRequired\`
+             \n- Extras such as auto linking \`<FormLabel/>\` to \`<Input/>\` and auto-generated ids for aria attributes
+                `,
+            },
+        },
+    },
 };
 
-const InputTemplate = (args) => (
+const BasicTemplate = (args) => (
     <FormControl {...args}>
         <FormLabel text="First Name" />
         <Input />
+    </FormControl>
+);
+
+const HelpTextTemplate = (args) => (
+    <FormControl {...args}>
+        <FormLabel text="Email" />
+        <Input type="email" />
+        <FormHelpText text={"We will never sell or distribute your email"} />
     </FormControl>
 );
 
@@ -26,40 +45,34 @@ const TextareaTemplate = (args) => (
     </FormControl>
 );
 
-export const BasicInput = InputTemplate.bind({});
+export const BasicInput = BasicTemplate.bind({});
 BasicInput.args = {
     id: "first-name",
     invalidText: "Please enter a First Name.",
 };
 
-export const RequiredInput = InputTemplate.bind({});
+export const RequiredInput = BasicTemplate.bind({});
 RequiredInput.args = {
-    id: "first-name",
+    ...BasicInput.args,
     isRequired: true,
-    invalidText: "Please enter a First Name.",
 };
 
-export const HelpText = InputTemplate.bind({});
+export const HelpText = HelpTextTemplate.bind({});
 HelpText.args = {
-    id: "first-name",
-    width: FormControl.widths.md,
-    helpText: "...where everybody knows your name.",
-    invalidText: "Please enter a First Name.",
+    id: "email-address",
+    invalidText: "Please provide your email address",
 };
 
-export const ErrorText = InputTemplate.bind({});
+export const ErrorText = BasicTemplate.bind({});
 ErrorText.args = {
-    id: "first-name",
-    width: FormControl.widths.md,
+    ...BasicInput.args,
     isInvalid: true,
-    invalidText: "Please enter a First Name.",
 };
 
-export const DisabledInput = InputTemplate.bind({});
+export const DisabledInput = BasicTemplate.bind({});
 DisabledInput.args = {
-    id: "first-name",
+    ...BasicInput.args,
     isDisabled: true,
-    invalidText: "Please enter a First Name.",
 };
 
 export const TextareaInput = TextareaTemplate.bind({});

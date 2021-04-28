@@ -21,7 +21,9 @@ it("renders in the primary state", () => {
 it("renders with helptext", () => {
     render(<HelpText {...HelpText.args} />);
     expect(screen.getByRole("textbox")).toBeInTheDocument();
-    expect(screen.getByText(HelpText.args.helpText)).toBeInTheDocument();
+    expect(
+        screen.getByText("We will never sell or distribute your email")
+    ).toBeInTheDocument();
 });
 
 it("renders with error text", () => {

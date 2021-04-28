@@ -2,6 +2,7 @@ import React, { cloneElement, Children } from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import { useUniqueId } from "utility/hooks";
+import { isFragment } from "react-is";
 
 import "./FormControl.scss";
 
@@ -25,7 +26,8 @@ export const ENUMS = {
 const getPropsByChildType = ({ child, ...parentProps }) => {
     if (!child.type.displayName) {
         console.warn(
-            `Child ${child} passed to <FormControl/> does not have assigned displayName`
+            `Child passed to <FormControl/> does not have assigned displayName`,
+            child
         );
     }
 
@@ -37,13 +39,13 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
                     child.props.className,
                     parentProps.isInvalid && "error"
                 ),
-                id: parentProps.inputId,
+                id: child.props.id || parentProps.inputId,
                 isReadOnly: parentProps.isReadOnly,
                 isDisabled: parentProps.isDisabled,
                 isRequired: parentProps.isRequired,
-                "aria-describedby":
-                    (parentProps.helpText && parentProps.helpTextId) ||
-                    parentProps.invalidTextId,
+                "aria-describedby": parentProps.isInvalid
+                    ? parentProps.invalidTextId
+                    : parentProps.helpTextId,
             };
 
         case "FormLabel":
@@ -53,13 +55,23 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
                     parentProps.isInvalid && "error",
                     parentProps.isDisabled && "disabled"
                 ),
-                htmlFor: parentProps.inputId,
+                htmlFor: child.props.id || parentProps.inputId,
                 isRequired: parentProps.isRequired,
+            };
+
+        case "FormHelpText":
+            return {
+                className: classify(
+                    child.props.className,
+                    parentProps.isDisabled && "disabled"
+                ),
+                id: parentProps.helpTextId,
+                isHidden: parentProps.isInvalid ? true : false,
             };
 
         default:
             console.warn(
-                `Child Component ${child.type.displayName} passed to <FormControl/> did not receive props`
+                `Child component ${child.type.displayName} passed to <FormControl/> did not receive props`
             );
     }
 
@@ -78,21 +90,22 @@ export const FormControl = ({
     isDisabled,
     isInvalid,
     invalidText,
-    helpText,
     ...props
 }) => {
-    const inputId = useUniqueId("input-");
-    const helpTextId = `helpfor-${inputId}`;
-    const invalidTextId = `errorfor-${inputId}`;
+    const autoId = useUniqueId("");
+    const helpTextId = `helpfor-${autoId}`;
+    const invalidTextId = `errorfor-${autoId}`;
+    const childrenArray = isFragment(children)
+        ? Children.toArray(children.props.children)
+        : Children.toArray(children);
 
     // attach props by child type
-    let formChildren = Children.toArray(children).map((child) => {
+    let formChildren = childrenArray.map((child) => {
         return cloneElement(child, {
             ...child.props,
             ...getPropsByChildType({
                 child,
-                helpText,
-                inputId,
+                inputId: props.id || autoId,
                 helpTextId,
                 invalidTextId,
                 isReadOnly,
@@ -109,11 +122,6 @@ export const FormControl = ({
             disabled={isDisabled}
             {...props}>
             {formChildren}
-            {helpText && !isInvalid && (
-                <div className="help-text" id={helpTextId}>
-                    {helpText}
-                </div>
-            )}
             {isInvalid && (
                 <div className="invalid-text" id={invalidTextId}>
                     {invalidText}
@@ -126,8 +134,6 @@ export const FormControl = ({
 FormControl.propTypes = {
     /** Defines the id bound to the input and attaches label  */
     id: PropTypes.string,
-    /** Defines the text to use as helper text below the input */
-    helpText: PropTypes.string,
     /** Defines the width of the input field */
     width: PropTypes.oneOf(Object.values(widths)),
     /** Marks the form control as having an error */

@@ -1,4 +1,5 @@
 // Components Global Export for plopjs
+export { FormHelpText } from "../FormHelpText";
 export { AutoGrid } from "../AutoGrid";
 export { Textarea } from "../Textarea";
 export { FormLabel } from "../FormLabel";

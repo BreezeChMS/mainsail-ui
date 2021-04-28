@@ -1,0 +1,12 @@
+@import "../../styles/Variables.scss";
+
+/** FormHelpText Component Styles */
+.mainsail-help-text {
+    @include mainsail-body-text-small;
+    margin-top: 6px;
+    color: $mainsail-neutral-3;
+
+    &.disabled {
+        opacity: 0.5;
+    }
+}
