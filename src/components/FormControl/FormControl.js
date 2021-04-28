@@ -19,6 +19,9 @@ export const ENUMS = {
     widths,
 };
 
+/**
+ *  This function cascades props down to immediate children for styling and functionality controlled by FormControl
+ */
 const getPropsByChildType = ({ child, ...parentProps }) => {
     if (!child.type.displayName) {
         console.warn(
@@ -28,22 +31,39 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
 
     switch (child.type.displayName) {
         case "Input":
+        case "Textarea":
             return {
+                className: classify(
+                    child.props.className,
+                    parentProps.isInvalid && "error"
+                ),
                 id: parentProps.inputId,
                 isReadOnly: parentProps.isReadOnly,
                 isDisabled: parentProps.isDisabled,
                 isRequired: parentProps.isRequired,
                 "aria-describedby":
-                    parentProps.helpText && parentProps.helpTextId,
+                    (parentProps.helpText && parentProps.helpTextId) ||
+                    parentProps.invalidTextId,
             };
+
         case "FormLabel":
             return {
+                className: classify(
+                    child.props.className,
+                    parentProps.isInvalid && "error",
+                    parentProps.isDisabled && "disabled"
+                ),
                 htmlFor: parentProps.inputId,
                 isRequired: parentProps.isRequired,
             };
+
+        default:
+            console.warn(
+                `Child Component ${child.type.displayName} passed to <FormControl/> did not receive props`
+            );
     }
 
-    return console.warn(`Unknown Child ${child} passed to <FormControl/>`);
+    return child;
 };
 
 /**
@@ -63,12 +83,10 @@ export const FormControl = ({
 }) => {
     const inputId = useUniqueId("input-");
     const helpTextId = `helpfor-${inputId}`;
-    console.log(isRequired, inputId, isReadOnly);
+    const invalidTextId = `errorfor-${inputId}`;
 
     // attach props by child type
     let formChildren = Children.toArray(children).map((child) => {
-        console.log("child:", child.type.displayName);
-
         return cloneElement(child, {
             ...child.props,
             ...getPropsByChildType({
@@ -76,6 +94,7 @@ export const FormControl = ({
                 helpText,
                 inputId,
                 helpTextId,
+                invalidTextId,
                 isReadOnly,
                 isRequired,
                 isDisabled,
@@ -90,12 +109,16 @@ export const FormControl = ({
             disabled={isDisabled}
             {...props}>
             {formChildren}
-            {helpText && (
+            {helpText && !isInvalid && (
                 <div className="help-text" id={helpTextId}>
                     {helpText}
                 </div>
             )}
-            {isInvalid && <div className="invalid-text">{invalidText}</div>}
+            {isInvalid && (
+                <div className="invalid-text" id={invalidTextId}>
+                    {invalidText}
+                </div>
+            )}
         </div>
     );
 };

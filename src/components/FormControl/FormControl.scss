@@ -5,6 +5,7 @@
 
 .mainsail-form-control {
     input {
+        @include mainsail-body-text-regular;
         width: 100%;
     }
     &.sm {
@@ -21,5 +22,30 @@
 
     &.full {
         width: 100%;
+    }
+
+    .help-text {
+        @include mainsail-body-text-small;
+        margin-top: 6px;
+        color: $mainsail-neutral-3;
+    }
+
+    .invalid-text {
+        @include mainsail-body-text-small;
+        margin-top: 6px;
+        color: $mainsail-red-middle;
+    }
+
+    textarea.mainsail-textarea.error,
+    input.mainsail-input.error {
+        border: 1px solid $mainsail-input-border-error;
+    }
+
+    label.mainsail-form-label.error {
+        color: $mainsail-red-dark;
+    }
+
+    label.mainsail-form-label.disabled {
+        opacity: 0.5;
     }
 }
