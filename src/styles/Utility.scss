@@ -90,8 +90,18 @@
 @mixin disabled {
     &:disabled {
         box-shadow: none;
-        opacity: 0.3;
+        opacity: 0.5;
         cursor: not-allowed;
+        @content;
+    }
+}
+
+@mixin readonly {
+    &:read-only {
+        background: $mainsail-neutral-6;
+        box-shadow: none;
+        cursor: text;
+        @content;
     }
 }
 

@@ -7,15 +7,46 @@ import "@testing-library/jest-dom/extend-expect";
 
 import { Primary } from "./Input.stories";
 
-it.skip("renders the input in the primary state", () => {
+it("renders in the primary state", () => {
     render(<Primary {...Primary.args} />);
-    expect(screen.getByRole("")).toHaveTextContent("Primary");
+    expect(screen.getByRole("textbox")).toBeInTheDocument();
 });
 
-it.skip("fires a provided onClick handler", () => {
-    let onClick = jest.fn();
-    render(<Primary {...Primary.args} onClick={onClick} />);
+it("renders as required", () => {
+    render(<Primary {...Primary.args} isRequired={true} />);
+    expect(screen.getByRole("textbox")).toBeRequired();
+});
 
-    userEvent.click(screen.getByRole(""));
-    expect(onClick).toHaveBeenCalled();
+it("renders as disabled", () => {
+    render(<Primary {...Primary.args} isDisabled={true} />);
+    expect(screen.getByRole("textbox")).toBeDisabled();
+});
+
+it("renders as readonly", () => {
+    render(<Primary {...Primary.args} isReadOnly={true} />);
+    expect(screen.getByRole("textbox")).toHaveAttribute("readonly");
+});
+
+it("can accept default input callbacks handler", () => {
+    let onChange = jest.fn();
+    let onBlur = jest.fn();
+    let onFocus = jest.fn();
+    render(
+        <Primary
+            {...Primary.args}
+            onChange={onChange}
+            onBlur={onBlur}
+            onFocus={onFocus}
+        />
+    );
+
+    let input = screen.getByRole("textbox");
+
+    userEvent.click(input);
+    expect(onFocus).toHaveBeenCalled();
+    expect(input).toHaveFocus();
+    userEvent.type(input, "h");
+    expect(onChange).toHaveBeenCalled();
+    userEvent.tab(input);
+    expect(onBlur).toHaveBeenCalled();
 });

@@ -10,15 +10,11 @@ import "./Input.scss";
 export const ENUMS = {};
 
 /**
- * A text field for user input - For use as subcomponent of **FormControl**
+ * A text field for user input - For use as subcomponent of **FormControl** (any native props not shown are passed through)
  **/
 export const Input = ({
     className,
     type,
-    placeholder,
-    value,
-    onFocus,
-    onBlur,
     isDisabled,
     isReadOnly,
     isRequired,
@@ -27,10 +23,6 @@ export const Input = ({
     return (
         <input
             type={type}
-            placeholder={placeholder}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            value={value}
             required={isRequired}
             readOnly={isReadOnly}
             disabled={isDisabled}
@@ -49,14 +41,6 @@ Input.propTypes = {
     isReadOnly: PropTypes.bool,
     /** Defines the type of the input field (native type prop)*/
     type: PropTypes.string,
-    /** Defines the value of the input field (if controlled) */
-    value: PropTypes.string,
-    /** (Optional) placeholder text for input */
-    placeholder: PropTypes.string,
-    /** (Optional) callback handler to fire when input loses focus */
-    onBlur: PropTypes.func,
-    /** (Optional) callback handler to fire when input receives focus */
-    onFocus: PropTypes.func,
     /** Style class to add to component wrapper */
     className: PropTypes.string,
 };
