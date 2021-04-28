@@ -1,0 +1,28 @@
+@import "../../styles/Variables.scss";
+
+/** Textarea Component Styles */
+textarea.mainsail-textarea {
+    @include mainsail-body-text-regular;
+    color: $mainsail-neutral-2;
+    border-radius: $mainsail-input-border-radius;
+    border: 1px solid $mainsail-input-border;
+    min-height: 72px;
+    width: 100%;
+    padding: 7px;
+
+    &::placeholder {
+        color: $mainsail-neutral-3;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+        border-color: $mainsail-blue-primary;
+        border: 1px solid $mainsail-blue-primary;
+        box-shadow: $mainsail-shadow-near;
+    }
+
+    @include disabled;
+
+    @include readonly;
+}

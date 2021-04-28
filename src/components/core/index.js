@@ -1,4 +1,5 @@
 // Components Global Export for plopjs
+export { Textarea } from "../Textarea";
 export { FormLabel } from "../FormLabel";
 export { FormControl } from "../FormControl";
 export { Input } from "../Input";
@@ -13,6 +14,7 @@ export { Button } from "../Button";
 export { Icon } from "../Icon";
 
 // ENUM Import for plopjs
+import { ENUMS as TextareaENUMS } from "../Textarea";
 import { ENUMS as FormLabelENUMS } from "../FormLabel";
 import { ENUMS as FormControlENUMS } from "../FormControl";
 import { ENUMS as InputENUMS } from "../Input";
@@ -31,6 +33,7 @@ import { ENUMS as IconENUMS } from "../Icon";
  */
 // ENUM Export for plopjs
 export const ENUMS = {
+	Textarea: TextareaENUMS,
 	FormLabel: FormLabelENUMS,
 	FormControl: FormControlENUMS,
 	Input: InputENUMS,
