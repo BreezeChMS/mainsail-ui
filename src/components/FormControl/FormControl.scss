@@ -1,0 +1,25 @@
+@import "../../styles/Variables.scss";
+@import "../../styles/Layout.scss";
+
+/** FormControl Component Styles */
+
+.mainsail-form-control {
+    input {
+        width: 100%;
+    }
+    &.sm {
+        width: 140px;
+    }
+
+    &.md {
+        width: 229px;
+    }
+
+    &.lg {
+        width: 472px;
+    }
+
+    &.full {
+        width: 100%;
+    }
+}

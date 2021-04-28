@@ -1,0 +1,16 @@
+@import "../../styles/Variables.scss";
+@import "../../styles/Layout.scss";
+
+/** FormLabel Component Styles */
+
+label.mainsail-form-label {
+    @include mainsail-label-text-small;
+    display: block;
+    margin-bottom: 4px;
+    color: $mainsail-neutral-2;
+
+    .required-mark {
+        margin-left: 2px;
+        color: $mainsail-red-middle;
+    }
+}
