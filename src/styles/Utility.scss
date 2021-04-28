@@ -7,6 +7,25 @@
     }
 }
 
+/* Grid-template Generation */
+@mixin grid-templates() {
+    @for $_ from 1 through 12 {
+        &.grid-cols-#{$_} {
+            grid-template-columns: repeat($_, minmax(0, 1fr));
+        }
+        &.grid-rows-#{$_} {
+            grid-template-rows: repeat($_, minmax(0, 1fr));
+        }
+    }
+
+    &.grid-cols-auto {
+        grid-template-columns: repeat(auto, minmax(0, 1fr));
+    }
+    &.grid-rows-auto {
+        grid-template-rows: repeat(auto-fill, minmax(0, 1fr));
+    }
+}
+
 /* Responsive Utility Mixins */
 @mixin mobile-size-up {
     @media only screen and (min-width: 992px) {

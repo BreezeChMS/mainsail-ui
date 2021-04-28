@@ -1,0 +1,21 @@
+@import "../../styles/Variables.scss";
+@import "../../styles/Layout.scss";
+
+/** AutoGrid Component Styles */
+.mainsail-auto-grid {
+    display: grid;
+
+    &.grid-flow-col {
+        grid-auto-flow: column;
+    }
+
+    &.grid-flow-row {
+        grid-auto-flow: row;
+    }
+
+    @include grid-templates;
+
+    &.gap {
+        @include spacing-modifiers($attribute: "gap");
+    }
+}

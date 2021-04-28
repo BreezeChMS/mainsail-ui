@@ -1,4 +1,5 @@
 // Components Global Export for plopjs
+export { AutoGrid } from "../AutoGrid";
 export { Textarea } from "../Textarea";
 export { FormLabel } from "../FormLabel";
 export { FormControl } from "../FormControl";
@@ -14,6 +15,7 @@ export { Button } from "../Button";
 export { Icon } from "../Icon";
 
 // ENUM Import for plopjs
+import { ENUMS as AutoGridENUMS } from "../AutoGrid";
 import { ENUMS as TextareaENUMS } from "../Textarea";
 import { ENUMS as FormLabelENUMS } from "../FormLabel";
 import { ENUMS as FormControlENUMS } from "../FormControl";
@@ -33,12 +35,13 @@ import { ENUMS as IconENUMS } from "../Icon";
  */
 // ENUM Export for plopjs
 export const ENUMS = {
-	Textarea: TextareaENUMS,
-	FormLabel: FormLabelENUMS,
-	FormControl: FormControlENUMS,
-	Input: InputENUMS,
-	Transition: TransitionENUMS,
-	Modal: ModalENUMS,
+    AutoGrid: AutoGridENUMS,
+    Textarea: TextareaENUMS,
+    FormLabel: FormLabelENUMS,
+    FormControl: FormControlENUMS,
+    Input: InputENUMS,
+    Transition: TransitionENUMS,
+    Modal: ModalENUMS,
     Tooltip: TooltipENUMS,
     Checkbox: CheckboxENUMS,
     Radio: RadioENUMS,
