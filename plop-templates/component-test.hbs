@@ -8,12 +8,12 @@ import "@testing-library/jest-dom/extend-expect";
 
 import { Primary } from "./{{componentName}}.stories";
 
-it("renders the {{lowerCase componentName}} in the primary state", () => {
+it.skip("renders the {{lowerCase componentName}} in the primary state", () => {
   render(<Primary {...Primary.args} />);
   expect(screen.getByRole("")).toHaveTextContent("Primary");
 });
 
-it("fires a provided onClick handler", () => {
+it.skip("fires a provided onClick handler", () => {
     let onClick = jest.fn();
     render(<Primary {...Primary.args} onClick={onClick} />);
 
