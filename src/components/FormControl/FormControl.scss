@@ -8,16 +8,27 @@
         @include mainsail-body-text-regular;
         width: 100%;
     }
-    &.sm {
+
+    @include mobile-size-up {
         width: 140px;
-    }
+        &.sm {
+            width: 140px;
+        }
 
-    &.md {
-        width: 229px;
-    }
+        &.md {
+            width: 229px;
+        }
 
-    &.lg {
-        width: 472px;
+        &.lg {
+            width: 472px;
+        }
+    }
+    @include mobile-size-down {
+        &.sm,
+        &.md,
+        &.lg {
+            width: 100%;
+        }
     }
 
     &.full {

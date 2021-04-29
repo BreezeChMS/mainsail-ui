@@ -2,21 +2,11 @@
 
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
+import { WithCheckbox } from "./FormInputOptions.stories";
 
-import { Primary } from "./FormInputOptions.stories";
-
-it.skip("renders the forminputoptions in the primary state", () => {
-  render(<Primary {...Primary.args} />);
-  expect(screen.getByRole("")).toHaveTextContent("Primary");
-});
-
-it.skip("fires a provided onClick handler", () => {
-    let onClick = jest.fn();
-    render(<Primary {...Primary.args} onClick={onClick} />);
-
-    userEvent.click(screen.getByRole(""));
-    expect(onClick).toHaveBeenCalled();
+it("renders in the primary state", () => {
+    render(<WithCheckbox />);
+    expect(screen.getByRole("checkbox")).toBeInTheDocument();
 });

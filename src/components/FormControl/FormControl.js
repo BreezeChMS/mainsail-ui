@@ -69,6 +69,17 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
                 isHidden: parentProps.isInvalid ? true : false,
             };
 
+        case "FormInputOptions":
+            return {
+                className: classify(
+                    child.props.className,
+                    parentProps.isInvalid && "error",
+                    parentProps.isDisabled && "disabled"
+                ),
+                width: parentProps.width,
+                isDisabled: parentProps.isDisabled,
+            };
+
         default:
             console.warn(
                 `Child component ${child.type.displayName} passed to <FormControl/> did not receive props`
@@ -105,6 +116,7 @@ export const FormControl = ({
             ...child.props,
             ...getPropsByChildType({
                 child,
+                width,
                 inputId: props.id || autoId,
                 helpTextId,
                 invalidTextId,

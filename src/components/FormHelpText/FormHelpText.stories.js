@@ -14,3 +14,12 @@ export const Primary = Template.bind({});
 Primary.args = {
     text: "We will never sell or distribute your email.",
 };
+
+export const WithChildren = Template.bind({});
+WithChildren.args = {
+    children: (
+        <span>
+            Some text with a <a>link.</a>
+        </span>
+    ),
+};

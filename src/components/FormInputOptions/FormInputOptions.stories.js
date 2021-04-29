@@ -9,11 +9,11 @@ export default {
     argTypes: {},
 };
 
-const Template = (args) => (
+const CheckboxTemplate = (args) => (
     <FormInputOptions {...args}>
         <Checkbox text="Private" />
     </FormInputOptions>
 );
 
-export const WithCheckbox = Template.bind({});
+export const WithCheckbox = CheckboxTemplate.bind({});
 WithCheckbox.args = {};

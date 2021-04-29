@@ -2,21 +2,16 @@
 
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
+import { Primary, WithChildren } from "./FormHelpText.stories";
 
-import { Primary } from "./FormHelpText.stories";
-
-it.skip("renders the formhelptext in the primary state", () => {
-  render(<Primary {...Primary.args} />);
-  expect(screen.getByRole("")).toHaveTextContent("Primary");
+it("renders in the primary state", () => {
+    render(<Primary {...Primary.args} />);
+    expect(screen.getByText(Primary.args.text)).toBeInTheDocument();
 });
 
-it.skip("fires a provided onClick handler", () => {
-    let onClick = jest.fn();
-    render(<Primary {...Primary.args} onClick={onClick} />);
-
-    userEvent.click(screen.getByRole(""));
-    expect(onClick).toHaveBeenCalled();
+it("renders with children", () => {
+    render(<WithChildren {...WithChildren.args} />);
+    expect(screen.getByText("Some text with a")).toBeInTheDocument();
 });

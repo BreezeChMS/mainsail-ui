@@ -9,4 +9,16 @@
     &.disabled {
         opacity: 0.5;
     }
+
+    a,
+    a:active,
+    a:visited {
+        color: $mainsail-blue-primary;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

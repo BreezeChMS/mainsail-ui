@@ -7,30 +7,28 @@
     align-items: center;
     flex-wrap: wrap;
 
-    // display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-    // column-gap: 16px;
-    // row-gap: 8px;
-
+    &.sm,
     &.md {
         > * + * {
             margin-top: 8px;
         }
     }
 
-    &.lg {
+    &.lg,
+    &.full {
         > * + * {
             margin-left: 16px;
         }
     }
 
-    // .mainsail-checkbox {
-    //     grid-column: span 2;
-    // }
-
     .mainsail-checkbox__label-text {
         @include mainsail-body-text-small;
         color: $mainsail-neutral-1;
         margin-top: 0;
+    }
+
+    &:disabled .mainsail-checkbox__label-text,
+    &:disabled .mainsail-radio__label-text {
+        opacity: 0.5;
     }
 }

@@ -33,7 +33,7 @@ export const FormHelpText = ({
 };
 
 FormHelpText.propTypes = {
-    /** Controls mounting of the help text */
+    /** (Optional) Control for mounting of the help text */
     isHidden: PropTypes.bool,
     /** (Optional) alternative to providing children */
     text: PropTypes.string,

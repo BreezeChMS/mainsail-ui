@@ -5,12 +5,20 @@ import { Input } from "components/Input";
 import { Textarea } from "components/Textarea";
 import { FormLabel } from "components/FormLabel";
 import { FormHelpText } from "components/FormHelpText";
+import { FormInputOptions } from "components/FormInputOptions";
+import { Checkbox } from "components/Checkbox";
+import { Button } from "components/Button";
 
 export default {
     title: "Forms/FormControl",
     component: FormControl,
     argTypes: {},
-    subcomponents: { Input, FormLabel, FormHelpText },
+    subcomponents: {
+        Input,
+        FormLabel,
+        FormHelpText,
+        FormInputOptions,
+    },
     parameters: {
         docs: {
             description: {
@@ -38,6 +46,27 @@ const HelpTextTemplate = (args) => (
     </FormControl>
 );
 
+const WithOptionsCheckbox = (args) => (
+    <FormControl {...args}>
+        <FormLabel text="Email" />
+        <Input type="email" />
+        <FormInputOptions>
+            <Checkbox text="Private" />
+            <Checkbox text="Exclude from group emails" />
+        </FormInputOptions>
+    </FormControl>
+);
+
+const WithLinkButton = (args) => (
+    <FormControl {...args}>
+        <FormLabel text="Parent Name" />
+        <Input type="text" />
+        <FormInputOptions>
+            <Button variant={Button.variants.link} text="Add Another" />
+        </FormInputOptions>
+    </FormControl>
+);
+
 const TextareaTemplate = (args) => (
     <FormControl {...args}>
         <FormLabel text="Notes" />
@@ -59,6 +88,18 @@ RequiredInput.args = {
 
 export const HelpText = HelpTextTemplate.bind({});
 HelpText.args = {
+    id: "email-address",
+    invalidText: "Please provide your email address",
+};
+
+export const InputOptionsCheckbox = WithOptionsCheckbox.bind({});
+InputOptionsCheckbox.args = {
+    id: "email-address",
+    invalidText: "Please provide your email address",
+};
+
+export const InputOptionsLinkButton = WithLinkButton.bind({});
+InputOptionsLinkButton.args = {
     id: "email-address",
     invalidText: "Please provide your email address",
 };
