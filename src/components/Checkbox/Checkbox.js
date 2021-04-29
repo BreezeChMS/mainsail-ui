@@ -168,7 +168,7 @@ export const CheckboxGroup = ({
 CheckboxGroup.propTypes = {
     /** Marks entire group checkboxes as disabled */
     isDisabled: PropTypes.bool,
-    /** Optional Label text to display, can also optionally provide children */
+    /** (Optional) Label text to display, can also optionally provide children */
     labelText: PropTypes.string,
     /** Style class to add to CheckboxGroup label wrapper element */
     className: PropTypes.string,

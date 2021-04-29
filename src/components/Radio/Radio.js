@@ -1,4 +1,5 @@
-import React from "react";
+import React, { cloneElement, Children } from "react";
+import { isFragment } from "react-is";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 
@@ -95,19 +96,41 @@ Radio.defaultProps = {
     color: ENUMS.colors.blue,
 };
 
-export const RadioGroup = ({ children, className, labelText, ...props }) => {
+export const RadioGroup = ({
+    children,
+    isDisabled,
+    className,
+    labelText,
+    ...props
+}) => {
+    /**
+     * We may need to pass disabled/form context props
+     */
+    const childrenArray = isFragment(children)
+        ? Children.toArray(children.props.children)
+        : Children.toArray(children);
+
+    let groupChildren = childrenArray.map((child) => {
+        return cloneElement(child, {
+            ...child.props,
+            isDisabled: isDisabled,
+        });
+    });
+
     return (
         <div className={classify("mainsail-radiogroup", className)} {...props}>
             {labelText ? (
                 <label className="radiogroup-label">{labelText}</label>
             ) : null}
-            {children}
+            {groupChildren}
         </div>
     );
 };
 
 RadioGroup.propTypes = {
-    /** Optional Label text to display, can also optionally provide children */
+    /** Marks entire group checkboxes as disabled */
+    isDisabled: PropTypes.bool,
+    /** (Optional) Label text to display, can also optionally provide children */
     labelText: PropTypes.string,
     /** Style class to add to RadioGroup label wrapper element */
     className: PropTypes.string,
