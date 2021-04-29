@@ -1,0 +1,36 @@
+@import "../../styles/Variables.scss";
+
+/** FormInputOptions Component Styles */
+.mainsail-input-options {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    // column-gap: 16px;
+    // row-gap: 8px;
+
+    &.md {
+        > * + * {
+            margin-top: 8px;
+        }
+    }
+
+    &.lg {
+        > * + * {
+            margin-left: 16px;
+        }
+    }
+
+    // .mainsail-checkbox {
+    //     grid-column: span 2;
+    // }
+
+    .mainsail-checkbox__label-text {
+        @include mainsail-body-text-small;
+        color: $mainsail-neutral-1;
+        margin-top: 0;
+    }
+}
