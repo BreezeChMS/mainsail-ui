@@ -1,3 +1,19 @@
+# v0.10.0 (Thu Apr 29 2021)
+
+#### 🚀 Enhancement
+
+- CO-66 input fields & more [#57](https://github.com/BreezeChMS/mainsail-ui/pull/57) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🐛 Bug Fix
+
+- fixes docs / comments for modal [#56](https://github.com/BreezeChMS/mainsail-ui/pull/56) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.9.0 (Tue Apr 27 2021)
 
 #### 🚀 Enhancement
