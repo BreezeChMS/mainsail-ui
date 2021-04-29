@@ -1,0 +1,34 @@
+@import "../../styles/Variables.scss";
+
+/** FormInputOptions Component Styles */
+.mainsail-input-options {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &.sm,
+    &.md {
+        > * + * {
+            margin-top: 8px;
+        }
+    }
+
+    &.lg,
+    &.full {
+        > * + * {
+            margin-left: 16px;
+        }
+    }
+
+    .mainsail-checkbox__label-text {
+        @include mainsail-body-text-small;
+        color: $mainsail-neutral-1;
+        margin-top: 0;
+    }
+
+    &:disabled .mainsail-checkbox__label-text,
+    &:disabled .mainsail-radio__label-text {
+        opacity: 0.5;
+    }
+}

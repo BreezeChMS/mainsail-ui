@@ -4,7 +4,7 @@ import { Icon } from "components/Icon";
 import { Button } from "./Button";
 
 export default {
-    title: "Elements/Button",
+    title: "Forms/Button",
     component: Button,
     argTypes: {
         iconLeft: {

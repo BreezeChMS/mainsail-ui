@@ -1,4 +1,11 @@
 // Components Global Export for plopjs
+export { FormInputOptions } from "../FormInputOptions";
+export { FormHelpText } from "../FormHelpText";
+export { AutoGrid } from "../AutoGrid";
+export { Textarea } from "../Textarea";
+export { FormLabel } from "../FormLabel";
+export { FormControl } from "../FormControl";
+export { Input } from "../Input";
 export { Transition } from "../Transition";
 export { Modal } from "../Modal";
 export { Tooltip } from "../Tooltip";
@@ -10,6 +17,11 @@ export { Button } from "../Button";
 export { Icon } from "../Icon";
 
 // ENUM Import for plopjs
+import { ENUMS as AutoGridENUMS } from "../AutoGrid";
+import { ENUMS as TextareaENUMS } from "../Textarea";
+import { ENUMS as FormLabelENUMS } from "../FormLabel";
+import { ENUMS as FormControlENUMS } from "../FormControl";
+import { ENUMS as InputENUMS } from "../Input";
 import { ENUMS as TransitionENUMS } from "../Transition";
 import { ENUMS as ModalENUMS } from "../Modal";
 import { ENUMS as TooltipENUMS } from "../Tooltip";
@@ -25,8 +37,13 @@ import { ENUMS as IconENUMS } from "../Icon";
  */
 // ENUM Export for plopjs
 export const ENUMS = {
-	Transition: TransitionENUMS,
-	Modal: ModalENUMS,
+    AutoGrid: AutoGridENUMS,
+    Textarea: TextareaENUMS,
+    FormLabel: FormLabelENUMS,
+    FormControl: FormControlENUMS,
+    Input: InputENUMS,
+    Transition: TransitionENUMS,
+    Modal: ModalENUMS,
     Tooltip: TooltipENUMS,
     Checkbox: CheckboxENUMS,
     Radio: RadioENUMS,

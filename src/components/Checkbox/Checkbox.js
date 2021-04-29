@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef, cloneElement, Children } from "react";
+import { isFragment } from "react-is";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import CheckIcon from "components/Icons/Check";
@@ -131,24 +132,67 @@ Checkbox.defaultProps = {
     color: ENUMS.colors.blue,
 };
 
-export const CheckboxGroup = ({ children, className, labelText, ...props }) => {
+export const CheckboxGroup = ({
+    children,
+    isDisabled,
+    isRequired,
+    className,
+    labelText,
+    ...props
+}) => {
+    /**
+     * We may need to pass disabled/form context props
+     */
+    const childrenArray = isFragment(children)
+        ? Children.toArray(children.props.children)
+        : Children.toArray(children);
+
+    let groupChildren = childrenArray.map((child) => {
+        return cloneElement(child, {
+            ...child.props,
+            isDisabled: isDisabled,
+        });
+    });
+
     return (
         <div
             className={classify("mainsail-checkboxgroup", className)}
+            data-testid="checkbox-group"
             {...props}>
             {labelText ? (
-                <label className="checkboxgroup-label">{labelText}</label>
+                <label
+                    className={classify(
+                        "checkboxgroup-label",
+                        isDisabled && "disabled"
+                    )}>
+                    {labelText}
+                    {isRequired && (
+                        <span
+                            role="presentation"
+                            aria-hidden="true"
+                            className="required-mark">
+                            *
+                        </span>
+                    )}
+                </label>
             ) : null}
-            {children}
+            {groupChildren}
         </div>
     );
 };
 
 CheckboxGroup.propTypes = {
-    /** Optional Label text to display, can also optionally provide children */
+    /** Marks the form control as required */
+    isRequired: PropTypes.bool,
+    /** Marks entire group checkboxes as disabled */
+    isDisabled: PropTypes.bool,
+    /** (Optional) Label text to display, can also optionally provide children */
     labelText: PropTypes.string,
     /** Style class to add to CheckboxGroup label wrapper element */
     className: PropTypes.string,
 };
+
+Checkbox.displayName = "Checkbox";
+CheckboxGroup.displayName = "CheckboxGroup";
 
 Checkbox.colors = colors;

@@ -60,6 +60,10 @@
     max-width: 1400px;
 }
 
+.w-full {
+    width: 100%;
+}
+
 /* Shadows */
 
 .box-shadow-near {
@@ -83,6 +87,11 @@
 
 .text {
     @include color-modifiers($attribute: "color");
+}
+
+.border {
+    border-width: 1px;
+    border-style: solid;
 }
 
 .border {

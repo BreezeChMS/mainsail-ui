@@ -18,6 +18,9 @@ export default {
             options: Object.keys(Modal.confirmVariants),
         },
     },
+    parameters: {
+        controls: { sort: "requiredFirst" },
+    },
 };
 
 let setModalTemplateOpen;

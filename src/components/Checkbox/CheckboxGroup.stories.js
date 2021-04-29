@@ -3,7 +3,7 @@ import React from "react";
 import { Checkbox, CheckboxGroup as CheckboxGroupComponent } from "./Checkbox";
 
 export default {
-    title: "Elements/CheckboxGroup",
+    title: "Forms/CheckboxGroup",
     component: CheckboxGroupComponent,
     subcomponents: {
         Checkbox: Checkbox,
@@ -29,6 +29,19 @@ export const Basic = (args) => (
 );
 Basic.args = {
     labelText: "Choose breakfast",
+};
+
+export const DisabledGroup = (args) => (
+    <CheckboxGroup {...args}>
+        <Checkbox name="nerd_type" text="Bacon" isDefaultChecked />
+        <Checkbox name="nerd_type" text="Eggs" />
+        <Checkbox name="nerd_type" text="Waffles" />
+        <Checkbox name="nerd_type" text="Sausage" />
+    </CheckboxGroup>
+);
+DisabledGroup.args = {
+    labelText: "No breakfast",
+    isDisabled: true,
 };
 
 export const IndeterminateGroup = (args) => {

@@ -12,6 +12,7 @@ import {
     IndeterminateGroup,
 } from "./Checkbox.stories";
 import { CheckboxGroup } from "./Checkbox";
+import { DisabledGroup } from "./CheckboxGroup.stories";
 
 it("renders the checkbox in the primary state", () => {
     render(<Basic {...Basic.args} text="Nifty" />);
@@ -85,6 +86,15 @@ it("renders the checkbox in a group with a label", () => {
     expect(screen.getByText("choice1")).toBeInTheDocument();
     expect(screen.getByText("choice2")).toBeInTheDocument();
     expect(screen.getByText("Fancy Label")).toBeInTheDocument();
+});
+
+it("renders the checkbox in a group as disabled", () => {
+    render(<DisabledGroup {...DisabledGroup.args} />);
+    expect(screen.queryAllByRole("checkbox").length).toBe(4);
+    expect(screen.queryAllByRole("checkbox")[0]).toBeDisabled();
+    expect(screen.queryAllByRole("checkbox")[1]).toBeDisabled();
+    expect(screen.queryAllByRole("checkbox")[2]).toBeDisabled();
+    expect(screen.queryAllByRole("checkbox")[3]).toBeDisabled();
 });
 
 it("can select multiples in a group", () => {

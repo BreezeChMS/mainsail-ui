@@ -21,6 +21,7 @@ module.exports = function (plop) {
                 message: "What category does this component fall under?",
                 choices: [
                     "Elements",
+                    "Forms",
                     "Layout",
                     "Overlay",
                     "User Feedback",
@@ -65,18 +66,6 @@ module.exports = function (plop) {
                 path: "src/components/core/index.js",
                 pattern: /Components Global Export for plopjs/gi,
                 template: `export { {{pascalCase componentName}} } from "../{{pascalCase componentName}}";`,
-            },
-            {
-                type: "append",
-                path: "src/components/core/index.js",
-                pattern: /ENUM Import for plopjs/gi,
-                template: `import { ENUMS as {{pascalCase componentName}}ENUMS } from "../{{pascalCase componentName}}";`,
-            },
-            {
-                type: "append",
-                path: "src/components/core/index.js",
-                pattern: /export const ENUMS = {/gi,
-                template: `\t{{pascalCase componentName}}: {{pascalCase componentName}}ENUMS,`,
             },
 
             // Add SCSS Imports to index for CSS Build

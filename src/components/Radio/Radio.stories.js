@@ -4,7 +4,7 @@ import { Radio as RadioComponent, RadioGroup } from "./Radio";
 import { Icon } from "../Icon";
 
 export default {
-    title: "Elements/Radio",
+    title: "Forms/Radio",
     component: RadioComponent,
     argTypes: {
         color: {

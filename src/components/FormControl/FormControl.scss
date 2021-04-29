@@ -1,0 +1,60 @@
+@import "../../styles/Variables.scss";
+@import "../../styles/Layout.scss";
+
+/** FormControl Component Styles */
+
+.mainsail-form-control {
+    input {
+        @include mainsail-body-text-regular;
+        width: 100%;
+    }
+
+    @include mobile-size-up {
+        width: 140px;
+        &.sm {
+            width: 140px;
+        }
+
+        &.md {
+            width: 229px;
+        }
+
+        &.lg {
+            width: 472px;
+        }
+    }
+    @include mobile-size-down {
+        &.sm,
+        &.md,
+        &.lg {
+            width: 100%;
+        }
+    }
+
+    &.full {
+        width: 100%;
+    }
+
+    .invalid-text {
+        @include mainsail-body-text-small;
+        margin-top: 6px;
+        color: $mainsail-red-middle;
+    }
+
+    textarea.mainsail-textarea.error,
+    input.mainsail-input.error {
+        border: 1px solid $mainsail-input-border-error;
+    }
+
+    label.mainsail-form-label.error {
+        color: $mainsail-red-dark;
+    }
+
+    label.mainsail-form-label,
+    label.checkboxgroup-label,
+    label.radiogroup-label {
+        &.disabled {
+            opacity: 0.5;
+        }
+    }
+}

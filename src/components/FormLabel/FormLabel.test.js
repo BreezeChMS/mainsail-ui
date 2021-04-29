@@ -1,16 +1,15 @@
-// {{componentName}}.test.js
+// FormLabel.test.js
 
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
+import { Primary } from "./FormLabel.stories";
 
-import { Primary } from "./{{componentName}}.stories";
-
-it.skip("renders the {{lowerCase componentName}} in the primary state", () => {
-  render(<Primary {...Primary.args} />);
-  expect(screen.getByRole("")).toHaveTextContent("Primary");
+it.skip("renders the formlabel in the primary state", () => {
+    render(<Primary {...Primary.args} />);
+    expect(screen.getByRole("")).toHaveTextContent("Primary");
 });
 
 it.skip("fires a provided onClick handler", () => {

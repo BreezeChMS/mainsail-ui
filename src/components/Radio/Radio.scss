@@ -151,6 +151,12 @@
     display: flex;
     flex-direction: column;
 
+    &.error {
+        label.radiogroup-label {
+            color: $mainsail-red-dark;
+        }
+    }
+
     .mainsail-radio {
         display: flex;
         margin-bottom: 10px;
@@ -166,7 +172,13 @@
             @include mainsail-label-text-large;
         }
 
-        &:disabled {
+        .required-mark {
+            margin-left: 2px;
+            color: $mainsail-red-middle;
+        }
+
+        &:disabled,
+        &.disabled {
             opacity: 0.5;
         }
     }

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { cloneElement, Children } from "react";
+import { isFragment } from "react-is";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 
@@ -95,22 +96,67 @@ Radio.defaultProps = {
     color: ENUMS.colors.blue,
 };
 
-export const RadioGroup = ({ children, className, labelText, ...props }) => {
+export const RadioGroup = ({
+    children,
+    isDisabled,
+    isRequired,
+    className,
+    labelText,
+    ...props
+}) => {
+    /**
+     * We may need to pass disabled/form context props
+     */
+    const childrenArray = isFragment(children)
+        ? Children.toArray(children.props.children)
+        : Children.toArray(children);
+
+    let groupChildren = childrenArray.map((child) => {
+        return cloneElement(child, {
+            ...child.props,
+            isDisabled: isDisabled,
+        });
+    });
+
     return (
-        <div className={classify("mainsail-radiogroup", className)} {...props}>
+        <div
+            className={classify("mainsail-radiogroup", className)}
+            data-testid="radio-group"
+            {...props}>
             {labelText ? (
-                <label className="radiogroup-label">{labelText}</label>
+                <label
+                    className={classify(
+                        "radiogroup-label",
+                        isDisabled && "disabled"
+                    )}>
+                    {labelText}
+                    {isRequired && (
+                        <span
+                            role="presentation"
+                            aria-hidden="true"
+                            className="required-mark">
+                            *
+                        </span>
+                    )}
+                </label>
             ) : null}
-            {children}
+            {groupChildren}
         </div>
     );
 };
 
 RadioGroup.propTypes = {
-    /** Optional Label text to display, can also optionally provide children */
+    /** Marks the form control as required */
+    isRequired: PropTypes.bool,
+    /** Marks entire group checkboxes as disabled */
+    isDisabled: PropTypes.bool,
+    /** (Optional) Label text to display, can also optionally provide children */
     labelText: PropTypes.string,
     /** Style class to add to RadioGroup label wrapper element */
     className: PropTypes.string,
 };
+
+Radio.displayName = "Radio";
+RadioGroup.displayName = "RadioGroup";
 
 Radio.colors = colors;

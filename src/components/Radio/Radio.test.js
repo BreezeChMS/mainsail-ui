@@ -6,6 +6,7 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
 import { Basic, DefaultChecked } from "./Radio.stories";
+import { DisabledGroup } from "./RadioGroup.stories";
 import { RadioGroup } from "./Radio";
 
 it("renders the radio in the primary state", () => {
@@ -72,6 +73,15 @@ it("renders the radio in a group with a label", () => {
     expect(screen.getByText("choice1")).toBeInTheDocument();
     expect(screen.getByText("choice2")).toBeInTheDocument();
     expect(screen.getByText("Fancy Label")).toBeInTheDocument();
+});
+
+it("renders the radio in a group as disabled", () => {
+    render(<DisabledGroup {...DisabledGroup.args} />);
+    expect(screen.queryAllByRole("radio").length).toBe(4);
+    expect(screen.queryAllByRole("radio")[0]).toBeDisabled();
+    expect(screen.queryAllByRole("radio")[1]).toBeDisabled();
+    expect(screen.queryAllByRole("radio")[2]).toBeDisabled();
+    expect(screen.queryAllByRole("radio")[3]).toBeDisabled();
 });
 
 it("can only select one in a group", () => {
