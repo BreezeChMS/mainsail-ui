@@ -6,8 +6,9 @@ import { Textarea } from "components/Textarea";
 import { FormLabel } from "components/FormLabel";
 import { FormHelpText } from "components/FormHelpText";
 import { FormInputOptions } from "components/FormInputOptions";
-import { Checkbox } from "components/Checkbox";
+import { Checkbox, CheckboxGroup } from "components/Checkbox";
 import { Button } from "components/Button";
+import { RadioGroup, Radio } from "components/Radio";
 
 export default {
     title: "Forms/FormControl",
@@ -121,4 +122,58 @@ TextareaInput.args = {
     id: "notes",
     width: FormControl.widths.lg,
     invalidText: "Please enter some Notes.",
+};
+
+export const FormCheckboxGroup = (args) => {
+    return (
+        <FormControl {...args}>
+            <CheckboxGroup labelText="Which hobbits will you bring?">
+                <Checkbox text="Frodo" />
+                <Checkbox text="Sam" />
+                <Checkbox text="Pippin" />
+                <Checkbox text="Merry" />
+            </CheckboxGroup>
+        </FormControl>
+    );
+};
+
+FormCheckboxGroup.args = {
+    isDisabled: false,
+    invalidText: "Please select a hobbit.",
+};
+
+FormCheckboxGroup.parameters = {
+    docs: {
+        description: {
+            story:
+                "You are free to use either the `FormLabel` component or the built-in `<label/>` of CheckboxGroup as shown here. Both will be provided form props like `isRequired` and `isDisabled`.",
+        },
+    },
+};
+
+export const FormRadioGroup = (args) => {
+    return (
+        <FormControl {...args}>
+            <RadioGroup labelText="Who will carry the ring?">
+                <Radio text="Frodo" />
+                <Radio text="Sam" />
+                <Radio text="Pippin" />
+                <Radio text="Merry" />
+            </RadioGroup>
+        </FormControl>
+    );
+};
+
+FormRadioGroup.args = {
+    isDisabled: false,
+    invalidText: "Please select a hobbit.",
+};
+
+FormRadioGroup.parameters = {
+    docs: {
+        description: {
+            story:
+                "You are free to use either the `FormLabel` component or the built-in `<label/>` of RadioGroup as shown here. Both will be provided form props like `isRequired` and `isDisabled`.",
+        },
+    },
 };

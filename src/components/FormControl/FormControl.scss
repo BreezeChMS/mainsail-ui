@@ -50,7 +50,11 @@
         color: $mainsail-red-dark;
     }
 
-    label.mainsail-form-label.disabled {
-        opacity: 0.5;
+    label.mainsail-form-label,
+    label.checkboxgroup-label,
+    label.radiogroup-label {
+        &.disabled {
+            opacity: 0.5;
+        }
     }
 }

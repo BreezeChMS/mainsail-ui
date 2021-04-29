@@ -99,6 +99,7 @@ Radio.defaultProps = {
 export const RadioGroup = ({
     children,
     isDisabled,
+    isRequired,
     className,
     labelText,
     ...props
@@ -118,9 +119,26 @@ export const RadioGroup = ({
     });
 
     return (
-        <div className={classify("mainsail-radiogroup", className)} {...props}>
+        <div
+            className={classify("mainsail-radiogroup", className)}
+            data-testid="radio-group"
+            {...props}>
             {labelText ? (
-                <label className="radiogroup-label">{labelText}</label>
+                <label
+                    className={classify(
+                        "radiogroup-label",
+                        isDisabled && "disabled"
+                    )}>
+                    {labelText}
+                    {isRequired && (
+                        <span
+                            role="presentation"
+                            aria-hidden="true"
+                            className="required-mark">
+                            *
+                        </span>
+                    )}
+                </label>
             ) : null}
             {groupChildren}
         </div>
@@ -128,6 +146,8 @@ export const RadioGroup = ({
 };
 
 RadioGroup.propTypes = {
+    /** Marks the form control as required */
+    isRequired: PropTypes.bool,
     /** Marks entire group checkboxes as disabled */
     isDisabled: PropTypes.bool,
     /** (Optional) Label text to display, can also optionally provide children */
@@ -135,5 +155,8 @@ RadioGroup.propTypes = {
     /** Style class to add to RadioGroup label wrapper element */
     className: PropTypes.string,
 };
+
+Radio.displayName = "Radio";
+RadioGroup.displayName = "RadioGroup";
 
 Radio.colors = colors;

@@ -135,6 +135,7 @@ Checkbox.defaultProps = {
 export const CheckboxGroup = ({
     children,
     isDisabled,
+    isRequired,
     className,
     labelText,
     ...props
@@ -156,9 +157,24 @@ export const CheckboxGroup = ({
     return (
         <div
             className={classify("mainsail-checkboxgroup", className)}
+            data-testid="checkbox-group"
             {...props}>
             {labelText ? (
-                <label className="checkboxgroup-label">{labelText}</label>
+                <label
+                    className={classify(
+                        "checkboxgroup-label",
+                        isDisabled && "disabled"
+                    )}>
+                    {labelText}
+                    {isRequired && (
+                        <span
+                            role="presentation"
+                            aria-hidden="true"
+                            className="required-mark">
+                            *
+                        </span>
+                    )}
+                </label>
             ) : null}
             {groupChildren}
         </div>
@@ -166,6 +182,8 @@ export const CheckboxGroup = ({
 };
 
 CheckboxGroup.propTypes = {
+    /** Marks the form control as required */
+    isRequired: PropTypes.bool,
     /** Marks entire group checkboxes as disabled */
     isDisabled: PropTypes.bool,
     /** (Optional) Label text to display, can also optionally provide children */
@@ -173,5 +191,8 @@ CheckboxGroup.propTypes = {
     /** Style class to add to CheckboxGroup label wrapper element */
     className: PropTypes.string,
 };
+
+Checkbox.displayName = "Checkbox";
+CheckboxGroup.displayName = "CheckboxGroup";
 
 Checkbox.colors = colors;

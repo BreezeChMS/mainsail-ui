@@ -80,6 +80,18 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
                 isDisabled: parentProps.isDisabled,
             };
 
+        case "CheckboxGroup":
+        case "RadioGroup":
+            return {
+                className: classify(
+                    child.props.className,
+                    parentProps.isInvalid && "error",
+                    parentProps.isDisabled && "disabled"
+                ),
+                isDisabled: parentProps.isDisabled,
+                isRequired: parentProps.isRequired,
+            };
+
         default:
             console.warn(
                 `Child component ${child.type.displayName} passed to <FormControl/> did not receive props`

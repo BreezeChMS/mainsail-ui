@@ -11,6 +11,8 @@ import {
     ErrorText,
     DisabledInput,
     TextareaInput,
+    FormCheckboxGroup,
+    FormRadioGroup,
 } from "./FormControl.stories";
 
 it("renders in the primary state", () => {
@@ -47,6 +49,18 @@ it("renders with input as invalid", () => {
     expect(screen.getByRole("textbox")).toBeInTheDocument();
     expect(screen.getByRole("textbox")).toHaveClass("error");
     expect(screen.getByText("First Name")).toHaveClass("error");
+});
+
+it("renders checkboxgroup as invalid style without FormLabel usage", () => {
+    render(<FormCheckboxGroup {...FormCheckboxGroup.args} isInvalid />);
+    expect(screen.queryAllByRole("checkbox").length).toBe(4);
+    expect(screen.getByTestId("checkbox-group")).toHaveClass("error");
+});
+
+it("renders radiogroup as invalid style without FormLabel usage", () => {
+    render(<FormRadioGroup {...FormRadioGroup.args} isInvalid />);
+    expect(screen.queryAllByRole("radio").length).toBe(4);
+    expect(screen.getByTestId("radio-group")).toHaveClass("error");
 });
 
 it("renders with textarea as invalid", () => {

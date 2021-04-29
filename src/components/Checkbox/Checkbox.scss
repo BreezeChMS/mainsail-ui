@@ -213,6 +213,12 @@
     display: flex;
     flex-direction: column;
 
+    &.error {
+        label.checkboxgroup-label {
+            color: $mainsail-red-dark;
+        }
+    }
+
     .mainsail-checkbox {
         display: flex;
         margin-bottom: 10px;
@@ -224,11 +230,17 @@
         color: $mainsail-neutral-2;
         margin-bottom: 8px;
 
+        .required-mark {
+            margin-left: 2px;
+            color: $mainsail-red-middle;
+        }
+
         &.large {
             @include mainsail-label-text-large;
         }
 
-        &:disabled {
+        &:disabled,
+        &.disabled {
             opacity: 0.5;
         }
     }
