@@ -85,6 +85,7 @@ export const AutoColumns = Template.bind({});
 AutoColumns.args = {
     cols: "auto",
     rows: 6,
+    gap: 16,
     flow: AutoGrid.flows.col,
 };
 AutoColumns.parameters = {

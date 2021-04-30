@@ -9,7 +9,7 @@ export const flows = {
     col: "col",
 };
 
-export const gaps = [0, 4, 8, 10, 12, 15, 20, 30, 48];
+export const gaps = [0, 4, 8, 10, 12, 15, 16, 20, 30, 48];
 
 /**
  * @deprecated since version 7.0 - use directly attached ComponentName.<propNames>.value; e.g. Button.variants.secondary
@@ -51,7 +51,7 @@ AutoGrid.propTypes = {
     className: PropTypes.string,
     /** Direction of content flow (row/col) */
     flow: PropTypes.string,
-    /** Grid gap size */
+    /** Grid gap size number */
     gap: PropTypes.oneOf(gaps),
     /** Column count for grid (count / "auto") */
     cols: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
