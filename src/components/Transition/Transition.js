@@ -26,7 +26,7 @@ export const ENUMS = {
  **/
 export const Transition = ({
     isActive,
-    shouldAppearOnMount,
+    shouldAnimateOnMount,
     children,
     className,
     animation,
@@ -39,7 +39,7 @@ export const Transition = ({
     return (
         <CSSTransition
             in={isActive}
-            appear={shouldAppearOnMount}
+            appear={shouldAnimateOnMount}
             timeout={timeout}
             onEntered={onEntered}
             onExited={onExited}
@@ -56,8 +56,8 @@ Transition.propTypes = {
     shouldUnmount: PropTypes.bool,
     /** Triggers the animation to begin */
     isActive: PropTypes.bool,
-    /** Triggers the animation to happen on first mount (regardless of isActive) */
-    shouldAppearOnMount: PropTypes.bool,
+    /** Triggers the animation to happen on first mount (use with isActive) */
+    shouldAnimateOnMount: PropTypes.bool,
     /** Pre-built animation animation */
     animation: PropTypes.oneOf(Object.values(animations)),
     /** Custom animation class to add to transition component, see [React Transition Group Docs](http://reactcommunity.org/react-transition-group/css-transition) */

@@ -66,9 +66,9 @@ const AdjustableTemplate = (args) => {
     const [boxCount, setBoxCount] = useState(9);
     const boxArray = _.times(boxCount, (i) => (
         <Transition
-            animation={Transition.animations.fadeSlideDown}
+            animation={Transition.animations.fadeSlideRight}
             isActive
-            shouldAppearOnMount>
+            shouldAnimateOnMount>
             <Box label={i + 1} data-testid="box" />
         </Transition>
     ));
