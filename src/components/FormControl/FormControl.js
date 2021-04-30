@@ -40,9 +40,9 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
                     parentProps.isInvalid && "error"
                 ),
                 id: child.props.id || parentProps.inputId,
-                isReadOnly: parentProps.isReadOnly,
-                isDisabled: parentProps.isDisabled,
-                isRequired: parentProps.isRequired,
+                isReadOnly: parentProps.isReadOnly || child.props.isReadOnly,
+                isDisabled: parentProps.isDisabled || child.props.isDisabled,
+                isRequired: parentProps.isRequired || child.props.isRequired,
                 "aria-describedby": parentProps.isInvalid
                     ? parentProps.invalidTextId
                     : parentProps.helpTextId,
@@ -77,7 +77,7 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
                     parentProps.isDisabled && "disabled"
                 ),
                 width: parentProps.width,
-                isDisabled: parentProps.isDisabled,
+                isDisabled: parentProps.isDisabled || child.props.isDisabled,
             };
 
         case "CheckboxGroup":
@@ -88,8 +88,8 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
                     parentProps.isInvalid && "error",
                     parentProps.isDisabled && "disabled"
                 ),
-                isDisabled: parentProps.isDisabled,
-                isRequired: parentProps.isRequired,
+                isDisabled: parentProps.isDisabled || child.props.isDisabled,
+                isRequired: parentProps.isRequired || child.props.isRequired,
             };
 
         default:

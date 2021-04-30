@@ -5,6 +5,10 @@ import { render, screen } from "@testing-library/react";
 // import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
+import { FormControl } from "components/FormControl";
+import { FormLabel } from "components/FormLabel";
+import { Input } from "components/Input";
+
 import {
     BasicInput,
     HelpText,
@@ -36,6 +40,16 @@ it("renders with error text", () => {
 
 it("renders as disabled", () => {
     render(<DisabledInput {...DisabledInput.args} />);
+    expect(screen.getByRole("textbox")).toBeDisabled();
+});
+
+it("renders a FormControl-wrapped Input as disabled if Input (not FormControl) is marked disabled", () => {
+    render(
+        <FormControl id="first-name" invalidText="Please enter a First Name.">
+            <FormLabel text="First Name" />
+            <Input isDisabled />
+        </FormControl>
+    );
     expect(screen.getByRole("textbox")).toBeDisabled();
 });
 
