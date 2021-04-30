@@ -6,7 +6,7 @@
 .mainsail-form-control {
     input {
         @include mainsail-body-text-regular;
-        width: 100%;
+        width: 100% !important;
     }
 
     @include mobile-size-up {

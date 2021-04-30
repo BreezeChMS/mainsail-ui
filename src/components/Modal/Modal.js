@@ -94,7 +94,7 @@ export const Modal = ({
     // Handle blurring of content
     useEffect(() => {
         if (!blurContentRef) {
-            return null;
+            return;
         }
         let blurRef = blurContentRef.current;
 
