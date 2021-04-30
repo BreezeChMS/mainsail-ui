@@ -2,12 +2,14 @@
 
 /** Transition Component Styles */
 
-// Fade and Scale
-.ms-fade-scale-enter {
+.ms-fade-scale-enter,
+.ms-fade-scale-appear {
     opacity: 0;
     transform: scale(0.6);
 }
-.ms-fade-scale-enter-active {
+.ms-fade-scale-enter-active,
+.ms-fade-scale-appear-active,
+.ms-fade-scale-appear-done {
     opacity: 1;
     transform: scale(1);
     transition: opacity 300ms, transform 300ms;
@@ -25,11 +27,14 @@
 }
 
 // Fade and Slide Down
-.ms-fade-slide-down-enter {
+.ms-fade-slide-down-enter,
+.ms-fade-slide-down-appear {
     opacity: 0;
     transform: translateY(-30%);
 }
-.ms-fade-slide-down-enter-active {
+.ms-fade-slide-down-enter-active,
+.ms-fade-slide-down-appear-active,
+.ms-fade-slide-down-appear-done {
     opacity: 1;
     transform: translateY(0%);
     transition: opacity 300ms, transform 300ms;
@@ -48,11 +53,14 @@
 }
 
 // Fade and Slide Right
-.ms-fade-slide-right-enter {
+.ms-fade-slide-right-enter,
+.ms-fade-slide-right-appear {
     opacity: 0;
     transform: translateX(-50%);
 }
-.ms-fade-slide-right-enter-active {
+.ms-fade-slide-right-enter-active,
+.ms-fade-slide-right-appear-active,
+.ms-fade-slide-right-appear-done {
     opacity: 1;
     transform: translateX(0%);
     transition: opacity 300ms, transform 300ms;
@@ -71,11 +79,14 @@
 }
 
 // Fade and Slide Left
-.ms-fade-slide-left-enter {
+.ms-fade-slide-left-enter,
+.ms-fade-slide-left-appear {
     opacity: 0;
     transform: translateX(50%);
 }
-.ms-fade-slide-left-enter-active {
+.ms-fade-slide-left-enter-active,
+.ms-fade-slide-left-appear-active,
+.ms-fade-slide-left-appear-done {
     opacity: 1;
     transform: translateX(0%);
     transition: opacity 300ms, transform 300ms;
@@ -94,10 +105,13 @@
 }
 
 // A Simple, Quick Fade
-.ms-fade-enter {
+.ms-fade-enter,
+.ms-fade-appear {
     opacity: 0;
 }
-.ms-fade-enter-active {
+.ms-fade-enter-active,
+.ms-fade-appear-active,
+.ms-fade-appear-done {
     opacity: 1;
     transition: opacity 200ms;
 }
