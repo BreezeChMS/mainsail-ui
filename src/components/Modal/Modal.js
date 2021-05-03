@@ -176,7 +176,6 @@ export const Modal = ({
                             <div className="header-section">
                                 {showBackButton ? (
                                     <Button
-                                        className={"back-button"}
                                         onClick={onClickBack}
                                         variant={Button.variants.tertiary}
                                         iconLeft={Icon.names.back}
@@ -185,16 +184,11 @@ export const Modal = ({
                                 ) : null}
                             </div>
                             <div className="header-section">
-                                <h2
-                                    id={`${modalId}-title`}
-                                    className="mainsail-modal-title m-0">
-                                    {title}
-                                </h2>
+                                <h2 id={`${modalId}-title`}>{title}</h2>
                             </div>
                             <div className="header-section">
                                 <Button
                                     data-testid="modal-close"
-                                    className={"close-button"}
                                     onClick={handleDismiss}
                                     variant={Button.variants.tertiary}
                                     icon={Icon.names.close}
