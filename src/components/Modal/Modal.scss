@@ -61,6 +61,11 @@
                 display: flex;
                 justify-content: center;
 
+                h2 {
+                    @include h2;
+                    margin: 0;
+                }
+
                 &:first-child {
                     flex: 1;
                     justify-content: flex-start;

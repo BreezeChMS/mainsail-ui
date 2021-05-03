@@ -39,6 +39,30 @@
     }
 }
 
+@mixin h2 {
+    font-size: 24px;
+    line-height: 28px;
+    color: $mainsail-neutral-1;
+    font-family: $font;
+    font-weight: 500;
+}
+
+@mixin h3 {
+    color: $mainsail-neutral-1;
+    font-family: $font;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+@mixin h4 {
+    color: $mainsail-neutral-1;
+    font-family: $font;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+}
+
 /* Body Text Mixins */
 @mixin mainsail-body-text-large {
     font-family: $font;
