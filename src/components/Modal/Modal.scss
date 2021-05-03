@@ -85,6 +85,7 @@
                 color: $mainsail-blue-dark;
             }
         }
+
         .mainsail-modal-body {
             @include mainsail-body-text-regular;
             flex-grow: 1;
@@ -92,7 +93,12 @@
             overflow-y: auto;
             overflow-x: hidden;
             max-height: calc(80% - 150px); // 150 = head + foot
+
+            &.no-padding {
+                padding: 0;
+            }
         }
+
         .mainsail-modal-footer {
             padding: 20px;
             display: flex;

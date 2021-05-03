@@ -29,6 +29,7 @@ export const ENUMS = {};
 export const Modal = ({
     isOpen,
     title,
+    hasNoPadding,
     onClose,
     onClickBack,
     onConfirm,
@@ -198,7 +199,10 @@ export const Modal = ({
 
                         <div
                             id={`${modalId}-desc`}
-                            className="mainsail-modal-body">
+                            className={classify(
+                                "mainsail-modal-body",
+                                hasNoPadding && "no-padding"
+                            )}>
                             {children}
                         </div>
 
@@ -271,6 +275,8 @@ Modal.propTypes = {
     onClose: PropTypes.func,
     /** Controls the visibility of the modal overlay */
     hasOverlay: PropTypes.bool,
+    /** Removes padding on the body content area */
+    hasNoPadding: PropTypes.bool,
     /** Controls whether or not clicking the overlay can dismiss the modal */
     isDismissable: PropTypes.bool,
     /** An (optional) ref to apply a blur to while modal is open */

@@ -1,0 +1,58 @@
+@import "../../styles/Variables.scss";
+
+/** ListGroup Component Styles */
+.mainsail-listgroup {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+a.mainsail-listgroup-item {
+    text-decoration: none;
+    cursor: pointer;
+    &:active,
+    &:hover,
+    &:focus {
+        background: $mainsail-blue-light;
+        outline: none;
+    }
+
+    &.active {
+        background: $mainsail-blue-light;
+        outline: none;
+    }
+}
+
+.mainsail-listgroup-item {
+    @include mainsail-button-text-regular;
+    color: $mainsail-blue-primary;
+    height: 78px;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .listgroup-item-header {
+        @include mainsail-button-text-regular;
+        display: flex;
+        align-items: center;
+        color: $mainsail-blue-primary;
+        margin-bottom: 4px;
+
+        svg {
+            margin-right: 8px;
+        }
+    }
+
+    .listgroup-item-desc {
+        @include mainsail-body-text-small;
+        color: $mainsail-neutral-2;
+    }
+
+    .listgroup-item-icon {
+        svg {
+            color: $mainsail-blue-primary;
+        }
+    }
+}

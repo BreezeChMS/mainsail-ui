@@ -4,6 +4,8 @@ import { Modal } from "components/Modal";
 import { Button } from "components/Button";
 import { Checkbox } from "components/Checkbox";
 import { Transition } from "components/Transition";
+import { ListGroup } from "components/ListGroup";
+import { Icon } from "components/Icon";
 
 export default {
     title: "Overlay/Modal",
@@ -135,6 +137,34 @@ BasicConfirm.args = {
                 <strong>Actions</strong> tab.
             </p>
         </div>
+    ),
+};
+
+export const WithListGroup = Template.bind({});
+WithListGroup.args = {
+    title: "Has No Content Padding",
+    maxWidth: "600px",
+    hasNoPadding: true,
+    isDismissable: true,
+    onClickBack: null,
+    children: (
+        <ListGroup>
+            <ListGroup.Item
+                icon={Icon.names.add}
+                text="Add Person"
+                description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi, sint!"
+            />
+            <ListGroup.Item
+                icon={Icon.names.people}
+                text="Add Group"
+                description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi, sint!"
+            />
+            <ListGroup.Item
+                icon={Icon.names.archive}
+                text="Archive Group"
+                description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi, sint!"
+            />
+        </ListGroup>
     ),
 };
 
