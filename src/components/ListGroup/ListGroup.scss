@@ -8,6 +8,7 @@
 }
 
 a.mainsail-listgroup-item {
+    box-sizing: border-box;
     text-decoration: none;
     cursor: pointer;
     &:active,
