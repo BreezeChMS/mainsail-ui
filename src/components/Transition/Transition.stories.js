@@ -61,8 +61,8 @@ export default {
 const Template = (args) => (
     <div>
         <p className="body-text md pb-8">
-            Toggle <code>isActive</code> to see transition. Currently only works
-            in Canvas view.
+            Toggle <code>isActive</code> and set{" "}
+            <code>shouldAnimateOnMount</code> to see transition.
         </p>
         <Transition {...args}>
             <TestBlock data-testid="animated-block" />
