@@ -9,6 +9,17 @@
     padding: 4px;
     border-radius: 9999px;
 
+    button {
+        background-color: transparent;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+        margin-left: 2px;
+        padding: 2px 3px;
+        min-width: auto;
+    }
+
     &.sm {
         @include mainsail-body-text-small();
         font-weight: 700;
@@ -91,16 +102,6 @@
         svg {
             color: $mainsail-neutral-2;
         }
-    }
-
-    button {
-        background-color: transparent;
-        border: none;
-        display: inline-flex;
-        align-items: center;
-        cursor: pointer;
-        margin-left: 2px;
-        padding: 2px 3px;
     }
 
     &.removable {
