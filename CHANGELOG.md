@@ -1,3 +1,15 @@
+# v0.11.0 (Mon May 03 2021)
+
+#### 🚀 Enhancement
+
+- CO-157 Add ListGroup component (and sub components) [#61](https://github.com/BreezeChMS/mainsail-ui/pull/61) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.10.3 (Mon May 03 2021)
 
 #### 🐛 Bug Fix
