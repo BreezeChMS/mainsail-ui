@@ -34,19 +34,20 @@ export default {
     },
 };
 
+const itemStyle = {
+    color: "white",
+    fontFamily: "sans-serif",
+    borderRadius: "8px",
+    minHeight: "80px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+};
 const AutoGridItem = (props) => {
     return (
         <Item
             className="bg-blue-light text-blue-dark"
-            style={{
-                color: "white",
-                fontFamily: "sans-serif",
-                borderRadius: "8px",
-                minHeight: "80px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
+            style={itemStyle}
             {...props}>
             <span>{props.label}</span>
         </Item>
@@ -159,112 +160,53 @@ AutoColumns.parameters = {
 
 export const Nested = (args) => {
     return (
-        <AutoGrid {...args}>
-            <AutoGrid {...args}>
-                <AutoGridItem label={1} data-testid="box" />
-                <AutoGridItem label={2} data-testid="box" />
-                <AutoGridItem label={3} data-testid="box" />
-                <AutoGridItem label={4} data-testid="box" />
-                <AutoGridItem label={5} data-testid="box" />
-                <AutoGridItem label={6} data-testid="box" />
-                <AutoGridItem label={7} data-testid="box" />
-                <AutoGridItem label={8} data-testid="box" />
-                <AutoGridItem label={9} data-testid="box" />
+        <AutoGrid {...args} className="bg-neutral-6 p-20">
+            <AutoGrid
+                {...args}
+                cols={2}
+                rows="auto"
+                gap={args.gap}
+                className="bg-neutral-4 p-20">
+                <div data-testid="box" className="p-20 bg-orange-light" />
+                <div data-testid="box" className="p-20 bg-orange-light" />
+                <div data-testid="box" className="p-20 bg-orange-light" />
+                <div data-testid="box" className="p-20 bg-orange-light" />
+                <div data-testid="box" className="p-20 bg-orange-light" />
+                <div data-testid="box" className="p-20 bg-orange-light" />
+                <div data-testid="box" className="p-20 bg-orange-light" />
+                <div data-testid="box" className="p-20 bg-orange-light" />
+                <div data-testid="box" className="p-20 bg-orange-light" />
             </AutoGrid>
-            <AutoGrid {...args}>
-                <AutoGridItem
-                    label={1}
-                    data-testid="box"
-                    className="bg-blue-light"
-                />
-                <AutoGridItem
-                    label={2}
-                    data-testid="box"
-                    className="bg-blue-light"
-                />
-                <AutoGridItem
-                    label={3}
-                    data-testid="box"
-                    className="bg-blue-light"
-                />
-                <AutoGridItem
-                    label={4}
-                    data-testid="box"
-                    className="bg-blue-light"
-                />
-                <AutoGridItem
-                    label={5}
-                    data-testid="box"
-                    className="bg-blue-light"
-                />
-                <AutoGridItem
-                    label={6}
-                    data-testid="box"
-                    className="bg-blue-light"
-                />
-                <AutoGridItem
-                    label={7}
-                    data-testid="box"
-                    className="bg-blue-light"
-                />
-                <AutoGridItem
-                    label={8}
-                    data-testid="box"
-                    className="bg-blue-light"
-                />
-                <AutoGridItem
-                    label={9}
-                    data-testid="box"
-                    className="bg-blue-light"
-                />
+            <AutoGrid
+                cols={3}
+                rows={3}
+                className="bg-neutral-5 p-20"
+                gap={args.gap}>
+                <div data-testid="box" className="bg-blue-light" />
+                <div data-testid="box" className="bg-blue-light" />
+                <div data-testid="box" className="bg-blue-light" />
+                <div data-testid="box" className="bg-blue-light" />
+                <div data-testid="box" className="bg-blue-light" />
+                <div data-testid="box" className="bg-blue-light" />
+                <div data-testid="box" className="bg-blue-light" />
+                <div data-testid="box" className="bg-blue-light" />
+                <div data-testid="box" className="bg-blue-light" />
             </AutoGrid>
-            <AutoGrid {...args}>
-                <AutoGridItem
-                    label={1}
-                    data-testid="box"
-                    className="bg-blue-dark"
-                />
-                <AutoGridItem
-                    label={2}
-                    data-testid="box"
-                    className="bg-blue-dark"
-                />
-                <AutoGridItem
-                    label={3}
-                    data-testid="box"
-                    className="bg-blue-dark"
-                />
-                <AutoGridItem
-                    label={4}
-                    data-testid="box"
-                    className="bg-blue-dark"
-                />
-                <AutoGridItem
-                    label={5}
-                    data-testid="box"
-                    className="bg-blue-dark"
-                />
-                <AutoGridItem
-                    label={6}
-                    data-testid="box"
-                    className="bg-blue-dark"
-                />
-                <AutoGridItem
-                    label={7}
-                    data-testid="box"
-                    className="bg-blue-dark"
-                />
-                <AutoGridItem
-                    label={8}
-                    data-testid="box"
-                    className="bg-blue-dark"
-                />
-                <AutoGridItem
-                    label={9}
-                    data-testid="box"
-                    className="bg-blue-dark"
-                />
+            <AutoGrid {...args} gap={args.gap}>
+                <div data-testid="box" className="bg-blue-dark" />
+                <div data-testid="box" className="bg-blue-dark" />
+                <div data-testid="box" className="bg-blue-dark" />
+                <div data-testid="box" className="bg-blue-dark" />
+                <div data-testid="box" className="bg-blue-dark" />
+                <div data-testid="box" className="bg-blue-dark" />
+                <div data-testid="box" className="bg-blue-dark" />
+                <div data-testid="box" className="bg-blue-dark" />
+                <div data-testid="box" className="bg-blue-dark" />
             </AutoGrid>
         </AutoGrid>
     );
+};
+Nested.args = {
+    gap: 20,
+    cols: 3,
 };

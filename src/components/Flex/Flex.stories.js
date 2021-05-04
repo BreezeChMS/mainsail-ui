@@ -29,6 +29,7 @@ export default {
         docs: {
             description: {
                 component: `A very basic flex-box grid solution for simple layout structuring
+                \n- Responsive column sizes \`sm={}\`, \`md={}\`, \`lg={}\` (mobile-first: setting only sm will apply at all breakpoints)
                 \n- Components are \`<FlexRow/>\` and \`<FlexCol/>\`
                 \n- supplies simple access to flex alignment properties
                 \n- Gotchas: Currently NO gutter support (Use **AutoGrid** if gutters are needed)
