@@ -3,7 +3,7 @@ import React from "react";
 import { AutoGrid, AutoGridItem } from "./AutoGrid";
 
 export default {
-    title: "Layout/AutoGridItem",
+    title: "Layout/Grid/AutoGridItem",
     component: AutoGridItem,
     parameters: {
         docs: {

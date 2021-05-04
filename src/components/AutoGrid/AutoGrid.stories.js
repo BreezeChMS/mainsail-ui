@@ -8,7 +8,7 @@ import { AutoGrid, AutoGridItem as Item } from "./AutoGrid";
 import { Transition } from "components/Transition";
 
 export default {
-    title: "Layout/AutoGrid",
+    title: "Layout/Grid/AutoGrid",
     component: AutoGrid,
     subcomponents: { AutoGridItem: Item },
     argTypes: {
