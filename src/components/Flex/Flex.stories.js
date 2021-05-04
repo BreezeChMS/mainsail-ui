@@ -4,7 +4,7 @@ import React from "react";
 import { Flex, FlexRow, FlexCol } from "./Flex";
 
 export default {
-    title: "Layout/Flex",
+    title: "Layout/Flex/Flex Grid",
     component: Flex,
     subcomponents: { FlexRow, FlexCol },
     argTypes: {
@@ -14,7 +14,7 @@ export default {
             control: {
                 type: "select",
             },
-            options: Flex.Col.justifyContent,
+            options: Object.values(Flex.Col.justifyContent),
         },
         alignItems: {
             name: "alignItems",
@@ -22,25 +22,25 @@ export default {
             control: {
                 type: "select",
             },
-            options: Flex.Col.alignItems,
+            options: Object.values(Flex.Col.alignItems),
         },
     },
     parameters: {
         docs: {
             description: {
                 component: `A very basic flex-box grid solution for simple layout structuring
-                \n- similar to Bootstrap's Row/Column
+                \n- Components are \`<FlexRow/>\` and \`<FlexCol/>\`
                 \n- supplies simple access to flex alignment properties
-                \n- NO gutter support
+                \n- Gotchas: Currently NO gutter support (Use **AutoGrid** if gutters are needed)
                 `,
             },
         },
     },
 };
-const colStyle = { height: "80px" };
+const colStyle = { minHeight: "80px", minWidth: "80px" };
 const Template = (args) => (
     <div>
-        <Flex.Row>
+        <Flex.Row {...args}>
             <Flex.Col
                 {...args}
                 sm={12}
@@ -111,4 +111,46 @@ export const Basic = Template.bind({});
 Basic.args = {
     alignItems: Flex.Col.alignItems.flexStart,
     justifyContent: Flex.Col.justifyContent.flexStart,
+};
+
+export const Nested = (args) => {
+    return (
+        <FlexRow className="p-20 bg-blue-light">
+            <Flex.Col
+                {...args}
+                sm={6}
+                className="border border-blue-light bg-blue-primary p-20"
+                style={colStyle}>
+                <span>😃</span>
+                <span>😃</span>
+                <span>😃</span>
+            </Flex.Col>
+            <Flex.Col
+                {...args}
+                className="border border-blue-light bg-blue-primary p-20"
+                sm={6}
+                style={colStyle}>
+                <FlexRow className="p-20 bg-blue-light">
+                    <Flex.Col
+                        {...args}
+                        sm={6}
+                        className="border border-blue-light bg-blue-dark"
+                        style={colStyle}>
+                        <span>😃</span>
+                        <span>😃</span>
+                        <span>😃</span>
+                    </Flex.Col>
+                    <Flex.Col
+                        {...args}
+                        sm={6}
+                        className="border border-blue-light bg-blue-dark"
+                        style={colStyle}>
+                        <span>😃</span>
+                        <span>😃</span>
+                        <span>😃</span>
+                    </Flex.Col>
+                </FlexRow>
+            </Flex.Col>
+        </FlexRow>
+    );
 };

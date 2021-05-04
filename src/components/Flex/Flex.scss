@@ -5,6 +5,12 @@
 /** Flex Component Styles */
 .mainsail-flex {
     display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    &.full-width {
+        width: 100%;
+    }
 
     .flex-gap {
         flex: 1 1 0%;
@@ -14,9 +20,16 @@
     &.row {
         display: flex;
         flex-flow: row wrap;
-        max-width: 75rem;
         margin-right: auto;
         margin-left: auto;
+    }
+
+    &.grow {
+        flex-grow: 1;
+    }
+
+    &.shrink {
+        flex-shrink: 1;
     }
 
     &.row.expanded {

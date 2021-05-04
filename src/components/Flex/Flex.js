@@ -48,9 +48,9 @@ FlexRow.propTypes = {
     /** Style class to add to component wrapper */
     className: PropTypes.string,
     /** Flex align-items property controls alignment on the cross-axis */
-    alignItems,
+    alignItems: PropTypes.oneOf(Object.values(alignItems)),
     /** Flex justify-content property controls spacing and alignment on the main-axis */
-    justifyContent,
+    justifyContent: PropTypes.oneOf(Object.values(justifyContent)),
 };
 
 FlexRow.defaultProps = {
@@ -67,6 +67,8 @@ export const FlexCol = ({
     lg,
     md,
     sm,
+    shouldGrow,
+    shouldShrink,
     children,
     ...props
 }) => {
@@ -80,6 +82,8 @@ export const FlexCol = ({
                 sm && `sm-${sm}`,
                 md && `md-${md}`,
                 lg && `lg-${lg}`,
+                shouldGrow && "grow",
+                shouldShrink && "shrink",
                 className
             )}
             {...props}>
@@ -91,6 +95,10 @@ export const FlexCol = ({
 FlexCol.propTypes = {
     /** Style class to add to component wrapper */
     className: PropTypes.string,
+    /** Sets flex-grow on column  */
+    shouldGrow: PropTypes.bool,
+    /** Sets flex-shrink on column  */
+    shouldShrink: PropTypes.bool,
     /** Flex align-items property controls alignment on the cross-axis */
     alignItems: PropTypes.oneOf(Object.values(alignItems)),
     /** Flex justify-content property controls spacing and alignment on the main-axis */
@@ -99,13 +107,15 @@ FlexCol.propTypes = {
     lg: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
     /** Column size for responsive md breakpoint */
     md: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
-    /** Column size for responsive sm breakpoint */
+    /** Column size for responsive sm breakpoint (and up, if larger is omitted) */
     sm: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
 };
 
 FlexCol.defaultProps = {
     alignItems: alignItems.flexStart,
     justifyContent: justifyContent.flexStart,
+    shouldGrow: false,
+    shouldShrink: false,
 };
 
 FlexCol.alignItems = alignItems;
