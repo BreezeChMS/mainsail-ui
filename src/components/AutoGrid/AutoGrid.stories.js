@@ -1,14 +1,16 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import _ from "lodash";
 
 import { Button } from "components/Button";
-import { AutoGrid } from "./AutoGrid";
+import { AutoGrid, AutoGridItem as Item } from "./AutoGrid";
 import { Transition } from "components/Transition";
 
 export default {
     title: "Layout/AutoGrid",
     component: AutoGrid,
+    subcomponents: { AutoGridItem: Item },
     argTypes: {
         flow: {
             name: "flow",
@@ -25,40 +27,43 @@ export default {
                 component: `A quick & easy automatic grid solution using CSS Grid
                 \n- supply column count with \`cols\` & row count with \`rows\`
                 \n- specify auto count of columns or rows (Note: \`flow\` direction must match auto direction e.g. \`flow=col\` \`col=auto\`)
+                \n- Subcomponent **AutoGridItem** can specify col/row span for children (also accessible as \`AutoGrid.Item\`)
                 `,
             },
         },
     },
 };
 
-const Box = (props) => (
-    <div
-        style={{
-            color: "white",
-            fontFamily: "sans-serif",
-            background: "#006fba",
-            borderRadius: "8px",
-            height: "75px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-        }}
-        {...props}>
-        {props.label}
-    </div>
-);
+const AutoGridItem = (props) => {
+    return (
+        <Item
+            className="bg-blue-light text-blue-dark"
+            style={{
+                color: "white",
+                fontFamily: "sans-serif",
+                borderRadius: "8px",
+                minHeight: "80px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+            {...props}>
+            <span>{props.label}</span>
+        </Item>
+    );
+};
 
 const Template = (args) => (
     <AutoGrid {...args}>
-        <Box label={1} data-testid="box" />
-        <Box label={2} data-testid="box" />
-        <Box label={3} data-testid="box" />
-        <Box label={4} data-testid="box" />
-        <Box label={5} data-testid="box" />
-        <Box label={6} data-testid="box" />
-        <Box label={7} data-testid="box" />
-        <Box label={8} data-testid="box" />
-        <Box label={9} data-testid="box" />
+        <AutoGridItem label={1} data-testid="box" />
+        <AutoGridItem label={2} data-testid="box" />
+        <AutoGridItem label={3} data-testid="box" />
+        <AutoGridItem label={4} data-testid="box" />
+        <AutoGridItem label={5} data-testid="box" />
+        <AutoGridItem label={6} data-testid="box" />
+        <AutoGridItem label={7} data-testid="box" />
+        <AutoGridItem label={8} data-testid="box" />
+        <AutoGridItem label={9} data-testid="box" />
     </AutoGrid>
 );
 
@@ -66,10 +71,11 @@ const AdjustableTemplate = (args) => {
     const [boxCount, setBoxCount] = useState(9);
     const boxArray = _.times(boxCount, (i) => (
         <Transition
+            key={i}
             animation={Transition.animations.fadeSlideRight}
             isActive
             shouldAnimateOnMount>
-            <Box label={i + 1} data-testid="box" />
+            <AutoGridItem label={i + 1} data-testid="box" />
         </Transition>
     ));
 
@@ -97,9 +103,27 @@ const AdjustableTemplate = (args) => {
 
 export const SimpleGrid = Template.bind({});
 SimpleGrid.args = {
-    cols: 2,
-    rows: 5,
+    cols: 3,
+    rows: 3,
     flow: AutoGrid.flows.col,
+};
+
+export const Spanning = (args) => {
+    return (
+        <AutoGrid {...args} flow={AutoGrid.flows.col} rows={3}>
+            <AutoGridItem label={1} rowSpan={3} data-testid="box" />
+            <AutoGridItem label={2} colSpan={2} data-testid="box" />
+            <AutoGridItem label={3} colSpan={2} rowSpan={2} data-testid="box" />
+        </AutoGrid>
+    );
+};
+Spanning.parameters = {
+    docs: {
+        description: {
+            story:
+                "`<AutoGrid.Item/>` or `<AutoGridItem/>` can be used to specify a span in `rows` and/or `columns`",
+        },
+    },
 };
 
 export const AutoRows = AdjustableTemplate.bind({});
@@ -137,37 +161,109 @@ export const Nested = (args) => {
     return (
         <AutoGrid {...args}>
             <AutoGrid {...args}>
-                <Box label={1} data-testid="box" />
-                <Box label={2} data-testid="box" />
-                <Box label={3} data-testid="box" />
-                <Box label={4} data-testid="box" />
-                <Box label={5} data-testid="box" />
-                <Box label={6} data-testid="box" />
-                <Box label={7} data-testid="box" />
-                <Box label={8} data-testid="box" />
-                <Box label={9} data-testid="box" />
+                <AutoGridItem label={1} data-testid="box" />
+                <AutoGridItem label={2} data-testid="box" />
+                <AutoGridItem label={3} data-testid="box" />
+                <AutoGridItem label={4} data-testid="box" />
+                <AutoGridItem label={5} data-testid="box" />
+                <AutoGridItem label={6} data-testid="box" />
+                <AutoGridItem label={7} data-testid="box" />
+                <AutoGridItem label={8} data-testid="box" />
+                <AutoGridItem label={9} data-testid="box" />
             </AutoGrid>
             <AutoGrid {...args}>
-                <Box label={1} data-testid="box" className="bg-blue-light" />
-                <Box label={2} data-testid="box" className="bg-blue-light" />
-                <Box label={3} data-testid="box" className="bg-blue-light" />
-                <Box label={4} data-testid="box" className="bg-blue-light" />
-                <Box label={5} data-testid="box" className="bg-blue-light" />
-                <Box label={6} data-testid="box" className="bg-blue-light" />
-                <Box label={7} data-testid="box" className="bg-blue-light" />
-                <Box label={8} data-testid="box" className="bg-blue-light" />
-                <Box label={9} data-testid="box" className="bg-blue-light" />
+                <AutoGridItem
+                    label={1}
+                    data-testid="box"
+                    className="bg-blue-light"
+                />
+                <AutoGridItem
+                    label={2}
+                    data-testid="box"
+                    className="bg-blue-light"
+                />
+                <AutoGridItem
+                    label={3}
+                    data-testid="box"
+                    className="bg-blue-light"
+                />
+                <AutoGridItem
+                    label={4}
+                    data-testid="box"
+                    className="bg-blue-light"
+                />
+                <AutoGridItem
+                    label={5}
+                    data-testid="box"
+                    className="bg-blue-light"
+                />
+                <AutoGridItem
+                    label={6}
+                    data-testid="box"
+                    className="bg-blue-light"
+                />
+                <AutoGridItem
+                    label={7}
+                    data-testid="box"
+                    className="bg-blue-light"
+                />
+                <AutoGridItem
+                    label={8}
+                    data-testid="box"
+                    className="bg-blue-light"
+                />
+                <AutoGridItem
+                    label={9}
+                    data-testid="box"
+                    className="bg-blue-light"
+                />
             </AutoGrid>
             <AutoGrid {...args}>
-                <Box label={1} data-testid="box" className="bg-blue-dark" />
-                <Box label={2} data-testid="box" className="bg-blue-dark" />
-                <Box label={3} data-testid="box" className="bg-blue-dark" />
-                <Box label={4} data-testid="box" className="bg-blue-dark" />
-                <Box label={5} data-testid="box" className="bg-blue-dark" />
-                <Box label={6} data-testid="box" className="bg-blue-dark" />
-                <Box label={7} data-testid="box" className="bg-blue-dark" />
-                <Box label={8} data-testid="box" className="bg-blue-dark" />
-                <Box label={9} data-testid="box" className="bg-blue-dark" />
+                <AutoGridItem
+                    label={1}
+                    data-testid="box"
+                    className="bg-blue-dark"
+                />
+                <AutoGridItem
+                    label={2}
+                    data-testid="box"
+                    className="bg-blue-dark"
+                />
+                <AutoGridItem
+                    label={3}
+                    data-testid="box"
+                    className="bg-blue-dark"
+                />
+                <AutoGridItem
+                    label={4}
+                    data-testid="box"
+                    className="bg-blue-dark"
+                />
+                <AutoGridItem
+                    label={5}
+                    data-testid="box"
+                    className="bg-blue-dark"
+                />
+                <AutoGridItem
+                    label={6}
+                    data-testid="box"
+                    className="bg-blue-dark"
+                />
+                <AutoGridItem
+                    label={7}
+                    data-testid="box"
+                    className="bg-blue-dark"
+                />
+                <AutoGridItem
+                    label={8}
+                    data-testid="box"
+                    className="bg-blue-dark"
+                />
+                <AutoGridItem
+                    label={9}
+                    data-testid="box"
+                    className="bg-blue-dark"
+                />
             </AutoGrid>
         </AutoGrid>
     );
