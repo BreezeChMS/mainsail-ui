@@ -1,3 +1,19 @@
+# v0.12.0 (Tue May 04 2021)
+
+#### 🚀 Enhancement
+
+- Layout Improvements [#63](https://github.com/BreezeChMS/mainsail-ui/pull/63) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🐛 Bug Fix
+
+- Some css fixes [#62](https://github.com/BreezeChMS/mainsail-ui/pull/62) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.11.0 (Mon May 03 2021)
 
 #### 🚀 Enhancement
