@@ -25,6 +25,7 @@ export const justifyContent = {
 export const FlexRow = ({
     children,
     alignItems,
+    isFullWidth,
     justifyContent,
     className,
     ...props
@@ -34,6 +35,7 @@ export const FlexRow = ({
             data-testid="flex-row"
             className={classify(
                 "mainsail-flex row",
+                isFullWidth && "full-width",
                 alignItems && `align-${alignItems}`,
                 justifyContent && `justify-${justifyContent}`,
                 className
@@ -45,6 +47,8 @@ export const FlexRow = ({
 };
 
 FlexRow.propTypes = {
+    /** Sets width to maximum  */
+    isFullWidth: PropTypes.bool,
     /** Style class to add to component wrapper */
     className: PropTypes.string,
     /** Flex align-items property controls alignment on the cross-axis */
