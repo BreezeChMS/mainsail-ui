@@ -4,13 +4,6 @@ import { classify } from "utility/classify";
 
 import "./Flex.scss";
 
-/**
- * Define and export enumerable prop values for use (then attach to component below)
- * e.g. export const colors = {
- *    color1: "color1"
- * }
- */
-
 export const alignItems = {
     flexStart: "flex-start",
     center: "center",
@@ -29,19 +22,16 @@ export const justifyContent = {
 /**
  * A layout utility built with flex box
  **/
-export const Row = ({
+export const FlexRow = ({
     children,
     alignItems,
     justifyContent,
-    // expanded,
-    // lg,
-    // md,
-    // sm,
     className,
     ...props
 }) => {
     return (
         <div
+            data-testid="flex-row"
             className={classify(
                 "mainsail-flex row",
                 alignItems && `align-${alignItems}`,
@@ -54,7 +44,7 @@ export const Row = ({
     );
 };
 
-Row.propTypes = {
+FlexRow.propTypes = {
     /** Style class to add to component wrapper */
     className: PropTypes.string,
     /** Flex align-items property controls alignment on the cross-axis */
@@ -63,23 +53,26 @@ Row.propTypes = {
     justifyContent,
 };
 
-Row.defaultProps = {};
-Row.alignItems = alignItems;
-Row.justifyContent = justifyContent;
+FlexRow.defaultProps = {
+    alignItems: alignItems.flexStart,
+    justifyContent: justifyContent.flexStart,
+};
+FlexRow.alignItems = alignItems;
+FlexRow.justifyContent = justifyContent;
 
-export const Col = ({
+export const FlexCol = ({
     className,
     alignItems,
     justifyContent,
     lg,
     md,
     sm,
-    hasGutters,
     children,
     ...props
 }) => {
     return (
         <div
+            data-testid="flex-col"
             className={classify(
                 "mainsail-flex column",
                 alignItems && `align-${alignItems}`,
@@ -87,7 +80,6 @@ export const Col = ({
                 sm && `sm-${sm}`,
                 md && `md-${md}`,
                 lg && `lg-${lg}`,
-                hasGutters && "gutters",
                 className
             )}
             {...props}>
@@ -96,7 +88,7 @@ export const Col = ({
     );
 };
 
-Col.propTypes = {
+FlexCol.propTypes = {
     /** Style class to add to component wrapper */
     className: PropTypes.string,
     /** Flex align-items property controls alignment on the cross-axis */
@@ -109,12 +101,14 @@ Col.propTypes = {
     md: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
     /** Column size for responsive sm breakpoint */
     sm: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
-    /** Determines if negative margins for row and padding for columns are used */
-    hasGutters: PropTypes.bool,
 };
 
-Col.defaultProps = {};
-Col.alignItems = alignItems;
-Col.justifyContent = justifyContent;
+FlexCol.defaultProps = {
+    alignItems: alignItems.flexStart,
+    justifyContent: justifyContent.flexStart,
+};
 
-export const Flex = { Row, Col };
+FlexCol.alignItems = alignItems;
+FlexCol.justifyContent = justifyContent;
+
+export const Flex = { Row: FlexRow, Col: FlexCol };
