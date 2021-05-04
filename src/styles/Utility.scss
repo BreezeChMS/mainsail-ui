@@ -13,8 +13,17 @@
         &.grid-cols-#{$_} {
             grid-template-columns: repeat($_, minmax(0, 1fr));
         }
+
         &.grid-rows-#{$_} {
             grid-template-rows: repeat($_, minmax(0, 1fr));
+        }
+
+        .col-span-#{$_} {
+            grid-column: span $_;
+        }
+
+        .row-span-#{$_} {
+            grid-row: span $_;
         }
     }
 

@@ -240,6 +240,7 @@ button.mainsail-button {
             background: $mainsail-blue-light;
             border-radius: $mainsail-button-border-radius-lg;
         }
+        @include disabled;
     }
 
     &.text-small {
