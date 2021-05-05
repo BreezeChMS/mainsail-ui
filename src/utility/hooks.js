@@ -49,3 +49,30 @@ export const useUniqueId = (prefix) => {
     const id = useMemo(() => idCounter++, []);
     return `${prefix}${id}`;
 };
+
+/**
+ * useOnClickOutside - Detect clicks outside your specified element
+ * Adapted from: https://usehooks.com/useOnClickOutside/
+ *
+ * NOTE: This will be called every render unless you wrap your handler in
+ * a useCallback fn prior to passing into this hook
+ */
+export const useOnClickOutside = (ref, handler) => {
+    useEffect(() => {
+        const listener = (event) => {
+            // Do nothing if clicking ref's element or descendent elements
+            if (!ref || !ref.current || ref.current.contains(event.target)) {
+                return;
+            }
+
+            handler(event);
+        };
+        document.addEventListener("mousedown", listener);
+        document.addEventListener("touchstart", listener);
+
+        return () => {
+            document.removeEventListener("mousedown", listener);
+            document.removeEventListener("touchstart", listener);
+        };
+    }, [ref, handler]);
+};
