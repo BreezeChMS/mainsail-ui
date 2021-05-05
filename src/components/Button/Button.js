@@ -161,3 +161,4 @@ Button.defaultProps = {
 Button.variants = variants;
 Button.textSizes = textSizes;
 Button.intents = intents;
+Button.iconNames = Icon.names;
