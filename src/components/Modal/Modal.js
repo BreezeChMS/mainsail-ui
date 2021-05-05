@@ -4,6 +4,7 @@ import { classify } from "utility/classify";
 import { Button } from "components/Button";
 import { Icon } from "components/Icon";
 import { WithPortal, useKeydown, useUniqueId } from "utility/hooks";
+import { ESC_KEY_CODE, TAB_KEY_CODE } from "utility/constants";
 import { Transition } from "components/Transition";
 
 import "./Modal.scss";
@@ -57,7 +58,7 @@ export const Modal = ({
     const modalRef = useRef(null);
 
     useKeydown((e) => {
-        if (e.charCode === 27 || e.keyCode === 27) {
+        if (e.charCode === ESC_KEY_CODE || e.keyCode === ESC_KEY_CODE) {
             handleDismiss();
         }
     });
@@ -66,7 +67,7 @@ export const Modal = ({
     useKeydown((e) => {
         const focusableElements =
             'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-        let isTabPressed = e.key === "Tab" || e.keyCode === 9;
+        let isTabPressed = e.key === "Tab" || e.keyCode === TAB_KEY_CODE;
 
         if (!isTabPressed || !modalRef) {
             return;
