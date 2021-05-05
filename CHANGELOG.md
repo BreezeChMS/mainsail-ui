@@ -4,6 +4,10 @@
 
 - CO-14 Dropdowns [#64](https://github.com/BreezeChMS/mainsail-ui/pull/64) ([@3CordGuy](https://github.com/3CordGuy))
 
+#### 🐛 Fix
+
+- Fixed Button loading state with intent not getting intent styling
+
 #### Authors: 1
 
 - Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
