@@ -1,3 +1,15 @@
+# v0.13.0 (Wed May 05 2021)
+
+#### 🚀 Enhancement
+
+- CO-14 Dropdowns [#64](https://github.com/BreezeChMS/mainsail-ui/pull/64) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.12.0 (Tue May 04 2021)
 
 #### 🚀 Enhancement
