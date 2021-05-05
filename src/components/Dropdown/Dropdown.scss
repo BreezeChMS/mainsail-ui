@@ -1,0 +1,123 @@
+@import "../../styles/Variables.scss";
+
+/** Dropdown Component Styles */
+.mainsail-dropdown {
+    @include mainsail-body-text-regular;
+    position: relative;
+    margin-right: 0;
+    min-width: auto;
+    width: auto;
+
+    select.ms-select {
+        @include mainsail-body-text-regular;
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        min-width: 100%;
+        color: $mainsail-neutral-2;
+        background-color: $mainsail-white;
+        padding: 7px;
+        height: 36px;
+        border-radius: $mainsail-input-border-radius;
+        border: 1px solid $mainsail-input-border;
+
+        &::placeholder {
+            color: $mainsail-neutral-2;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+            border-color: $mainsail-blue-primary;
+            border: 1px solid $mainsail-blue-primary;
+            box-shadow: $mainsail-shadow-active;
+        }
+
+        @include disabled;
+    }
+
+    button.mainsail-dropdown__toggle {
+        @include mainsail-body-text-regular;
+        text-align: left;
+        min-width: 100%;
+        color: $mainsail-neutral-2;
+        background-color: $mainsail-white;
+        padding: 7px;
+        height: 36px;
+        border-radius: $mainsail-input-border-radius;
+        border: 1px solid $mainsail-input-border;
+        cursor: pointer;
+
+        &.open,
+        :focus,
+        :active {
+            outline: none;
+            border-color: $mainsail-blue-primary;
+            border: 1px solid $mainsail-blue-primary;
+            box-shadow: $mainsail-shadow-near;
+        }
+
+        @include active {
+            box-shadow: $mainsail-shadow-active;
+        }
+
+        @include disabled;
+    }
+
+    .mainsail-dropdown__custom-toggle {
+        width: auto;
+        .mainsail-icon.right {
+            svg {
+                width: 12px;
+                height: 12px;
+            }
+        }
+    }
+
+    .mainsail-dropdown__menu {
+        @include mainsail-body-text-regular;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        min-width: 100%;
+        max-height: 300px !important;
+        overflow-y: auto;
+        border-radius: $mainsail-input-border-radius;
+        border: 1px solid $mainsail-blue-primary;
+        background-color: $mainsail-white;
+        padding-top: 4px;
+        padding-bottom: 4px;
+
+        &.custom-trigger {
+            min-width: auto;
+        }
+
+        button.mainsail-dropdown__item {
+            @include mainsail-body-text-regular;
+            border: 0;
+            appearance: none;
+            background: $mainsail-white;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 4px 8px;
+            cursor: pointer;
+            color: $mainsail-neutral-2;
+            line-height: 20px;
+
+            &:hover,
+            &:active,
+            &:visited,
+            &:focus,
+            &.active {
+                color: $mainsail-white;
+                background: $mainsail-blue-primary;
+            }
+        }
+    }
+
+    .mainsail-dropdown__caret svg {
+        position: absolute;
+        right: 12px;
+        top: 13px;
+    }
+}

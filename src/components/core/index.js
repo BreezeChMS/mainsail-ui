@@ -1,4 +1,5 @@
 // Components Global Export for plopjs
+export { Dropdown } from "../Dropdown";
 export { ListGroup, ListGroupItem } from "../ListGroup";
 export { FormInputOptions } from "../FormInputOptions";
 export { Flex } from "../Flex";
