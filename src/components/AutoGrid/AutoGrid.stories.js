@@ -27,7 +27,7 @@ export default {
                 component: `A quick & easy automatic grid solution using CSS Grid
                 \n- supply column count with \`cols\` & row count with \`rows\`
                 \n- specify auto count of columns or rows (Note: \`flow\` direction must match auto direction e.g. \`flow=col\` \`col=auto\`)
-                \n- Subcomponent **AutoGridItem** can specify col/row span for children (also accessible as \`AutoGrid.Item\`)
+                \n- Optional subcomponent **AutoGridItem** can specify col/row span for children (also accessible as \`AutoGrid.Item\`)
                 `,
             },
         },
@@ -49,22 +49,22 @@ const AutoGridItem = (props) => {
             className="bg-blue-light text-blue-dark"
             style={itemStyle}
             {...props}>
-            <span>{props.label}</span>
+            <span>{props.children}</span>
         </Item>
     );
 };
 
 const Template = (args) => (
     <AutoGrid {...args}>
-        <AutoGridItem label={1} data-testid="box" />
-        <AutoGridItem label={2} data-testid="box" />
-        <AutoGridItem label={3} data-testid="box" />
-        <AutoGridItem label={4} data-testid="box" />
-        <AutoGridItem label={5} data-testid="box" />
-        <AutoGridItem label={6} data-testid="box" />
-        <AutoGridItem label={7} data-testid="box" />
-        <AutoGridItem label={8} data-testid="box" />
-        <AutoGridItem label={9} data-testid="box" />
+        <AutoGridItem data-testid="box">1</AutoGridItem>
+        <AutoGridItem data-testid="box">2</AutoGridItem>
+        <AutoGridItem data-testid="box">3</AutoGridItem>
+        <AutoGridItem data-testid="box">4</AutoGridItem>
+        <AutoGridItem data-testid="box">5</AutoGridItem>
+        <AutoGridItem data-testid="box">6</AutoGridItem>
+        <AutoGridItem data-testid="box">7</AutoGridItem>
+        <AutoGridItem data-testid="box">8</AutoGridItem>
+        <AutoGridItem data-testid="box">9</AutoGridItem>
     </AutoGrid>
 );
 
@@ -76,7 +76,7 @@ const AdjustableTemplate = (args) => {
             animation={Transition.animations.fadeSlideRight}
             isActive
             shouldAnimateOnMount>
-            <AutoGridItem label={i + 1} data-testid="box" />
+            <AutoGridItem data-testid="box">{i + 1}</AutoGridItem>
         </Transition>
     ));
 
@@ -112,9 +112,15 @@ SimpleGrid.args = {
 export const Spanning = (args) => {
     return (
         <AutoGrid {...args} flow={AutoGrid.flows.col} rows={3}>
-            <AutoGridItem label={1} rowSpan={3} data-testid="box" />
-            <AutoGridItem label={2} colSpan={2} data-testid="box" />
-            <AutoGridItem label={3} colSpan={2} rowSpan={2} data-testid="box" />
+            <AutoGridItem rowSpan={3} data-testid="box">
+                1
+            </AutoGridItem>
+            <AutoGridItem colSpan={2} data-testid="box">
+                2
+            </AutoGridItem>
+            <AutoGridItem colSpan={2} rowSpan={2} data-testid="box">
+                3
+            </AutoGridItem>
         </AutoGrid>
     );
 };

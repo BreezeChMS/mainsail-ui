@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import { useKeydown } from "utility/hooks";
 import { Icon } from "components/Icon";
+import { SPACE_KEY_CODES, ENTER_KEY_CODE } from "utility/constants";
 
 import "./ListGroup.scss";
 
@@ -50,13 +51,13 @@ export const ListGroupItem = ({
 }) => {
     const listItemRef = useRef();
 
-    useKeydown(({ key, keyCode, target }) => {
+    useKeydown(({ keyCode, target }) => {
         if (!listItemRef) {
             return;
         }
 
         if (
-            (key === "Enter" || keyCode === 32 || keyCode === 13) &&
+            (SPACE_KEY_CODES.includes(keyCode) || ENTER_KEY_CODE === keyCode) &&
             target === listItemRef.current
         ) {
             onClick && onClick();

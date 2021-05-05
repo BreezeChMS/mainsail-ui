@@ -67,7 +67,7 @@ export default {
         process.env.NODE_ENV !== "production" &&
             visualizer({
                 filename: "bundle-viz.html",
-                open: true,
+                open: false,
                 projectRoot: "/src",
             }),
     ],

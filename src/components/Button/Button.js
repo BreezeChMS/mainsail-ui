@@ -77,7 +77,8 @@ export const Button = ({
                     "mainsail-button",
                     className,
                     variant,
-                    textSize
+                    textSize,
+                    intent
                 )}
                 {...props}>
                 {!loadingText ? <Spinner /> : null}
@@ -161,3 +162,4 @@ Button.defaultProps = {
 Button.variants = variants;
 Button.textSizes = textSizes;
 Button.intents = intents;
+Button.iconNames = Icon.names;

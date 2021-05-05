@@ -47,6 +47,19 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
                     ? parentProps.invalidTextId
                     : parentProps.helpTextId,
             };
+        case "Dropdown":
+            return {
+                className: classify(
+                    child.props.className,
+                    parentProps.isInvalid && "error"
+                ),
+                id: child.props.id || parentProps.inputId,
+                isDisabled: parentProps.isDisabled || child.props.isDisabled,
+                isRequired: parentProps.isRequired || child.props.isRequired,
+                "aria-describedby": parentProps.isInvalid
+                    ? parentProps.invalidTextId
+                    : parentProps.helpTextId,
+            };
 
         case "FormLabel":
             return {
@@ -115,7 +128,7 @@ export const FormControl = ({
     invalidText,
     ...props
 }) => {
-    const autoId = useUniqueId("");
+    const autoId = useUniqueId("input-");
     const helpTextId = `helpfor-${autoId}`;
     const invalidTextId = `errorfor-${autoId}`;
     const childrenArray = isFragment(children)
@@ -176,6 +189,7 @@ FormControl.propTypes = {
 
 FormControl.defaultProps = {
     width: widths.md,
+    isReadOnly: false,
 };
 
 FormControl.widths = widths;
