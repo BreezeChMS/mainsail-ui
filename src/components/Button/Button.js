@@ -77,7 +77,8 @@ export const Button = ({
                     "mainsail-button",
                     className,
                     variant,
-                    textSize
+                    textSize,
+                    intent
                 )}
                 {...props}>
                 {!loadingText ? <Spinner /> : null}
