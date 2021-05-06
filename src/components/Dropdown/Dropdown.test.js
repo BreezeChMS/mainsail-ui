@@ -66,7 +66,7 @@ it("can render as a native select", async () => {
 it("can render with a custom trigger", async () => {
     render(<CustomTrigger {...CustomTrigger.args} />);
     expect(screen.getByRole("button")).toBeInTheDocument();
-    expect(screen.getByRole("button").textContent).toBe("Close Batch");
+    expect(screen.getByRole("button").textContent).toBe("Batch");
 });
 
 it("can render as disabled", async () => {

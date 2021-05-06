@@ -9,7 +9,13 @@
         width: 100% !important;
     }
 
-    @include mobile-size-up {
+    &.sm,
+    &.md,
+    &.lg {
+        width: 100%;
+    }
+
+    @include md-size-up {
         width: 140px;
         &.sm {
             width: 140px;
@@ -21,13 +27,6 @@
 
         &.lg {
             width: 472px;
-        }
-    }
-    @include mobile-size-down {
-        &.sm,
-        &.md,
-        &.lg {
-            width: 100%;
         }
     }
 

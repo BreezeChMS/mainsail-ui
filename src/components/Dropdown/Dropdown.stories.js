@@ -101,7 +101,7 @@ export const CustomTrigger = Template.bind({});
 CustomTrigger.args = {
     customTrigger: (
         <Button
-            text="Close Batch"
+            text="Batch"
             iconRight={Button.iconNames.caret}
             variant={Button.variants.secondary}
         />
