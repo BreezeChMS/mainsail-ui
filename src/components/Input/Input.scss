@@ -20,6 +20,7 @@ input[type="number"] {
         border-radius: $mainsail-input-border-radius;
         border: 1px solid $mainsail-input-border;
         background-color: $mainsail-white;
+        box-sizing: border-box;
 
         &::placeholder {
             color: $mainsail-neutral-3;

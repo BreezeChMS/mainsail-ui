@@ -9,6 +9,7 @@ textarea.mainsail-textarea {
     min-height: 72px;
     width: 100%;
     padding: 7px;
+    box-sizing: border-box;
 
     &::placeholder {
         color: $mainsail-neutral-3;

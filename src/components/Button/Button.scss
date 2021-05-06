@@ -12,6 +12,7 @@ button.mainsail-button {
     vertical-align: middle;
     -webkit-box-pack: center;
     transition: all 250ms;
+    box-sizing: border-box;
 
     outline: none;
     border: 1px solid transparent;
