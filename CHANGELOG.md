@@ -1,3 +1,15 @@
+# v0.13.3 (Thu May 06 2021)
+
+#### 🐛 Bug Fix
+
+- adds resets for box-sizing on components [#67](https://github.com/BreezeChMS/mainsail-ui/pull/67) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.13.2 (Thu May 06 2021)
 
 #### 🐛 Bug Fix
