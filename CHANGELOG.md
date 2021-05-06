@@ -1,3 +1,15 @@
+# v0.13.2 (Thu May 06 2021)
+
+#### 🐛 Bug Fix
+
+- fixes export for AutoGridItem [#66](https://github.com/BreezeChMS/mainsail-ui/pull/66) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.13.1 (Thu May 06 2021)
 
 #### 🐛 Bug Fix
