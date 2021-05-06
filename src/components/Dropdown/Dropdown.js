@@ -100,7 +100,7 @@ export const Dropdown = ({
     useOnClickOutside(dropdownRef, () => setIsOpen(false));
 
     useKeydown(
-        ({ keyCode }) => {
+        (e) => {
             const focusableElements = "button.mainsail-dropdown__item";
             const SUPPORTED_KEYS = [
                 TAB_KEY_CODE,
@@ -108,11 +108,11 @@ export const Dropdown = ({
                 UP_ARROW_KEY_CODE,
                 DOWN_ARROW_KEY_CODE,
             ];
-            let isEscPressed = keyCode === ESC_KEY_CODE;
-            let isArrowUpPressed = keyCode === UP_ARROW_KEY_CODE;
-            let isArrowDownPressed = keyCode === DOWN_ARROW_KEY_CODE;
+            let isEscPressed = e.keyCode === ESC_KEY_CODE;
+            let isArrowUpPressed = e.keyCode === UP_ARROW_KEY_CODE;
+            let isArrowDownPressed = e.keyCode === DOWN_ARROW_KEY_CODE;
 
-            if (!popperElement || !SUPPORTED_KEYS.includes(keyCode)) {
+            if (!popperElement || !SUPPORTED_KEYS.includes(e.keyCode)) {
                 return;
             }
 
@@ -148,6 +148,7 @@ export const Dropdown = ({
                 } else {
                     focusableMenuItems.item(currentActiveIndex + 1).focus();
                 }
+                e.preventDefault();
             }
 
             if (isArrowUpPressed) {
@@ -156,6 +157,7 @@ export const Dropdown = ({
                 } else {
                     focusableMenuItems.item(currentActiveIndex - 1).focus();
                 }
+                e.preventDefault();
             }
         },
         [isOpen, popperElement]
