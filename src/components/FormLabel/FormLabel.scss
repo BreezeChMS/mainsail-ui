@@ -8,6 +8,7 @@ label.mainsail-form-label {
     display: block;
     margin-bottom: 4px;
     color: $mainsail-neutral-2;
+    box-sizing: border-box;
 
     .required-mark {
         margin-left: 2px;

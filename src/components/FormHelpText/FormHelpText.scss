@@ -2,6 +2,7 @@
 
 /** FormHelpText Component Styles */
 .mainsail-help-text {
+    box-sizing: border-box;
     @include mainsail-body-text-small;
     margin-top: 6px;
     color: $mainsail-neutral-3;

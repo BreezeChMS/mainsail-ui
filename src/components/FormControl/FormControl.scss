@@ -4,6 +4,9 @@
 /** FormControl Component Styles */
 
 .mainsail-form-control {
+    min-width: auto;
+    box-sizing: border-box;
+
     input {
         @include mainsail-body-text-regular;
         width: 100% !important;

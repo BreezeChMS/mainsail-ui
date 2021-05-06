@@ -6,6 +6,8 @@
 }
 
 .mainsail-modal {
+    box-sizing: border-box;
+
     &.open {
         position: fixed;
         top: 0;

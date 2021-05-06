@@ -6,6 +6,7 @@
     @include mainsail-body-text-regular();
     margin: 0;
     color: $mainsail-neutral-2;
+    box-sizing: border-box;
 
     .mainsail-checkbox__input-wrapper {
         display: flex;
