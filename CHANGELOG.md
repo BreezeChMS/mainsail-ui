@@ -1,3 +1,16 @@
+# v0.13.4 (Thu May 06 2021)
+
+#### 🐛 Bug Fix
+
+- bump the version because I goofed the canary [#69](https://github.com/BreezeChMS/mainsail-ui/pull/69) ([@3CordGuy](https://github.com/3CordGuy))
+- fixes alignment of checkbox text when using inside an inputOption [#68](https://github.com/BreezeChMS/mainsail-ui/pull/68) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.13.3 (Thu May 06 2021)
 
 #### 🐛 Bug Fix
