@@ -22,7 +22,7 @@
         }
     }
 
-    .mainsail-checkbox__label-text {
+    .mainsail-checkbox .mainsail-checkbox__label-text {
         @include mainsail-body-text-small;
         color: $mainsail-neutral-1;
         margin-top: 0;
