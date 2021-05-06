@@ -38,11 +38,10 @@
         display: flex;
         flex-direction: column;
 
-        @include mobile-size-down {
-            max-width: 100%;
-            min-width: 100%;
-        }
-        @include mobile-size-up {
+        max-width: 100%;
+        min-width: 100%;
+
+        @include sm-size-up {
             min-width: 500px;
         }
 

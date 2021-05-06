@@ -36,14 +36,64 @@
 }
 
 /* Responsive Utility Mixins */
-@mixin mobile-size-up {
-    @media only screen and (min-width: 992px) {
+@mixin sm-size-up {
+    @media (min-width: 576px) {
         @content;
     }
 }
 
+@mixin md-size-up {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin lg-size-up {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin xl-size-up {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+// Reverse Responsive Utilities
+@mixin sm-size-down {
+    @media (max-width: 575.98px) {
+        @content;
+    }
+}
+
+@mixin md-size-down {
+    @media (max-width: 767.98px) {
+        @content;
+    }
+}
+
+@mixin lg-size-down {
+    @media (max-width: 991.98px) {
+        @content;
+    }
+}
+
+@mixin xl-size-down {
+    @media (max-width: 1199.98px) {
+        @content;
+    }
+}
+
+// Quick Breaks - (How our navigation currently breaks)
 @mixin mobile-size-down {
     @media only screen and (max-width: 991.98px) {
+        @content;
+    }
+}
+
+@mixin mobile-size-up {
+    @media only screen and (min-width: 992px) {
         @content;
     }
 }
