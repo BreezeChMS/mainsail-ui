@@ -1,3 +1,19 @@
+# v0.13.1 (Thu May 06 2021)
+
+#### 🐛 Bug Fix
+
+- Dropdown + css fixes [#65](https://github.com/BreezeChMS/mainsail-ui/pull/65) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### ⚠️ Pushed to `master`
+
+- Update CHANGELOG.md ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.13.0 (Wed May 05 2021)
 
 #### 🚀 Enhancement
