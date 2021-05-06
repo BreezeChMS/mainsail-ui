@@ -4,7 +4,7 @@ export { ListGroup, ListGroupItem } from "../ListGroup";
 export { FormInputOptions } from "../FormInputOptions";
 export { Flex } from "../Flex";
 export { FormHelpText } from "../FormHelpText";
-export { AutoGrid } from "../AutoGrid";
+export { AutoGrid, AutoGridItem } from "../AutoGrid";
 export { Textarea } from "../Textarea";
 export { FormLabel } from "../FormLabel";
 export { FormControl } from "../FormControl";
