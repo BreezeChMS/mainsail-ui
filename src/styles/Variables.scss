@@ -4,6 +4,10 @@
 // Utility Sass (mixins)
 @import "./Utility.scss";
 
+// Tables
+$mainsail-table-border: 1px solid $mainsail-neutral-5;
+$mainsail-table-border-radius: 10px;
+
 // Input Styling
 $mainsail-input-border-radius: 4px;
 $mainsail-input-border: $mainsail-neutral-4;

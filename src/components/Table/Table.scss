@@ -1,0 +1,48 @@
+@import "../../styles/Variables.scss";
+
+/** Table Component Styles */
+.mainsail-table {
+    @include mainsail-body-text-regular;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex-grow: 1;
+    box-sizing: border-box;
+
+    .mainsail-table__body {
+        > * + * {
+            margin-top: 8px;
+        }
+    }
+
+    .mainsail-table__row {
+        display: flex;
+        flex-direction: row;
+        flex-basis: 100%;
+        border: $mainsail-table-border;
+        border-radius: $mainsail-table-border-radius;
+        padding-left: 10px;
+    }
+
+    .mainsail-table-column {
+        display: flex;
+        align-items: center;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        flex: 1;
+    }
+
+    .mainsail-table__header {
+        @include mainsail-table-header-text-small;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        color: $mainsail-neutral-3;
+        padding-left: 10px;
+        margin-bottom: 4px;
+
+        .column-header {
+            flex: 1;
+        }
+    }
+}
