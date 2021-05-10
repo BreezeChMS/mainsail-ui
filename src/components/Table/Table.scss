@@ -8,10 +8,51 @@
     flex-basis: 100%;
     flex-grow: 1;
     box-sizing: border-box;
+    position: relative;
 
-    .mainsail-table__body {
-        > * + * {
-            margin-top: 8px;
+    &.loading {
+        .mainsail-table__body,
+        .mainsail-table__header {
+            opacity: 0.3;
+        }
+    }
+
+    .mainsail-table__spinner {
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+
+    &.open {
+        .mainsail-table__row {
+            min-height: 96px;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            &:not(:last-of-type) {
+                border-bottom: 1px solid $mainsail-neutral-6;
+            }
+        }
+    }
+
+    &.bordered {
+        .mainsail-table__body {
+            > * + * {
+                margin-top: 8px;
+            }
+        }
+
+        .mainsail-table__row {
+            min-height: 64px;
+            border: $mainsail-table-border;
+            border-radius: $mainsail-table-border-radius;
         }
     }
 
@@ -19,8 +60,6 @@
         display: flex;
         flex-direction: row;
         flex-basis: 100%;
-        border: $mainsail-table-border;
-        border-radius: $mainsail-table-border-radius;
         padding-left: 10px;
     }
 
@@ -53,9 +92,43 @@
         padding-left: 10px;
         margin-bottom: 4px;
 
+        &.open {
+            background-color: $mainsail-neutral-6;
+            box-shadow: $mainsail-shadow-sticky;
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+
         .column-header {
             display: flex;
             flex: 1;
+
+            &.sortable {
+                cursor: pointer;
+                &:hover {
+                    color: $mainsail-neutral-2;
+                }
+
+                .mainsail-icon {
+                    margin-left: 8px;
+
+                    color: $mainsail-neutral-4;
+
+                    &.asc {
+                        color: $mainsail-blue-primary;
+                    }
+
+                    &.desc {
+                        color: $mainsail-blue-primary;
+                        transform: rotate(180deg);
+                    }
+
+                    svg {
+                        width: 10px;
+                        height: 10px;
+                    }
+                }
+            }
 
             &.center {
                 justify-content: center;

@@ -13,18 +13,20 @@ const aligments = {
 /**
  * Subcomponent for Table that specifies a columnar piece of data and its surrounding context
  **/
-export const Column = ({ className, field, align, children, ...props }) => {
+export const Column = ({ className, field, align, children }) => {
     return (
         <div
+            role="cell"
             data-id={`${field}-column`}
-            className={classify("mainsail-table-column", align, className)}
-            {...props}>
+            className={classify("mainsail-table-column", align, className)}>
             {children}
         </div>
     );
 };
 
 Column.propTypes = {
+    /** Whether the column is sortable or not */
+    isSortable: PropTypes.bool,
     /** Horizontal alignment of content within column */
     align: PropTypes.oneOf(Object.values(aligments)),
     /** Designate which field to pull data from if desired */
@@ -33,7 +35,10 @@ Column.propTypes = {
     className: PropTypes.string,
 };
 
-Column.defaultProps = {};
+Column.defaultProps = {
+    isSortable: false,
+    align: aligments.left,
+};
 
 Column.displayName = "Column";
 

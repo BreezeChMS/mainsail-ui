@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Table } from "./Table";
 import { Column } from "./Column";
 import { Actions } from "./Actions";
+import { _ } from "globalthis/implementation";
 
 export default {
     title: "Elements/Table",
@@ -45,7 +46,7 @@ const officeRowData = [
     },
     {
         first_name: "Toby",
-        last_name: "",
+        last_name: "Flenderson",
         age: 42,
         occupation: "Human Resources",
     },
@@ -55,11 +56,7 @@ const Template = (args) => (
     <Table {...args}>
         <Column field="first_name" />
         <Column field="last_name" />
-        <Column
-            field="age"
-            align={Column.aligments.center}
-            className="bg-blue-light"
-        />
+        <Column field="age" align={Column.aligments.center} />
         <Column
             field="occupation"
             className="px-8"
@@ -68,30 +65,120 @@ const Template = (args) => (
     </Table>
 );
 
-export const BasicRound = Template.bind({});
-BasicRound.args = {
+export const Bordered = Template.bind({});
+Bordered.args = {
     variant: Table.variants.bordered,
     rowData: officeRowData,
 };
 
-BasicRound.parameters = {
+Bordered.parameters = {
     docs: {
         description: {
-            story: `A basic table can be constructed without specifying a column config. It will be inferred from the \`<Column/>/\` components and data provided.`,
+            story: `A basic "bordered" table can be constructed without specifying a column config. It will be inferred from the \`<Column/>/\` components and data provided.`,
         },
     },
 };
 
-export const BasicOpen = Template.bind({});
-BasicOpen.args = {
+export const Open = Template.bind({});
+Open.args = {
     variant: Table.variants.open,
     rowData: officeRowData,
 };
 
-BasicOpen.parameters = {
+Open.parameters = {
     docs: {
         description: {
-            story: `A basic OPEN style table.`,
+            story: `A basic "open" style table.`,
+        },
+    },
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+    isLoading: true,
+    rowData: officeRowData,
+};
+
+Loading.parameters = {
+    docs: {
+        description: {
+            story: `A table can have its state set to \`isLoading\` to disable interaction.`,
+        },
+    },
+};
+
+export const CustomColumnConfig = (args) => (
+    <Table {...args}>
+        <Column field="first_name" />
+        <Column field="last_name" />
+        <Column field="age" align={Column.aligments.center} />
+        <Column
+            field="occupation"
+            className="px-8"
+            align={Column.aligments.right}
+        />
+    </Table>
+);
+CustomColumnConfig.args = {
+    rowData: officeRowData,
+    headerConfig: [
+        {
+            field: "first_name",
+            label: "First",
+            align: Column.aligments.left,
+        },
+        {
+            label: "Other Stuff",
+            className: "px-8",
+            align: Column.aligments.left,
+        },
+    ],
+};
+CustomColumnConfig.parameters = {
+    docs: {
+        description: {
+            story: `A table can be provided a header configuration that will explicitly control header details instead of inferring it from column children.`,
+        },
+    },
+};
+
+export const Sortable = (args) => {
+    const [rowData, setRowData] = useState(officeRowData);
+
+    const doSort = (sorts) => {
+        console.log(
+            "SORTS",
+            sorts,
+            [...Object.keys(sorts)],
+            [...Object.values(sorts)]
+        );
+        setRowData(
+            _.orderBy(
+                rowData,
+                [...Object.keys(sorts)],
+                [...Object.values(sorts)]
+            )
+        );
+    };
+
+    return (
+        <Table {...args} rowData={rowData} onSort={doSort}>
+            <Column field="first_name" />
+            <Column field="last_name" isSortable />
+            <Column field="age" align={Column.aligments.center} isSortable />
+            <Column
+                field="occupation"
+                className="px-8"
+                align={Column.aligments.right}
+            />
+        </Table>
+    );
+};
+
+Sortable.parameters = {
+    docs: {
+        description: {
+            story: `A table can have certain columns marked as \`isSortable\` and invoke an \`onSort\` callback passing in the current sort criteria.`,
         },
     },
 };
