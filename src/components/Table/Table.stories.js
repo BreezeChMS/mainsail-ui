@@ -6,7 +6,7 @@ import { Actions } from "./Actions";
 import { _ } from "globalthis/implementation";
 
 export default {
-    title: "Elements/Table",
+    title: "Elements/Table/Composed",
     component: Table,
     subcomponents: { Column, Actions },
     argTypes: {},
@@ -56,11 +56,11 @@ const Template = (args) => (
     <Table {...args}>
         <Column field="first_name" />
         <Column field="last_name" />
-        <Column field="age" align={Column.aligments.center} />
+        <Column field="age" align={Column.alignments.centered} />
         <Column
             field="occupation"
             className="px-8"
-            align={Column.aligments.right}
+            align={Column.alignments.left}
         />
     </Table>
 );
@@ -111,11 +111,11 @@ export const CustomColumnConfig = (args) => (
     <Table {...args}>
         <Column field="first_name" />
         <Column field="last_name" />
-        <Column field="age" align={Column.aligments.center} />
+        <Column field="age" align={Column.alignments.centered} />
         <Column
             field="occupation"
             className="px-8"
-            align={Column.aligments.right}
+            align={Column.alignments.right}
         />
     </Table>
 );
@@ -125,12 +125,12 @@ CustomColumnConfig.args = {
         {
             field: "first_name",
             label: "First",
-            align: Column.aligments.left,
+            align: Column.alignments.left,
         },
         {
             label: "Other Stuff",
             className: "px-8",
-            align: Column.aligments.left,
+            align: Column.alignments.left,
         },
     ],
 };
@@ -146,12 +146,6 @@ export const Sortable = (args) => {
     const [rowData, setRowData] = useState(officeRowData);
 
     const doSort = (sorts) => {
-        console.log(
-            "SORTS",
-            sorts,
-            [...Object.keys(sorts)],
-            [...Object.values(sorts)]
-        );
         setRowData(
             _.orderBy(
                 rowData,
@@ -165,11 +159,11 @@ export const Sortable = (args) => {
         <Table {...args} rowData={rowData} onSort={doSort}>
             <Column field="first_name" />
             <Column field="last_name" isSortable />
-            <Column field="age" align={Column.aligments.center} isSortable />
+            <Column field="age" align={Column.alignments.centered} isSortable />
             <Column
                 field="occupation"
                 className="px-8"
-                align={Column.aligments.right}
+                align={Column.alignments.right}
             />
         </Table>
     );
@@ -179,6 +173,36 @@ Sortable.parameters = {
     docs: {
         description: {
             story: `A table can have certain columns marked as \`isSortable\` and invoke an \`onSort\` callback passing in the current sort criteria.`,
+        },
+    },
+};
+
+export const SpecifiedWidth = (args) => (
+    <Table args={args} rowData={officeRowData}>
+        <Column field="first_name" />
+        <Column field="last_name" />
+        <Column
+            field="age"
+            align={Column.alignments.centered}
+            maxWidth="80px"
+        />
+        <Column
+            field="occupation"
+            className="px-8"
+            align={Column.alignments.left}
+            maxWidth={["90px", "120px"]}
+            shouldTruncate
+        />
+    </Table>
+);
+SpecifiedWidth.parameters = {
+    docs: {
+        description: {
+            story: `A table can have it's columns set with an explicit \`maxWidth\` or \`minWidth\`.
+                \n- Can be **set with a string** like \`maxWidth="120px"\`
+                \n- A **responsive array** where the values of the array equate to sm/md/lg breakpoints can be supplied eg. \`maxWidth={["80px", "120px", "250px"]}\`
+                \n- When using a responsive array to adjust column size, you may omit later breakpoints to prevent its usage eg. \`maxWidth={["80px", "120px"]}\` for sm/md breakpoint sizing.
+            `,
         },
     },
 };

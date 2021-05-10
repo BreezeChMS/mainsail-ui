@@ -70,7 +70,7 @@
         padding-bottom: 22px;
         flex: 1;
 
-        &.center {
+        &.centered {
             justify-content: center;
         }
 
@@ -111,7 +111,6 @@
 
                 .mainsail-icon {
                     margin-left: 8px;
-
                     color: $mainsail-neutral-4;
 
                     &.asc {
@@ -130,7 +129,7 @@
                 }
             }
 
-            &.center {
+            &.centered {
                 justify-content: center;
             }
 
