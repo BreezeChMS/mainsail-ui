@@ -30,6 +30,18 @@
         padding-top: 22px;
         padding-bottom: 22px;
         flex: 1;
+
+        &.center {
+            justify-content: center;
+        }
+
+        &.left {
+            justify-content: flex-start;
+        }
+
+        &.right {
+            justify-content: flex-end;
+        }
     }
 
     .mainsail-table__header {
@@ -42,7 +54,20 @@
         margin-bottom: 4px;
 
         .column-header {
+            display: flex;
             flex: 1;
+
+            &.center {
+                justify-content: center;
+            }
+
+            &.left {
+                justify-content: flex-start;
+            }
+
+            &.right {
+                justify-content: flex-end;
+            }
         }
     }
 }

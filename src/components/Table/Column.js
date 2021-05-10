@@ -4,14 +4,20 @@ import { classify } from "utility/classify";
 
 import "./Table.scss";
 
+const aligments = {
+    left: "left",
+    center: "center",
+    right: "right",
+};
+
 /**
- * Display data in a table-like styled grid
+ * Subcomponent for Table that specifies a columnar piece of data and its surrounding context
  **/
-export const Column = ({ className, field, children, ...props }) => {
+export const Column = ({ className, field, align, children, ...props }) => {
     return (
         <div
             data-id={`${field}-column`}
-            className={classify("mainsail-table-column", className)}
+            className={classify("mainsail-table-column", align, className)}
             {...props}>
             {children}
         </div>
@@ -19,6 +25,8 @@ export const Column = ({ className, field, children, ...props }) => {
 };
 
 Column.propTypes = {
+    /** Horizontal alignment of content within column */
+    align: PropTypes.oneOf(Object.values(aligments)),
     /** Designate which field to pull data from if desired */
     field: PropTypes.string,
     /** Style class to add to component wrapper */
@@ -29,8 +37,4 @@ Column.defaultProps = {};
 
 Column.displayName = "Column";
 
-/*
- * Tip: Be sure to attach any prop enums separately for convenience
- * use the plural form of the prop name
- * Column.variants = variants
- */
+Column.aligments = aligments;
