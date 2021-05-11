@@ -8,13 +8,18 @@
 
 export const convertFromResponsiveArray = (breakpoints, mixed) => {
     if (Array.isArray(mixed)) {
-        let mapSizeToMinWidth = {
-            sm: mixed[0],
-            md: mixed[1],
-            lg: mixed[2],
+        let sizeToIndex = {
+            sm: 0,
+            md: 1,
+            lg: 2,
         };
+        let curIndex = sizeToIndex[breakpoints.name];
 
-        return mapSizeToMinWidth[breakpoints.name];
+        while (!mixed[curIndex]) {
+            curIndex--;
+        }
+
+        return mixed[curIndex];
     }
 
     return mixed;
@@ -43,15 +48,7 @@ export const generateColumnWidthStyle = (
         minWidth
     );
 
-    if (widthAtCurrentBreakpoint) {
-        styles.width = widthAtCurrentBreakpoint === "auto" ? "100%" : "";
-        styles.flexBasis =
-            widthAtCurrentBreakpoint === "auto" ? "" : widthAtCurrentBreakpoint;
-        styles.flexGrow = widthAtCurrentBreakpoint === "auto" ? 1 : 0;
-        styles.flexShrink = widthAtCurrentBreakpoint === "auto" ? 1 : 0;
-    }
-
-    if (minWidthAtCurrentBreakpoint) {
+    if (!width && minWidthAtCurrentBreakpoint) {
         styles.minWidth = minWidthAtCurrentBreakpoint === "auto" ? "100%" : "";
         styles.flexBasis =
             minWidthAtCurrentBreakpoint === "auto"
@@ -61,7 +58,7 @@ export const generateColumnWidthStyle = (
         styles.flexShrink = minWidthAtCurrentBreakpoint === "auto" ? 1 : 0;
     }
 
-    if (maxWidthAtCurrentBreakpoint) {
+    if (!width && maxWidthAtCurrentBreakpoint) {
         styles.maxWidth = maxWidthAtCurrentBreakpoint === "auto" ? "100%" : "";
         styles.flexBasis =
             maxWidthAtCurrentBreakpoint === "auto"
@@ -69,6 +66,15 @@ export const generateColumnWidthStyle = (
                 : maxWidthAtCurrentBreakpoint;
         styles.flexGrow = maxWidthAtCurrentBreakpoint === "auto" ? 1 : 0;
         styles.flexShrink = maxWidthAtCurrentBreakpoint === "auto" ? 1 : 0;
+    }
+
+    // Explicit width should supercede all
+    if (widthAtCurrentBreakpoint) {
+        styles.width = widthAtCurrentBreakpoint === "auto" ? "100%" : "";
+        styles.flexBasis =
+            widthAtCurrentBreakpoint === "auto" ? "" : widthAtCurrentBreakpoint;
+        styles.flexGrow = widthAtCurrentBreakpoint === "auto" ? 1 : 0;
+        styles.flexShrink = widthAtCurrentBreakpoint === "auto" ? 1 : 0;
     }
 
     return styles;
