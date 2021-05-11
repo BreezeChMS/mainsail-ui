@@ -13,11 +13,28 @@ import {
     Sortable,
     Selectable,
 } from "./Table.stories";
-import { Column } from "components/Table/Column";
+import {
+    Basic as BasicColumn,
+    AlternateNaming,
+} from "components/Table/Column.stories";
 
 it("renders the column as a cell", () => {
-    render(<Column />);
-    expect(screen.getByRole("cell")).toBeInTheDocument();
+    render(<BasicColumn />);
+    expect(screen.queryAllByRole("cell").length).toBe(4);
+});
+
+it("renders the column header text according to the column field prop", () => {
+    render(<BasicColumn {...BasicColumn.args} />);
+    expect(screen.queryAllByRole("columnheader")[1].textContent).toBe(
+        BasicColumn.args.field
+    );
+});
+
+it("overrides the column header text according to the column label prop", () => {
+    render(<AlternateNaming {...AlternateNaming.args} />);
+    expect(screen.queryAllByRole("columnheader")[1].textContent).toBe(
+        AlternateNaming.args.label
+    );
 });
 
 it("renders a bordered table", () => {

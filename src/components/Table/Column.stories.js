@@ -78,6 +78,22 @@ Basic.parameters = {
     },
 };
 
+export const AlternateNaming = Template.bind({});
+AlternateNaming.args = {
+    field: "age",
+    label: "Years Alive on Earth",
+    className: "bg-blue-light p-10",
+    headerClassName: "pl-10",
+};
+
+AlternateNaming.parameters = {
+    docs: {
+        description: {
+            story: `By default, the column name is inferred from the column \`field\`, but this can be specified with the column \`label\` prop.`,
+        },
+    },
+};
+
 export const Alignment = Template.bind({});
 Alignment.args = {
     field: "age",

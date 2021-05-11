@@ -59,6 +59,8 @@ Column.propTypes = {
     align: PropTypes.oneOf(Object.values(alignments)),
     /** Designate which field to pull data from if desired */
     field: PropTypes.string,
+    /** Specify another title for the column (overrides inferred field name) */
+    label: PropTypes.string,
     /** Style class to add to component */
     className: PropTypes.string,
     /** Style class to add to column header */
