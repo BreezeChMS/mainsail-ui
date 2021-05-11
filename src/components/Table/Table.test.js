@@ -1,7 +1,7 @@
 // Table.test.js
 
 import React from "react";
-import { render, screen, within } from "@testing-library/react";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
@@ -78,10 +78,25 @@ it("renders a table with sortable columns", async () => {
     );
 });
 
-it.skip("fires a provided onClick handler", () => {
-    let onClick = jest.fn();
-    render(<Bordered {...Bordered.args} onClick={onClick} />);
+it.skip("should fire the onSort callback during any sorting event", async () => {
+    const onSort = jest.fn();
+    let modifiedArgs = {
+        ...Sortable.args,
+        onSort,
+    };
+    render(<Sortable {...modifiedArgs} />);
+    expect(screen.getByRole("table")).toBeInTheDocument();
 
-    userEvent.click(screen.getByRole(""));
-    expect(onClick).toHaveBeenCalled();
+    let firstRow = screen.queryAllByRole("row")[0];
+
+    expect(within(firstRow).queryAllByRole("cell")[1].textContent).toBe(
+        "Halpert"
+    );
+
+    // Should sort asc
+    userEvent.click(screen.getByRole("columnheader", { name: "last name" }));
+
+    await waitFor(() => {
+        expect(onSort).toHaveBeenCalled();
+    });
 });

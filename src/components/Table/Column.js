@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
-import { convertFromResponsiveArray } from "utility/responsive";
+import { generateColumnWidthStyle } from "utility/responsive";
 
 import "./Table.scss";
 
@@ -27,13 +27,11 @@ export const Column = ({
     width,
     children,
 }) => {
-    let styles = {
-        flexBasis: width && convertFromResponsiveArray(breakpoint, width),
-        flexGrow: width ? 0 : 1,
-        flexShrink: width ? 0 : 1,
-        minWidth: minWidth && convertFromResponsiveArray(breakpoint, minWidth),
-        maxWidth: maxWidth && convertFromResponsiveArray(breakpoint, maxWidth),
-    };
+    let styles = generateColumnWidthStyle(breakpoint, {
+        width,
+        minWidth,
+        maxWidth,
+    });
 
     return (
         <div
@@ -52,7 +50,7 @@ export const Column = ({
 
 Column.propTypes = {
     /** Unique identifier to designate which row the data point belongs */
-    rowId: PropTypes.string,
+    rowId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Whether the column is sortable or not */
     isSortable: PropTypes.bool,
     /** Whether the column should truncate data with ellipsis when overflowing */

@@ -6,7 +6,7 @@ import { isFragment } from "react-is";
 import { Column } from "components/Table/Column";
 import { Icon } from "components/Icon";
 import { Spinner } from "components/Spinner";
-import { convertFromResponsiveArray } from "utility/responsive";
+import { generateColumnWidthStyle } from "utility/responsive";
 import { ARIA_TRANSLATIONS } from "utility/constants";
 
 import "./Table.scss";
@@ -36,11 +36,13 @@ const inferFromChildrenColumns = (breakpoint, cols) => {
             label:
                 props.label || (props.field && props.field.replace(/_/g, " ")),
             align: props.align || Column.alignments.left,
-            className: props.headerClassName || "",
+            headerClassName: props.headerClassName || "",
             isSortable: props.isSortable || false,
-            width: convertFromResponsiveArray(breakpoint, props.width),
-            minWidth: convertFromResponsiveArray(breakpoint, props.minWidth),
-            maxWidth: convertFromResponsiveArray(breakpoint, props.maxWidth),
+            style: generateColumnWidthStyle(breakpoint, {
+                width: props.width,
+                minWidth: props.minWidth,
+                maxWidth: props.maxWidth,
+            }),
         });
     }
 
@@ -68,10 +70,11 @@ export const Table = ({
     // Set up a default column config array if Table doesn't receive one
     if (!headerConfig.length) {
         headColConfig = inferFromChildrenColumns(breakpoint, columnArray);
+        console.log("headColConfig:", headColConfig);
     }
 
     const handleSort = ({ field }) => {
-        if (typeof onSort !== "function") {
+        if (typeof onSort != "function") {
             return;
         }
 
@@ -97,9 +100,8 @@ export const Table = ({
                 break;
         }
 
-        setColumnSort(newSort);
-
         onSort && onSort(newSort);
+        setColumnSort(newSort);
     };
 
     /** Render the table row wrapper */
@@ -132,26 +134,19 @@ export const Table = ({
         return (
             <div className={classify("mainsail-table__header", variant)}>
                 {columnConfigArray.map((hCol, i) => {
-                    let styles = {
-                        flexBasis: hCol.width,
-                        flexShrink: hCol.width ? 0 : 1,
-                        flexGrow: hCol.width ? 0 : 1,
-                        minWidth: hCol.minWidth,
-                        maxWidth: hCol.maxWidth,
-                    };
                     let sort = getSortDirByField(hCol.field);
 
                     return (
                         <div
                             key={i}
-                            style={styles}
+                            style={hCol.style}
                             aria-sort={
                                 hCol.isSortable ? ARIA_TRANSLATIONS[sort] : ""
                             }
                             role="columnheader"
                             className={classify(
                                 "column-header",
-                                hCol.className,
+                                hCol.headerClassName,
                                 hCol.isSortable && "sortable",
                                 hCol.align
                             )}

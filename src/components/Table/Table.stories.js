@@ -161,7 +161,7 @@ export const Sortable = (args) => {
     };
 
     return (
-        <Table {...args} rowData={rowData} onSort={doSort}>
+        <Table rowData={rowData} {...args} onSort={doSort}>
             <Column field="first_name" />
             <Column field="last_name" isSortable />
             <Column field="age" align={Column.alignments.center} isSortable />
@@ -204,7 +204,7 @@ ExplicitWidth.args = {
 ExplicitWidth.parameters = {
     docs: {
         description: {
-            story: `A table can have it's columns set with an explicit \`maxWidth\` or \`minWidth\`.
+            story: `A table can have it's columns set with an explicit, \`width\`, \`maxWidth\` or \`minWidth\`.
                 \n- Can be **set with a string** like \`maxWidth="120px"\`
                 \n- A **responsive array** where the values of the array equate to sm/md/lg breakpoints can be supplied eg. \`maxWidth={["80px", "120px", "250px"]}\`
                 \n- When using a responsive array to adjust column size, you may omit later breakpoints to prevent its usage eg. \`maxWidth={["80px", "120px"]}\` for sm/md breakpoint sizing.

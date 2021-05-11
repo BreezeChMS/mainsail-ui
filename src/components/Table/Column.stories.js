@@ -56,7 +56,7 @@ const Template = (args) => {
             </p>
 
             <Table onSort={doSort} rowData={rowData}>
-                <Column field="name" maxWidth={["100px", "150px", "200px"]} />
+                <Column field="name" width={["60%", "75%"]} />
                 <Column {...args} />
             </Table>
         </>
@@ -96,7 +96,7 @@ Alignment.parameters = {
 export const TruncatedWidth = Template.bind({});
 TruncatedWidth.args = {
     field: "favorite_phrase",
-    maxWidth: "130px",
+    width: ["130px", "120px", "120px"],
     className: "bg-blue-light p-10",
     shouldTruncate: true,
 };

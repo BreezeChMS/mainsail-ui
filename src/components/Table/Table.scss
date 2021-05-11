@@ -9,6 +9,7 @@
     flex-grow: 1;
     box-sizing: border-box;
     position: relative;
+    overflow: hidden;
 
     &.loading {
         .mainsail-table__body,
@@ -63,6 +64,7 @@
         display: flex;
         flex-direction: row;
         flex-basis: 100%;
+        overflow: hidden;
     }
 
     .mainsail-table-column {
