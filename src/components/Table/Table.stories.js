@@ -145,7 +145,7 @@ HeaderConfig.args = {
     headerConfig: [
         {
             field: "first_name",
-            label: "First",
+            label: "Name",
             align: Column.alignments.left,
         },
         {
