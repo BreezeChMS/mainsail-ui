@@ -7,6 +7,7 @@ import { Column } from "components/Table/Column";
 import { Icon } from "components/Icon";
 import { Spinner } from "components/Spinner";
 import { convertFromResponsiveArray } from "utility/responsive";
+import { ARIA_TRANSLATIONS } from "utility/constants";
 
 import "./Table.scss";
 
@@ -101,6 +102,7 @@ export const Table = ({
         onSort && onSort(newSort);
     };
 
+    /** Render the table row wrapper */
     const renderRow = (row, idx) => {
         // Inject Row Data to Columns
         let columns = (data) =>
@@ -121,6 +123,8 @@ export const Table = ({
             </div>
         );
     };
+
+    /** Render the table column header */
     const renderTableHeader = (columnConfigArray = []) => {
         let getSortDirByField = (field) => columnSort && columnSort[field];
 
@@ -134,11 +138,15 @@ export const Table = ({
                         minWidth: hCol.minWidth,
                         maxWidth: hCol.maxWidth,
                     };
+                    let sort = getSortDirByField(hCol.field);
 
                     return (
                         <div
                             key={i}
                             style={styles}
+                            aria-sort={
+                                hCol.isSortable ? ARIA_TRANSLATIONS[sort] : ""
+                            }
                             role="columnheader"
                             className={classify(
                                 "column-header",
@@ -154,9 +162,7 @@ export const Table = ({
                             {hCol.label}
                             {hCol.isSortable ? (
                                 <Icon
-                                    className={classify(
-                                        getSortDirByField(hCol.field)
-                                    )}
+                                    className={classify(sort)}
                                     name={Icon.names.caret}
                                 />
                             ) : null}
