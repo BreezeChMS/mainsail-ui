@@ -5,7 +5,13 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
-import { Bordered, Open } from "./Table.stories";
+import {
+    Bordered,
+    Open,
+    Loading,
+    HeaderConfig,
+    Sortable,
+} from "./Table.stories";
 import { Column } from "components/Table/Column";
 
 it("renders the column as a cell", () => {
@@ -29,6 +35,47 @@ it("renders an open style table", () => {
     render(<Open {...Open.args} />);
     expect(screen.getByRole("table")).toBeInTheDocument();
     expect(screen.getByRole("table").classList.contains("open")).toBe(true);
+});
+
+it("renders a table properly in the isLoading state", () => {
+    render(<Loading {...Loading.args} />);
+    expect(screen.getByRole("table")).toBeInTheDocument();
+    expect(screen.getByRole("progressbar")).toBeInTheDocument();
+});
+
+it("renders a table with a custom headerConfig", () => {
+    render(<HeaderConfig {...HeaderConfig.args} />);
+    expect(screen.getByRole("table")).toBeInTheDocument();
+    expect(screen.queryAllByRole("columnheader").length).toBe(2);
+});
+
+it("renders a table with sortable columns", async () => {
+    render(<Sortable {...Sortable.args} />);
+    expect(screen.getByRole("table")).toBeInTheDocument();
+
+    let firstRow = screen.queryAllByRole("row")[0];
+
+    expect(within(firstRow).queryAllByRole("cell")[1].textContent).toBe(
+        "Halpert"
+    );
+
+    // Should sort asc
+    userEvent.click(screen.getByRole("columnheader", { name: "last name" }));
+
+    firstRow = screen.queryAllByRole("row")[0];
+
+    expect(within(firstRow).queryAllByRole("cell")[1].textContent).toBe(
+        "Beasley"
+    );
+
+    // Should sort desc
+    userEvent.click(screen.getByRole("columnheader", { name: "last name" }));
+
+    firstRow = screen.queryAllByRole("row")[0];
+
+    expect(within(firstRow).queryAllByRole("cell")[1].textContent).toBe(
+        "Schrute"
+    );
 });
 
 it.skip("fires a provided onClick handler", () => {
