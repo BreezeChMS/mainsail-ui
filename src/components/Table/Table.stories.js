@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { Table } from "./Table";
 import { Column } from "./Column";
 import { Actions } from "./Actions";
-import { _ } from "globalthis/implementation";
+import _ from "lodash";
 
 export default {
-    title: "Elements/Table/Composed",
+    title: "Elements/Table/Table",
     component: Table,
     subcomponents: { Column, Actions },
     argTypes: {},
@@ -15,10 +15,11 @@ export default {
         controls: { sort: "requiredFirst" },
         docs: {
             description: {
-                component: `The Table allows you to display data in rows and columns with multiple options and sub components
-                \n\`<Table/>\` is the main component that specifies the table-specific styling and accepts the row data. See props table below.
-                \n\`<Column/>\` component specifies the different data points to be displayed within the rows. Much of the column styling and layout handling is controlled here.
-                \n\`<Actions/>\` component specifies the various user interactions that can be performed on the row data.
+                component: `The Table allows you to display data in rows and columns with multiple options and sub components.
+                \n- \`<Table/>\` is the main component that controls **table-specific styling** and accepts the \`rowData\`. (See props table below.)
+                \n- There are **two basic style variants** for the Table component (see \`variant\` prop below).
+                \n- \`<Column/>\` component specifies the different data points to be displayed within the rows. Much of the column styling and layout handling can be controlled here.
+                \n- \`<Actions/>\` component specifies the various user interactions that can be performed on the row data.
             `,
             },
         },
@@ -56,7 +57,7 @@ const Template = (args) => (
     <Table {...args}>
         <Column field="first_name" />
         <Column field="last_name" />
-        <Column field="age" align={Column.alignments.centered} />
+        <Column field="age" align={Column.alignments.center} />
         <Column
             field="occupation"
             className="px-8"
@@ -111,7 +112,7 @@ export const CustomColumnConfig = (args) => (
     <Table {...args}>
         <Column field="first_name" />
         <Column field="last_name" />
-        <Column field="age" align={Column.alignments.centered} />
+        <Column field="age" align={Column.alignments.center} />
         <Column
             field="occupation"
             className="px-8"
@@ -159,7 +160,7 @@ export const Sortable = (args) => {
         <Table {...args} rowData={rowData} onSort={doSort}>
             <Column field="first_name" />
             <Column field="last_name" isSortable />
-            <Column field="age" align={Column.alignments.centered} isSortable />
+            <Column field="age" align={Column.alignments.center} isSortable />
             <Column
                 field="occupation"
                 className="px-8"
@@ -177,25 +178,26 @@ Sortable.parameters = {
     },
 };
 
-export const SpecifiedWidth = (args) => (
-    <Table args={args} rowData={officeRowData}>
-        <Column field="first_name" />
-        <Column field="last_name" />
-        <Column
-            field="age"
-            align={Column.alignments.centered}
-            maxWidth="80px"
-        />
+export const ExplicitWidth = (args) => (
+    <Table {...args}>
+        <Column field="first_name" width={"25%"} shouldTruncate />
+        <Column field="last_name" width={"25%"} shouldTruncate />
+        <Column field="age" align={Column.alignments.center} width={"20%"} />
         <Column
             field="occupation"
-            className="px-8"
+            className="pl-8"
+            headerClassName="pl-8"
             align={Column.alignments.left}
-            maxWidth={["90px", "120px"]}
+            width={["100px", "140px", "auto"]}
             shouldTruncate
         />
     </Table>
 );
-SpecifiedWidth.parameters = {
+ExplicitWidth.args = {
+    isLoading: false,
+    rowData: officeRowData,
+};
+ExplicitWidth.parameters = {
     docs: {
         description: {
             story: `A table can have it's columns set with an explicit \`maxWidth\` or \`minWidth\`.

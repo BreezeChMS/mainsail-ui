@@ -35,8 +35,9 @@ const inferFromChildrenColumns = (breakpoint, cols) => {
             label:
                 props.label || (props.field && props.field.replace(/_/g, " ")),
             align: props.align || Column.alignments.left,
-            className: props.className || "",
+            className: props.headerClassName || "",
             isSortable: props.isSortable || false,
+            width: convertFromResponsiveArray(breakpoint, props.width),
             minWidth: convertFromResponsiveArray(breakpoint, props.minWidth),
             maxWidth: convertFromResponsiveArray(breakpoint, props.maxWidth),
         });
@@ -122,16 +123,22 @@ export const Table = ({
     };
     const renderTableHeader = (columnConfigArray = []) => {
         let getSortDirByField = (field) => columnSort && columnSort[field];
+
         return (
             <div className={classify("mainsail-table__header", variant)}>
                 {columnConfigArray.map((hCol, i) => {
+                    let styles = {
+                        flexBasis: hCol.width,
+                        flexShrink: hCol.width ? 0 : 1,
+                        flexGrow: hCol.width ? 0 : 1,
+                        minWidth: hCol.minWidth,
+                        maxWidth: hCol.maxWidth,
+                    };
+
                     return (
                         <div
                             key={i}
-                            style={{
-                                minWidth: hCol.minWidth,
-                                maxWidth: hCol.maxWidth,
-                            }}
+                            style={styles}
                             role="columnheader"
                             className={classify(
                                 "column-header",
@@ -192,6 +199,7 @@ Table.propTypes = {
             minWidth: PropTypes.any,
             maxWidth: PropTypes.any,
             className: PropTypes.string,
+            headerClassName: PropTypes.string,
             isSortable: PropTypes.bool,
         })
     ),

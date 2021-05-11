@@ -9,9 +9,9 @@
 export const convertFromResponsiveArray = (breakpoints, mixed) => {
     if (Array.isArray(mixed)) {
         let mapSizeToMinWidth = {
-            sm: mixed[0] || "",
-            md: mixed[1] || "",
-            lg: mixed[2] || "",
+            sm: mixed[0] || "auto",
+            md: mixed[1] || "auto",
+            lg: mixed[2] || "auto",
         };
 
         return mapSizeToMinWidth[breakpoints.name];
