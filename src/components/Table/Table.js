@@ -73,7 +73,6 @@ export const Table = ({
     // Set up a default column config array if Table doesn't receive one
     if (!headerConfig.length) {
         headColConfig = inferFromChildrenColumns(breakpoint, columnArray);
-        console.log("headColConfig:", headColConfig);
     }
 
     const handleSort = ({ field }) => {

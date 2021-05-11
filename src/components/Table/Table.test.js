@@ -1,7 +1,7 @@
 // Table.test.js
 
 import React from "react";
-import { render, screen, waitFor, within } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
@@ -11,6 +11,7 @@ import {
     Loading,
     HeaderConfig,
     Sortable,
+    Selectable,
 } from "./Table.stories";
 import { Column } from "components/Table/Column";
 
@@ -78,7 +79,7 @@ it("renders a table with sortable columns", async () => {
     );
 });
 
-it.skip("should fire the onSort callback during any sorting event", async () => {
+it("should fire the onSort callback during any sorting event", async () => {
     const onSort = jest.fn();
     let modifiedArgs = {
         ...Sortable.args,
@@ -96,7 +97,26 @@ it.skip("should fire the onSort callback during any sorting event", async () => 
     // Should sort asc
     userEvent.click(screen.getByRole("columnheader", { name: "last name" }));
 
-    await waitFor(() => {
-        expect(onSort).toHaveBeenCalled();
-    });
+    expect(onSort).toHaveBeenCalled();
+    expect(onSort).toHaveBeenCalledWith({ last_name: "asc" });
+});
+
+it("supports row selection and onSelect callback", () => {
+    const onSelect = jest.fn();
+    let modifiedArgs = {
+        ...Selectable.args,
+        onSelect,
+    };
+
+    render(<Selectable {...modifiedArgs} />);
+    expect(screen.getByRole("table")).toBeInTheDocument();
+
+    userEvent.click(screen.queryAllByRole("checkbox")[1]);
+
+    expect(onSelect).toHaveBeenCalled();
+    expect(onSelect).toHaveBeenCalledWith(
+        Selectable.args.rowData[1], // row data selected
+        true, // checked state
+        expect.anything() // browser event as 3rd arg
+    );
 });

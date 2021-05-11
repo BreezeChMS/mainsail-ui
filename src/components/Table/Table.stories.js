@@ -177,7 +177,7 @@ export const Sortable = (args) => {
     };
 
     return (
-        <Table rowData={rowData} {...args} onSort={doSort}>
+        <Table rowData={rowData} onSort={doSort} {...args}>
             <Column field="first_name" />
             <Column field="last_name" isSortable />
             <Column field="age" align={Column.alignments.center} isSortable />
