@@ -104,12 +104,13 @@ export const Table = ({
 
     /** Render the table row wrapper */
     const renderRow = (row, idx) => {
-        // Inject Row Data to Columns
+        /** This Func injects Row Data/Props to Row Children (Cols) */
         let columns = (data) =>
             columnArray.map((child) => {
                 return cloneElement(child, {
                     ...child.props,
                     breakpoint,
+                    rowId: row.id,
                     children: attachDataToRowCol(data, child.props.field),
                 });
             });
@@ -117,7 +118,7 @@ export const Table = ({
         return (
             <div
                 role="row"
-                key={`row-${idx}`}
+                key={`row-${row.id || idx}`}
                 className={classify("mainsail-table__row")}>
                 {columns(row)}
             </div>
@@ -184,7 +185,10 @@ export const Table = ({
             )}>
             {renderTableHeader(headColConfig)}
             {isLoading ? (
-                <div className="mainsail-table__spinner">
+                <div
+                    role="progressbar"
+                    aria-busy="true"
+                    className="mainsail-table__spinner">
                     <Spinner />
                 </div>
             ) : null}

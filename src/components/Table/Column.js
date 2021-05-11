@@ -19,6 +19,7 @@ export const Column = ({
     headerClassName, // eslint-disable-line no-unused-vars
     className,
     field,
+    rowId,
     shouldTruncate,
     align,
     minWidth,
@@ -37,7 +38,7 @@ export const Column = ({
     return (
         <div
             role="cell"
-            data-id={`${field}-column`}
+            data-testid={`${rowId}_${field}`}
             style={styles}
             className={classify("mainsail-table-column", align, className)}>
             {shouldTruncate ? (
@@ -50,7 +51,8 @@ export const Column = ({
 };
 
 Column.propTypes = {
-    // breakpoint: PropTypes.object,
+    /** Unique identifier to designate which row the data point belongs */
+    rowId: PropTypes.string,
     /** Whether the column is sortable or not */
     isSortable: PropTypes.bool,
     /** Whether the column should truncate data with ellipsis when overflowing */

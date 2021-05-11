@@ -28,24 +28,28 @@ export default {
 
 const officeRowData = [
     {
+        id: 1,
         first_name: "Jim",
         last_name: "Halpert",
         age: 33,
         occupation: "Sales",
     },
     {
+        id: 2,
         first_name: "Dwight",
         last_name: "Schrute",
         age: 35,
         occupation: "Sales",
     },
     {
+        id: 3,
         first_name: "Pam",
         last_name: "Beasley",
         age: 28,
         occupation: "Administration",
     },
     {
+        id: 4,
         first_name: "Toby",
         last_name: "Flenderson",
         age: 42,
@@ -108,7 +112,7 @@ Loading.parameters = {
     },
 };
 
-export const CustomColumnConfig = (args) => (
+export const HeaderConfig = (args) => (
     <Table {...args}>
         <Column field="first_name" />
         <Column field="last_name" />
@@ -120,7 +124,7 @@ export const CustomColumnConfig = (args) => (
         />
     </Table>
 );
-CustomColumnConfig.args = {
+HeaderConfig.args = {
     rowData: officeRowData,
     headerConfig: [
         {
@@ -135,7 +139,7 @@ CustomColumnConfig.args = {
         },
     ],
 };
-CustomColumnConfig.parameters = {
+HeaderConfig.parameters = {
     docs: {
         description: {
             story: `A table can be provided a header configuration that will explicitly control header details instead of inferring it from column children.`,
