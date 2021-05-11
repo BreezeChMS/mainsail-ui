@@ -8,6 +8,7 @@ import { Icon } from "components/Icon";
 import { Spinner } from "components/Spinner";
 import { generateColumnWidthStyle } from "utility/responsive";
 import { ARIA_TRANSLATIONS } from "utility/constants";
+import { Checkbox } from "components/Checkbox";
 
 import "./Table.scss";
 
@@ -55,6 +56,8 @@ export const Table = ({
     className,
     variant,
     isLoading,
+    isSelectable,
+    onSelect,
     rowData = [],
     headerConfig,
     onSort,
@@ -104,6 +107,10 @@ export const Table = ({
         setColumnSort(newSort);
     };
 
+    const handleSelect = (row, state, e) => {
+        onSelect && onSelect(row, state, e);
+    };
+
     /** Render the table row wrapper */
     const renderRow = (row, idx) => {
         /** This Func injects Row Data/Props to Row Children (Cols) */
@@ -122,6 +129,15 @@ export const Table = ({
                 role="row"
                 key={`row-${row.id || idx}`}
                 className={classify("mainsail-table__row")}>
+                {isSelectable ? (
+                    <div className="mainsail-table__row-selector">
+                        <Checkbox
+                            onChange={(e) =>
+                                handleSelect(row, e.currentTarget.checked, e)
+                            }
+                        />
+                    </div>
+                ) : null}
                 {columns(row)}
             </div>
         );
@@ -133,6 +149,10 @@ export const Table = ({
 
         return (
             <div className={classify("mainsail-table__header", variant)}>
+                {isSelectable ? (
+                    <div className="mainsail-table__header-selector"></div>
+                ) : null}
+
                 {columnConfigArray.map((hCol, i) => {
                     let sort = getSortDirByField(hCol.field);
 
@@ -140,10 +160,10 @@ export const Table = ({
                         <div
                             key={i}
                             style={hCol.style}
+                            role="columnheader"
                             aria-sort={
                                 hCol.isSortable ? ARIA_TRANSLATIONS[sort] : ""
                             }
-                            role="columnheader"
                             className={classify(
                                 "column-header",
                                 hCol.headerClassName,
@@ -203,6 +223,7 @@ Table.propTypes = {
             align: PropTypes.oneOf(Object.values(Column.alignments)),
             minWidth: PropTypes.any,
             maxWidth: PropTypes.any,
+            width: PropTypes.any,
             className: PropTypes.string,
             headerClassName: PropTypes.string,
             isSortable: PropTypes.bool,
@@ -210,12 +231,16 @@ Table.propTypes = {
     ),
     /** Data array for the table */
     variant: PropTypes.oneOf(Object.values(variants)),
-    /** Data array for the table */
+    /** Data array for the table, ensure that each object has an `id` key */
     rowData: PropTypes.arrayOf(PropTypes.object),
     /** Style class to add to component wrapper */
     className: PropTypes.string,
     /** Callback that fires when column is sorted, sort function receives table sort object {field1: dir, field2: dir} */
     onSort: PropTypes.func,
+    /** Allows row selection */
+    isSelectable: PropTypes.bool,
+    /** Callback that fires when row is selected, onSelect has a signature of `(row, checkedState, eventObject) => {}` */
+    onSelect: PropTypes.func,
     /** Control a loading state for the entire table to display a spinner */
     isLoading: PropTypes.bool,
 };

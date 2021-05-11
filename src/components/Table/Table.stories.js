@@ -17,6 +17,7 @@ export default {
             description: {
                 component: `The Table allows you to display data in rows and columns with multiple options and sub components.
                 \n- \`<Table/>\` is the main component that controls **table-specific styling** and accepts the \`rowData\`. (See props table below.)
+                \n- \`rowData\` is expected to have a key of \`id\` on all objects!
                 \n- There are **two basic style variants** for the Table component (see \`variant\` prop below).
                 \n- \`<Column/>\` component specifies the different data points to be displayed within the rows. Much of the column styling and layout handling can be controlled here.
                 \n- \`<Actions/>\` component specifies the various user interactions that can be performed on the row data.
@@ -108,6 +109,21 @@ Loading.parameters = {
     docs: {
         description: {
             story: `A table can have its state set to \`isLoading\` to disable interaction.`,
+        },
+    },
+};
+
+export const Selectable = Template.bind({});
+Selectable.args = {
+    isSelectable: true,
+    rowData: officeRowData,
+    variant: Table.variants.open,
+};
+
+Selectable.parameters = {
+    docs: {
+        description: {
+            story: `A table can have its rows selectable with the \`isLoading\` prop. The \`onSelect\` callback provides a signature of \`(row, checkedState, eventObject) => {}\``,
         },
     },
 };

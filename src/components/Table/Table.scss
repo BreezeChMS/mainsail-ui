@@ -41,6 +41,21 @@
                 border-bottom: 1px solid $mainsail-neutral-6;
             }
         }
+
+        .mainsail-table__row-selector,
+        .mainsail-table__header-selector {
+            display: flex;
+            align-items: center;
+            flex-basis: 76px;
+            .mainsail-checkbox {
+                margin-right: 20px;
+                margin-left: auto;
+
+                .mainsail-checkbox__icon {
+                    margin: 0;
+                }
+            }
+        }
     }
 
     &.bordered {
@@ -57,6 +72,21 @@
             min-height: 64px;
             border: $mainsail-table-border;
             border-radius: $mainsail-table-border-radius;
+        }
+
+        .mainsail-table__row-selector,
+        .mainsail-table__header-selector {
+            display: flex;
+            align-items: center;
+            flex-basis: 60px;
+            .mainsail-checkbox {
+                margin-right: 20px;
+                margin-left: auto;
+
+                .mainsail-checkbox__icon {
+                    margin: 0;
+                }
+            }
         }
     }
 
