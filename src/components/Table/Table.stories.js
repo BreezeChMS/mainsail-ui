@@ -163,21 +163,15 @@ HeaderConfig.parameters = {
     },
 };
 
+let setSortedData;
+let sortedData;
 export const Sortable = (args) => {
     const [rowData, setRowData] = useState(officeRowData);
-
-    const doSort = (sorts) => {
-        setRowData(
-            _.orderBy(
-                rowData,
-                [...Object.keys(sorts)],
-                [...Object.values(sorts)]
-            )
-        );
-    };
+    setSortedData = setRowData;
+    sortedData = rowData;
 
     return (
-        <Table rowData={rowData} onSort={doSort} {...args}>
+        <Table rowData={rowData} {...args}>
             <Column field="first_name" />
             <Column field="last_name" isSortable />
             <Column field="age" align={Column.alignments.center} isSortable />
@@ -188,6 +182,17 @@ export const Sortable = (args) => {
             />
         </Table>
     );
+};
+Sortable.args = {
+    onSort: (sorts) => {
+        setSortedData(
+            _.orderBy(
+                sortedData,
+                [...Object.keys(sorts)],
+                [...Object.values(sorts)]
+            )
+        );
+    },
 };
 
 Sortable.parameters = {

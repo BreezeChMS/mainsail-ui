@@ -81,11 +81,8 @@ it("renders a table with sortable columns", async () => {
 
 it("should fire the onSort callback during any sorting event", async () => {
     const onSort = jest.fn();
-    let modifiedArgs = {
-        ...Sortable.args,
-        onSort,
-    };
-    render(<Sortable {...modifiedArgs} />);
+
+    render(<Sortable onSort={onSort} />);
     expect(screen.getByRole("table")).toBeInTheDocument();
 
     let firstRow = screen.queryAllByRole("row")[0];
