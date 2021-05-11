@@ -36,6 +36,11 @@ export const placements = {
     bottomEnd: "bottom-end",
 };
 
+export const positionings = {
+    fixed: "fixed",
+    absolute: "absolute",
+};
+
 /**
  * A styled multiple choice alternative to a standard \<select\/> box. Uses popperjs behind the scenes.
  **/
@@ -51,6 +56,7 @@ export const Dropdown = ({
     isRequired,
     onChange,
     placeholder,
+    positioning,
     placement,
     hasCaret,
     ...props
@@ -66,6 +72,7 @@ export const Dropdown = ({
     const [popperElement, setPopperElement] = useState(null);
     const { styles, attributes } = usePopper(referenceElement, popperElement, {
         placement,
+        strategy: positioning,
         modifiers: [
             {
                 name: "offset",
@@ -328,6 +335,8 @@ Dropdown.propTypes = {
     menuOffset: PropTypes.number,
     /** Position the dropdown menu */
     placement: PropTypes.oneOf(Object.values(placements)),
+    /** Positioning strategy of the dropdown menu */
+    positioning: PropTypes.oneOf(Object.values(positionings)),
     /** Exposes a [Popperjs](https://popper.js.org/docs/v2/modifiers) api that enables further fine-tuning of dropdown menu. */
     modifiers: PropTypes.arrayOf(PropTypes.object),
     /** (Optional) click handler */
@@ -342,13 +351,9 @@ Dropdown.defaultProps = {
     hasCaret: true,
     placeholder: "Select Option",
     menuOffset: 4,
+    positioning: positionings.absolute,
 };
 
 Dropdown.placements = placements;
+Dropdown.positionings = positionings;
 Dropdown.displayName = "Dropdown";
-
-/*
- * Tip: Be sure to attach any prop enums separately for convenience
- * use the plural form of the prop name
- * Dropdown.variants = variants
- */

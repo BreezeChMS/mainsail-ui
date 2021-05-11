@@ -4,6 +4,7 @@ import { classify } from "utility/classify";
 import { useBreakpoint } from "utility/hooks";
 import { isFragment } from "react-is";
 import { Column } from "components/Table/Column";
+import { Actions } from "components/Table/Actions";
 import { Icon } from "components/Icon";
 import { Spinner } from "components/Spinner";
 import { generateColumnWidthStyle } from "utility/responsive";
@@ -32,12 +33,16 @@ const inferFromChildrenColumns = (breakpoint, cols) => {
 
     for (let col of cols) {
         let props = col.props;
+
         columns.push({
             field: props.field,
             label:
                 props.label || (props.field && props.field.replace(/_/g, " ")),
             align: props.align || Column.alignments.left,
-            headerClassName: props.headerClassName || "",
+            headerClassName: classify(
+                props.headerClassName,
+                col.type.displayName === "Actions" && "actions"
+            ),
             isSortable: props.isSortable || false,
             style: generateColumnWidthStyle(breakpoint, {
                 width: props.width,
@@ -49,6 +54,7 @@ const inferFromChildrenColumns = (breakpoint, cols) => {
 
     return columns;
 };
+
 /**
  * Display data in a table-like styled grid
  **/
@@ -250,3 +256,5 @@ Table.defaultProps = {
 };
 
 Table.variants = variants;
+Table.Column = Column;
+Table.Actions = Actions;

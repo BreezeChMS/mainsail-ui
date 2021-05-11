@@ -1,38 +1,84 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
+import { Dropdown } from "components/Dropdown";
+import { Icon } from "components/Icon";
+import { generateColumnWidthStyle } from "utility/responsive";
 
 import "./Table.scss";
 
-/**
- * Define and export enumerable prop values for use (then attach to component below)
- * e.g. export const colors = {
- *    color1: "color1"
- * }
- */
+const alignments = {
+    left: "left",
+    center: "center",
+    right: "right",
+};
 
 /**
- * Display data in a table-like styled grid
+ * Row Actions for a Table
  **/
-export const Actions = ({ className, children, ...props }) => {
+export const Actions = ({
+    breakpoint, // eslint-disable-line react/prop-types
+    className,
+    options,
+    width,
+    minWidth,
+    maxWidth,
+    children,
+}) => {
+    let styles = generateColumnWidthStyle(breakpoint, {
+        width,
+        minWidth,
+        maxWidth,
+    });
+
     return (
-        <div className={classify("mainsail-row-actions", className)} {...props}>
-            {children}
+        <div
+            className={classify("mainsail-row-actions", className)}
+            style={styles}>
+            <div>{children}</div>
+            <Dropdown
+                hasCaret={false}
+                options={options}
+                menuOffset={-6}
+                positioning={Dropdown.positionings.fixed}
+                customTrigger={
+                    <button className="mainsail-row-actions__default">
+                        <Icon
+                            className="py-6"
+                            size={Icon.sizes.lg}
+                            name={Icon.names.more}
+                        />
+                    </button>
+                }
+            />
         </div>
     );
 };
 
 Actions.propTypes = {
-    /** (Optional) click handler */
-    onClick: PropTypes.func,
-    /** Style class to add to component wrapper */
+    /** Position the dropdown menu */
+    placement: PropTypes.oneOf(Object.values(Dropdown.placements)),
+    /** Exposes a [Popperjs](https://popper.js.org/docs/v2/modifiers) api that enables further fine-tuning of dropdown menu. */
+    modifiers: PropTypes.arrayOf(PropTypes.object),
+    /** Array of dropdown menu choices must at a minimum contain keys `text` and `value` */
+    options: PropTypes.arrayOf(PropTypes.object),
+    /** Style class to add to component */
     className: PropTypes.string,
+    /** Style class to add to column header */
+    headerClassName: PropTypes.string,
+    /** Excplicit Width allowed for the column, Note: passing an array of up to 3 values representing sm,md,lg breakpoints is supported */
+    width: PropTypes.any,
+    /** Minimum Width allowed for the column, Note: passing an array of up to 3 values representing sm,md,lg breakpoints is supported */
+    minWidth: PropTypes.any,
+    /** Width allowed for the column, Note: passing an array of up to 3 values representing sm,md,lg breakpoints is supported */
+    maxWidth: PropTypes.any,
 };
 
-Actions.defaultProps = {};
+Actions.defaultProps = {
+    align: alignments.right,
+    minWidth: "80px",
+};
 
-/*
- * Tip: Be sure to attach any prop enums separately for convenience
- * use the plural form of the prop name
- * Actions.variants = variants
- */
+Actions.displayName = "Actions";
+Actions.alignments = alignments;
+Actions.placements = Dropdown.placements;
