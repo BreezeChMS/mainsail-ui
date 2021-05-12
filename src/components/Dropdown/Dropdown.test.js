@@ -11,6 +11,7 @@ import {
     NativeDropdown,
     Disabled,
     CustomTrigger,
+    ComponentOptions,
 } from "./Dropdown.stories";
 
 it("renders the closed dropdown in the closed state", async () => {
@@ -67,6 +68,17 @@ it("can render with a custom trigger", async () => {
     render(<CustomTrigger {...CustomTrigger.args} />);
     expect(screen.getByRole("button")).toBeInTheDocument();
     expect(screen.getByRole("button").textContent).toBe("Batch");
+});
+
+it("can render with custom options templates", async () => {
+    render(<ComponentOptions {...ComponentOptions.args} />);
+    expect(screen.getByRole("button")).toBeInTheDocument();
+    userEvent.click(screen.getByRole("button"));
+
+    expect(screen.getByTestId("custom-opt1")).toBeInTheDocument();
+    expect(screen.getByTestId("custom-opt2")).toBeInTheDocument();
+    expect(screen.getByTestId("custom-opt3")).toBeInTheDocument();
+    expect(screen.getByTestId("custom-opt4")).toBeInTheDocument();
 });
 
 it("can render as disabled", async () => {

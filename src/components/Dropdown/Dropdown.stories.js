@@ -104,9 +104,11 @@ ComponentOptions.args = {
         {
             text: "Frodo",
             value: 1,
-            template: function Component() {
+            template: function Component1() {
                 return (
-                    <div className="flex align-center">
+                    <div
+                        data-testid="custom-opt1"
+                        className="flex align-center">
                         <Icon name="add" className="mr-8" />
                         Frodo
                     </div>
@@ -116,9 +118,11 @@ ComponentOptions.args = {
         {
             text: "Samwise",
             value: 2,
-            template: function Component() {
+            template: function Component2() {
                 return (
-                    <div className="flex align-center">
+                    <div
+                        data-testid="custom-opt2"
+                        className="flex align-center">
                         <Icon name="user" className="mr-8" />
                         Samwise
                     </div>
@@ -128,9 +132,11 @@ ComponentOptions.args = {
         {
             text: "Merry",
             value: 3,
-            template: function Component() {
+            template: function Component3() {
                 return (
-                    <div className="flex align-center">
+                    <div
+                        data-testid="custom-opt3"
+                        className="flex align-center">
                         <Icon name="email" className="mr-8" />
                         Merry
                     </div>
@@ -140,9 +146,11 @@ ComponentOptions.args = {
         {
             text: "Pippin",
             value: 4,
-            template: function Component() {
+            template: function Component4() {
                 return (
-                    <div className="flex align-center">
+                    <div
+                        data-testid="custom-opt4"
+                        className="flex align-center">
                         <Icon name="delete" className="mr-8" />
                         Pippin
                     </div>
@@ -150,6 +158,22 @@ ComponentOptions.args = {
             },
         },
     ],
+};
+ComponentOptions.parameters = {
+    docs: {
+        description: {
+            story: `The \`options\` prop array can be built with a \`template\` key that contains a function to render any React Component.
+
+    // Example
+
+    <Dropdown
+        options = [{value: 1, text: "Option 1", template: () => <Custom Stuff/> }]
+    />
+
+    // Note: text key will still be used for displaying when selected for simplicity.
+            `,
+        },
+    },
 };
 
 export const CustomTrigger = Template.bind({});
