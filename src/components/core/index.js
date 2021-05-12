@@ -1,4 +1,5 @@
 // Components Global Export for plopjs
+export { PopMenu, PopMenuItem } from "../PopMenu";
 export { Table, Column, Actions } from "../Table";
 export { Dropdown } from "../Dropdown";
 export { ListGroup, ListGroupItem } from "../ListGroup";

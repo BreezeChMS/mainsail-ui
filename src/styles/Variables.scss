@@ -17,7 +17,7 @@ $mainsail-input-border-error: $mainsail-red-middle;
 // Shadows
 $mainsail-shadow-sticky: 0px 2px 4px rgba(0, 52, 98, 0.1);
 $mainsail-shadow-far: 0px 2px 32px -12px rgba(0, 52, 98, 0.25);
-$mainsail-shadow-near: 0px 2px 8px -2px rgba(0, 52, 98, 0.3);
+$mainsail-shadow-near: 0px 2px 8px rgba(0, 52, 98, 0.3);
 $mainsail-shadow-active: 0px 0px 2px 1px rgba(0, 111, 186, 0.5);
 
 @mixin mainsail-shadow-active($color) {
@@ -47,6 +47,7 @@ $mainsail-shadow-active: 0px 0px 2px 1px rgba(0, 111, 186, 0.5);
 $mainsail-pill-radius: 20px;
 $mainsail-alert-radius: 4px;
 $mainsail-tip-radius: 4px;
+$mainsail-popmenu-radius: 4px;
 $mainsail-tab-radius: 8px;
 $mainsail-modal-radius: 8px;
 $mainsail-button-border-radius: 4px;
