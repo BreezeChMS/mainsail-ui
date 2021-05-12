@@ -107,3 +107,11 @@
     overflow-x: hidden;
     overflow-y: hidden;
 }
+
+.flex {
+    display: flex;
+
+    &.align-center {
+        align-items: center;
+    }
+}

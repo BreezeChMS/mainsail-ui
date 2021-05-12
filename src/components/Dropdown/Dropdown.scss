@@ -112,6 +112,10 @@
             &.active {
                 color: $mainsail-white;
                 background: $mainsail-blue-primary;
+
+                .mainsail-icon {
+                    color: $mainsail-white;
+                }
             }
         }
     }

@@ -4,6 +4,7 @@ import { Dropdown } from "./Dropdown";
 import { FormControl } from "components/FormControl";
 import { FormLabel } from "components/FormLabel";
 import { Button } from "components/Button";
+import { Icon } from "components/Icon";
 
 export default {
     title: "Forms/Dropdown",
@@ -94,6 +95,60 @@ Disabled.args = {
         { text: "Samwise", value: 2 },
         { text: "Merry", value: 3 },
         { text: "Pippin", value: 4 },
+    ],
+};
+
+export const ComponentOptions = FormControlTemplate.bind({});
+ComponentOptions.args = {
+    options: [
+        {
+            text: "Frodo",
+            value: 1,
+            template: function Component() {
+                return (
+                    <div className="flex align-center">
+                        <Icon name="add" className="mr-8" />
+                        Frodo
+                    </div>
+                );
+            },
+        },
+        {
+            text: "Samwise",
+            value: 2,
+            template: function Component() {
+                return (
+                    <div className="flex align-center">
+                        <Icon name="user" className="mr-8" />
+                        Samwise
+                    </div>
+                );
+            },
+        },
+        {
+            text: "Merry",
+            value: 3,
+            template: function Component() {
+                return (
+                    <div className="flex align-center">
+                        <Icon name="email" className="mr-8" />
+                        Merry
+                    </div>
+                );
+            },
+        },
+        {
+            text: "Pippin",
+            value: 4,
+            template: function Component() {
+                return (
+                    <div className="flex align-center">
+                        <Icon name="delete" className="mr-8" />
+                        Pippin
+                    </div>
+                );
+            },
+        },
     ],
 };
 

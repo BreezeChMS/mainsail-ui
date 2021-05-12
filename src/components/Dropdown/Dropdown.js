@@ -282,7 +282,7 @@ export const Dropdown = ({
                     ref={setPopperElement}
                     style={styles.popper}
                     {...attributes.popper}>
-                    {options.map((item) => (
+                    {options.map(({ template, ...item }) => (
                         <button
                             role="listitem"
                             aria-selected={
@@ -299,7 +299,9 @@ export const Dropdown = ({
                                     selected.value === item.value &&
                                     "active"
                             )}>
-                            {item.text}
+                            {typeof template === "function"
+                                ? template()
+                                : item.text}
                         </button>
                     ))}
                 </div>
@@ -319,8 +321,15 @@ Dropdown.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Default text to display */
     placeholder: PropTypes.string,
-    /** Array of dropdown menu choices must at a minimum contain keys `text` and `value` */
-    options: PropTypes.arrayOf(PropTypes.object).isRequired,
+    /** Array of dropdown menu choices must at a minimum contain keys `text` and `value`, optionally a `template` func can be supplied for custom component usage, along with `meta` data */
+    options: PropTypes.arrayOf(
+        PropTypes.shape({
+            text: PropTypes.string,
+            value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            template: PropTypes.func,
+            meta: PropTypes.object,
+        })
+    ).isRequired,
     /** Controls whether to use custom styled dropdown or native select element (useful for mobile) */
     isNative: PropTypes.bool,
     /** Show/Hide the caret icon when using default dropdown */
