@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Table } from "./Table";
 import { Column } from "./Column";
 import _ from "lodash";
+import { Icon } from "components/Icon";
 
 export default {
     title: "Elements/Table/Column",
@@ -24,8 +25,9 @@ export default {
 };
 
 const simpleData = [
-    { name: "Bert", age: 38, favorite_phrase: "Chim Chim Cher-ee" },
+    { id: 1, name: "Bert", age: 38, favorite_phrase: "Chim Chim Cher-ee" },
     {
+        id: 2,
         name: "Mary",
         age: 33,
         favorite_phrase: "super cali fragilistic expiali docious",
@@ -121,6 +123,30 @@ TruncatedWidth.parameters = {
     docs: {
         description: {
             story: `A Column can be truncated to fit a specified width.`,
+        },
+    },
+};
+
+export const ComponentChildren = (args) => {
+    return (
+        <Table rowData={simpleData}>
+            <Column field="name" width={["30%", "20%"]} />
+            <Column {...args}>
+                <Icon data-testid="icon" name={Icon.names.people} />
+            </Column>
+            <Column field="age" width={["30%", "60%"]} />
+        </Table>
+    );
+};
+ComponentChildren.args = {
+    label: "People Icon",
+    width: "40%",
+    align: Column.alignments.center,
+};
+ComponentChildren.parameters = {
+    docs: {
+        description: {
+            story: `A Column can have components as children (when not referencing field data).`,
         },
     },
 };

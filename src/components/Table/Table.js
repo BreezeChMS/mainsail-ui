@@ -181,7 +181,7 @@ export const Table = ({
                                 hCol.align
                             )}
                             onClick={
-                                onSort
+                                hCol.isSortable
                                     ? () => handleSort({ field: hCol.field })
                                     : null
                             }>

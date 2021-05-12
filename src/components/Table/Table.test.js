@@ -15,6 +15,7 @@ import {
 } from "./Table.stories";
 import {
     Basic as BasicColumn,
+    ComponentChildren,
     AlternateNaming,
 } from "components/Table/Column.stories";
 
@@ -28,6 +29,14 @@ it("renders the column header text according to the column field prop", () => {
     expect(screen.queryAllByRole("columnheader")[1].textContent).toBe(
         BasicColumn.args.field
     );
+});
+
+it("renders the column header text according to the column field prop", () => {
+    render(<ComponentChildren {...ComponentChildren.args} />);
+
+    let secondCell = screen.queryAllByRole("cell")[1];
+
+    expect(within(secondCell).getByRole("img")).toBeInTheDocument();
 });
 
 it("overrides the column header text according to the column label prop", () => {

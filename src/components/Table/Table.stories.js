@@ -70,6 +70,27 @@ const Template = (args) => (
     </Table>
 );
 
+let setSortedData;
+let sortedData;
+const SortableTemplate = (args) => {
+    const [rowData, setRowData] = useState(officeRowData);
+    setSortedData = setRowData;
+    sortedData = rowData;
+
+    return (
+        <Table rowData={rowData} {...args}>
+            <Column field="first_name" isSortable />
+            <Column field="last_name" isSortable />
+            <Column field="age" align={Column.alignments.center} isSortable />
+            <Column
+                field="occupation"
+                className="px-8"
+                align={Column.alignments.right}
+            />
+        </Table>
+    );
+};
+
 export const Bordered = Template.bind({});
 Bordered.args = {
     variant: Table.variants.bordered,
@@ -127,24 +148,22 @@ Selectable.parameters = {
     },
 };
 
-export const HeaderConfig = (args) => (
-    <Table {...args}>
-        <Column field="first_name" />
-        <Column field="last_name" />
-        <Column field="age" align={Column.alignments.center} />
-        <Column
-            field="occupation"
-            className="px-8"
-            align={Column.alignments.right}
-        />
-    </Table>
-);
+export const HeaderConfig = SortableTemplate.bind({});
 HeaderConfig.args = {
-    rowData: officeRowData,
+    onSort: (sorts) => {
+        setSortedData(
+            _.orderBy(
+                sortedData,
+                [...Object.keys(sorts)],
+                [...Object.values(sorts)]
+            )
+        );
+    },
     headerConfig: [
         {
             field: "first_name",
             label: "Name",
+            isSortable: true,
             align: Column.alignments.left,
         },
         {
@@ -162,26 +181,7 @@ HeaderConfig.parameters = {
     },
 };
 
-let setSortedData;
-let sortedData;
-export const Sortable = (args) => {
-    const [rowData, setRowData] = useState(officeRowData);
-    setSortedData = setRowData;
-    sortedData = rowData;
-
-    return (
-        <Table rowData={rowData} {...args}>
-            <Column field="first_name" />
-            <Column field="last_name" isSortable />
-            <Column field="age" align={Column.alignments.center} isSortable />
-            <Column
-                field="occupation"
-                className="px-8"
-                align={Column.alignments.right}
-            />
-        </Table>
-    );
-};
+export const Sortable = SortableTemplate.bind({});
 Sortable.args = {
     onSort: (sorts) => {
         setSortedData(
