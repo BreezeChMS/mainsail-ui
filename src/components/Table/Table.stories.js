@@ -16,9 +16,8 @@ export default {
         docs: {
             description: {
                 component: `The Table allows you to display data in rows and columns with multiple options and sub components.
-                \n- \`<Table/>\` is the main component that controls **table-specific styling** and accepts the \`rowData\`. (See props table below.)
-                \n- \`rowData\` is expected to have a key of \`id\` on all objects!
-                \n- There are **two basic style variants** for the Table component (see \`variant\` prop below).
+                \n- \`<Table/>\` is the main component that controls **table-specific styling** and accepts the \`rowData\` prop. (See props table below.)
+                \n- There are **two basic style variants** for the Table component "bordered" & "open" (see \`variant\` prop below).
                 \n- \`<Column/>\` component specifies the different data points to be displayed within the rows. Much of the column styling and layout handling can be controlled here.
                 \n- \`<Actions/>\` component specifies the various user interactions that can be performed on the row data.
             `,
@@ -230,36 +229,6 @@ ExplicitWidth.parameters = {
                 \n- A **responsive array** where the values of the array equate to sm/md/lg breakpoints can be supplied eg. \`maxWidth={["80px", "120px", "250px"]}\`
                 \n- When using a responsive array to adjust column size, you may omit later breakpoints to too fall back to previous breakpoint eg. \`maxWidth={["80px", "120px"]}\` for sm/md breakpoints and lg will use md sizing.
             `,
-        },
-    },
-};
-
-export const WithActions = (args) => (
-    <Table rowData={officeRowData}>
-        <Column
-            field="first_name"
-            label="Name"
-            width={["100px", "30%", "30%"]}
-        />
-        <Column field="age" width="90px" />
-        <Column
-            field="occupation"
-            width={["100px", "200px", "200px"]}
-            shouldTruncate
-        />
-        <Actions label="ACTIONS" width={["80px", "100px"]} {...args} />
-    </Table>
-);
-WithActions.args = {
-    options: [
-        { text: "Send Message", value: 1 },
-        { text: "Give Kudos", value: 2 },
-    ],
-};
-WithActions.parameters = {
-    docs: {
-        description: {
-            story: `A table can have actions associated with its rows`,
         },
     },
 };

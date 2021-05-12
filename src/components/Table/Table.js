@@ -116,6 +116,8 @@ export const Table = ({
         onSelect && onSelect(row, state, e);
     };
 
+    const getRowById = (id) => rowData.find((row) => row.id === id);
+
     /** Render the table row wrapper */
     const renderRow = (row, idx) => {
         /** This Func injects Row Data/Props to Row Children (Cols) */
@@ -124,8 +126,11 @@ export const Table = ({
                 return cloneElement(child, {
                     ...child.props,
                     breakpoint,
+                    getRowData: () => getRowById(row.id),
                     rowId: row.id,
-                    children: attachDataToRowCol(data, child.props.field),
+                    children: child.props.field
+                        ? attachDataToRowCol(data, child.props.field)
+                        : child.props.children,
                 });
             });
 

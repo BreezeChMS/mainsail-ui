@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
-import { Dropdown } from "components/Dropdown";
+import { PopMenu } from "components/PopMenu";
 import { Icon } from "components/Icon";
 import { generateColumnWidthStyle } from "utility/responsive";
 
@@ -18,12 +18,14 @@ const alignments = {
  **/
 export const Actions = ({
     breakpoint, // eslint-disable-line react/prop-types
+    getRowData, // eslint-disable-line react/prop-types
     className,
-    options,
     width,
     minWidth,
     maxWidth,
+    menuOptions,
     children,
+    modifiers,
 }) => {
     let styles = generateColumnWidthStyle(breakpoint, {
         width,
@@ -35,13 +37,12 @@ export const Actions = ({
         <div
             className={classify("mainsail-row-actions", className)}
             style={styles}>
-            <div>{children}</div>
-            <Dropdown
-                hasCaret={false}
-                options={options}
+            <div className="mainsail-row-actions__buttons">{children}</div>
+            <PopMenu
+                modifiers={modifiers}
                 menuOffset={-6}
-                positioning={Dropdown.positionings.fixed}
-                customTrigger={
+                positioning={PopMenu.positionings.fixed}
+                trigger={
                     <button className="mainsail-row-actions__default">
                         <Icon
                             className="py-6"
@@ -49,19 +50,26 @@ export const Actions = ({
                             name={Icon.names.more}
                         />
                     </button>
-                }
-            />
+                }>
+                {typeof menuOptions === "function"
+                    ? menuOptions(getRowData())
+                    : menuOptions}
+            </PopMenu>
         </div>
     );
 };
 
 Actions.propTypes = {
     /** Position the dropdown menu */
-    placement: PropTypes.oneOf(Object.values(Dropdown.placements)),
+    placement: PropTypes.oneOf(Object.values(PopMenu.placements)),
     /** Exposes a [Popperjs](https://popper.js.org/docs/v2/modifiers) api that enables further fine-tuning of dropdown menu. */
     modifiers: PropTypes.arrayOf(PropTypes.object),
-    /** Array of dropdown menu choices must at a minimum contain keys `text` and `value` */
-    options: PropTypes.arrayOf(PropTypes.object),
+    /** Array of PopMenu Items, if passing a function, it will receive row data as an argument */
+    menuOptions: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.func,
+        PropTypes.node,
+    ]),
     /** Style class to add to component */
     className: PropTypes.string,
     /** Style class to add to column header */
@@ -81,4 +89,4 @@ Actions.defaultProps = {
 
 Actions.displayName = "Actions";
 Actions.alignments = alignments;
-Actions.placements = Dropdown.placements;
+Actions.placements = PopMenu.placements;

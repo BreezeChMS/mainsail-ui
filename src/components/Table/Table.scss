@@ -56,19 +56,15 @@
             border: none;
         }
 
-        .mainsail-dropdown__menu {
-            z-index: 10000;
-            min-width: 130px;
-            padding-top: 0;
-            padding-bottom: 0;
-            box-shadow: $mainsail-shadow-near;
-            border: none;
+        .mainsail-row-actions__buttons {
+            display: flex;
+            flex-direction: row;
 
-            .mainsail-dropdown__item {
-                height: 33px;
+            button.tertiary {
                 color: $mainsail-blue-primary;
-
-                justify-content: center !important;
+                &:hover {
+                    color: $mainsail-blue-dark;
+                }
             }
         }
     }
