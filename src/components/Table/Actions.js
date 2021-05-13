@@ -43,7 +43,9 @@ export const Actions = ({
                 menuOffset={-6}
                 positioning={PopMenu.positionings.fixed}
                 trigger={
-                    <button className="mainsail-row-actions__default">
+                    <button
+                        role="button"
+                        className="mainsail-row-actions__default">
                         <Icon
                             className="py-6"
                             size={Icon.sizes.lg}

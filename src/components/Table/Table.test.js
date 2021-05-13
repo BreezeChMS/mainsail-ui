@@ -18,6 +18,10 @@ import {
     ComponentChildren,
     AlternateNaming,
 } from "components/Table/Column.stories";
+import {
+    Basic as BasicActions,
+    WithChildren as ActionsWithChildren,
+} from "components/Table/Actions.stories";
 
 it("renders the column as a cell", () => {
     render(<BasicColumn />);
@@ -142,4 +146,17 @@ it("supports row selection and onSelect callback", () => {
         true, // checked state
         expect.anything() // browser event as 3rd arg
     );
+});
+
+it("renders an action column with default pop menu buttons", () => {
+    render(<BasicActions {...BasicActions.args} />);
+
+    expect(screen.queryAllByRole("button").length).toBe(4);
+});
+
+it("renders an action column with children buttons", () => {
+    render(<ActionsWithChildren {...ActionsWithChildren.args} />);
+
+    expect(screen.queryAllByText("Edit").length).toBe(4);
+    expect(screen.queryAllByText("Delete").length).toBe(4);
 });
