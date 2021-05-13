@@ -188,7 +188,7 @@ FormControl.propTypes = {
 };
 
 FormControl.defaultProps = {
-    width: widths.md,
+    width: widths.full,
     isReadOnly: false,
 };
 
