@@ -16,6 +16,7 @@ const alignments = {
  **/
 export const Column = ({
     breakpoint, // eslint-disable-line react/prop-types
+    getRowData, // eslint-disable-line react/prop-types
     headerClassName, // eslint-disable-line no-unused-vars
     className,
     field,
@@ -33,6 +34,11 @@ export const Column = ({
         maxWidth,
     });
 
+    let columnChildren =
+        typeof children === "function"
+            ? children(getRowData()) // Provides row data access via "render-prop" usage
+            : children;
+
     return (
         <div
             role="cell"
@@ -40,9 +46,9 @@ export const Column = ({
             style={styles}
             className={classify("mainsail-table-column", align, className)}>
             {shouldTruncate ? (
-                <span className="truncated">{children}</span>
+                <span className="truncated">{columnChildren}</span>
             ) : (
-                children
+                columnChildren
             )}
         </div>
     );

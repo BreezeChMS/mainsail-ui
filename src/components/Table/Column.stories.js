@@ -25,9 +25,16 @@ export default {
 };
 
 const simpleData = [
-    { id: 1, name: "Bert", age: 38, favorite_phrase: "Chim Chim Cher-ee" },
+    {
+        id: 1,
+        name: "Bert",
+        icon: "archive",
+        age: 38,
+        favorite_phrase: "Chim Chim Cher-ee",
+    },
     {
         id: 2,
+        icon: "people",
         name: "Mary",
         age: 33,
         favorite_phrase: "super cali fragilistic expiali docious",
@@ -132,21 +139,29 @@ export const ComponentChildren = (args) => {
         <Table rowData={simpleData}>
             <Column field="name" width={["30%", "20%"]} />
             <Column {...args}>
-                <Icon data-testid="icon" name={Icon.names.people} />
+                {(rowData) => <Icon data-testid="icon" name={rowData.icon} />}
             </Column>
             <Column field="age" width={["30%", "60%"]} />
         </Table>
     );
 };
 ComponentChildren.args = {
-    label: "People Icon",
+    label: "Icon (From Row Data)",
     width: "40%",
     align: Column.alignments.center,
 };
 ComponentChildren.parameters = {
     docs: {
         description: {
-            story: `A Column can have components as children (when not referencing field data).`,
+            story: `A Column can have components as children (when not referencing field data).
+                \n- As a bonus, you can pass a render prop function to recieve the row data object if you need access to specific row data during Column render.
+
+        // Example:
+
+        <Column {...args}>
+            {(rowData) => <Icon data-testid="icon" name={rowData.icon} />}
+        </Column>
+            `,
         },
     },
 };
