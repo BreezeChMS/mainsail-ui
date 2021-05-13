@@ -1,3 +1,15 @@
+# v0.14.2 (Thu May 13 2021)
+
+#### 🐛 Bug Fix
+
+- flips the sort icon to modern standards? [#76](https://github.com/BreezeChMS/mainsail-ui/pull/76) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.14.1 (Thu May 13 2021)
 
 #### 🐛 Bug Fix
