@@ -26,4 +26,32 @@
     .row-auto {
         grid-row: auto;
     }
+
+    .mainsail-autogrid__item {
+        display: grid;
+
+        &.justify-start {
+            justify-items: start;
+        }
+
+        &.justify-center {
+            justify-items: center;
+        }
+
+        &.justify-end {
+            justify-items: end;
+        }
+
+        &.align-center {
+            align-items: center;
+        }
+
+        &.align-start {
+            align-items: start;
+        }
+
+        &.align-end {
+            align-items: end;
+        }
+    }
 }
