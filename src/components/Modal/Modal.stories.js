@@ -6,6 +6,9 @@ import { Checkbox } from "components/Checkbox";
 import { Transition } from "components/Transition";
 import { ListGroup } from "components/ListGroup";
 import { Icon } from "components/Icon";
+import { Input } from "components/Input";
+import { FormControl } from "components/FormControl";
+import { FormLabel } from "components/FormLabel";
 
 export default {
     title: "Overlay/Modal",
@@ -550,15 +553,17 @@ export const FocusHandling = (args) => {
                         <code>initialFocusRef</code> element if that prop is
                         used.
                     </p>
-                    <label htmlFor="modal_input">Modal Input</label>
-                    <input
-                        style={{ display: "block", width: "300px" }}
-                        className="mb-20 p-4 body-text"
-                        type="text"
-                        id="modal_input"
-                        ref={openedFocusRef}
-                        placeholder="When opened, I will have focus"
-                    />
+                    <FormControl>
+                        <FormLabel htmlFor="modal_input" text="Modal Input" />
+                        <Input
+                            style={{ display: "block", width: "300px" }}
+                            className="mb-20 p-4 body-text"
+                            type="text"
+                            id="modal_input"
+                            ref={openedFocusRef}
+                            placeholder="When opened, I will have focus"
+                        />
+                    </FormControl>
                     <p className="mb-20">
                         On close, It will then pass focus back to{" "}
                         <code>onCloseFocusRef</code> if used.
@@ -566,7 +571,7 @@ export const FocusHandling = (args) => {
                 </div>
             </Modal>
             <label htmlFor="page_input">Page Input</label>
-            <input
+            <Input
                 style={{ display: "block", width: "300px" }}
                 className="mb-20 p-4 body-text"
                 type="text"
@@ -583,7 +588,7 @@ FocusHandling.parameters = {
     docs: {
         description: {
             story:
-                "A modal can include an entirely custom footer. Code may be better viewed in the `src` file due to this _Show code_ option inlining the `footer` prop.",
+                "A modal can set focus on its body elements and also on DOM elements when it closes.",
         },
     },
 };
