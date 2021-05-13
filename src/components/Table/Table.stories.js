@@ -61,13 +61,17 @@ const officeRowData = [
 
 const Template = (args) => (
     <Table {...args}>
-        <Column field="first_name" />
-        <Column field="last_name" />
+        <Column field="first_name" width={["20%", "25%"]} />
+        <Column
+            field="last_name"
+            width={["15%", "25%"]}
+            hideOnBreakpoints={["sm"]}
+        />
         <Column field="age" align={Column.alignments.center} width="80px" />
         <Column
             field="occupation"
-            className="px-8"
             align={Column.alignments.left}
+            shouldTruncate
         />
     </Table>
 );
@@ -84,11 +88,7 @@ const SortableTemplate = (args) => {
             <Column field="first_name" isSortable />
             <Column field="last_name" isSortable />
             <Column field="age" align={Column.alignments.center} isSortable />
-            <Column
-                field="occupation"
-                className="px-8"
-                align={Column.alignments.right}
-            />
+            <Column field="occupation" align={Column.alignments.right} />
         </Table>
     );
 };
@@ -131,7 +131,7 @@ Loading.args = {
 Loading.parameters = {
     docs: {
         description: {
-            story: `A table can have its state set to \`isLoading\` to disable interaction.`,
+            story: `A table can have its state set to \`isLoading\` to disable interaction. \`placeholderRowCount\` can be set to dictate how many placeholder rows are used during loading when no initial rowData is present.`,
         },
     },
 };
@@ -238,15 +238,16 @@ ExplicitWidth.parameters = {
 
 export const WithActions = (args) => (
     <Table {...args}>
-        <Column field="first_name" />
-        <Column field="last_name" />
-        <Column field="age" align={Column.alignments.center} width="80px" />
+        <Column field="first_name" width={["20%", "25%"]} />
         <Column
-            field="occupation"
-            className="px-8"
-            align={Column.alignments.left}
+            field="last_name"
+            width={["15%", "25%"]}
+            hideOnBreakpoints={["sm"]}
         />
+        <Column field="age" align={Column.alignments.center} width="80px" />
+        <Column field="occupation" align={Column.alignments.left} />
         <Actions
+            label="Actions"
             menuOptions={
                 <>
                     <PopMenuItem text="Choice 1" />
@@ -263,15 +264,14 @@ WithActions.args = {
 
 export const SimplerActions = (args) => (
     <Table {...args}>
-        <Column field="first_name" />
-        <Column field="last_name" />
-        <Column field="age" align={Column.alignments.center} width="80px" />
+        <Column field="first_name" width={["20%", "25%"]} />
         <Column
-            field="occupation"
-            className="px-8"
-            align={Column.alignments.left}
+            field="last_name"
+            width={["15%", "25%"]}
+            hideOnBreakpoints={["sm"]}
         />
-        <Actions>
+        <Column field="occupation" align={Column.alignments.left} />
+        <Actions label="Actions">
             <Button
                 className="mr-4"
                 variant={Button.variants.icon}
