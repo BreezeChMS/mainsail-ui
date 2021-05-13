@@ -68,7 +68,7 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
                     parentProps.isInvalid && "error",
                     parentProps.isDisabled && "disabled"
                 ),
-                htmlFor: child.props.id || parentProps.inputId,
+                htmlFor: child.props.htmlFor || parentProps.inputId,
                 isRequired: parentProps.isRequired,
             };
 

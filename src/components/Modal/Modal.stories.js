@@ -554,7 +554,7 @@ export const FocusHandling = (args) => {
                         used.
                     </p>
                     <FormControl>
-                        <FormLabel text="Modal Input" />
+                        <FormLabel htmlFor="modal_input" text="Modal Input" />
                         <Input
                             style={{ display: "block", width: "300px" }}
                             className="mb-20 p-4 body-text"
