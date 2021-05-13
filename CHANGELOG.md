@@ -1,3 +1,19 @@
+# v0.14.0 (Thu May 13 2021)
+
+#### 🚀 Enhancement
+
+- CO-13 Table, PopMenu + [#74](https://github.com/BreezeChMS/mainsail-ui/pull/74) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🐛 Bug Fix
+
+- adds AutoGridItem alignment props [#73](https://github.com/BreezeChMS/mainsail-ui/pull/73) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.13.4 (Thu May 06 2021)
 
 #### 🐛 Bug Fix
