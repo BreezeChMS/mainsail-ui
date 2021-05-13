@@ -54,6 +54,12 @@
             padding-right: 0;
             background: $mainsail-white;
             border: none;
+
+            &:hover {
+                .mainsail-icon svg {
+                    color: $mainsail-blue-dark;
+                }
+            }
         }
 
         .mainsail-row-actions__buttons {
