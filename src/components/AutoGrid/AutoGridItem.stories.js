@@ -10,6 +10,7 @@ export default {
             description: {
                 component: `A subcomponent for AutoGrid
                 \n- supply \`colSpan\` & \`rowSpan\` to control grid item spanning
+                \n- can control grid item alignment with \`alignItems\` & \`justifyContent\`
                 `,
             },
         },
@@ -29,13 +30,8 @@ const Template = (args) => (
 export const Basic = Template.bind({});
 Basic.args = {
     colSpan: 2,
-    className: "bg-blue-light p-24",
-    style: {
-        fontFamily: "sans-serif",
-        minHeight: "100px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-    },
+    className: "bg-blue-light body-text",
+    style: { minHeight: "200px" },
     children: "Control this Item",
+    alignItems: AutoGridItem.alignItems.center,
 };
