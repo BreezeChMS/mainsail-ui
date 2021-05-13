@@ -155,7 +155,7 @@ WithChildren.args = {
 WithChildren.parameters = {
     docs: {
         description: {
-            story: `Children can be passed to the \`<Actions/>\` component to supply extra interaction.`,
+            story: `Children can be passed to the \`<Actions/>\` component to supply extra interaction. These children can be passed as a function ([similar to a render-prop](https://reactjs.org/docs/render-props.html))to recieve row data.`,
         },
     },
 };

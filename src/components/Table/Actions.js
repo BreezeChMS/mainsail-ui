@@ -42,7 +42,9 @@ export const Actions = ({
                     "mainsail-row-actions__buttons",
                     !menuOptions && "pr-10"
                 )}>
-                {children}
+                {typeof children === "function"
+                    ? children(getRowData())
+                    : children}
             </div>
             {menuOptions ? (
                 <PopMenu

@@ -22,6 +22,7 @@ import {
     Basic as BasicActions,
     WithChildren as ActionsWithChildren,
 } from "components/Table/Actions.stories";
+import { Button } from "components/Button";
 
 it("renders the column as a cell", () => {
     render(<BasicColumn />);
@@ -159,4 +160,23 @@ it("renders an action column with children buttons", () => {
 
     expect(screen.queryAllByText("Edit").length).toBe(4);
     expect(screen.queryAllByText("Delete").length).toBe(4);
+});
+
+it("provides the Actions children with row data if children passed as function", () => {
+    const onClick = jest.fn();
+    render(
+        <ActionsWithChildren {...ActionsWithChildren.args}>
+            {(rowData) => (
+                <Button
+                    text="Edit"
+                    onClick={() => onClick({ id: rowData.id })}
+                />
+            )}
+        </ActionsWithChildren>
+    );
+
+    expect(screen.queryAllByText("Edit").length).toBe(4);
+    userEvent.click(screen.queryAllByText("Edit")[1]);
+
+    expect(onClick).toBeCalledWith({ id: 2 });
 });
