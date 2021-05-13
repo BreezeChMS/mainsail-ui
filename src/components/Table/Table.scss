@@ -220,11 +220,11 @@
 
                     &.asc {
                         color: $mainsail-blue-primary;
+                        transform: rotate(180deg);
                     }
 
                     &.desc {
                         color: $mainsail-blue-primary;
-                        transform: rotate(180deg);
                     }
 
                     svg {
