@@ -41,7 +41,7 @@ const inferFromChildrenColumns = (breakpoint, cols) => {
             align: props.align || Column.alignments.left,
             headerClassName: classify(
                 props.headerClassName,
-                col.type.displayName === "Actions" && "actions"
+                col.type && col.type.displayName === "Actions" && "actions"
             ),
             hideOnBreakpoints: props.hideOnBreakpoints,
             isSortable: props.isSortable || false,
