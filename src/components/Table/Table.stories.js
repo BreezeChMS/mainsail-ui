@@ -78,7 +78,7 @@ const SortableTemplate = (args) => {
     sortedData = rowData;
 
     return (
-        <Table rowData={rowData} {...args}>
+        <Table {...args} rowData={rowData}>
             <Column field="first_name" isSortable />
             <Column field="last_name" isSortable />
             <Column field="age" align={Column.alignments.center} isSortable />

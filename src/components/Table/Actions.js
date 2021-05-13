@@ -77,11 +77,20 @@ Actions.propTypes = {
     /** Style class to add to column header */
     headerClassName: PropTypes.string,
     /** Excplicit Width allowed for the column, Note: passing an array of up to 3 values representing sm,md,lg breakpoints is supported */
-    width: PropTypes.any,
+    width: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
     /** Minimum Width allowed for the column, Note: passing an array of up to 3 values representing sm,md,lg breakpoints is supported */
-    minWidth: PropTypes.any,
+    minWidth: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
     /** Width allowed for the column, Note: passing an array of up to 3 values representing sm,md,lg breakpoints is supported */
-    maxWidth: PropTypes.any,
+    maxWidth: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
 };
 
 Actions.defaultProps = {

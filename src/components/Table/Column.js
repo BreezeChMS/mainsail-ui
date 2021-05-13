@@ -11,6 +11,12 @@ const alignments = {
     right: "right",
 };
 
+const breakpoints = {
+    sm: "sm",
+    md: "md",
+    lg: "lg",
+};
+
 /**
  * Subcomponent for Table that specifies a columnar piece of data and its surrounding context
  **/
@@ -18,6 +24,7 @@ export const Column = ({
     breakpoint, // eslint-disable-line react/prop-types
     getRowData, // eslint-disable-line react/prop-types
     headerClassName, // eslint-disable-line no-unused-vars
+    hideOnBreakpoints,
     className,
     field,
     rowId,
@@ -28,6 +35,11 @@ export const Column = ({
     width,
     children,
 }) => {
+    let hidesOnCurrentBreakpoint =
+        hideOnBreakpoints && hideOnBreakpoints.includes(breakpoint.name); // eslint-disable-line react/prop-types
+
+    if (hidesOnCurrentBreakpoint) return null;
+
     let styles = generateColumnWidthStyle(breakpoint, {
         width,
         minWidth,
@@ -55,6 +67,10 @@ export const Column = ({
 };
 
 Column.propTypes = {
+    /** An array of breakpoints at which the column should hide (unmount)  */
+    hideOnBreakpoints: PropTypes.arrayOf(
+        PropTypes.oneOf(Object.values(breakpoints))
+    ),
     /** Unique identifier to designate which row the data point belongs */
     rowId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Whether the column is sortable or not */
@@ -72,11 +88,20 @@ Column.propTypes = {
     /** Style class to add to column header */
     headerClassName: PropTypes.string,
     /** Excplicit Width allowed for the column, Note: passing an array of up to 3 values representing sm,md,lg breakpoints is supported */
-    width: PropTypes.any,
+    width: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
     /** Minimum Width allowed for the column, Note: passing an array of up to 3 values representing sm,md,lg breakpoints is supported */
-    minWidth: PropTypes.any,
+    minWidth: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
     /** Width allowed for the column, Note: passing an array of up to 3 values representing sm,md,lg breakpoints is supported */
-    maxWidth: PropTypes.any,
+    maxWidth: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
 };
 
 Column.defaultProps = {
@@ -87,3 +112,4 @@ Column.defaultProps = {
 Column.displayName = "Column";
 
 Column.alignments = alignments;
+Column.breakpoints = breakpoints;

@@ -43,6 +43,7 @@ const inferFromChildrenColumns = (breakpoint, cols) => {
                 props.headerClassName,
                 col.type.displayName === "Actions" && "actions"
             ),
+            hideOnBreakpoints: props.hideOnBreakpoints,
             isSortable: props.isSortable || false,
             style: generateColumnWidthStyle(breakpoint, {
                 width: props.width,
@@ -181,6 +182,12 @@ export const Table = ({
 
                 {columnConfigArray.map((hCol, i) => {
                     let sort = getSortDirByField(hCol.field);
+
+                    let hidesOnCurrentBreakpoint =
+                        hCol.hideOnBreakpoints &&
+                        hCol.hideOnBreakpoints.includes(breakpoint.name); // eslint-disable-line react/prop-types
+
+                    if (hidesOnCurrentBreakpoint) return null;
 
                     return (
                         <div

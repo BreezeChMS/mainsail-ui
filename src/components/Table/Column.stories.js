@@ -165,3 +165,20 @@ ComponentChildren.parameters = {
         },
     },
 };
+
+export const HideOnBreakpoints = Template.bind({});
+HideOnBreakpoints.args = {
+    width: "40%",
+    field: "age",
+    label: "Only Shown on LG",
+    className: "bg-blue-light",
+    hideOnBreakpoints: ["sm", "md"],
+    align: Column.alignments.center,
+};
+HideOnBreakpoints.parameters = {
+    docs: {
+        description: {
+            story: `A Column can unmount at certain breakpoints. This can be useful if you need to save space on mobile and not show certain lesser-priority columns.`,
+        },
+    },
+};
