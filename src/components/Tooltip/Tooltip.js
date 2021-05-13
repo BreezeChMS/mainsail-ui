@@ -42,6 +42,11 @@ export const placements = {
     bottomEnd: "bottom-end",
 };
 
+export const positionings = {
+    fixed: "fixed",
+    absolute: "absolute",
+};
+
 /**
  * @deprecated since version 7.0 - Instead, use enums directly off of the imported component; e.g. Button.variants.secondary
  */
@@ -61,6 +66,7 @@ export const Tooltip = ({
     placement,
     isVisible,
     isDisabled,
+    positioning,
 }) => {
     const [referenceElement, setReferenceElement] = useState(null);
     const [visible, setVisibility] = useState(false);
@@ -68,6 +74,7 @@ export const Tooltip = ({
     const [arrowElement, setArrowElement] = useState(null);
     const { styles, attributes } = usePopper(referenceElement, popperElement, {
         placement,
+        strategy: positioning,
         modifiers: [
             { name: "arrow", options: { element: arrowElement } },
             {
@@ -164,11 +171,15 @@ Tooltip.propTypes = {
     isVisible: PropTypes.bool,
     /** Prevent visibility/functionality by passing a boolean */
     isDisabled: PropTypes.bool,
+    /** Positioning strategy of the tip (fixed is useful if trying to show tip inside of parent with overflow:hidden but may provide visible lag during scrolling updates ) */
+    positioning: PropTypes.oneOf(Object.values(positionings)),
 };
 
 Tooltip.defaultProps = {
     placement: placements.bottom,
     offset: 8,
+    positioning: positionings.fixed,
 };
 
 Tooltip.placements = placements;
+Tooltip.positionings = positionings;

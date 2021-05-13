@@ -1,6 +1,17 @@
 import { memo, useEffect, useRef, useState, useMemo } from "react";
 import { createPortal } from "react-dom";
 
+const throttle = (func, timeFrame) => {
+    var lastTime = 0;
+    return function (...args) {
+        var now = new Date();
+        if (now - lastTime >= timeFrame) {
+            func(...args);
+            lastTime = now;
+        }
+    };
+};
+
 /**
  * WithPortal - render a component to the root of the dom
  */
@@ -75,4 +86,43 @@ export const useOnClickOutside = (ref, handler) => {
             document.removeEventListener("touchstart", listener);
         };
     }, [ref, handler]);
+};
+
+const getDeviceConfig = (width) => {
+    /*
+        Note: This configuration is meant to imitate our Bootstrap-like breakpoints
+        It is not meant to detect actual device usages but to be used as a means
+        of mounting/rendering components for use at various screen sizes since
+        our designs are tailored to that distinction: ie. mobile size vs desktop size
+    */
+
+    if (width < 768) {
+        return { name: "sm", isMobile: true, isDesktop: false };
+    } else if (width >= 768 && width < 992) {
+        return { name: "md", isMobile: true, isDesktop: false };
+    } else if (width >= 992) {
+        return { name: "lg", isMobile: false, isDesktop: true };
+    }
+};
+
+/**
+    useBreakpoint()
+    React hook for reactively getting browser width & size booleans
+*/
+export const useBreakpoint = () => {
+    const [beakpoint, setBreakpoint] = useState(() =>
+        getDeviceConfig(window.innerWidth)
+    );
+
+    useEffect(() => {
+        const calcInnerWidth = throttle(function () {
+            setBreakpoint(getDeviceConfig(window.innerWidth));
+        }, 200);
+
+        window.addEventListener("resize", calcInnerWidth);
+
+        return () => window.removeEventListener("resize", calcInnerWidth);
+    }, []);
+
+    return beakpoint;
 };

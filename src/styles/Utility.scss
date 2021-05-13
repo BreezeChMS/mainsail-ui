@@ -122,6 +122,17 @@
     line-height: 18px;
 }
 
+/* Table Text Mixins */
+
+@mixin mainsail-table-header-text-small {
+    font-family: $font;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+}
+
 /* Body Text Mixins */
 @mixin mainsail-body-text-large {
     font-family: $font;

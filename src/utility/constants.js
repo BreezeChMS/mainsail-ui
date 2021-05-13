@@ -4,3 +4,7 @@ export const DOWN_ARROW_KEY_CODE = 40;
 export const UP_ARROW_KEY_CODE = 38;
 export const ESC_KEY_CODE = 27;
 export const TAB_KEY_CODE = 9;
+export const ARIA_TRANSLATIONS = {
+    asc: "ascending",
+    desc: "descending",
+};

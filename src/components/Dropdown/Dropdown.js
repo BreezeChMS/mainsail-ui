@@ -36,6 +36,11 @@ export const placements = {
     bottomEnd: "bottom-end",
 };
 
+export const positionings = {
+    fixed: "fixed",
+    absolute: "absolute",
+};
+
 /**
  * A styled multiple choice alternative to a standard \<select\/> box. Uses popperjs behind the scenes.
  **/
@@ -51,6 +56,7 @@ export const Dropdown = ({
     isRequired,
     onChange,
     placeholder,
+    positioning,
     placement,
     hasCaret,
     ...props
@@ -66,6 +72,7 @@ export const Dropdown = ({
     const [popperElement, setPopperElement] = useState(null);
     const { styles, attributes } = usePopper(referenceElement, popperElement, {
         placement,
+        strategy: positioning,
         modifiers: [
             {
                 name: "offset",
@@ -275,7 +282,7 @@ export const Dropdown = ({
                     ref={setPopperElement}
                     style={styles.popper}
                     {...attributes.popper}>
-                    {options.map((item) => (
+                    {options.map(({ template, ...item }) => (
                         <button
                             role="listitem"
                             aria-selected={
@@ -292,7 +299,9 @@ export const Dropdown = ({
                                     selected.value === item.value &&
                                     "active"
                             )}>
-                            {item.text}
+                            {typeof template === "function"
+                                ? template()
+                                : item.text}
                         </button>
                     ))}
                 </div>
@@ -312,8 +321,15 @@ Dropdown.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Default text to display */
     placeholder: PropTypes.string,
-    /** Array of dropdown menu choices must at a minimum contain keys `text` and `value` */
-    options: PropTypes.arrayOf(PropTypes.object).isRequired,
+    /** Array of dropdown menu choices must at a minimum contain keys `text` and `value`, optionally a `template` func can be supplied for custom component usage, along with `meta` data */
+    options: PropTypes.arrayOf(
+        PropTypes.shape({
+            text: PropTypes.string,
+            value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            template: PropTypes.func,
+            meta: PropTypes.object,
+        })
+    ).isRequired,
     /** Controls whether to use custom styled dropdown or native select element (useful for mobile) */
     isNative: PropTypes.bool,
     /** Show/Hide the caret icon when using default dropdown */
@@ -328,6 +344,8 @@ Dropdown.propTypes = {
     menuOffset: PropTypes.number,
     /** Position the dropdown menu */
     placement: PropTypes.oneOf(Object.values(placements)),
+    /** Positioning strategy of the dropdown menu */
+    positioning: PropTypes.oneOf(Object.values(positionings)),
     /** Exposes a [Popperjs](https://popper.js.org/docs/v2/modifiers) api that enables further fine-tuning of dropdown menu. */
     modifiers: PropTypes.arrayOf(PropTypes.object),
     /** (Optional) click handler */
@@ -342,13 +360,9 @@ Dropdown.defaultProps = {
     hasCaret: true,
     placeholder: "Select Option",
     menuOffset: 4,
+    positioning: positionings.absolute,
 };
 
 Dropdown.placements = placements;
+Dropdown.positionings = positionings;
 Dropdown.displayName = "Dropdown";
-
-/*
- * Tip: Be sure to attach any prop enums separately for convenience
- * use the plural form of the prop name
- * Dropdown.variants = variants
- */
