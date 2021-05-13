@@ -61,7 +61,7 @@ const Template = (args) => (
     <Table {...args}>
         <Column field="first_name" />
         <Column field="last_name" />
-        <Column field="age" align={Column.alignments.center} />
+        <Column field="age" align={Column.alignments.center} width="80px" />
         <Column
             field="occupation"
             className="px-8"
@@ -123,6 +123,7 @@ export const Loading = Template.bind({});
 Loading.args = {
     isLoading: true,
     rowData: officeRowData,
+    placeholderRows: 8,
 };
 
 Loading.parameters = {

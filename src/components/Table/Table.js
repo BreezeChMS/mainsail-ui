@@ -63,6 +63,7 @@ export const Table = ({
     variant,
     isLoading,
     isSelectable,
+    placeholderRowCount,
     onSelect,
     rowData = [],
     headerConfig,
@@ -117,20 +118,35 @@ export const Table = ({
     };
 
     const getRowById = (id) => rowData.find((row) => row.id === id);
+    const renderSkeleton = (idx) => {
+        const SKELETON_SIZES = ["lg", "md", "sm", "md"];
+        return (
+            <div
+                className={classify(
+                    "mainsail-skeleton animated",
+                    SKELETON_SIZES[idx]
+                )}></div>
+        );
+    };
 
     /** Render the table row wrapper */
     const renderRow = (row, idx) => {
         /** This Func injects Row Data/Props to Row Children (Cols) */
         let columns = (data) =>
             columnArray.map((child) => {
+                let columnChildren = child.props.field
+                    ? attachDataToRowCol(data, child.props.field)
+                    : child.props.children;
+                let skeleton = renderSkeleton(
+                    Math.floor(Math.random() * 4) + 0
+                );
+
                 return cloneElement(child, {
                     ...child.props,
                     breakpoint,
                     getRowData: () => getRowById(row.id),
                     rowId: row.id,
-                    children: child.props.field
-                        ? attachDataToRowCol(data, child.props.field)
-                        : child.props.children,
+                    children: isLoading ? skeleton : columnChildren,
                 });
             });
 
@@ -199,6 +215,15 @@ export const Table = ({
         );
     };
 
+    const renderPlaceholderRows = (rowCount = 5) => {
+        let rows = [];
+        for (let i = 0; i < rowCount; i++) {
+            rows.push(renderRow({ id: `placeholder_${i}` }, i));
+        }
+
+        return rows;
+    };
+
     return (
         <div
             role="table"
@@ -218,13 +243,18 @@ export const Table = ({
                 </div>
             ) : null}
             <div className="mainsail-table__body">
-                {rowData.map((row, idx) => renderRow(row, idx))}
+                {rowData && rowData.map((row, idx) => renderRow(row, idx))}
+                {!rowData || (rowData && !rowData.length && isLoading)
+                    ? renderPlaceholderRows(placeholderRowCount)
+                    : null}
             </div>
         </div>
     );
 };
 
 Table.propTypes = {
+    /** The number of placeholder rows to render when no data is provided and `isLoading` is true */
+    placeholderRowCount: PropTypes.number,
     /** Predefined object configuration for column structure (overrides inferrance from row data) */
     headerConfig: PropTypes.arrayOf(
         PropTypes.shape({
@@ -257,6 +287,7 @@ Table.propTypes = {
 
 Table.defaultProps = {
     variant: variants.bordered,
+    placeholderRowCount: 5,
     headerConfig: [],
 };
 

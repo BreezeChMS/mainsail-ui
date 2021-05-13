@@ -6,7 +6,6 @@
 
 // Tables
 $mainsail-table-border: 1px solid $mainsail-neutral-5;
-$mainsail-table-border-radius: 10px;
 
 // Input Styling
 $mainsail-input-border-radius: 4px;
@@ -44,6 +43,8 @@ $mainsail-shadow-active: 0px 0px 2px 1px rgba(0, 111, 186, 0.5);
 }
 
 // Radius properties
+$mainsail-table-border-radius: 10px;
+$mainsail-skeleton-radius: 4px;
 $mainsail-pill-radius: 20px;
 $mainsail-alert-radius: 4px;
 $mainsail-tip-radius: 4px;
