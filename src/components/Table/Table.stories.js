@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import { Table } from "./Table";
 import { Column } from "./Column";
 import { Actions } from "./Actions";
+import { PopMenuItem } from "components/PopMenu";
 import _ from "lodash";
+import { Button } from "components/Button";
 
 export default {
     title: "Elements/Table/Table",
@@ -232,4 +234,58 @@ ExplicitWidth.parameters = {
             `,
         },
     },
+};
+
+export const WithActions = (args) => (
+    <Table {...args}>
+        <Column field="first_name" />
+        <Column field="last_name" />
+        <Column field="age" align={Column.alignments.center} width="80px" />
+        <Column
+            field="occupation"
+            className="px-8"
+            align={Column.alignments.left}
+        />
+        <Actions
+            menuOptions={
+                <>
+                    <PopMenuItem text="Choice 1" />
+                    <PopMenuItem text="Choice 2" />
+                </>
+            }>
+            <Button variant={Button.variants.tertiary} text="Edit" />
+        </Actions>
+    </Table>
+);
+WithActions.args = {
+    rowData: officeRowData,
+};
+
+export const SimplerActions = (args) => (
+    <Table {...args}>
+        <Column field="first_name" />
+        <Column field="last_name" />
+        <Column field="age" align={Column.alignments.center} width="80px" />
+        <Column
+            field="occupation"
+            className="px-8"
+            align={Column.alignments.left}
+        />
+        <Actions>
+            <Button
+                className="mr-4"
+                variant={Button.variants.icon}
+                icon={Button.iconNames.edit}
+                text="Edit"
+            />
+            <Button
+                variant={Button.variants.icon}
+                icon={Button.iconNames.delete}
+                text="Delete"
+            />
+        </Actions>
+    </Table>
+);
+SimplerActions.args = {
+    rowData: officeRowData,
 };

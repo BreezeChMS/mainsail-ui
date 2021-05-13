@@ -37,26 +37,34 @@ export const Actions = ({
         <div
             className={classify("mainsail-row-actions", className)}
             style={styles}>
-            <div className="mainsail-row-actions__buttons">{children}</div>
-            <PopMenu
-                modifiers={modifiers}
-                menuOffset={-6}
-                positioning={PopMenu.positionings.fixed}
-                trigger={
-                    <button
-                        role="button"
-                        className="mainsail-row-actions__default">
-                        <Icon
-                            className="py-6"
-                            size={Icon.sizes.lg}
-                            name={Icon.names.more}
-                        />
-                    </button>
-                }>
-                {typeof menuOptions === "function"
-                    ? menuOptions(getRowData())
-                    : menuOptions}
-            </PopMenu>
+            <div
+                className={classify(
+                    "mainsail-row-actions__buttons",
+                    !menuOptions && "pr-10"
+                )}>
+                {children}
+            </div>
+            {menuOptions ? (
+                <PopMenu
+                    modifiers={modifiers}
+                    menuOffset={-6}
+                    positioning={PopMenu.positionings.fixed}
+                    trigger={
+                        <button
+                            role="button"
+                            className="mainsail-row-actions__default">
+                            <Icon
+                                className="py-6"
+                                size={Icon.sizes.lg}
+                                name={Icon.names.more}
+                            />
+                        </button>
+                    }>
+                    {typeof menuOptions === "function"
+                        ? menuOptions(getRowData())
+                        : menuOptions}
+                </PopMenu>
+            ) : null}
         </div>
     );
 };
