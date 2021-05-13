@@ -147,6 +147,9 @@ export const Table = ({
                     breakpoint,
                     getRowData: () => getRowById(row.id),
                     rowId: row.id,
+                    shouldTruncate: isLoading
+                        ? false
+                        : child.props.shouldTruncate,
                     children: isLoading ? skeleton : columnChildren,
                 });
             });
