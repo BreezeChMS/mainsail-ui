@@ -1,3 +1,15 @@
+# v0.14.5 (Fri May 14 2021)
+
+#### 🐛 Bug Fix
+
+- prevents scroll when modal opens and focus is called [#79](https://github.com/BreezeChMS/mainsail-ui/pull/79) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.14.4 (Fri May 14 2021)
 
 #### 🐛 Bug Fix
