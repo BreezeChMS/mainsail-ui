@@ -106,7 +106,22 @@ export const SimpleGrid = Template.bind({});
 SimpleGrid.args = {
     cols: 3,
     rows: 3,
-    flow: AutoGrid.flows.col,
+    flow: AutoGrid.flows.row,
+};
+
+export const Responsive = Template.bind({});
+Responsive.args = {
+    cols: [1, 2, 3],
+    rows: 3,
+    flow: AutoGrid.flows.row,
+};
+Responsive.parameters = {
+    docs: {
+        description: {
+            story:
+                "`<AutoGrid/>` `rows` and `cols` can be supplied an array of row/col counts to use at `sm`, `md`, and `lg` breakpoints. For Example, this grid will break down to 1 col at small, 2 cols at md and 3 cols at lg+",
+        },
+    },
 };
 
 export const Spanning = (args) => {
