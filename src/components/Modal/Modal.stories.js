@@ -570,7 +570,7 @@ export const FocusHandling = (args) => {
                     </p>
                 </div>
             </Modal>
-            <label htmlFor="page_input">Page Input</label>
+            <FormLabel htmlFor="page_input">Page Input</FormLabel>
             <Input
                 ref={closedFocusRef}
                 style={{ display: "block", width: "300px" }}
