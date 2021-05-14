@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import { Icon } from "components/Icon";
 import { Spinner } from "components/Spinner";
@@ -51,66 +51,72 @@ export const ENUMS = {
 /**
  * A basic, interactive button with configurable options
  **/
-export const Button = ({
-    text,
-    children,
-    textSize,
-    variant,
-    className,
-    iconLeft,
-    iconRight,
-    isLoading,
-    loadingText,
-    icon,
-    isFullWidth,
-    intent,
-    isDisabled,
-    ...props
-}) => {
-    if (isLoading) {
+export const Button = forwardRef(
+    (
+        {
+            text,
+            children,
+            textSize,
+            variant,
+            className,
+            iconLeft,
+            iconRight,
+            isLoading,
+            loadingText,
+            icon,
+            isFullWidth,
+            intent,
+            isDisabled,
+            ...props
+        },
+        ref
+    ) => {
+        if (isLoading) {
+            return (
+                <button
+                    data-loading={isLoading}
+                    disabled={isDisabled || isLoading}
+                    className={classify(
+                        { loading: isLoading, disabled: isDisabled },
+                        "mainsail-button",
+                        className,
+                        variant,
+                        textSize,
+                        intent
+                    )}
+                    {...props}>
+                    {!loadingText ? <Spinner /> : null}
+                    {loadingText ? renderChild(loadingText) : null}
+                    {children}
+                </button>
+            );
+        }
         return (
             <button
+                ref={ref}
                 data-loading={isLoading}
                 disabled={isDisabled || isLoading}
                 className={classify(
-                    { loading: isLoading, disabled: isDisabled },
                     "mainsail-button",
                     className,
                     variant,
                     textSize,
-                    intent
+                    intent,
+                    {
+                        "text-small": textSize === "small",
+                        "full-width": isFullWidth,
+                    }
                 )}
                 {...props}>
-                {!loadingText ? <Spinner /> : null}
-                {loadingText ? renderChild(loadingText) : null}
+                {iconLeft ? renderIcon(iconLeft, "left") : null}
+                {!icon ? renderChild(text) : null}
+                {icon ? renderIcon(icon) : null}
                 {children}
+                {iconRight ? renderIcon(iconRight, "right") : null}
             </button>
         );
     }
-    return (
-        <button
-            data-loading={isLoading}
-            disabled={isDisabled || isLoading}
-            className={classify(
-                "mainsail-button",
-                className,
-                variant,
-                textSize,
-                intent,
-                {
-                    "text-small": textSize === "small",
-                    "full-width": isFullWidth,
-                }
-            )}
-            {...props}>
-            {iconLeft ? renderIcon(iconLeft, "left") : null}
-            {!icon ? renderChild(text) : null}
-            {icon ? renderIcon(icon) : null}
-            {children}
-            {iconRight ? renderIcon(iconRight, "right") : null}
-        </button>
-    );
-};
+);
 
 Button.propTypes = {
     /** Changes the overall style of button: */
@@ -163,3 +169,4 @@ Button.variants = variants;
 Button.textSizes = textSizes;
 Button.intents = intents;
 Button.iconNames = Icon.names;
+Button.displayName = "Button";

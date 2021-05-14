@@ -572,11 +572,11 @@ export const FocusHandling = (args) => {
             </Modal>
             <label htmlFor="page_input">Page Input</label>
             <Input
+                ref={closedFocusRef}
                 style={{ display: "block", width: "300px" }}
                 className="mb-20 p-4 body-text"
                 type="text"
                 id="page_input"
-                ref={closedFocusRef}
                 placeholder="After modal is closed, I will have focus"
             />
             <Button text="Open Modal" onClick={() => setIsModalOpen(true)} />
