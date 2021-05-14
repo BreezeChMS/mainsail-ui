@@ -1,3 +1,19 @@
+# v0.15.0 (Fri May 14 2021)
+
+#### 🚀 Enhancement
+
+- adds responsive support to AutoGrid 🎉 [#81](https://github.com/BreezeChMS/mainsail-ui/pull/81) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🐛 Bug Fix
+
+- Removes lodash peer dep [#80](https://github.com/BreezeChMS/mainsail-ui/pull/80) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.14.5 (Fri May 14 2021)
 
 #### 🐛 Bug Fix
