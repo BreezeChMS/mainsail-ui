@@ -24,6 +24,10 @@ const Template = (args) => (
         <AutoGridItem data-testid="item" className="bg-blue-dark" />
         <AutoGridItem data-testid="item" className="bg-blue-dark" />
         <AutoGridItem data-testid="item" className="bg-blue-dark" />
+        <AutoGridItem data-testid="item" className="bg-blue-dark" />
+        <AutoGridItem data-testid="item" className="bg-blue-dark" />
+        <AutoGridItem data-testid="item" className="bg-blue-dark" />
+        <AutoGridItem data-testid="item" className="bg-blue-dark" />
     </AutoGrid>
 );
 
@@ -34,4 +38,21 @@ Basic.args = {
     style: { minHeight: "200px" },
     children: "Control this Item",
     alignItems: AutoGridItem.alignItems.center,
+};
+
+export const Responsive = Template.bind({});
+Responsive.args = {
+    colSpan: [3, 2, 1],
+    className: "bg-blue-light body-text",
+    style: { minHeight: "200px" },
+    children: "Control this Item",
+    alignItems: AutoGridItem.alignItems.center,
+};
+Responsive.parameters = {
+    docs: {
+        description: {
+            story:
+                "`<AutoGrid.Item/>` `rowSpan` and `colSpan` can be supplied an array of row/col counts to use at `sm`, `md`, and `lg` breakpoints.",
+        },
+    },
 };
