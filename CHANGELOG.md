@@ -1,3 +1,15 @@
+# v0.14.4 (Fri May 14 2021)
+
+#### 🐛 Bug Fix
+
+- adds some missing forward refs on common inputs [#78](https://github.com/BreezeChMS/mainsail-ui/pull/78) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.14.3 (Thu May 13 2021)
 
 #### 🐛 Bug Fix
