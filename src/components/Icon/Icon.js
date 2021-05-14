@@ -2,9 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as MainsailIcon from "components/Icons";
 import { classify } from "utility/classify";
-import _ from "lodash";
 
 import "./Icon.scss";
+
+const toFileCase = (str) =>
+    str
+        .split("_")
+        .map(
+            (word) =>
+                word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()
+        )
+        .join("");
 
 export const names = {
     warning: "warning",
@@ -107,7 +115,7 @@ export const ENUMS = {
  **/
 
 export const Icon = ({ name, size, color, className, isDisabled, ...rest }) => {
-    const fileCase = _.replace(_.startCase(name), / /g, "");
+    const fileCase = toFileCase(name);
     const SvgIcon = MainsailIcon[fileCase];
 
     if (!SvgIcon) {

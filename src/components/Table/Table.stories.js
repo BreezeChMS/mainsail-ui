@@ -227,10 +227,10 @@ ExplicitWidth.args = {
 ExplicitWidth.parameters = {
     docs: {
         description: {
-            story: `A table can have it's columns set with an explicit, \`width\`, \`maxWidth\` or \`minWidth\`.
+            story: `A table can have its columns set with an explicit, \`width\`, \`maxWidth\` or \`minWidth\`.
                 \n- Can be **set with a string** like \`maxWidth="120px"\`
                 \n- A **responsive array** where the values of the array equate to sm/md/lg breakpoints can be supplied eg. \`maxWidth={["80px", "120px", "250px"]}\`
-                \n- When using a responsive array to adjust column size, you may omit later breakpoints to too fall back to previous breakpoint eg. \`maxWidth={["80px", "120px"]}\` for sm/md breakpoints and lg will use md sizing.
+                \n- When using a responsive array to adjust column size, you may omit later breakpoints to fall back to previous eg. \`maxWidth={["80px", "120px"]}\` for sm/md breakpoints and lg will use md sizing.
             `,
         },
     },
