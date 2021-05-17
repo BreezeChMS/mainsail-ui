@@ -1,0 +1,45 @@
+@import "../../styles/Variables.scss";
+
+/** TimePicker Component Styles */
+.mainsail-timepicker {
+    display: flex;
+
+    .mainsail-dropdown {
+        flex-basis: 69px;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        &.mainsail-timepicker__time {
+            .mainsail-dropdown__item {
+                align-self: flex-end;
+            }
+        }
+
+        &.mainsail-timepicker__time button.mainsail-dropdown__toggle {
+            text-align: center;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-right: transparent;
+
+            &.open,
+            :focus,
+            :active {
+                outline: none;
+                border-color: $mainsail-blue-primary;
+                border: 1px solid $mainsail-blue-primary;
+                box-shadow: $mainsail-shadow-near;
+            }
+        }
+
+        &.mainsail-timepicker__period button.mainsail-dropdown__toggle {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            padding-left: 12px !important;
+        }
+
+        .mainsail-dropdown__menu {
+            z-index: 10000;
+            min-width: 74px;
+        }
+    }
+}

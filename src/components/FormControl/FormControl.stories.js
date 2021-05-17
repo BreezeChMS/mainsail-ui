@@ -8,6 +8,7 @@ import { FormHelpText } from "components/FormHelpText";
 import { FormInputOptions } from "components/FormInputOptions";
 import { Checkbox, CheckboxGroup } from "components/Checkbox";
 import { Button } from "components/Button";
+import { TimePicker } from "components/TimePicker";
 import { RadioGroup, Radio } from "components/Radio";
 
 export default {
@@ -176,4 +177,15 @@ FormRadioGroup.parameters = {
                 "You are free to use either the `FormLabel` component or the built-in `<label/>` of RadioGroup as shown here. Both will be provided form props like `isRequired` and `isDisabled`.",
         },
     },
+};
+
+export const TimePickerInput = (args) => (
+    <FormControl {...args}>
+        <FormLabel text="Meeting Time" />
+        <TimePicker timeOptions={["1:30", "2:30", "3:30"]} />
+    </FormControl>
+);
+TimePickerInput.args = {
+    id: "timepicker",
+    invalidText: "Please choose a time.",
 };

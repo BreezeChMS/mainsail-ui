@@ -48,6 +48,7 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
                     : parentProps.helpTextId,
             };
         case "Dropdown":
+        case "TimePicker":
             return {
                 className: classify(
                     child.props.className,

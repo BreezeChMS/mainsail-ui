@@ -116,6 +116,7 @@ export const Dropdown = ({
                 DOWN_ARROW_KEY_CODE,
             ];
             let isEscPressed = e.keyCode === ESC_KEY_CODE;
+            let isTabPressed = e.keyCode === TAB_KEY_CODE;
             let isArrowUpPressed = e.keyCode === UP_ARROW_KEY_CODE;
             let isArrowDownPressed = e.keyCode === DOWN_ARROW_KEY_CODE;
 
@@ -149,7 +150,7 @@ export const Dropdown = ({
                 }
             });
 
-            if (isArrowDownPressed) {
+            if (isArrowDownPressed || isTabPressed) {
                 if (activeChoice === lastFocusableEl) {
                     firstFocusableEl.focus();
                 } else {
@@ -158,7 +159,7 @@ export const Dropdown = ({
                 e.preventDefault();
             }
 
-            if (isArrowUpPressed) {
+            if (isArrowUpPressed || (isTabPressed && e.shiftKey)) {
                 if (activeChoice === firstFocusableEl) {
                     lastFocusableEl.focus();
                 } else {
@@ -252,6 +253,9 @@ export const Dropdown = ({
                         "mainsail-dropdown__toggle",
                         isOpen && "open"
                     )}
+                    type="button"
+                    aria-haspopup={isOpen}
+                    aria-expanded={isOpen}
                     ref={setReferenceElement}
                     tabIndex="0"
                     disabled={isDisabled}
