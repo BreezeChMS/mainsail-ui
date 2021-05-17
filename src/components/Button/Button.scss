@@ -22,6 +22,10 @@ button.mainsail-button {
     cursor: pointer;
     min-width: auto;
 
+    .mainsail-icon {
+        color: currentColor;
+    }
+
     /* Owl selector supplies space between elements */
     > * + * {
         margin-left: 8px !important;
@@ -30,14 +34,6 @@ button.mainsail-button {
     .spinner {
         color: currentColor;
         padding: 5px !important;
-    }
-
-    .mainsail-icon {
-        color: currentColor;
-        svg {
-            width: 16px;
-            height: 16px;
-        }
     }
 
     &.primary {
@@ -234,6 +230,8 @@ button.mainsail-button {
         color: $mainsail-blue-primary;
         background: none;
         box-shadow: none;
+        padding: 5px !important;
+        border: none !important;
 
         @include focus;
         @include hover {
@@ -242,6 +240,38 @@ button.mainsail-button {
             border-radius: $mainsail-button-border-radius-lg;
         }
         @include disabled;
+
+        &.sm {
+            color: inherit;
+            svg {
+                height: 12px;
+                width: 12px;
+            }
+        }
+
+        &.md {
+            color: inherit;
+            svg {
+                height: 16px;
+                width: 16px;
+            }
+        }
+
+        &.lg {
+            color: inherit;
+            svg {
+                height: 24px;
+                width: 24px;
+            }
+        }
+
+        &.xl {
+            color: inherit;
+            svg {
+                height: 32px;
+                width: 32px;
+            }
+        }
     }
 
     &.text-small {
