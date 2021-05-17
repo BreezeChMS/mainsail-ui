@@ -1,3 +1,19 @@
+# v0.16.0 (Mon May 17 2021)
+
+#### 🚀 Enhancement
+
+- adds support for gapRow and gapCol to AutoGrid [#83](https://github.com/BreezeChMS/mainsail-ui/pull/83) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- refactors usage documentation to add CSS utility bits [skip-chromatic] [#82](https://github.com/BreezeChMS/mainsail-ui/pull/82) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.15.0 (Fri May 14 2021)
 
 #### 🚀 Enhancement
