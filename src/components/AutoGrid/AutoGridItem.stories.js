@@ -1,6 +1,7 @@
 import React from "react";
 
 import { AutoGrid, AutoGridItem } from "./AutoGrid";
+import { FormControl, FormLabel, Input, Dropdown } from "components/core";
 
 export default {
     title: "Layout/Grid/AutoGridItem",
@@ -18,7 +19,7 @@ export default {
 };
 
 const Template = (args) => (
-    <AutoGrid rows={3} cols={3}>
+    <AutoGrid gap={15} rows={3} cols={3}>
         <AutoGridItem data-testid="item" {...args} />
         <AutoGridItem data-testid="item" className="bg-blue-dark" />
         <AutoGridItem data-testid="item" className="bg-blue-dark" />
@@ -55,4 +56,35 @@ Responsive.parameters = {
                 "`<AutoGrid.Item/>` `rowSpan` and `colSpan` can be supplied an array of row/col counts to use at `sm`, `md`, and `lg` breakpoints.",
         },
     },
+};
+
+export const FormExample = () => {
+    return (
+        <AutoGrid cols={12} gap={10}>
+            <AutoGrid.Item colSpan={12}>
+                <FormControl>
+                    <FormLabel text="Address" />
+                    <Input />
+                </FormControl>
+            </AutoGrid.Item>
+            <AutoGrid.Item colSpan={[12, 6]}>
+                <FormControl>
+                    <FormLabel text="City" />
+                    <Input />
+                </FormControl>
+            </AutoGrid.Item>
+            <AutoGrid.Item colSpan={[12, 2]}>
+                <FormControl>
+                    <FormLabel text="State" />
+                    <Dropdown options={[]} placeholder="" />
+                </FormControl>
+            </AutoGrid.Item>
+            <AutoGrid.Item colSpan={[12, 4]}>
+                <FormControl>
+                    <FormLabel text="Zip Code" />
+                    <Input />
+                </FormControl>
+            </AutoGrid.Item>
+        </AutoGrid>
+    );
 };

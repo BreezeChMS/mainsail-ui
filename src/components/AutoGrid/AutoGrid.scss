@@ -17,6 +17,14 @@
         @include spacing-modifiers($attribute: "gap");
     }
 
+    &.gap-row {
+        @include spacing-modifiers($attribute: "row-gap");
+    }
+
+    &.gap-col {
+        @include spacing-modifiers($attribute: "column-gap");
+    }
+
     @include grid-templates;
 
     .column-auto {

@@ -41,6 +41,7 @@ const getRowColsClass = (type, counts) => {
             [`lg-grid-${type}-${counts[2]}`]: counts[2],
         });
     }
+
     return `sm-grid-${type}-${counts}`;
 };
 
@@ -62,6 +63,8 @@ export const AutoGrid = ({
     className,
     flow,
     gap,
+    gapRow,
+    gapCol,
     cols,
     rows,
     children,
@@ -73,7 +76,9 @@ export const AutoGrid = ({
             className={classify(
                 "mainsail-auto-grid",
                 `grid-flow-${flow}`,
-                `gap-${gap}`,
+                gap && `gap-${gap}`,
+                gapRow && `gap-row-${gapRow}`,
+                gapCol && `gap-col-${gapCol}`,
                 cols ? getRowColsClass("cols", cols) : null,
                 rows ? getRowColsClass("rows", rows) : null,
                 className
@@ -89,8 +94,12 @@ AutoGrid.propTypes = {
     className: PropTypes.string,
     /** Direction of content flow (row/col) */
     flow: PropTypes.string,
-    /** Grid gap size number */
+    /** Grid gap size number for rows and columns */
     gap: PropTypes.oneOf(gaps),
+    /** Grid gap size rows */
+    gapRow: PropTypes.oneOf(gaps),
+    /** Grid gap size for columns */
+    gapCol: PropTypes.oneOf(gaps),
     /** Column count for grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use [sm, md, lg]*/
     cols: PropTypes.oneOfType([
         PropTypes.number,
@@ -108,7 +117,6 @@ AutoGrid.propTypes = {
 };
 
 AutoGrid.defaultProps = {
-    gap: 20,
     flow: flows.row,
 };
 
@@ -172,5 +180,6 @@ AutoGridItem.defaultProps = {
 AutoGrid.Item = AutoGridItem;
 
 AutoGrid.flows = flows;
+AutoGrid.gaps = gaps;
 AutoGridItem.alignItems = alignItems;
 AutoGridItem.justifyItems = justifyItems;
