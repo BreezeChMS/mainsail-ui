@@ -79,6 +79,37 @@
 }
 /* End Shadows */
 
+/* Positions */
+.flex {
+    display: flex;
+
+    &.align-center {
+        align-items: center;
+    }
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.top {
+    @include spacing-modifiers($attribute: "top");
+}
+.right {
+    @include spacing-modifiers($attribute: "right");
+}
+.bottom {
+    @include spacing-modifiers($attribute: "bottom");
+}
+.left {
+    @include spacing-modifiers($attribute: "left");
+}
+/* End Positions */
+
 /* Background Colors */
 
 .bg {
@@ -108,12 +139,9 @@
     overflow-y: hidden;
 }
 
-.flex {
-    display: flex;
-
-    &.align-center {
-        align-items: center;
-    }
+.content-overlay {
+    background-color: $mainsail-overlay;
+    z-index: 100;
 }
 
 .mainsail-skeleton {
