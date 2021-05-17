@@ -1,0 +1,273 @@
+import { Meta, Canvas } from "@storybook/addon-docs/blocks";
+import { Button } from "../../components/Button";
+import { Icon } from "../../components/Icon";
+
+<Meta title="React/Usage/CSS Utilities" />
+
+# CSS Utilities
+
+Mainsail comes with a few utility classes for working within the Mainsail design specs.
+
+## Why Utility Classes?
+
+Because adding bespoke CSS per component for things that are constantly repeated adds to the "append-only" nature of our CSS footprint.
+
+Applying the 80/20 principle, having these classes available helps us to get the 80% done with 20% of the code. (Where the 80% is common use cases for positioning, layout and style ... and the 20% can likely be reused throughout the app.)
+
+## What's available?
+
+-   [Colors](#colors)
+-   [Spacing](#spacing) (Margins/Padding)
+-   [Shadows & Overlays](#shadows--overlays)
+-   [Typography](#typography)
+
+# Colors
+
+Mainsail color classes are available.
+
+### Background Colors
+
+Applies Mainsail color to background `background-color:` css property.
+
+Uses the syntax `bg-<color>-<variant>`.
+
+<Canvas>
+    <div class="body-text sm">
+        <div class="bg-blue-primary p-8">bg-blue-primary</div>
+        <div class="bg-blue-light p-8">bg-blue-light</div>
+        <div class="bg-blue-middle p-8 text-blue-light">bg-blue-middle</div>
+        <div class="bg-blue-dark p-8 text-blue-light">bg-blue-dark</div>
+        <br />
+        <div class="bg-green-light p-8">bg-green-light</div>
+        <div class="bg-green-middle p-8">bg-green-middle</div>
+        <div class="bg-green-dark p-8 text-green-light">bg-green-dark</div>
+        <br />
+        <div class="bg-violet-light p-8">bg-violet-light</div>
+        <div class="bg-violet-middle p-8 text-violet-light">
+            bg-violet-middle
+        </div>
+        <div class="bg-violet-dark p-8 text-violet-light">bg-violet-dark</div>
+        <br />
+        <div class="bg-orange-light p-8">bg-orange-light</div>
+        <div class="bg-orange-middle p-8">bg-orange-middle</div>
+        <div class="bg-orange-dark p-8">bg-orange-dark</div>
+        <br />
+        <div class="bg-red-light p-8">bg-red-light</div>
+        <div class="bg-red-middle p-8">bg-red-middle</div>
+        <div class="bg-red-dark p-8 text-red-light">bg-red-dark</div>
+        <br />
+        <div class="bg-neutral-1 p-8 text-neutral-6">bg-neutral-1</div>
+        <div class="bg-neutral-2 p-8 text-neutral-6">bg-neutral-2</div>
+        <div class="bg-neutral-3 p-8">bg-neutral-3</div>
+        <div class="bg-neutral-4 p-8">bg-neutral-4</div>
+        <div class="bg-neutral-5 p-8">bg-neutral-5</div>
+        <div class="bg-neutral-6 p-8">bg-neutral-6</div>
+    </div>
+</Canvas>
+
+### Text Colors
+
+Apply Mainsail color to text `color:` css property.
+
+Uses the syntax `text-<color>-<variant>`.
+
+<Canvas>
+    <div class="body-text lg">
+        <div class="text-blue-primary p-8">text-blue-primary</div>
+        <div class="text-blue-light p-8">text-blue-light</div>
+        <div class="text-blue-middle p-8">text-blue-middle</div>
+        <div class="text-blue-dark p-8">text-blue-dark</div>
+        <br />
+        <div class="text-green-light p-8">text-green-light</div>
+        <div class="text-green-middle p-8">text-green-middle</div>
+        <div class="text-green-dark p-8">text-green-dark</div>
+        <br />
+        <div class="text-violet-light p-8">text-violet-light</div>
+        <div class="text-violet-middle p-8">text-violet-middle</div>
+        <div class="text-violet-dark p-8">text-violet-dark</div>
+        <br />
+        <div class="text-orange-light p-8">text-orange-light</div>
+        <div class="text-orange-middle p-8">text-orange-middle</div>
+        <div class="text-orange-dark p-8">text-orange-dark</div>
+        <br />
+        <div class="text-red-light p-8">text-red-light</div>
+        <div class="text-red-middle p-8">text-red-middle</div>
+        <div class="text-red-dark p-8">text-red-dark</div>
+        <br />
+        <div class="text-neutral-1 p-8">text-neutral-1</div>
+        <div class="text-neutral-2 p-8">text-neutral-2</div>
+        <div class="text-neutral-3 p-8">text-neutral-3</div>
+        <div class="text-neutral-4 p-8">text-neutral-4</div>
+        <div class="text-neutral-5 p-8">text-neutral-5</div>
+        <div class="text-neutral-6 p-8">text-neutral-6</div>
+    </div>
+</Canvas>
+
+# Spacing
+
+For common Mainsail spec spacing margins and padding, you can use `p-<size>` and `m-<size>` classes.
+
+These are controllable with an intuitive explicit sizing scale that comes from sizes used directly from our Figma specs.
+
+> 🚨 Note: These spacing utility classes utilize `!important` tags to ensure they can be used as overrides of existing styles.
+
+**Available Sizes**
+
+| Class specifier | Pixels |
+| --------------: | ------ |
+|               0 | 0px    |
+|               4 | 4px    |
+|               8 | 8px    |
+|              10 | 10px   |
+|              12 | 12px   |
+|              15 | 15px   |
+|              16 | 16px   |
+|              20 | 20px   |
+|              30 | 30px   |
+|              48 | 48px   |
+
+Explicit directional margin/padding can be applied by adding a `t`/`b`/`l`/`r` designation to the class.
+
+E.g. `mr-8` will apply `margin-right: 8px` and `ml-8` will apply `margin-left: 8px`.
+
+If desired, you can supply `x` or `y` to apply to both sides.
+
+**Examples**
+
+```jsx
+// Using margin utility with 8px of top margin
+<Button className="mt-8" text="Cancel" />
+
+// Using margin utility with 8px of top and 20px of left/right margin
+<Button className="mt-8 mx-20" text="Confirm"/>
+```
+
+<Canvas>
+    <div class="body-text">
+        <h3>Margin Top</h3>
+        <div class="bg-neutral-1 p-4"></div>
+        <div class="bg-blue-light p-8 mt-4">mt-4</div>
+        <div class="bg-blue-light p-8 mt-8">mt-8</div>
+        <div class="bg-blue-light p-8 mt-10">mt-10</div>
+        <div class="bg-blue-light p-8 mt-12">mt-12</div>
+        <div class="bg-blue-light p-8 mt-15">mt-15</div>
+        <div class="bg-blue-light p-8 mt-16">mt-16</div>
+        <div class="bg-blue-light p-8 mt-20">mt-20</div>
+        <div class="bg-blue-light p-8 mt-30">mt-30</div>
+        <div class="bg-blue-light p-8 mt-48">mt-48</div>
+    </div>
+</Canvas>
+
+# Shadows & Overlays
+
+Box shadows and overlay can be applied easily with the shadow utility classes.
+
+```jsx
+<div className="box-shadow-near">Box Shadow Near</div>
+<div className="box-shadow-far">Box Shadow Far</div>
+<div className="box-shadow-sticky">Box Shadow Sticky Bar</div>
+```
+
+<Canvas>
+    <div className="body-text">
+        <div className="px-15 py-8 mb-20 bg-neutral-6 box-shadow-near">
+            Box Shadow Near
+        </div>
+        <div className="px-15 py-8 mb-20 box-shadow-far">Box Shadow Far</div>
+        <div className="px-15 py-8 mb-20 box-shadow-sticky">
+            Box Shadow Sticky Bar
+        </div>
+    </div>
+</Canvas>
+
+### Overlays
+
+Using existing position utility classes you can craft an overlay without much css required.
+
+This example contains an `content-overlay` that spans the full ranges of its parent.
+
+<Canvas>
+    <div className="px-15 py-8  body-text relative">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+            fugiat fugit, harum neque eum dolorem maiores sint mollitia optio
+            dicta!
+        </p>
+        <div className="content-overlay absolute top-0 right-0 bottom-0 left-0"></div>
+    </div>
+</Canvas>
+
+This example contains a `content-blur` that blurs all the children.
+
+<Canvas>
+    <div className="px-15 py-8 body-text content-blur">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+            fugiat fugit, harum neque eum dolorem maiores sint mollitia optio
+            dicta!
+        </p>
+    </div>
+</Canvas>
+
+# Typography
+
+Basic Mainsail typography classes are available.
+
+## Headings
+
+```html
+<h1>Hello World Hero</h1>
+<h2>Hello World H2</h2>
+<h3>Hello World H3</h3>
+<h4>Hello World H4</h4>
+
+// You may also use .h1, .h2, .h3, .h4 classes when needed
+```
+
+<Canvas>
+    <div>
+        <h1>Hello World Hero</h1>
+        <h2>Hello World H2</h2>
+        <h3>Hello World H3</h3>
+        <h4>Hello World H4</h4>
+    </div>
+</Canvas>
+
+## Body text
+
+There are **4 sizes** of body text available: `lg`, `md` (default), `sm` and `xs`.
+
+```jsx
+<p className="body-text lg">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, accusamus.
+</p>
+
+<p className="body-text md">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, accusamus.
+</p>
+
+<p className="body-text sm">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, accusamus.
+</p>
+
+<p className="body-text xs">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, accusamus.
+</p>
+```
+
+<Canvas>
+    <div>
+        <p className="lg">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit
+        </p>
+        <p className="md">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit
+        </p>
+        <p className="sm">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit
+        </p>
+        <p className="xs">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit
+        </p>
+    </div>
+</Canvas>
