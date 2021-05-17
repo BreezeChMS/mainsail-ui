@@ -33,6 +33,29 @@ export const ENUMS = {
     flows,
 };
 
+const getRowColsClass = (type, counts) => {
+    if (Array.isArray(counts)) {
+        return classify({
+            [`sm-grid-${type}-${counts[0]}`]: counts[0],
+            [`md-grid-${type}-${counts[1]}`]: counts[1],
+            [`lg-grid-${type}-${counts[2]}`]: counts[2],
+        });
+    }
+
+    return `sm-grid-${type}-${counts}`;
+};
+
+const getRowColSpanClass = (type, counts) => {
+    if (Array.isArray(counts)) {
+        return classify({
+            [`sm-${type}-span-${counts[0]}`]: counts[0],
+            [`md-${type}-span-${counts[1]}`]: counts[1],
+            [`lg-${type}-span-${counts[2]}`]: counts[2],
+        });
+    }
+    return `sm-${type}-span-${counts}`;
+};
+
 /**
  * A quick &amp; easy grid layout component
  **/
@@ -40,6 +63,8 @@ export const AutoGrid = ({
     className,
     flow,
     gap,
+    gapRow,
+    gapCol,
     cols,
     rows,
     children,
@@ -51,9 +76,11 @@ export const AutoGrid = ({
             className={classify(
                 "mainsail-auto-grid",
                 `grid-flow-${flow}`,
-                `gap-${gap}`,
-                cols ? `grid-cols-${cols}` : null,
-                rows ? `grid-rows-${rows}` : null,
+                gap && `gap-${gap}`,
+                gapRow && `gap-row-${gapRow}`,
+                gapCol && `gap-col-${gapCol}`,
+                cols ? getRowColsClass("cols", cols) : null,
+                rows ? getRowColsClass("rows", rows) : null,
                 className
             )}
             {...props}>
@@ -67,16 +94,29 @@ AutoGrid.propTypes = {
     className: PropTypes.string,
     /** Direction of content flow (row/col) */
     flow: PropTypes.string,
-    /** Grid gap size number */
+    /** Grid gap size number for rows and columns */
     gap: PropTypes.oneOf(gaps),
-    /** Column count for grid (count 1-12 / "auto") */
-    cols: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    /** Row count for grid (count 1-12 / "auto")*/
-    rows: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    /** Grid gap size rows */
+    gapRow: PropTypes.oneOf(gaps),
+    /** Grid gap size for columns */
+    gapCol: PropTypes.oneOf(gaps),
+    /** Column count for grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use [sm, md, lg]*/
+    cols: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
+    /** Row count for grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use [sm, md, lg]*/
+    rows: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
 };
 
 AutoGrid.defaultProps = {
-    gap: 20,
     flow: flows.row,
 };
 
@@ -96,8 +136,12 @@ export const AutoGridItem = ({
                 className,
                 alignItems && `align-${alignItems}`,
                 justifyItems && `justify-${justifyItems}`,
-                colSpan === "auto" ? `col-auto` : `col-span-${colSpan}`,
-                rowSpan === "auto" ? `col-auto` : `row-span-${rowSpan}`
+                colSpan === "auto"
+                    ? `col-auto`
+                    : getRowColSpanClass("col", colSpan),
+                rowSpan === "auto"
+                    ? `row-auto`
+                    : getRowColSpanClass("row", rowSpan)
             )}
             {...props}>
             {children}
@@ -112,10 +156,20 @@ AutoGridItem.propTypes = {
     justifyItems: PropTypes.oneOf(Object.values(justifyItems)),
     /** Style class to add to component wrapper */
     className: PropTypes.string,
-    /** Column span for item (count 1-12 / "auto") */
-    colSpan: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    /** Row span for item (count 1-12 / "auto")*/
-    rowSpan: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    /** Column span for item (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    colSpan: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
+    /** Row span for item (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    rowSpan: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
 };
 
 AutoGridItem.defaultProps = {
@@ -126,5 +180,6 @@ AutoGridItem.defaultProps = {
 AutoGrid.Item = AutoGridItem;
 
 AutoGrid.flows = flows;
+AutoGrid.gaps = gaps;
 AutoGridItem.alignItems = alignItems;
 AutoGridItem.justifyItems = justifyItems;

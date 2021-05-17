@@ -5,7 +5,7 @@ import _ from "lodash";
 
 import { Button } from "components/Button";
 import { AutoGrid, AutoGridItem as Item } from "./AutoGrid";
-import { Transition } from "components/Transition";
+import { FormControl, FormLabel, Input, Transition } from "components/core";
 
 export default {
     title: "Layout/Grid/AutoGrid",
@@ -18,7 +18,23 @@ export default {
             control: {
                 type: "select",
             },
-            options: Object.keys(AutoGrid.flows),
+            options: Object.values(AutoGrid.flows),
+        },
+        gapRow: {
+            name: "gapRow",
+            type: { gapRow: "string" },
+            control: {
+                type: "select",
+            },
+            options: Object.values(AutoGrid.gaps),
+        },
+        gapCol: {
+            name: "gapCol",
+            type: { gapCol: "string" },
+            control: {
+                type: "select",
+            },
+            options: Object.values(AutoGrid.gaps),
         },
     },
     parameters: {
@@ -28,6 +44,7 @@ export default {
                 \n- supply column count with \`cols\` & row count with \`rows\`
                 \n- specify auto count of columns or rows (Note: \`flow\` direction must match auto direction e.g. \`flow=col\` \`col=auto\`)
                 \n- Optional subcomponent **AutoGridItem** can specify col/row span for children (also accessible as \`AutoGrid.Item\`)
+                \n- Can have different row (\`gapRow\`) and column gaps (\`gapCol\`) or one singular prop to control both (\`gap\`)
                 `,
             },
         },
@@ -82,7 +99,7 @@ const AdjustableTemplate = (args) => {
 
     return (
         <>
-            <AutoGrid cols={2} rows={1}>
+            <AutoGrid cols={2} rows={1} gap={10}>
                 <Button
                     variant="secondary"
                     onClick={() => setBoxCount(boxCount - 1)}
@@ -106,7 +123,24 @@ export const SimpleGrid = Template.bind({});
 SimpleGrid.args = {
     cols: 3,
     rows: 3,
-    flow: AutoGrid.flows.col,
+    gap: 20,
+    flow: AutoGrid.flows.row,
+};
+
+export const Responsive = Template.bind({});
+Responsive.args = {
+    cols: [1, 2, 3],
+    rows: 3,
+    gap: 20,
+    flow: AutoGrid.flows.row,
+};
+Responsive.parameters = {
+    docs: {
+        description: {
+            story:
+                "`<AutoGrid/>` `rows` and `cols` can be supplied an array of row/col counts to use at `sm`, `md`, and `lg` breakpoints. For Example, this grid will break down to 1 col at small, 2 cols at md and 3 cols at lg+",
+        },
+    },
 };
 
 export const Spanning = (args) => {
@@ -124,6 +158,11 @@ export const Spanning = (args) => {
         </AutoGrid>
     );
 };
+Spanning.args = {
+    rows: 3,
+    cols: 3,
+    gap: 20,
+};
 Spanning.parameters = {
     docs: {
         description: {
@@ -137,6 +176,7 @@ export const AutoRows = AdjustableTemplate.bind({});
 AutoRows.args = {
     cols: 4,
     rows: "auto",
+    gap: 20,
     flow: AutoGrid.flows.row,
 };
 AutoRows.parameters = {
@@ -166,53 +206,42 @@ AutoColumns.parameters = {
 
 export const Nested = (args) => {
     return (
-        <AutoGrid {...args} className="bg-neutral-6 p-20">
+        <div>
             <AutoGrid
-                {...args}
-                cols={2}
                 rows="auto"
-                gap={args.gap}
-                className="bg-neutral-4 p-20">
-                <div data-testid="box" className="p-20 bg-orange-light" />
-                <div data-testid="box" className="p-20 bg-orange-light" />
-                <div data-testid="box" className="p-20 bg-orange-light" />
-                <div data-testid="box" className="p-20 bg-orange-light" />
-                <div data-testid="box" className="p-20 bg-orange-light" />
-                <div data-testid="box" className="p-20 bg-orange-light" />
-                <div data-testid="box" className="p-20 bg-orange-light" />
-                <div data-testid="box" className="p-20 bg-orange-light" />
-                <div data-testid="box" className="p-20 bg-orange-light" />
+                cols={1}
+                gapRow={args.gapRow}
+                className="mb-48">
+                <AutoGrid rows="auto" {...args}>
+                    <>
+                        <FormControl>
+                            <FormLabel text="First Name" />
+                            <Input />
+                        </FormControl>
+                        <FormControl>
+                            <FormLabel text="Last Name" />
+                            <Input />
+                        </FormControl>
+                    </>
+                </AutoGrid>
+                <FormControl>
+                    <FormLabel text="Something Longer" />
+                    <Input />
+                </FormControl>
             </AutoGrid>
-            <AutoGrid
-                cols={3}
-                rows={3}
-                className="bg-neutral-5 p-20"
-                gap={args.gap}>
-                <div data-testid="box" className="bg-blue-light" />
-                <div data-testid="box" className="bg-blue-light" />
-                <div data-testid="box" className="bg-blue-light" />
-                <div data-testid="box" className="bg-blue-light" />
-                <div data-testid="box" className="bg-blue-light" />
-                <div data-testid="box" className="bg-blue-light" />
-                <div data-testid="box" className="bg-blue-light" />
-                <div data-testid="box" className="bg-blue-light" />
-                <div data-testid="box" className="bg-blue-light" />
-            </AutoGrid>
-            <AutoGrid {...args} gap={args.gap}>
-                <div data-testid="box" className="bg-blue-dark" />
-                <div data-testid="box" className="bg-blue-dark" />
-                <div data-testid="box" className="bg-blue-dark" />
-                <div data-testid="box" className="bg-blue-dark" />
-                <div data-testid="box" className="bg-blue-dark" />
-                <div data-testid="box" className="bg-blue-dark" />
-                <div data-testid="box" className="bg-blue-dark" />
-                <div data-testid="box" className="bg-blue-dark" />
-                <div data-testid="box" className="bg-blue-dark" />
-            </AutoGrid>
-        </AutoGrid>
+        </div>
     );
 };
 Nested.args = {
-    gap: 20,
-    cols: 3,
+    cols: 2,
+    gapCol: 20,
+    gapRow: 10,
+};
+Nested.parameters = {
+    docs: {
+        description: {
+            story:
+                "This example uses a nested `<AutoGrid/>` pattern. The parent AutoGrid supplies a row gap (`gapRow`) and single column layout and the nested AutoGrid supplies a multiple column layout with a specified column gap in `gapCol`. Responsive array `cols` prop can also be combined to achieve responsive column counts at different breakpoints.",
+        },
+    },
 };
