@@ -125,6 +125,13 @@
     }
 }
 
+// Between breakpoints
+@mixin md-to-lg {
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        @content;
+    }
+}
+
 // Quick Breaks - (How our navigation currently breaks)
 @mixin mobile-size-down {
     @media only screen and (max-width: 991.98px) {
@@ -332,6 +339,14 @@ $spacing: (
 @mixin spacing-modifiers($attribute: "margin") {
     @each $name, $size in $spacing {
         &-#{$name} {
+            #{$attribute}: $size !important;
+        }
+    }
+}
+
+@mixin spacing-between($attribute: "margin") {
+    @each $name, $size in $spacing {
+        &-#{$name} > * + * {
             #{$attribute}: $size !important;
         }
     }

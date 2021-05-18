@@ -8,6 +8,12 @@
     e.g. mb-4 or mb-12
     for 4px or 12px equivalent of bottom margin respectively
 */
+.space-y {
+    @include spacing-between($attribute: "margin-top");
+}
+.space-x {
+    @include spacing-between($attribute: "margin-left");
+}
 .m {
     @include spacing-modifiers($attribute: "margin");
 }
@@ -206,6 +212,23 @@
     }
 }
 
+@include md-size-down() {
+    .sm\:hidden {
+        display: none;
+    }
+}
+
+@include md-to-lg() {
+    .md\:hidden {
+        display: none;
+    }
+}
+
+@include lg-size-up() {
+    .lg\:hidden {
+        display: none;
+    }
+}
 /* Basic widths */
 .max-w-1400 {
     max-width: 1400px;
@@ -233,9 +256,46 @@
 /* Positions */
 .flex {
     display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    &.align-start {
+        align-items: flex-start;
+    }
+
+    &.align-end {
+        align-items: flex-end;
+    }
 
     &.align-center {
         align-items: center;
+    }
+
+    &.justify-start {
+        justify-content: flex-start;
+    }
+
+    &.justify-end {
+        justify-content: flex-end;
+    }
+
+    &.justify-center {
+        justify-content: center;
+    }
+
+    &.col {
+        flex-direction: column;
+    }
+
+    &.row {
+        flex-direction: row;
+    }
+
+    .flex-grow {
+        flex-grow: 1;
+    }
+    .flex-shrink {
+        flex-shrink: 1;
     }
 }
 
