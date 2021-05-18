@@ -38,9 +38,11 @@ export const TimePicker = forwardRef(
             isPeriodDisabled,
             isRequired,
             timeOptions,
+            placeholder,
             onChange,
             positioning,
             placement,
+            isNative,
             value,
             modifiers = [],
         },
@@ -66,12 +68,13 @@ export const TimePicker = forwardRef(
             <div className={classify("mainsail-timepicker", className)}>
                 <Dropdown
                     ref={ref}
+                    isNative={isNative}
                     className={classify("mainsail-timepicker__time")}
                     isRequired={isRequired}
                     isDisabled={isDisabled || isTimeDisabled}
                     value={selectedTime}
                     defaultValue={value}
-                    placeholder="00:00"
+                    placeholder={placeholder}
                     placement={placement}
                     positioning={positioning}
                     hasCaret={false}
@@ -83,6 +86,7 @@ export const TimePicker = forwardRef(
                     onChange={({ value }) => handleSelect("time", value)}
                 />
                 <Dropdown
+                    isNative={isNative}
                     className={classify("mainsail-timepicker__period")}
                     defaultValue="AM"
                     placeholder="AM"
@@ -102,6 +106,7 @@ export const TimePicker = forwardRef(
 );
 
 TimePicker.defaultProps = {
+    placeholder: "00:00",
     timeOptions: [
         "12:00",
         "12:30",
@@ -131,6 +136,8 @@ TimePicker.defaultProps = {
 };
 
 TimePicker.propTypes = {
+    /** Controls whether to use custom styled dropdown or native select element (useful for mobile) */
+    isNative: PropTypes.bool,
     /** Current selected value */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Callback to fire when time/period change happens receives arguments { time, period } */
@@ -145,6 +152,8 @@ TimePicker.propTypes = {
     isRequired: PropTypes.bool,
     /** Style class to add to component wrapper */
     className: PropTypes.string,
+    /** String to show as the placeholder text in the time dropdown */
+    placeholder: PropTypes.string,
     /** Array of time choices to present to the user */
     timeOptions: PropTypes.arrayOf(PropTypes.string),
     /** Position the dropdown menu */

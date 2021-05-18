@@ -29,6 +29,7 @@ const Template = (args) => <TimePicker {...args} />;
 
 export const Basic = Template.bind({});
 Basic.args = {
+    placeholder: "00:00",
     timeOptions: [
         "12:00",
         "12:30",
@@ -59,6 +60,14 @@ Basic.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
+    placeholder: "00:00",
     timeOptions: ["12:00", "12:30", "1:00"],
     isDisabled: true,
+};
+
+export const NativeDropdowns = Template.bind({});
+NativeDropdowns.args = {
+    placeholder: "00:00",
+    timeOptions: ["12:00", "12:30", "1:00"],
+    isNative: true,
 };

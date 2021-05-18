@@ -5,7 +5,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
-import { Basic, Disabled } from "./TimePicker.stories";
+import { Basic, Disabled, NativeDropdowns } from "./TimePicker.stories";
 
 it("renders the timepicker in the primary state", () => {
     render(<Basic {...Basic.args} />);
@@ -50,6 +50,12 @@ it("can render as disabled", async () => {
     render(<Disabled {...Disabled.args} />);
     expect(screen.getAllByRole("button")[0]).toBeDisabled();
     expect(screen.getAllByRole("button")[1]).toBeDisabled();
+});
+
+it("can render both as a native select", async () => {
+    render(<NativeDropdowns {...NativeDropdowns.args} />);
+    expect(screen.queryAllByRole("listbox")[0]).toBeInTheDocument();
+    expect(screen.queryAllByRole("listbox")[1]).toBeInTheDocument();
 });
 
 it("can be opened and closed with keyboard", async () => {

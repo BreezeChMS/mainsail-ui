@@ -10,12 +10,17 @@
         flex-shrink: 0;
 
         &.mainsail-timepicker__time {
+            text-align: center;
+            text-align-last: center;
+
             .mainsail-dropdown__item {
-                align-self: flex-end;
+                align-items: flex-end;
+                flex-basis: 100%;
             }
         }
 
-        &.mainsail-timepicker__time button.mainsail-dropdown__toggle {
+        &.mainsail-timepicker__time button.mainsail-dropdown__toggle,
+        &.mainsail-timepicker__time select {
             text-align: center;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
@@ -31,7 +36,8 @@
             }
         }
 
-        &.mainsail-timepicker__period button.mainsail-dropdown__toggle {
+        &.mainsail-timepicker__period button.mainsail-dropdown__toggle,
+        &.mainsail-timepicker__period select {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             padding-left: 12px !important;
