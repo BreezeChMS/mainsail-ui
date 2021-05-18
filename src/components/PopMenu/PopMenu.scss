@@ -1,0 +1,47 @@
+@import "../../styles/Variables.scss";
+
+/** PopMenu Component Styles */
+.mainsail-pop-menu {
+    * {
+        box-sizing: border-box;
+    }
+    .mainsail-pop-menu__menu {
+        display: flex;
+        flex-direction: column;
+        z-index: 10000;
+        min-width: 130px;
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: $mainsail-white;
+        border-radius: $mainsail-popmenu-radius;
+        box-shadow: $mainsail-shadow-near;
+        overflow: hidden;
+        border: none;
+
+        button.mainsail-pop-menu__item {
+            @include mainsail-button-text-regular;
+            display: flex;
+            align-items: center;
+            height: 33px;
+            border: none;
+            background-color: $mainsail-white;
+            color: $mainsail-blue-primary;
+            padding-left: 14px;
+            padding-right: 14px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $mainsail-blue-primary;
+                color: $mainsail-white;
+            }
+        }
+
+        hr {
+            appearance: none;
+            margin: 0;
+            width: 100%;
+            border: none;
+            border-top: 1px solid $mainsail-neutral-5;
+        }
+    }
+}

@@ -109,7 +109,8 @@ export const Modal = ({
 
     useEffect(() => {
         if (isOpen && initialFocusRef) {
-            initialFocusRef.current && initialFocusRef.current.focus();
+            initialFocusRef.current &&
+                initialFocusRef.current.focus({ preventScroll: true });
         }
     }, [initialFocusRef, onCloseFocusRef, isOpen]);
 

@@ -4,6 +4,9 @@
 // Utility Sass (mixins)
 @import "./Utility.scss";
 
+// Tables
+$mainsail-table-border: 1px solid $mainsail-neutral-5;
+
 // Input Styling
 $mainsail-input-border-radius: 4px;
 $mainsail-input-border: $mainsail-neutral-4;
@@ -11,7 +14,7 @@ $mainsail-input-border-active: $mainsail-blue-primary;
 $mainsail-input-border-error: $mainsail-red-middle;
 
 // Shadows
-$mainsail-shadow-sticky-bar: 0px 4px 22px -13px rgba(0, 52, 98, 0.2);
+$mainsail-shadow-sticky: 0px 2px 4px rgba(0, 52, 98, 0.1);
 $mainsail-shadow-far: 0px 2px 32px -12px rgba(0, 52, 98, 0.25);
 $mainsail-shadow-near: 0px 2px 8px -2px rgba(0, 52, 98, 0.3);
 $mainsail-shadow-active: 0px 0px 2px 1px rgba(0, 111, 186, 0.5);
@@ -40,9 +43,12 @@ $mainsail-shadow-active: 0px 0px 2px 1px rgba(0, 111, 186, 0.5);
 }
 
 // Radius properties
+$mainsail-table-border-radius: 10px;
+$mainsail-skeleton-radius: 4px;
 $mainsail-pill-radius: 20px;
 $mainsail-alert-radius: 4px;
 $mainsail-tip-radius: 4px;
+$mainsail-popmenu-radius: 4px;
 $mainsail-tab-radius: 8px;
 $mainsail-modal-radius: 8px;
 $mainsail-button-border-radius: 4px;

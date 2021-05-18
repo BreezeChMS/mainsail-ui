@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 
@@ -12,25 +12,24 @@ export const ENUMS = {};
 /**
  * A text field for user input - For use as subcomponent of **FormControl** (any native props not shown are passed through)
  **/
-export const Input = ({
-    className,
-    type,
-    isDisabled,
-    isReadOnly,
-    isRequired,
-    ...props
-}) => {
-    return (
-        <input
-            type={type}
-            required={isRequired}
-            readOnly={isReadOnly}
-            disabled={isDisabled}
-            className={classify("mainsail-input", className)}
-            {...props}
-        />
-    );
-};
+export const Input = forwardRef(
+    (
+        { className, type, isDisabled, isReadOnly, isRequired, ...props },
+        ref
+    ) => {
+        return (
+            <input
+                ref={ref}
+                type={type}
+                required={isRequired}
+                readOnly={isReadOnly}
+                disabled={isDisabled}
+                className={classify("mainsail-input", className)}
+                {...props}
+            />
+        );
+    }
+);
 
 Input.propTypes = {
     /** Disables input field */

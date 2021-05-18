@@ -28,6 +28,7 @@ Simple.parameters = {
 
 export const TipTop = Template.bind({});
 TipTop.args = {
+    positioning: Tooltip.positionings.fixed,
     placement: Tooltip.placements.top,
     text: "This text helps alot up top!",
     isVisible: true,
@@ -38,6 +39,7 @@ TipTop.parameters = {
 
 export const TipBottom = Template.bind({});
 TipBottom.args = {
+    positioning: Tooltip.positionings.fixed,
     placement: Tooltip.placements.bottom,
     text: "This text helps from below!",
     isVisible: true,
@@ -48,6 +50,7 @@ TipBottom.parameters = {
 
 export const WithChildren = Template.bind({});
 WithChildren.args = {
+    positioning: Tooltip.positionings.fixed,
     placement: Tooltip.placements.bottom,
     text: "If you click, you'll edit it!",
     offset: 20,
@@ -71,6 +74,7 @@ WithChildren.parameters = {
 export const Disabled = Template.bind({});
 Disabled.args = {
     placement: Tooltip.placements.bottom,
+    positioning: Tooltip.positionings.fixed,
     text: "I'm so sad you don't get to see this epic tip!",
     offset: 20,
     isDisabled: true,
@@ -121,6 +125,7 @@ export const WithCustomModifiers = (args) => {
 
 WithCustomModifiers.args = {
     text: "This text would overflow the parent without the modifiers.",
+    positioning: Tooltip.positionings.fixed,
     modifiers: [
         {
             name: "preventOverflow",

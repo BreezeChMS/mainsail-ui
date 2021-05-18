@@ -10,20 +10,60 @@
 /* Grid-template Generation */
 @mixin grid-templates() {
     @for $_ from 1 through 12 {
-        &.grid-cols-#{$_} {
+        &.sm-grid-cols-#{$_} {
             grid-template-columns: repeat($_, minmax(0, 1fr));
         }
 
-        &.grid-rows-#{$_} {
+        &.sm-grid-rows-#{$_} {
             grid-template-rows: repeat($_, minmax(0, 1fr));
         }
 
-        .col-span-#{$_} {
+        .sm-col-span-#{$_} {
             grid-column: span $_;
         }
 
-        .row-span-#{$_} {
+        .sm-row-span-#{$_} {
             grid-row: span $_;
+        }
+    }
+
+    @include md-size-up() {
+        @for $_ from 1 through 12 {
+            &.md-grid-cols-#{$_} {
+                grid-template-columns: repeat($_, minmax(0, 1fr));
+            }
+
+            &.md-grid-rows-#{$_} {
+                grid-template-rows: repeat($_, minmax(0, 1fr));
+            }
+
+            .md-col-span-#{$_} {
+                grid-column: span $_;
+            }
+
+            .md-row-span-#{$_} {
+                grid-row: span $_;
+            }
+        }
+    }
+
+    @include lg-size-up() {
+        @for $_ from 1 through 12 {
+            &.lg-grid-cols-#{$_} {
+                grid-template-columns: repeat($_, minmax(0, 1fr));
+            }
+
+            &.lg-grid-rows-#{$_} {
+                grid-template-rows: repeat($_, minmax(0, 1fr));
+            }
+
+            .lg-col-span-#{$_} {
+                grid-column: span $_;
+            }
+
+            .lg-row-span-#{$_} {
+                grid-row: span $_;
+            }
         }
     }
 
@@ -120,6 +160,17 @@
     font-weight: bold;
     font-size: 14px;
     line-height: 18px;
+}
+
+/* Table Text Mixins */
+
+@mixin mainsail-table-header-text-small {
+    font-family: $font;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0.04em;
 }
 
 /* Body Text Mixins */

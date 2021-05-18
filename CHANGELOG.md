@@ -1,3 +1,111 @@
+# v0.16.0 (Mon May 17 2021)
+
+#### 🚀 Enhancement
+
+- adds support for gapRow and gapCol to AutoGrid [#83](https://github.com/BreezeChMS/mainsail-ui/pull/83) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- refactors usage documentation to add CSS utility bits [skip-chromatic] [#82](https://github.com/BreezeChMS/mainsail-ui/pull/82) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
+# v0.15.0 (Fri May 14 2021)
+
+#### 🚀 Enhancement
+
+- adds responsive support to AutoGrid 🎉 [#81](https://github.com/BreezeChMS/mainsail-ui/pull/81) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🐛 Bug Fix
+
+- Removes lodash peer dep [#80](https://github.com/BreezeChMS/mainsail-ui/pull/80) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
+# v0.14.5 (Fri May 14 2021)
+
+#### 🐛 Bug Fix
+
+- prevents scroll when modal opens and focus is called [#79](https://github.com/BreezeChMS/mainsail-ui/pull/79) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
+# v0.14.4 (Fri May 14 2021)
+
+#### 🐛 Bug Fix
+
+- adds some missing forward refs on common inputs [#78](https://github.com/BreezeChMS/mainsail-ui/pull/78) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
+# v0.14.3 (Thu May 13 2021)
+
+#### 🐛 Bug Fix
+
+- Bug fixes [#77](https://github.com/BreezeChMS/mainsail-ui/pull/77) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
+# v0.14.2 (Thu May 13 2021)
+
+#### 🐛 Bug Fix
+
+- flips the sort icon to modern standards? [#76](https://github.com/BreezeChMS/mainsail-ui/pull/76) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
+# v0.14.1 (Thu May 13 2021)
+
+#### 🐛 Bug Fix
+
+- Table fixes [#75](https://github.com/BreezeChMS/mainsail-ui/pull/75) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
+# v0.14.0 (Thu May 13 2021)
+
+#### 🚀 Enhancement
+
+- CO-13 Table, PopMenu + [#74](https://github.com/BreezeChMS/mainsail-ui/pull/74) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🐛 Bug Fix
+
+- adds AutoGridItem alignment props [#73](https://github.com/BreezeChMS/mainsail-ui/pull/73) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.13.4 (Thu May 06 2021)
 
 #### 🐛 Bug Fix

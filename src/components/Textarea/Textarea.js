@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 
@@ -12,25 +12,24 @@ export const ENUMS = {};
 /**
  * A multi-line text input - Use as a subcomponent of **FormControl** (any native props not shown are passed through)
  **/
-export const Textarea = ({
-    className,
-    children,
-    isDisabled,
-    isReadOnly,
-    isRequired,
-    ...props
-}) => {
-    return (
-        <textarea
-            required={isRequired}
-            readOnly={isReadOnly}
-            disabled={isDisabled}
-            className={classify("mainsail-textarea", className)}
-            {...props}>
-            {children}
-        </textarea>
-    );
-};
+export const Textarea = forwardRef(
+    (
+        { className, children, isDisabled, isReadOnly, isRequired, ...props },
+        ref
+    ) => {
+        return (
+            <textarea
+                ref={ref}
+                required={isRequired}
+                readOnly={isReadOnly}
+                disabled={isDisabled}
+                className={classify("mainsail-textarea", className)}
+                {...props}>
+                {children}
+            </textarea>
+        );
+    }
+);
 
 Textarea.propTypes = {
     /** Disables input field */
