@@ -107,6 +107,7 @@ export const TimePicker = forwardRef(
 
 TimePicker.defaultProps = {
     placeholder: "00:00",
+    positioning: "fixed",
     timeOptions: [
         "12:00",
         "12:30",
@@ -164,9 +165,6 @@ TimePicker.propTypes = {
     modifiers: PropTypes.arrayOf(PropTypes.object),
 };
 
-TimePicker.defaultProps = {
-    positioning: "fixed",
-};
 TimePicker.displayName = "TimePicker";
 
 TimePicker.placements = placements;
