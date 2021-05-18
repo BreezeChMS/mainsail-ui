@@ -49,6 +49,7 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
             };
         case "Dropdown":
         case "TimePicker":
+        case "NativeDatePicker":
             return {
                 className: classify(
                     child.props.className,

@@ -1,0 +1,52 @@
+@import "../../styles/Variables.scss";
+
+/** DatePicker Component Styles */
+.mainsail-native-datepicker {
+    position: relative;
+
+    input[type="date"] {
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        @include mainsail-body-text-regular;
+        color: $mainsail-neutral-2;
+        height: 36px;
+        border-radius: $mainsail-input-border-radius;
+        border: 1px solid $mainsail-input-border;
+        background-color: $mainsail-white;
+        box-sizing: border-box;
+        padding: 7px;
+        padding-left: 30px;
+        text-transform: uppercase;
+
+        &::placeholder {
+            color: $mainsail-neutral-2;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+            border-color: $mainsail-blue-primary;
+            border: 1px solid $mainsail-blue-primary;
+            box-shadow: $mainsail-shadow-near;
+        }
+
+        @include disabled;
+
+        @include readonly;
+    }
+
+    input[type="date"]::-webkit-clear-button {
+        display: initial;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        color: $mainsail-neutral-2;
+        display: none;
+    }
+
+    .mainsail-icon {
+        position: absolute;
+        left: 8px;
+        top: 10px;
+    }
+}

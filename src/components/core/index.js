@@ -1,4 +1,5 @@
 // Components Global Export for plopjs
+export { NativeDatePicker } from "../NativeDatePicker";
 export { TimePicker } from "../TimePicker";
 export { PopMenu, PopMenuItem } from "../PopMenu";
 export { Table, Column, Actions } from "../Table";
