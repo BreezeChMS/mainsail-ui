@@ -20,7 +20,6 @@ jobs:
         id: node-modules
         uses: actions/cache@v1
         with:
-          path: ui/node_modules/
           key: ${{ runner.os }}-npm_directory-${{ github.head_ref }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
