@@ -182,7 +182,7 @@ FormRadioGroup.parameters = {
 export const TimePickerInput = (args) => (
     <FormControl {...args}>
         <FormLabel text="Meeting Time" />
-        <TimePicker timeOptions={["1:30", "2:30", "3:30"]} />
+        <TimePicker timeOptions={["1:30", "2:30", "3:30"]} value="1:30" />
     </FormControl>
 );
 TimePickerInput.args = {

@@ -48,7 +48,7 @@ export const TimePicker = forwardRef(
         },
         ref
     ) => {
-        const [selectedTime, setSelectedTime] = useState();
+        const [selectedTime, setSelectedTime] = useState(value);
         const [selectedPeriod, setSelectedPeriod] = useState("AM");
 
         const handleSelect = (type, value) => {
