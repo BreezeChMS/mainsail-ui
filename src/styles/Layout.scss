@@ -8,6 +8,12 @@
     e.g. mb-4 or mb-12
     for 4px or 12px equivalent of bottom margin respectively
 */
+.space-y {
+    @include spacing-between($attribute: "margin-top");
+}
+.space-x {
+    @include spacing-between($attribute: "margin-left");
+}
 .m {
     @include spacing-modifiers($attribute: "margin");
 }
@@ -56,6 +62,174 @@
     @include spacing-modifiers($attribute: "padding-left");
 }
 
+@include md-size-down() {
+    .sm\:m {
+        @include spacing-modifiers($attribute: "margin");
+    }
+    .sm\:mx {
+        @include spacing-modifiers($attribute: "margin-left");
+        @include spacing-modifiers($attribute: "margin-right");
+    }
+    .sm\:my {
+        @include spacing-modifiers($attribute: "margin-top");
+        @include spacing-modifiers($attribute: "margin-bottom");
+    }
+    .sm\:mt {
+        @include spacing-modifiers($attribute: "margin-top");
+    }
+    .sm\:mr {
+        @include spacing-modifiers($attribute: "margin-right");
+    }
+    .sm\:mb {
+        @include spacing-modifiers($attribute: "margin-bottom");
+    }
+    .sm\:ml {
+        @include spacing-modifiers($attribute: "margin-left");
+    }
+
+    .sm\:p {
+        @include spacing-modifiers($attribute: "padding");
+    }
+    .sm\:px {
+        @include spacing-modifiers($attribute: "padding-left");
+        @include spacing-modifiers($attribute: "padding-right");
+    }
+    .sm\:py {
+        @include spacing-modifiers($attribute: "padding-top");
+        @include spacing-modifiers($attribute: "padding-bottom");
+    }
+    .sm\:pt {
+        @include spacing-modifiers($attribute: "padding-top");
+    }
+    .sm\:pr {
+        @include spacing-modifiers($attribute: "padding-right");
+    }
+    .sm\:pb {
+        @include spacing-modifiers($attribute: "padding-bottom");
+    }
+    .sm\:pl {
+        @include spacing-modifiers($attribute: "padding-left");
+    }
+}
+
+@include md-size-up() {
+    .md\:m {
+        @include spacing-modifiers($attribute: "margin");
+    }
+    .md\:mx {
+        @include spacing-modifiers($attribute: "margin-left");
+        @include spacing-modifiers($attribute: "margin-right");
+    }
+    .md\:my {
+        @include spacing-modifiers($attribute: "margin-top");
+        @include spacing-modifiers($attribute: "margin-bottom");
+    }
+    .md\:mt {
+        @include spacing-modifiers($attribute: "margin-top");
+    }
+    .md\:mr {
+        @include spacing-modifiers($attribute: "margin-right");
+    }
+    .md\:mb {
+        @include spacing-modifiers($attribute: "margin-bottom");
+    }
+    .md\:ml {
+        @include spacing-modifiers($attribute: "margin-left");
+    }
+
+    .md\:p {
+        @include spacing-modifiers($attribute: "padding");
+    }
+    .md\:px {
+        @include spacing-modifiers($attribute: "padding-left");
+        @include spacing-modifiers($attribute: "padding-right");
+    }
+    .md\:py {
+        @include spacing-modifiers($attribute: "padding-top");
+        @include spacing-modifiers($attribute: "padding-bottom");
+    }
+    .md\:pt {
+        @include spacing-modifiers($attribute: "padding-top");
+    }
+    .md\:pr {
+        @include spacing-modifiers($attribute: "padding-right");
+    }
+    .md\:pb {
+        @include spacing-modifiers($attribute: "padding-bottom");
+    }
+    .md\:pl {
+        @include spacing-modifiers($attribute: "padding-left");
+    }
+}
+
+@include lg-size-up() {
+    .lg\:m {
+        @include spacing-modifiers($attribute: "margin");
+    }
+    .lg\:mx {
+        @include spacing-modifiers($attribute: "margin-left");
+        @include spacing-modifiers($attribute: "margin-right");
+    }
+    .lg\:my {
+        @include spacing-modifiers($attribute: "margin-top");
+        @include spacing-modifiers($attribute: "margin-bottom");
+    }
+    .lg\:mt {
+        @include spacing-modifiers($attribute: "margin-top");
+    }
+    .lg\:mr {
+        @include spacing-modifiers($attribute: "margin-right");
+    }
+    .lg\:mb {
+        @include spacing-modifiers($attribute: "margin-bottom");
+    }
+    .lg\:ml {
+        @include spacing-modifiers($attribute: "margin-left");
+    }
+
+    .lg\:p {
+        @include spacing-modifiers($attribute: "padding");
+    }
+    .lg\:px {
+        @include spacing-modifiers($attribute: "padding-left");
+        @include spacing-modifiers($attribute: "padding-right");
+    }
+    .lg\:py {
+        @include spacing-modifiers($attribute: "padding-top");
+        @include spacing-modifiers($attribute: "padding-bottom");
+    }
+    .lg\:pt {
+        @include spacing-modifiers($attribute: "padding-top");
+    }
+    .lg\:pr {
+        @include spacing-modifiers($attribute: "padding-right");
+    }
+    .lg\:pb {
+        @include spacing-modifiers($attribute: "padding-bottom");
+    }
+    .lg\:pl {
+        @include spacing-modifiers($attribute: "padding-left");
+    }
+}
+
+@include md-size-down() {
+    .sm\:hidden {
+        display: none;
+    }
+}
+
+@include md-to-lg() {
+    .md\:hidden {
+        display: none;
+    }
+}
+
+@include lg-size-up() {
+    .lg\:hidden {
+        display: none;
+    }
+}
+/* Basic widths */
 .max-w-1400 {
     max-width: 1400px;
 }
@@ -82,9 +256,46 @@
 /* Positions */
 .flex {
     display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    &.align-start {
+        align-items: flex-start;
+    }
+
+    &.align-end {
+        align-items: flex-end;
+    }
 
     &.align-center {
         align-items: center;
+    }
+
+    &.justify-start {
+        justify-content: flex-start;
+    }
+
+    &.justify-end {
+        justify-content: flex-end;
+    }
+
+    &.justify-center {
+        justify-content: center;
+    }
+
+    &.col {
+        flex-direction: column;
+    }
+
+    &.row {
+        flex-direction: row;
+    }
+
+    .flex-grow {
+        flex-grow: 1;
+    }
+    .flex-shrink {
+        flex-shrink: 1;
     }
 }
 
