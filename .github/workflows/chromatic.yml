@@ -23,9 +23,6 @@ jobs:
           key: ${{ runner.os }}-npm_directory-${{ github.head_ref }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
         if: steps.node-modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
