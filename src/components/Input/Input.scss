@@ -13,6 +13,7 @@ input[type="password"],
 input[type="number"] {
     &.mainsail-input {
         @include mainsail-body-text-regular;
+
         padding: 7px;
         color: $mainsail-neutral-2;
         height: 36px;
