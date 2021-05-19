@@ -34,6 +34,14 @@ export default {
             },
             options: ["", ...Object.keys(Icon.names)],
         },
+        iconSize: {
+            name: "iconSize",
+            type: { name: "string" },
+            control: {
+                type: "select",
+            },
+            options: ["", ...Object.keys(Icon.sizes)],
+        },
     },
 };
 
@@ -80,7 +88,8 @@ IconRight.args = {
 export const IconOnly = Template.bind({});
 IconOnly.args = {
     variant: Button.variants.icon,
-    icon: Icon.names.settings,
+    icon: Icon.names.edit,
+    iconSize: Icon.sizes.lg,
 };
 
 export const Intent = Template.bind({});

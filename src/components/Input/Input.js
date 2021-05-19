@@ -32,7 +32,7 @@ export const Input = forwardRef(
 );
 
 Input.propTypes = {
-    /** Disables input field */
+    /** Disables input field  */
     isDisabled: PropTypes.bool,
     /** Marks the form control as required */
     isRequired: PropTypes.bool,

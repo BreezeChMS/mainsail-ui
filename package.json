@@ -27,7 +27,7 @@
     "deploy-storybook": "storybook-to-ghpages",
     "lint": "eslint \"src/**/*.js\" -c .eslintrc.json",
     "release": "auto shipit",
-    "chromatic": "chromatic --project-token CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes"
+    "chromatic": "chromatic --project-token ar00duk4nfu --exit-zero-on-changes"
   },
   "engines": {
     "node": ">=12.0.0"
