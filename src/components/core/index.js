@@ -31,7 +31,6 @@ export * from "../../utility/hooks";
 import { ENUMS as AutoGridENUMS } from "../AutoGrid";
 import { ENUMS as TextareaENUMS } from "../Textarea";
 import { ENUMS as FormLabelENUMS } from "../FormLabel";
-import { ENUMS as FormControlENUMS } from "../FormControl";
 import { ENUMS as InputENUMS } from "../Input";
 import { ENUMS as TransitionENUMS } from "../Transition";
 import { ENUMS as ModalENUMS } from "../Modal";
@@ -51,7 +50,6 @@ export const ENUMS = {
     AutoGrid: AutoGridENUMS,
     Textarea: TextareaENUMS,
     FormLabel: FormLabelENUMS,
-    FormControl: FormControlENUMS,
     Input: InputENUMS,
     Transition: TransitionENUMS,
     Modal: ModalENUMS,
