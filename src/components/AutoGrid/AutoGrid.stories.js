@@ -36,6 +36,14 @@ export default {
             },
             options: Object.values(AutoGrid.gaps),
         },
+        gap: {
+            name: "gap",
+            type: { gap: "string" },
+            control: {
+                type: "select",
+            },
+            options: Object.values(AutoGrid.gaps),
+        },
     },
     parameters: {
         docs: {
@@ -204,27 +212,33 @@ AutoColumns.parameters = {
     },
 };
 
-export const Nested = (args) => {
+export const Nested = () => {
     return (
         <div>
             <AutoGrid
-                rows="auto"
-                cols={1}
-                gapRow={args.gapRow}
-                className="mb-48">
-                <AutoGrid rows="auto" {...args}>
+                rows={2}
+                cols={[6, 12]}
+                flow="col"
+                gapRow={10}
+                className="mb-48 w-full">
+                <AutoGrid
+                    rows="auto"
+                    colSpan={6}
+                    gapRow={10}
+                    gapCol={20}
+                    cols={[1, 2]}>
                     <>
-                        <FormControl>
+                        <FormControl colSpan={1}>
                             <FormLabel text="First Name" />
                             <Input />
                         </FormControl>
-                        <FormControl>
+                        <FormControl colSpan={1}>
                             <FormLabel text="Last Name" />
                             <Input />
                         </FormControl>
                     </>
                 </AutoGrid>
-                <FormControl>
+                <FormControl colSpan={6}>
                     <FormLabel text="Something Longer" />
                     <Input />
                 </FormControl>
@@ -232,16 +246,11 @@ export const Nested = (args) => {
         </div>
     );
 };
-Nested.args = {
-    cols: 2,
-    gapCol: 20,
-    gapRow: 10,
-};
 Nested.parameters = {
     docs: {
         description: {
             story:
-                "This example uses a nested `<AutoGrid/>` pattern. The parent AutoGrid supplies a row gap (`gapRow`) and single column layout and the nested AutoGrid supplies a multiple column layout with a specified column gap in `gapCol`. Responsive array `cols` prop can also be combined to achieve responsive column counts at different breakpoints.",
+                "This example uses a nested `<AutoGrid/>` pattern. The parent AutoGrid supplies a full 12 col distance to span and a row gap (`gapRow`). The nested AutoGrid supplies two columns that in total take up 4 columns of the parent. A specified column gap in `gapCol`. Responsive array `cols` prop can also be combined to achieve responsive column counts at different breakpoints.",
         },
     },
 };
