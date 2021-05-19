@@ -1,7 +1,6 @@
 import React from "react";
 
 import { AutoGrid, AutoGridItem } from "./AutoGrid";
-import { FormControl, FormLabel, Input, Dropdown } from "components/core";
 
 export default {
     title: "Layout/Grid/AutoGridItem",
@@ -12,6 +11,7 @@ export default {
                 component: `A subcomponent for AutoGrid
                 \n- supply \`colSpan\` & \`rowSpan\` to control grid item spanning
                 \n- can control grid item alignment with \`alignItems\` & \`justifyContent\`
+                \n- NOTE: You do not need to wrap a FormControl with this for the purpose of using \`colSpan\` because FormControl supports that prop natively
                 `,
             },
         },
@@ -56,35 +56,4 @@ Responsive.parameters = {
                 "`<AutoGrid.Item/>` `rowSpan` and `colSpan` can be supplied an array of row/col counts to use at `sm`, `md`, and `lg` breakpoints.",
         },
     },
-};
-
-export const FormExample = () => {
-    return (
-        <AutoGrid cols={12} gap={10}>
-            <AutoGrid.Item colSpan={12}>
-                <FormControl>
-                    <FormLabel text="Address" />
-                    <Input />
-                </FormControl>
-            </AutoGrid.Item>
-            <AutoGrid.Item colSpan={[12, 6]}>
-                <FormControl>
-                    <FormLabel text="City" />
-                    <Input />
-                </FormControl>
-            </AutoGrid.Item>
-            <AutoGrid.Item colSpan={[12, 2]}>
-                <FormControl>
-                    <FormLabel text="State" />
-                    <Dropdown options={[]} placeholder="" />
-                </FormControl>
-            </AutoGrid.Item>
-            <AutoGrid.Item colSpan={[12, 4]}>
-                <FormControl>
-                    <FormLabel text="Zip Code" />
-                    <Input />
-                </FormControl>
-            </AutoGrid.Item>
-        </AutoGrid>
-    );
 };
