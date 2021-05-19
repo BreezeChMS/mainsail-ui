@@ -12,6 +12,7 @@ import {
     FormInputOptions,
     FormInputIcon,
     Checkbox,
+    Dropdown,
     Transition,
 } from "components/core";
 
@@ -220,7 +221,7 @@ AutoColumns.parameters = {
     },
 };
 
-export const Nested = () => {
+export const FormExample = () => {
     return (
         <div>
             <AutoGrid cols={12}>
@@ -236,11 +237,11 @@ export const Nested = () => {
                         gapRow={10}
                         gapCol={20}
                         cols={[1, 2]}>
-                        <FormControl colSpan={1}>
+                        <FormControl>
                             <FormLabel text="First Name" />
                             <Input />
                         </FormControl>
-                        <FormControl colSpan={1}>
+                        <FormControl>
                             <FormLabel text="Last Name" />
                             <Input />
                         </FormControl>
@@ -259,12 +260,33 @@ export const Nested = () => {
                         <Input />
                         <FormInputIcon name={FormInputIcon.names.email} />
                     </FormControl>
+                    <AutoGrid cols={12} colSpan={[12, 6]} gap={10}>
+                        <FormControl colSpan={12}>
+                            <FormLabel text="Address" />
+                            <Input />
+                        </FormControl>
+                        <FormControl colSpan={[12, 6]}>
+                            <FormLabel text="City" />
+                            <Input />
+                        </FormControl>
+                        <FormControl colSpan={[12, 2]}>
+                            <FormLabel text="State" />
+                            <Dropdown
+                                options={[{ text: "IN", value: 1 }]}
+                                placeholder=""
+                            />
+                        </FormControl>
+                        <FormControl colSpan={[12, 4]}>
+                            <FormLabel text="Zip Code" />
+                            <Input />
+                        </FormControl>
+                    </AutoGrid>
                 </AutoGrid>
             </AutoGrid>
         </div>
     );
 };
-Nested.parameters = {
+FormExample.parameters = {
     docs: {
         description: {
             story:
