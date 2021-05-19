@@ -1,6 +1,6 @@
 {
   "name": "mainsail-ui",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.module.js",
@@ -27,7 +27,7 @@
     "deploy-storybook": "storybook-to-ghpages",
     "lint": "eslint \"src/**/*.js\" -c .eslintrc.json",
     "release": "auto shipit",
-    "chromatic": "chromatic --project-token CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes"
+    "chromatic": "chromatic --project-token ar00duk4nfu --exit-zero-on-changes"
   },
   "engines": {
     "node": ">=12.0.0"
@@ -94,7 +94,7 @@
     "node-sass": "4.14.1",
     "path": "^0.12.7",
     "plop": "^2.7.4",
-    "postcss": "^8.2.4",
+    "postcss": "^8.2.10",
     "postcss-cli": "^8.3.1",
     "react": "17.0.0",
     "react-dom": "17.0.0",

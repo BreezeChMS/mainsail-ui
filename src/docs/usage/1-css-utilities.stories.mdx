@@ -8,18 +8,25 @@ import { Icon } from "../../components/Icon";
 
 Mainsail comes with a few utility classes for working within the Mainsail design specs.
 
-## Why Utility Classes?
-
-Because adding bespoke CSS per component for things that are constantly repeated adds to the "append-only" nature of our CSS footprint.
-
-Applying the 80/20 principle, having these classes available helps us to get the 80% done with 20% of the code. (Where the 80% is common use cases for positioning, layout and style ... and the 20% can likely be reused throughout the app.)
-
 ## What's available?
 
 -   [Colors](#colors)
--   [Spacing](#spacing) (Margins/Padding)
+-   [Spacing](#spacing) (margins/padding with responsive designations available)
 -   [Shadows & Overlays](#shadows--overlays)
 -   [Typography](#typography)
+
+## Why Utility Classes?
+
+Adding bespoke CSS per component for things that are constantly repeated adds to the "append-only" nature and unnecessary size of our CSS footprint.
+
+Applying the 80/20 principle, having these classes available helps us to get the 80% done with 20% of the code. (Where the 80% is common use cases for positioning, layout and style ... and the 20% can likely be reused throughout the app.)
+
+## Eww, how are these better than inline styles?
+
+Utility classes are a fairly common styling pattern that offers [many benefits over inline styles](https://frontstuff.io/no-utility-classes-arent-the-same-as-inline-styles).
+
+The utilities listed on this page are modeled after the very popular [Tailwind CSS](https://2020.stateofcss.com/en-US/technologies/css-frameworks/).
+There are a number of differences, however. For example, not everything has responsive class designations baked-in. Mainsail only includes a small subset of the abilities of Tailwind to save on bundle size.
 
 # Colors
 
@@ -31,37 +38,53 @@ Applies Mainsail color to background `background-color:` css property.
 
 Uses the syntax `bg-<color>-<variant>`.
 
-<Canvas>
-    <div class="body-text sm">
-        <div class="bg-blue-primary p-8">bg-blue-primary</div>
-        <div class="bg-blue-light p-8">bg-blue-light</div>
-        <div class="bg-blue-middle p-8 text-blue-light">bg-blue-middle</div>
-        <div class="bg-blue-dark p-8 text-blue-light">bg-blue-dark</div>
-        <br />
-        <div class="bg-green-light p-8">bg-green-light</div>
-        <div class="bg-green-middle p-8">bg-green-middle</div>
-        <div class="bg-green-dark p-8 text-green-light">bg-green-dark</div>
-        <br />
-        <div class="bg-violet-light p-8">bg-violet-light</div>
-        <div class="bg-violet-middle p-8 text-violet-light">
+<Canvas className="body-text sm">
+    <div className="space-y-8">
+        <div class="bg-blue-primary rounded p-8">bg-blue-primary</div>
+        <div class="bg-blue-light rounded p-8">bg-blue-light</div>
+        <div class="bg-blue-middle rounded p-8 text-blue-light">
+            bg-blue-middle
+        </div>
+        <div class="bg-blue-dark rounded p-8 text-blue-light">bg-blue-dark</div>
+    </div>
+    <div className="space-y-8">
+        <div class="bg-green-light rounded p-8">bg-green-light</div>
+        <div class="bg-green-middle rounded p-8">bg-green-middle</div>
+        <div class="bg-green-dark rounded p-8 text-green-light">
+            bg-green-dark
+        </div>
+    </div>
+    <div className="space-y-8">
+        <div class="bg-violet-light rounded p-8">bg-violet-light</div>
+        <div class="bg-violet-middle rounded p-8 text-violet-light">
             bg-violet-middle
         </div>
-        <div class="bg-violet-dark p-8 text-violet-light">bg-violet-dark</div>
-        <br />
-        <div class="bg-orange-light p-8">bg-orange-light</div>
-        <div class="bg-orange-middle p-8">bg-orange-middle</div>
-        <div class="bg-orange-dark p-8">bg-orange-dark</div>
-        <br />
-        <div class="bg-red-light p-8">bg-red-light</div>
-        <div class="bg-red-middle p-8">bg-red-middle</div>
-        <div class="bg-red-dark p-8 text-red-light">bg-red-dark</div>
-        <br />
-        <div class="bg-neutral-1 p-8 text-neutral-6">bg-neutral-1</div>
-        <div class="bg-neutral-2 p-8 text-neutral-6">bg-neutral-2</div>
-        <div class="bg-neutral-3 p-8">bg-neutral-3</div>
-        <div class="bg-neutral-4 p-8">bg-neutral-4</div>
-        <div class="bg-neutral-5 p-8">bg-neutral-5</div>
-        <div class="bg-neutral-6 p-8">bg-neutral-6</div>
+        <div class="bg-violet-dark rounded p-8 text-violet-light">
+            bg-violet-dark
+        </div>
+    </div>
+    <div className="space-y-8">
+        <div class="bg-orange-light rounded p-8">bg-orange-light</div>
+        <div class="bg-orange-middle rounded p-8">bg-orange-middle</div>
+        <div class="bg-orange-dark rounded p-8">bg-orange-dark</div>
+    </div>
+    <div className="space-y-8">
+        <div class="bg-red-light rounded p-8">bg-red-light</div>
+        <div class="bg-red-middle rounded p-8">bg-red-middle</div>
+        <div class="bg-red-dark rounded p-8 text-red-light">bg-red-dark</div>
+    </div>
+    <div className="space-y-8">
+        <div class="bg-pink-light rounded p-8">bg-pink-light</div>
+        <div class="bg-pink-middle rounded p-8">bg-pink-middle</div>
+        <div class="bg-pink-dark rounded p-8 text-pink-light">bg-pink-dark</div>
+    </div>
+    <div className="space-y-8">
+        <div class="bg-neutral-1 rounded p-8 text-neutral-6">bg-neutral-1</div>
+        <div class="bg-neutral-2 rounded p-8 text-neutral-6">bg-neutral-2</div>
+        <div class="bg-neutral-3 rounded p-8">bg-neutral-3</div>
+        <div class="bg-neutral-4 rounded p-8">bg-neutral-4</div>
+        <div class="bg-neutral-5 rounded p-8">bg-neutral-5</div>
+        <div class="bg-neutral-6 rounded p-8">bg-neutral-6</div>
     </div>
 </Canvas>
 
@@ -71,29 +94,41 @@ Apply Mainsail color to text `color:` css property.
 
 Uses the syntax `text-<color>-<variant>`.
 
-<Canvas>
-    <div class="body-text lg">
+<Canvas className="body-text sm">
+    <div>
         <div class="text-blue-primary p-8">text-blue-primary</div>
         <div class="text-blue-light p-8">text-blue-light</div>
         <div class="text-blue-middle p-8">text-blue-middle</div>
         <div class="text-blue-dark p-8">text-blue-dark</div>
-        <br />
+    </div>
+    <div>
         <div class="text-green-light p-8">text-green-light</div>
         <div class="text-green-middle p-8">text-green-middle</div>
         <div class="text-green-dark p-8">text-green-dark</div>
-        <br />
+    </div>
+    <div>
         <div class="text-violet-light p-8">text-violet-light</div>
         <div class="text-violet-middle p-8">text-violet-middle</div>
         <div class="text-violet-dark p-8">text-violet-dark</div>
-        <br />
+    </div>
+    <div>
         <div class="text-orange-light p-8">text-orange-light</div>
         <div class="text-orange-middle p-8">text-orange-middle</div>
         <div class="text-orange-dark p-8">text-orange-dark</div>
-        <br />
+    </div>
+    <div>
         <div class="text-red-light p-8">text-red-light</div>
         <div class="text-red-middle p-8">text-red-middle</div>
         <div class="text-red-dark p-8">text-red-dark</div>
-        <br />
+    </div>
+    <div>
+        <div class="text-pink-light rounded p-8">text-pink-light</div>
+        <div class="text-pink-middle rounded p-8">text-pink-middle</div>
+        <div class="text-pink-dark rounded p-8 text-pink-light">
+            text-pink-dark
+        </div>
+    </div>
+    <div>
         <div class="text-neutral-1 p-8">text-neutral-1</div>
         <div class="text-neutral-2 p-8">text-neutral-2</div>
         <div class="text-neutral-3 p-8">text-neutral-3</div>
@@ -145,18 +180,97 @@ If desired, you can supply `x` or `y` to apply to both sides.
 <Canvas>
     <div class="body-text">
         <h3>Margin Top</h3>
-        <div class="bg-neutral-1 p-4"></div>
-        <div class="bg-blue-light p-8 mt-4">mt-4</div>
-        <div class="bg-blue-light p-8 mt-8">mt-8</div>
-        <div class="bg-blue-light p-8 mt-10">mt-10</div>
-        <div class="bg-blue-light p-8 mt-12">mt-12</div>
-        <div class="bg-blue-light p-8 mt-15">mt-15</div>
-        <div class="bg-blue-light p-8 mt-16">mt-16</div>
-        <div class="bg-blue-light p-8 mt-20">mt-20</div>
-        <div class="bg-blue-light p-8 mt-30">mt-30</div>
-        <div class="bg-blue-light p-8 mt-48">mt-48</div>
+        <div class="bg-red-light">
+            <div class="bg-neutral-1 p-4"></div>
+            <div class="bg-blue-light p-8 mt-4">mt-4</div>
+            <div class="bg-blue-light p-8 mt-8">mt-8</div>
+            <div class="bg-blue-light p-8 mt-10">mt-10</div>
+            <div class="bg-blue-light p-8 mt-12">mt-12</div>
+            <div class="bg-blue-light p-8 mt-15">mt-15</div>
+            <div class="bg-blue-light p-8 mt-16">mt-16</div>
+            <div class="bg-blue-light p-8 mt-20">mt-20</div>
+            <div class="bg-blue-light p-8 mt-30">mt-30</div>
+            <div class="bg-blue-light p-8 mt-48">mt-48</div>
+        </div>
     </div>
 </Canvas>
+
+### Space Between
+
+If you need to quickly apply some in-between spacing in a simple way use, `space-y-<amount>` and `space-x-<amount>` (where amount is an integer in the table above) on a parent item. This adds margin to all but the first item of children.
+
+If you have complex scenarios, reach for [AutoGrid](./?path=/docs/layout-grid-autogrid--simple-grid).
+
+<Canvas>
+    <div>
+        <span className="body-text">
+            This example uses <code>space-y-12</code> for automatic vertical
+            spacing.
+        </span>
+        <div className="space-y-12 bg-red-light">
+            <div className="bg-blue-light p-8"></div>
+            <div className="bg-blue-light p-8"></div>
+            <div className="bg-blue-light p-8"></div>
+        </div>
+    </div>
+</Canvas>
+
+<Canvas>
+    <div>
+        <span className="body-text">
+            This example uses <code>space-x-12</code> for automatic horizontal
+            spacing.
+        </span>
+        <div className="space-x-12 bg-red-light flex">
+            <div className="bg-blue-light flex-grow p-8"></div>
+            <div className="bg-blue-light flex-grow p-8"></div>
+            <div className="bg-blue-light flex-grow p-8"></div>
+        </div>
+    </div>
+</Canvas>
+
+> Warning: No responsive features exist for the `space-` utility at this time.
+
+### Responsive Spacing & Hiding
+
+Responsive designations for spacing can be applied. The syntax looks like `<breakpoint>:<class>`
+
+```jsx
+<div className="bg-blue-light p-8 sm:mt-8 md:mt-20 lg:mt-30">mt-48</div>
+```
+
+<Canvas>
+    <div class="body-text">
+        <span class="m-0">
+            Margin with 8px at small, 20px at medium and 30 at large (resize
+            browser window to see)
+        </span>
+        <div class="bg-neutral-1 p-4"></div>
+        <div class="bg-blue-light p-20 sm:mt-8 md:mt-20 lg:mt-30">
+            <span class="md:hidden lg:hidden">
+                Small and under <code>mt-8</code>
+            </span>
+            <span class="sm:hidden lg:hidden">
+                Medium breakpoints only <code>mt-20</code>
+            </span>
+            <span class="md:hidden sm:hidden">
+                Large and up <code>mt-30</code>
+            </span>
+        </div>
+    </div>
+</Canvas>
+
+### Hiding
+
+| Class specifier | Pixels                      |
+| --------------: | --------------------------- |
+|       sm:hidden | Hides at sm- (md and under) |
+|       md:hidden | Hides at md (md to lg)      |
+|       lg:hidden | Hides at lg+ (lg and up)    |
+
+While a few hiding (<code>display: none</code>) helpers exist (shown above), you may be better suited to conditionally unmount components at breakpoints using a `useBreakpoint` hook .
+
+> Note: `import { useBreakpoint } from "mainsail-ui"` — This hook can be used to provide responsive reactivity in JS components, but should be used at a higher level if possible because it responds to window resizing and should be used sparingly.
 
 # Shadows & Overlays
 

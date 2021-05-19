@@ -6,9 +6,9 @@ import { classify } from "utility/classify";
 
 import "./Button.scss";
 
-const renderIcon = (i, side) => {
+const renderIcon = (i, { side, size }) => {
     if (typeof i === "string") {
-        return <Icon name={i} className={classify(side)} />;
+        return <Icon name={i} className={classify(side)} size={size} />;
     }
     return i;
 };
@@ -64,6 +64,7 @@ export const Button = forwardRef(
             isLoading,
             loadingText,
             icon,
+            iconSize,
             isFullWidth,
             intent,
             isDisabled,
@@ -108,11 +109,15 @@ export const Button = forwardRef(
                     }
                 )}
                 {...props}>
-                {iconLeft ? renderIcon(iconLeft, "left") : null}
+                {iconLeft
+                    ? renderIcon(iconLeft, { side: "left", size: iconSize })
+                    : null}
                 {!icon ? renderChild(text) : null}
-                {icon ? renderIcon(icon) : null}
+                {icon ? renderIcon(icon, { size: iconSize }) : null}
                 {children}
-                {iconRight ? renderIcon(iconRight, "right") : null}
+                {iconRight
+                    ? renderIcon(iconRight, { side: "right", size: iconSize })
+                    : null}
             </button>
         );
     }
@@ -120,13 +125,13 @@ export const Button = forwardRef(
 
 Button.propTypes = {
     /** Changes the overall style of button: */
-    variant: PropTypes.oneOf(Object.keys(ENUMS.variants)),
+    variant: PropTypes.oneOf(Object.values(ENUMS.variants)),
     /** Modifies the color for different uses */
-    intent: PropTypes.oneOf(Object.keys(ENUMS.intents)),
+    intent: PropTypes.oneOf(Object.values(ENUMS.intents)),
     /** Button text to display, can also optionally provide children. */
     text: PropTypes.string,
     /** Button text size */
-    textSize: PropTypes.oneOf(Object.keys(ENUMS.textSizes)),
+    textSize: PropTypes.oneOf(Object.values(ENUMS.textSizes)),
     /** Display an Icon on the left side of text */
     iconLeft: PropTypes.oneOfType([
         PropTypes.func,
@@ -145,6 +150,8 @@ Button.propTypes = {
         PropTypes.node,
         PropTypes.string,
     ]),
+    /** Size of icon for icon-only button variant */
+    iconSize: PropTypes.oneOf(Object.values(Icon.sizes)),
     /** Style class to add to button element */
     className: PropTypes.string,
     /** (Optional) click handler */
@@ -169,4 +176,5 @@ Button.variants = variants;
 Button.textSizes = textSizes;
 Button.intents = intents;
 Button.iconNames = Icon.names;
+Button.iconSizes = Icon.sizes;
 Button.displayName = "Button";

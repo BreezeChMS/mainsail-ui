@@ -1,3 +1,21 @@
+# v0.17.0 (Wed May 19 2021)
+
+#### 🚀 Enhancement
+
+- Update icon only button [#85](https://github.com/BreezeChMS/mainsail-ui/pull/85) ([@3CordGuy](https://github.com/3CordGuy))
+- Improve utility classes [#84](https://github.com/BreezeChMS/mainsail-ui/pull/84) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🔩 Dependency Updates
+
+- Bump postcss from 8.2.5 to 8.2.10 [#72](https://github.com/BreezeChMS/mainsail-ui/pull/72) ([@dependabot[bot]](https://github.com/dependabot[bot]) [@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.16.0 (Mon May 17 2021)
 
 #### 🚀 Enhancement
