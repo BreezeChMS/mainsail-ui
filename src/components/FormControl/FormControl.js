@@ -219,4 +219,5 @@ FormControl.propTypes = {
 
 FormControl.defaultProps = {
     isReadOnly: false,
+    colSpan: "auto",
 };
