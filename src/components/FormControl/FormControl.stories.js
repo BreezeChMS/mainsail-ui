@@ -30,6 +30,7 @@ export default {
                 component: `Wrapper for form elements
              \n- Provides context to children such as \`isInvalid\`, \`isDisabled\`, \`isRequired\`
              \n- Extras such as auto linking \`<FormLabel/>\` to \`<Input/>\` and auto-generated ids for aria attributes
+             \n- **WARNING**: FormControl components default to width 100%. This is by design. Width/responsiveness is intended to be controlled via a layout component (such as [AutoGrid](./?path=/docs/layout-grid-autogrid--simple-grid))
                 `,
             },
         },
@@ -124,7 +125,6 @@ DisabledInput.args = {
 export const TextareaInput = TextareaTemplate.bind({});
 TextareaInput.args = {
     id: "notes",
-    width: FormControl.widths.lg,
     invalidText: "Please enter some Notes.",
 };
 

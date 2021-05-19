@@ -7,35 +7,11 @@
     min-width: auto;
     box-sizing: border-box;
     position: relative;
+    width: 100%;
 
     input {
         @include mainsail-body-text-regular;
         width: 100% !important;
-    }
-
-    &.sm,
-    &.md,
-    &.lg {
-        width: 100%;
-    }
-
-    @include md-size-up {
-        width: 140px;
-        &.sm {
-            width: 140px;
-        }
-
-        &.md {
-            width: 229px;
-        }
-
-        &.lg {
-            width: 472px;
-        }
-    }
-
-    &.full {
-        width: 100%;
     }
 
     .invalid-text {

@@ -6,20 +6,6 @@ import { isFragment } from "react-is";
 
 import "./FormControl.scss";
 
-export const widths = {
-    sm: "sm",
-    md: "md",
-    lg: "lg",
-    full: "full",
-};
-
-/**
- * @deprecated since version 7.0 - use directly attached ComponentName.<propNames>.value; e.g. Button.variants.secondary
- */
-export const ENUMS = {
-    widths,
-};
-
 /**
  *  This function cascades props down to immediate children for styling and functionality controlled by FormControl
  */
@@ -92,7 +78,6 @@ const getPropsByChildType = ({ child, allChildNames, ...parentProps }) => {
                     parentProps.isInvalid && "error",
                     parentProps.isDisabled && "disabled"
                 ),
-                width: parentProps.width,
                 isDisabled: parentProps.isDisabled || child.props.isDisabled,
             };
         case "FormInputIcon":
@@ -139,7 +124,7 @@ const getPropsByChildType = ({ child, allChildNames, ...parentProps }) => {
 export const FormControl = ({
     className,
     children,
-    width,
+    colSpan,
     isReadOnly,
     isRequired,
     isDisabled,
@@ -165,7 +150,6 @@ export const FormControl = ({
             ...getPropsByChildType({
                 child,
                 allChildNames: childNames,
-                width,
                 inputId: props.id || autoId,
                 helpTextId,
                 invalidTextId,
@@ -177,9 +161,26 @@ export const FormControl = ({
         });
     });
 
+    const getRowColSpanClass = (type, counts) => {
+        if (Array.isArray(counts)) {
+            return classify({
+                [`sm:col-span-${counts[0]}`]: counts[0],
+                [`md:col-span-${counts[1]}`]: counts[1],
+                [`lg:col-span-${counts[2]}`]: counts[2],
+            });
+        }
+        return `sm:col-span-${counts}`;
+    };
+
     return (
         <div
-            className={classify("mainsail-form-control", className, width)}
+            className={classify(
+                "mainsail-form-control",
+                className,
+                colSpan === "auto"
+                    ? `col-span-auto`
+                    : getRowColSpanClass("col", colSpan)
+            )}
             disabled={isDisabled}
             {...props}>
             {formChildren}
@@ -193,10 +194,15 @@ export const FormControl = ({
 };
 
 FormControl.propTypes = {
+    /** AutoGrid compatible Column span for item (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    colSpan: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
     /** Defines the id bound to the input and attaches label  */
     id: PropTypes.string,
-    /** Defines the width of the input field */
-    width: PropTypes.oneOf(Object.values(widths)),
     /** Marks the form control as having an error */
     isInvalid: PropTypes.bool,
     /** Disables input field */
@@ -212,8 +218,5 @@ FormControl.propTypes = {
 };
 
 FormControl.defaultProps = {
-    width: widths.full,
     isReadOnly: false,
 };
-
-FormControl.widths = widths;
