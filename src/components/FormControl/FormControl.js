@@ -23,8 +23,8 @@ export const ENUMS = {
 /**
  *  This function cascades props down to immediate children for styling and functionality controlled by FormControl
  */
-const getPropsByChildType = ({ child, ...parentProps }) => {
-    if (!child.type.displayName) {
+const getPropsByChildType = ({ child, allChildNames, ...parentProps }) => {
+    if (!child.type.displayName && process.env.NODE_ENV === "development") {
         console.warn(
             `Child passed to <FormControl/> does not have assigned displayName`,
             child
@@ -37,7 +37,8 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
             return {
                 className: classify(
                     child.props.className,
-                    parentProps.isInvalid && "error"
+                    parentProps.isInvalid && "error",
+                    allChildNames.includes("FormInputIcon") && "with-icon"
                 ),
                 id: child.props.id || parentProps.inputId,
                 isReadOnly: parentProps.isReadOnly || child.props.isReadOnly,
@@ -94,6 +95,11 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
                 width: parentProps.width,
                 isDisabled: parentProps.isDisabled || child.props.isDisabled,
             };
+        case "FormInputIcon":
+            return {
+                className: classify(child.props.className),
+                isDisabled: parentProps.isDisabled || child.props.isDisabled,
+            };
 
         case "CheckboxGroup":
         case "RadioGroup":
@@ -108,12 +114,23 @@ const getPropsByChildType = ({ child, ...parentProps }) => {
             };
 
         default:
-            console.warn(
-                `Child component ${child.type.displayName} passed to <FormControl/> did not receive props`
-            );
+            /**
+             * If we don't get an expected displayName, we can assume the child is not mainsail,
+             * so only pass native props, (eg. disabled/required etc)
+             */
+            return {
+                className: classify(
+                    child.props.className,
+                    parentProps.isInvalid && "error"
+                ),
+                id: child.props.id || parentProps.inputId,
+                disabled: parentProps.isDisabled || child.props.isDisabled,
+                required: parentProps.isRequired || child.props.isRequired,
+                "aria-describedby": parentProps.isInvalid
+                    ? parentProps.invalidTextId
+                    : parentProps.helpTextId,
+            };
     }
-
-    return child;
 };
 
 /**
@@ -136,6 +153,10 @@ export const FormControl = ({
     const childrenArray = isFragment(children)
         ? Children.toArray(children.props.children)
         : Children.toArray(children);
+    const childNames = [];
+    childrenArray.reduce((arr, cur) => {
+        if (cur.type.displayName) return childNames.push(cur.type.displayName);
+    }, childNames);
 
     // attach props by child type
     let formChildren = childrenArray.map((child) => {
@@ -143,6 +164,7 @@ export const FormControl = ({
             ...child.props,
             ...getPropsByChildType({
                 child,
+                allChildNames: childNames,
                 width,
                 inputId: props.id || autoId,
                 helpTextId,

@@ -6,10 +6,13 @@ import { Textarea } from "components/Textarea";
 import { FormLabel } from "components/FormLabel";
 import { FormHelpText } from "components/FormHelpText";
 import { FormInputOptions } from "components/FormInputOptions";
+import { FormInputIcon } from "components/FormInputIcon";
 import { Checkbox, CheckboxGroup } from "components/Checkbox";
 import { Button } from "components/Button";
 import { TimePicker } from "components/TimePicker";
 import { RadioGroup, Radio } from "components/Radio";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default {
     title: "Forms/FormControl",
@@ -188,4 +191,48 @@ export const TimePickerInput = (args) => (
 TimePickerInput.args = {
     id: "timepicker",
     invalidText: "Please choose a time.",
+};
+
+export const WithInputIcon = (args) => (
+    <FormControl>
+        <FormLabel text="Username" />
+        <Input />
+        <FormInputIcon {...args} />
+    </FormControl>
+);
+WithInputIcon.args = {
+    name: "user",
+    color: "dark",
+};
+
+export const DatePickerInput = (args) => (
+    <FormControl {...args}>
+        <FormLabel text="Meeting Date" />
+        <DatePicker
+            value={new Date()}
+            className="pl-30"
+            onChangeRaw={() => {}}
+            dateFormatCalendar={"MMMM yyyy"}
+            onChange={() => {}}
+            dateFormat={"MM/dd/yyyy"}
+            placeholderText={"MM/DD/YYYY"}
+        />
+        <FormInputIcon
+            color={FormInputIcon.colors.dark}
+            name={FormInputIcon.names.calendar}
+        />
+    </FormControl>
+);
+DatePickerInput.args = {
+    id: "datepicker",
+    invalidText: "Please choose a date.",
+};
+
+DatePickerInput.parameters = {
+    docs: {
+        description: {
+            story:
+                "A third-party datepicker can be supplied to the FormControl (such as `react-datepicker`) which can receive all the benefits of the FormControl context (invalid, disabled etc).",
+        },
+    },
 };
