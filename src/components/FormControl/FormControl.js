@@ -194,7 +194,7 @@ export const FormControl = ({
 };
 
 FormControl.propTypes = {
-    /** AutoGrid compatible Column span for item (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    /** AutoGrid compatible Column span for item (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg] Note: Must be nested in an `<AutoGrid/>`*/
     colSpan: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string,
