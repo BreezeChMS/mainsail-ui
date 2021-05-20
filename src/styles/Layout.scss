@@ -321,28 +321,46 @@
 }
 /* End Positions */
 
-/* Background Colors */
-
+/* Colors */
 .bg {
     @include color-modifiers();
+}
+
+.bg-white {
+    background-color: $mainsail-white !important;
 }
 
 .text {
     @include color-modifiers($attribute: "color");
 }
 
+.text-white {
+    color: $mainsail-white !important;
+}
+/* End Colors */
+
+/* Borders */
 .border {
-    border-width: 1px;
-    border-style: solid;
+    @include color-modifiers($attribute: "border-color") {
+        border-width: 1px !important;
+        border-style: solid !important;
+    }
 }
 
-.border {
-    @include color-modifiers($attribute: "border-color");
+.rounded,
+.rounded-4 {
+    border-radius: 4px !important;
 }
-
-.rounded {
-    border-radius: $mainsail-button-border-radius;
+.rounded-8 {
+    border-radius: 8px !important;
 }
+.rounded-10 {
+    border-radius: 10px !important;
+}
+.rounded-20 {
+    border-radius: 20px !important;
+}
+/* End Borders */
 
 .content-blur {
     filter: blur(3px);

@@ -422,36 +422,43 @@ $spacing: (
     @each $name, $color in $blue {
         &-blue-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
     @each $name, $color in $green {
         &-green-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
     @each $name, $color in $violet {
         &-violet-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
     @each $name, $color in $orange {
         &-orange-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
     @each $name, $color in $red {
         &-red-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
     @each $name, $color in $pink {
         &-pink-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
     @each $name, $color in $neutral {
         &-neutral-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
 }

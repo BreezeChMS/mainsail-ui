@@ -12,6 +12,7 @@ Mainsail comes with a few utility classes for working within the Mainsail design
 
 -   [Colors](#colors)
 -   [Spacing](#spacing) (margins/padding with responsive designations available)
+-   [Corner Radius](#corner-radius)
 -   [Shadows & Overlays](#shadows--overlays)
 -   [Typography](#typography)
 
@@ -85,6 +86,7 @@ Uses the syntax `bg-<color>-<variant>`.
         <div class="bg-neutral-4 rounded p-8">bg-neutral-4</div>
         <div class="bg-neutral-5 rounded p-8">bg-neutral-5</div>
         <div class="bg-neutral-6 rounded p-8">bg-neutral-6</div>
+        <div class="bg-white rounded border-blue-light p-8">bg-white</div>
     </div>
 </Canvas>
 
@@ -135,6 +137,82 @@ Uses the syntax `text-<color>-<variant>`.
         <div class="text-neutral-4 p-8">text-neutral-4</div>
         <div class="text-neutral-5 p-8">text-neutral-5</div>
         <div class="text-neutral-6 p-8">text-neutral-6</div>
+        <div class="text-white bg-neutral-5 p-8">text-white</div>
+    </div>
+</Canvas>
+
+### Border Colors
+
+Apply Mainsail border and color to text `color:` css property.
+
+Uses the syntax `text-<color>-<variant>`.
+
+<Canvas className="body-text sm">
+    <div className="space-y-4">
+        <div class="border-blue-primary p-8">border-blue-primary</div>
+        <div class="border-blue-light p-8">border-blue-light</div>
+        <div class="border-blue-middle p-8">border-blue-middle</div>
+        <div class="border-blue-dark p-8">border-blue-dark</div>
+    </div>
+    <div className="space-y-4">
+        <div class="border-green-light p-8">border-green-light</div>
+        <div class="border-green-middle p-8">border-green-middle</div>
+        <div class="border-green-dark p-8">border-green-dark</div>
+    </div>
+    <div className="space-y-4">
+        <div class="border-violet-light p-8">border-violet-light</div>
+        <div class="border-violet-middle p-8">border-violet-middle</div>
+        <div class="border-violet-dark p-8">border-violet-dark</div>
+    </div>
+    <div className="space-y-4">
+        <div class="border-orange-light p-8">border-orange-light</div>
+        <div class="border-orange-middle p-8">border-orange-middle</div>
+        <div class="border-orange-dark p-8">border-orange-dark</div>
+    </div>
+    <div className="space-y-4">
+        <div class="border-red-light p-8">border-red-light</div>
+        <div class="border-red-middle p-8">border-red-middle</div>
+        <div class="border-red-dark p-8">border-red-dark</div>
+    </div>
+    <div className="space-y-4">
+        <div class="border-pink-light p-8">border-pink-light</div>
+        <div class="border-pink-middle p-8">border-pink-middle</div>
+        <div class="border-pink-dark p-8 border-pink-light">
+            border-pink-dark
+        </div>
+    </div>
+    <div className="space-y-4">
+        <div class="border-neutral-1 p-8">border-neutral-1</div>
+        <div class="border-neutral-2 p-8">border-neutral-2</div>
+        <div class="border-neutral-3 p-8">border-neutral-3</div>
+        <div class="border-neutral-4 p-8">border-neutral-4</div>
+        <div class="border-neutral-5 p-8">border-neutral-5</div>
+        <div class="border-neutral-6 p-8">border-neutral-6</div>
+    </div>
+</Canvas>
+
+# Corner Radius
+
+Apply Mainsail corner radius via the `border-radius:` css property.
+
+Uses the syntax `rounded-<amount>`.
+
+|             Amount | Pixels |
+| -----------------: | ------ |
+| `rounded` (no amt) | 4px    |
+|                  4 | 4px    |
+|                  8 | 8px    |
+|                 10 | 10px   |
+|                 20 | 20px   |
+
+<Canvas className="body-text sm">
+    <div className="space-y-8">
+        <div class="bg-blue-primary rounded-4 p-48 text-white">rounded-4</div>
+        <div class="bg-blue-primary rounded-8 p-48 text-white">rounded-8</div>
+        <div class="bg-blue-primary rounded-10 p-48 text-white">rounded-10</div>
+        <div class="bg-blue-primary rounded-20 p-10 pl-48 text-white">
+            rounded-20
+        </div>
     </div>
 </Canvas>
 
