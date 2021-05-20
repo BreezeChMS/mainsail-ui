@@ -36,24 +36,24 @@ export const ENUMS = {
 const getRowColsClass = (type, counts) => {
     if (Array.isArray(counts)) {
         return classify({
-            [`sm-grid-${type}-${counts[0]}`]: counts[0],
-            [`md-grid-${type}-${counts[1]}`]: counts[1],
-            [`lg-grid-${type}-${counts[2]}`]: counts[2],
+            [`sm:grid-${type}-${counts[0]}`]: counts[0],
+            [`md:grid-${type}-${counts[1]}`]: counts[1],
+            [`lg:grid-${type}-${counts[2]}`]: counts[2],
         });
     }
 
-    return `sm-grid-${type}-${counts}`;
+    return `sm:grid-${type}-${counts}`;
 };
 
 const getRowColSpanClass = (type, counts) => {
     if (Array.isArray(counts)) {
         return classify({
-            [`sm-${type}-span-${counts[0]}`]: counts[0],
-            [`md-${type}-span-${counts[1]}`]: counts[1],
-            [`lg-${type}-span-${counts[2]}`]: counts[2],
+            [`sm:${type}-span-${counts[0]}`]: counts[0],
+            [`md:${type}-span-${counts[1]}`]: counts[1],
+            [`lg:${type}-span-${counts[2]}`]: counts[2],
         });
     }
-    return `sm-${type}-span-${counts}`;
+    return `sm:${type}-span-${counts}`;
 };
 
 /**
@@ -67,6 +67,8 @@ export const AutoGrid = ({
     gapCol,
     cols,
     rows,
+    rowSpan,
+    colSpan,
     children,
     ...props
 }) => {
@@ -81,6 +83,12 @@ export const AutoGrid = ({
                 gapCol && `gap-col-${gapCol}`,
                 cols ? getRowColsClass("cols", cols) : null,
                 rows ? getRowColsClass("rows", rows) : null,
+                colSpan === "auto"
+                    ? `col-span-auto`
+                    : getRowColSpanClass("col", colSpan),
+                rowSpan === "auto"
+                    ? `row-span-auto`
+                    : getRowColSpanClass("row", rowSpan),
                 className
             )}
             {...props}>
@@ -114,10 +122,25 @@ AutoGrid.propTypes = {
         PropTypes.arrayOf(PropTypes.string),
         PropTypes.arrayOf(PropTypes.number),
     ]),
+    colSpan: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
+    /** Row span for item (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    rowSpan: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
 };
 
 AutoGrid.defaultProps = {
     flow: flows.row,
+    colSpan: "auto",
+    rowSpan: "auto",
 };
 
 export const AutoGridItem = ({

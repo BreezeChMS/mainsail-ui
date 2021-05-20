@@ -1,0 +1,18 @@
+@import "../../styles/Variables.scss";
+
+/** FormInputIcon Component Styles */
+input.mainsail-input.with-icon {
+    &:focus ~ .mainsail-icon.input-icon {
+        opacity: 1;
+    }
+}
+
+.mainsail-form-control div:focus-within {
+    & ~ .mainsail-icon.input-icon {
+        opacity: 1;
+    }
+}
+
+.mainsail-icon.input-icon {
+    opacity: 0.5;
+}

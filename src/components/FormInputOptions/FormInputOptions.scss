@@ -2,24 +2,15 @@
 
 /** FormInputOptions Component Styles */
 .mainsail-input-options {
+    box-sizing: border-box;
     margin-top: 6px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    box-sizing: border-box;
 
-    &.sm,
-    &.md {
-        > * + * {
-            margin-top: 8px;
-        }
-    }
-
-    &.lg,
-    &.full {
-        > * + * {
-            margin-left: 16px;
-        }
+    label {
+        margin-right: 16px;
+        margin-bottom: 8px;
     }
 
     .mainsail-checkbox .mainsail-checkbox__label-text {

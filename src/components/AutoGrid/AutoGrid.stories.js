@@ -5,7 +5,16 @@ import _ from "lodash";
 
 import { Button } from "components/Button";
 import { AutoGrid, AutoGridItem as Item } from "./AutoGrid";
-import { FormControl, FormLabel, Input, Transition } from "components/core";
+import {
+    FormControl,
+    FormLabel,
+    Input,
+    FormInputOptions,
+    FormInputIcon,
+    Checkbox,
+    Dropdown,
+    Transition,
+} from "components/core";
 
 export default {
     title: "Layout/Grid/AutoGrid",
@@ -31,6 +40,14 @@ export default {
         gapCol: {
             name: "gapCol",
             type: { gapCol: "string" },
+            control: {
+                type: "select",
+            },
+            options: Object.values(AutoGrid.gaps),
+        },
+        gap: {
+            name: "gap",
+            type: { gap: "string" },
             control: {
                 type: "select",
             },
@@ -204,16 +221,22 @@ AutoColumns.parameters = {
     },
 };
 
-export const Nested = (args) => {
+export const FormExample = () => {
     return (
         <div>
-            <AutoGrid
-                rows="auto"
-                cols={1}
-                gapRow={args.gapRow}
-                className="mb-48">
-                <AutoGrid rows="auto" {...args}>
-                    <>
+            <AutoGrid cols={12}>
+                <AutoGrid
+                    rows="auto"
+                    colSpan={[12, 6]}
+                    cols={[1, 2]}
+                    gapRow={10}
+                    className="mb-48">
+                    <AutoGrid
+                        rows="auto"
+                        colSpan={[12, 6]}
+                        gapRow={10}
+                        gapCol={20}
+                        cols={[1, 2]}>
                         <FormControl>
                             <FormLabel text="First Name" />
                             <Input />
@@ -222,26 +245,52 @@ export const Nested = (args) => {
                             <FormLabel text="Last Name" />
                             <Input />
                         </FormControl>
-                    </>
+                    </AutoGrid>
+                    <FormControl colSpan={[12, 6]}>
+                        <FormLabel text="Phone" />
+                        <Input />
+                        <FormInputIcon name={FormInputIcon.names.text} />
+                        <FormInputOptions>
+                            <Checkbox text="No Texting" />
+                            <Checkbox text="Unlisted" />
+                        </FormInputOptions>
+                    </FormControl>
+                    <FormControl colSpan={[12, 6]}>
+                        <FormLabel text="Email" />
+                        <Input />
+                        <FormInputIcon name={FormInputIcon.names.email} />
+                    </FormControl>
+                    <AutoGrid cols={12} colSpan={[12, 6]} gap={10}>
+                        <FormControl colSpan={12}>
+                            <FormLabel text="Address" />
+                            <Input />
+                        </FormControl>
+                        <FormControl colSpan={[12, 6]}>
+                            <FormLabel text="City" />
+                            <Input />
+                        </FormControl>
+                        <FormControl colSpan={[12, 2]}>
+                            <FormLabel text="State" />
+                            <Dropdown
+                                options={[{ text: "IN", value: 1 }]}
+                                placeholder=""
+                            />
+                        </FormControl>
+                        <FormControl colSpan={[12, 4]}>
+                            <FormLabel text="Zip Code" />
+                            <Input />
+                        </FormControl>
+                    </AutoGrid>
                 </AutoGrid>
-                <FormControl>
-                    <FormLabel text="Something Longer" />
-                    <Input />
-                </FormControl>
             </AutoGrid>
         </div>
     );
 };
-Nested.args = {
-    cols: 2,
-    gapCol: 20,
-    gapRow: 10,
-};
-Nested.parameters = {
+FormExample.parameters = {
     docs: {
         description: {
             story:
-                "This example uses a nested `<AutoGrid/>` pattern. The parent AutoGrid supplies a row gap (`gapRow`) and single column layout and the nested AutoGrid supplies a multiple column layout with a specified column gap in `gapCol`. Responsive array `cols` prop can also be combined to achieve responsive column counts at different breakpoints.",
+                "This example uses a nested `<AutoGrid/>` pattern. The parent AutoGrid supplies a full 12 col distance to span (as a mock 'page'). The rest of the nested AutoGrid components supply the gaps, layout, and responsive handling via `rowGap`, `colGap`, and `colSpan` props.",
         },
     },
 };

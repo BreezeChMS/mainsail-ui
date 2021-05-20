@@ -24,8 +24,7 @@ const FormControlTemplate = (args) => (
         <FormControl
             isDisabled={args.isDisabled}
             isRequired={args.isRequired}
-            isReadOnly={args.isReadOnly}
-            width={FormControl.widths.md}>
+            isReadOnly={args.isReadOnly}>
             <FormLabel text="Which Hobbit is Best?" />
             <Dropdown {...args} />
         </FormControl>

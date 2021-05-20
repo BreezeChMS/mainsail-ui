@@ -6,35 +6,12 @@
 .mainsail-form-control {
     min-width: auto;
     box-sizing: border-box;
+    position: relative;
+    width: 100%;
 
     input {
         @include mainsail-body-text-regular;
         width: 100% !important;
-    }
-
-    &.sm,
-    &.md,
-    &.lg {
-        width: 100%;
-    }
-
-    @include md-size-up {
-        width: 140px;
-        &.sm {
-            width: 140px;
-        }
-
-        &.md {
-            width: 229px;
-        }
-
-        &.lg {
-            width: 472px;
-        }
-    }
-
-    &.full {
-        width: 100%;
     }
 
     .invalid-text {
@@ -58,5 +35,44 @@
         &.disabled {
             opacity: 0.5;
         }
+    }
+
+    /** Fallback input styling */
+    input:not(.mainsail-input) {
+        @include mainsail-body-text-regular;
+
+        padding: 7px;
+        color: $mainsail-neutral-2;
+        height: 36px;
+        border-radius: $mainsail-input-border-radius;
+        border: 1px solid $mainsail-input-border;
+        background-color: $mainsail-white;
+        box-sizing: border-box;
+
+        &::placeholder {
+            color: $mainsail-neutral-2;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+            border-color: $mainsail-blue-primary;
+            border: 1px solid $mainsail-blue-primary;
+            box-shadow: $mainsail-shadow-near;
+        }
+
+        @include disabled;
+
+        @include readonly;
+
+        &.with-icon {
+            padding-left: 32px;
+        }
+    }
+
+    .input-icon {
+        position: absolute;
+        left: 8px;
+        top: 30px;
     }
 }
