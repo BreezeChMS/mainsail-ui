@@ -1,3 +1,15 @@
+# v1.0.0 (Thu May 20 2021)
+
+#### 💥 Breaking Change
+
+- CO 65 Date time inputs and more [#86](https://github.com/BreezeChMS/mainsail-ui/pull/86) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v0.17.0 (Wed May 19 2021)
 
 #### 🚀 Enhancement
