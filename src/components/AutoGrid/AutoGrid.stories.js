@@ -57,9 +57,10 @@ export default {
     parameters: {
         docs: {
             description: {
-                component: `A quick & easy automatic grid solution using CSS Grid
+                component: `A responsive grid solution using CSS Grid - capable of nesting and auto layouts
                 \n- supply column count with \`cols\` & row count with \`rows\`
                 \n- specify auto count of columns or rows (Note: \`flow\` direction must match auto direction e.g. \`flow=col\` \`col=auto\`)
+                \n- Another nested **AutoGrid** can specify col/row span, and col/row start/end for ultimate control
                 \n- Optional subcomponent **AutoGridItem** can specify col/row span for children (also accessible as \`AutoGrid.Item\`)
                 \n- Can have different row (\`gapRow\`) and column gaps (\`gapCol\`) or one singular prop to control both (\`gap\`)
                 `,
@@ -227,13 +228,15 @@ export const FormExample = () => {
             <AutoGrid cols={12}>
                 <AutoGrid
                     rows="auto"
+                    colStart={4}
+                    colEnd={10}
                     colSpan={[12, 6]}
                     cols={[1, 2]}
                     gapRow={10}
                     className="mb-48">
                     <AutoGrid
                         rows="auto"
-                        colSpan={[12, 6]}
+                        colSpan={[12, 8]}
                         gapRow={10}
                         gapCol={20}
                         cols={[1, 2]}>

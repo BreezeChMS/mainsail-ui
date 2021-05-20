@@ -87,6 +87,7 @@
         background-color: $mainsail-white;
         padding-top: 4px;
         padding-bottom: 4px;
+        z-index: 2;
 
         &.custom-trigger {
             min-width: auto;

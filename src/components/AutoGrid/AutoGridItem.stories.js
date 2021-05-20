@@ -8,7 +8,7 @@ export default {
     parameters: {
         docs: {
             description: {
-                component: `A subcomponent for AutoGrid
+                component: `A responsive subcomponent for AutoGrid - Useful for controlling alignment and justification inside a grid
                 \n- supply \`colSpan\` & \`rowSpan\` to control grid item spanning
                 \n- can control grid item alignment with \`alignItems\` & \`justifyContent\`
                 \n- NOTE: You do not need to wrap a FormControl with this for the purpose of using \`colSpan\` because FormControl supports that prop natively
@@ -19,7 +19,7 @@ export default {
 };
 
 const Template = (args) => (
-    <AutoGrid gap={15} rows={3} cols={3}>
+    <AutoGrid gap={15} rows={3} cols={4}>
         <AutoGridItem data-testid="item" {...args} />
         <AutoGridItem data-testid="item" className="bg-blue-dark" />
         <AutoGridItem data-testid="item" className="bg-blue-dark" />
