@@ -1,3 +1,15 @@
+# v1.0.1 (Thu May 20 2021)
+
+#### 🐛 Bug Fix
+
+- Layout Improvements [#87](https://github.com/BreezeChMS/mainsail-ui/pull/87) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.0.0 (Thu May 20 2021)
 
 #### 💥 Breaking Change
