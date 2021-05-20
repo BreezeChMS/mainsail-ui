@@ -21,7 +21,8 @@
     }
 
     textarea.mainsail-textarea.error,
-    input.mainsail-input.error {
+    input.mainsail-input.error,
+    .mainsail-dropdown.error button {
         border: 1px solid $mainsail-input-border-error;
     }
 
