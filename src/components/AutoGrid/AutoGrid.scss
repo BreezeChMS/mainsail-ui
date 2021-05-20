@@ -26,6 +26,7 @@
     }
 
     @include grid-templates;
+    @include grid-positioning;
 
     .column-auto {
         grid-column: auto;
@@ -61,5 +62,7 @@
         &.align-end {
             align-items: end;
         }
+
+        @include grid-positioning;
     }
 }

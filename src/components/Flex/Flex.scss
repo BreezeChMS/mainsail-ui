@@ -20,9 +20,14 @@
 
     &.row {
         display: flex;
+        flex-direction: row;
         flex-flow: row wrap;
         margin-right: auto;
         margin-left: auto;
+    }
+
+    .column {
+        flex-direction: column;
     }
 
     &.grow {

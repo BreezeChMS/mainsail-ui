@@ -17,14 +17,6 @@
         &.sm\:grid-rows-#{$_} {
             grid-template-rows: repeat($_, minmax(0, 1fr));
         }
-
-        .sm\:col-span-#{$_} {
-            grid-column: span $_;
-        }
-
-        .sm\:row-span-#{$_} {
-            grid-row: span $_;
-        }
     }
 
     @include md-size-up() {
@@ -35,14 +27,6 @@
 
             &.md\:grid-rows-#{$_} {
                 grid-template-rows: repeat($_, minmax(0, 1fr));
-            }
-
-            .md\:col-span-#{$_} {
-                grid-column: span $_;
-            }
-
-            .md\:row-span-#{$_} {
-                grid-row: span $_;
             }
         }
     }
@@ -55,14 +39,6 @@
 
             &.lg\:grid-rows-#{$_} {
                 grid-template-rows: repeat($_, minmax(0, 1fr));
-            }
-
-            .lg\:col-span-#{$_} {
-                grid-column: span $_;
-            }
-
-            .lg\:row-span-#{$_} {
-                grid-row: span $_;
             }
         }
     }
@@ -80,6 +56,88 @@
     }
     &.grid-rows-auto {
         grid-template-rows: repeat(auto-fill, minmax(0, 1fr));
+    }
+}
+
+@mixin grid-positioning {
+    @for $_ from 1 through 12 {
+        &.sm\:col-start-#{$_} {
+            grid-column-start: $_;
+        }
+
+        &.sm\:row-start-#{$_} {
+            grid-row-start: $_;
+        }
+
+        &.sm\:col-end-#{$_} {
+            grid-column-end: $_;
+        }
+
+        &.sm\:row-end-#{$_} {
+            grid-row-end: $_;
+        }
+
+        .sm\:col-span-#{$_} {
+            grid-column: span $_;
+        }
+
+        .sm\:row-span-#{$_} {
+            grid-row: span $_;
+        }
+    }
+    @include md-size-up() {
+        @for $_ from 1 through 12 {
+            &.md\:col-start-#{$_} {
+                grid-column-start: $_;
+            }
+
+            &.md\:row-start-#{$_} {
+                grid-row-start: $_;
+            }
+
+            &.md\:col-end-#{$_} {
+                grid-column-end: $_;
+            }
+
+            &.md\:row-end-#{$_} {
+                grid-row-end: $_;
+            }
+
+            .md\:col-span-#{$_} {
+                grid-column: span $_;
+            }
+
+            .md\:row-span-#{$_} {
+                grid-row: span $_;
+            }
+        }
+    }
+    @include lg-size-up() {
+        @for $_ from 1 through 12 {
+            &.lg\:col-start-#{$_} {
+                grid-column-start: $_;
+            }
+
+            &.lg\:row-start-#{$_} {
+                grid-row-start: $_;
+            }
+
+            &.lg\:col-end-#{$_} {
+                grid-column-end: $_;
+            }
+
+            &.lg\:row-end-#{$_} {
+                grid-row-end: $_;
+            }
+
+            .lg\:col-span-#{$_} {
+                grid-column: span $_;
+            }
+
+            .lg\:row-span-#{$_} {
+                grid-row: span $_;
+            }
+        }
     }
 }
 
@@ -364,36 +422,43 @@ $spacing: (
     @each $name, $color in $blue {
         &-blue-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
     @each $name, $color in $green {
         &-green-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
     @each $name, $color in $violet {
         &-violet-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
     @each $name, $color in $orange {
         &-orange-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
     @each $name, $color in $red {
         &-red-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
     @each $name, $color in $pink {
         &-pink-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
     @each $name, $color in $neutral {
         &-neutral-#{$name} {
             #{$attribute}: $color !important;
+            @content;
         }
     }
 }

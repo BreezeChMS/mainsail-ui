@@ -7,7 +7,7 @@ export { Table, Column, Actions } from "../Table";
 export { Dropdown } from "../Dropdown";
 export { ListGroup, ListGroupItem } from "../ListGroup";
 export { FormInputOptions } from "../FormInputOptions";
-export { Flex } from "../Flex";
+export { Flex, FlexCol, FlexRow } from "../Flex";
 export { FormHelpText } from "../FormHelpText";
 export { AutoGrid, AutoGridItem } from "../AutoGrid";
 export { Textarea } from "../Textarea";

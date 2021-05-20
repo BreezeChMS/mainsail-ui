@@ -56,6 +56,17 @@ const getRowColSpanClass = (type, counts) => {
     return `sm:${type}-span-${counts}`;
 };
 
+const getRowColStartEndClass = (type, counts) => {
+    if (Array.isArray(counts)) {
+        return classify({
+            [`sm:${type}-${counts[0]}`]: counts[0],
+            [`md:${type}-${counts[1]}`]: counts[1],
+            [`lg:${type}-${counts[2]}`]: counts[2],
+        });
+    }
+    return `sm:${type}-${counts}`;
+};
+
 /**
  * A quick &amp; easy grid layout component
  **/
@@ -69,6 +80,10 @@ export const AutoGrid = ({
     rows,
     rowSpan,
     colSpan,
+    rowStart,
+    rowEnd,
+    colStart,
+    colEnd,
     children,
     ...props
 }) => {
@@ -83,12 +98,18 @@ export const AutoGrid = ({
                 gapCol && `gap-col-${gapCol}`,
                 cols ? getRowColsClass("cols", cols) : null,
                 rows ? getRowColsClass("rows", rows) : null,
-                colSpan === "auto"
-                    ? `col-span-auto`
-                    : getRowColSpanClass("col", colSpan),
-                rowSpan === "auto"
-                    ? `row-span-auto`
-                    : getRowColSpanClass("row", rowSpan),
+                {
+                    [getRowColSpanClass("col", colSpan)]:
+                        !colStart && colSpan !== "auto",
+                    [getRowColSpanClass("row", rowSpan)]:
+                        !rowStart && rowSpan !== "auto",
+                    "sm:col-span-auto": !colStart && colSpan === "auto",
+                    "sm:row-span-auto": !rowStart && rowSpan === "auto",
+                },
+                rowStart && getRowColStartEndClass("row-start", rowStart),
+                rowEnd && getRowColStartEndClass("row-end", rowEnd),
+                colStart && getRowColStartEndClass("col-start", colStart),
+                colEnd && getRowColStartEndClass("col-end", colEnd),
                 className
             )}
             {...props}>
@@ -122,14 +143,43 @@ AutoGrid.propTypes = {
         PropTypes.arrayOf(PropTypes.string),
         PropTypes.arrayOf(PropTypes.number),
     ]),
+    /** Column span for a nested grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
     colSpan: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.string),
         PropTypes.arrayOf(PropTypes.number),
     ]),
-    /** Row span for item (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    /** Row span for a nested grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
     rowSpan: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
+    /** Row start for a nested grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    rowStart: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
+    /** Row end for a nested grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    rowEnd: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
+    /** Column start for a nested grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    colStart: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
+    /** Column end for a nested grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    colEnd: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.string),
@@ -147,6 +197,10 @@ export const AutoGridItem = ({
     className,
     colSpan,
     rowSpan,
+    rowStart,
+    colStart,
+    rowEnd,
+    colEnd,
     alignItems,
     justifyItems,
     children,
@@ -159,12 +213,18 @@ export const AutoGridItem = ({
                 className,
                 alignItems && `align-${alignItems}`,
                 justifyItems && `justify-${justifyItems}`,
-                colSpan === "auto"
-                    ? `col-auto`
-                    : getRowColSpanClass("col", colSpan),
-                rowSpan === "auto"
-                    ? `row-auto`
-                    : getRowColSpanClass("row", rowSpan)
+                {
+                    [getRowColSpanClass("col", colSpan)]:
+                        !colStart && colSpan !== "auto",
+                    [getRowColSpanClass("row", rowSpan)]:
+                        !rowStart && rowSpan !== "auto",
+                    "sm:col-span-auto": !colStart && colSpan === "auto",
+                    "sm:row-span-auto": !rowStart && rowSpan === "auto",
+                },
+                rowStart && getRowColStartEndClass("row-start", rowStart),
+                rowEnd && getRowColStartEndClass("row-end", rowEnd),
+                colStart && getRowColStartEndClass("col-start", colStart),
+                colEnd && getRowColStartEndClass("col-end", colEnd)
             )}
             {...props}>
             {children}
@@ -188,6 +248,34 @@ AutoGridItem.propTypes = {
     ]),
     /** Row span for item (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
     rowSpan: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
+    /** Row start for a nested grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    rowStart: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
+    /** Row end for a nested grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    rowEnd: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
+    /** Column start for a nested grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    colStart: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+        PropTypes.arrayOf(PropTypes.number),
+    ]),
+    /** Column end for a nested grid (count 1-12 / "auto") can pass in array of up to three counts for responsive breakpoints to use where [sm, md, lg]*/
+    colEnd: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.string),
