@@ -7,7 +7,7 @@
   />
   <br />
   <br />
-  <p>The React UI-kit of [Breeze](https://www.breezechms.com/)</p>
+  <p>The React-based UI kit of <a href="https://www.breezechms.com/">Breeze</a></p>
 </div>
 
 ---
