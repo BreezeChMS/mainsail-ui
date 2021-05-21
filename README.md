@@ -18,7 +18,7 @@
 [![Auto Release](https://img.shields.io/badge/release-auto.svg?colorA=888888&colorB=9B065A&label=auto)](https://github.com/intuit/auto)
 [![Uses Storybook](https://raw.githubusercontent.com/storybookjs/brand/master/badge/badge-storybook.svg)](https://storybook.js.org/)
 [![Linting & Tests](https://github.com/BreezeChMS/mainsail-ui/actions/workflows/test.yml/badge.svg)](https://github.com/BreezeChMS/mainsail-ui/actions/workflows/test.yml)
-[![Build](https://github.com/BreezeChMS/mainsail-ui/actions/workflows/mainsail-build.yml/badge.svg)](https://github.com/BreezeChMS/mainsail-ui/actions/workflows/mainsail-build.yml)
+[![Build](https://github.com/BreezeChMS/mainsail-ui/actions/workflows/mainsail-build.yml/badge.svg?event=push)](https://github.com/BreezeChMS/mainsail-ui/actions/workflows/mainsail-build.yml)
   
 </div>
 
