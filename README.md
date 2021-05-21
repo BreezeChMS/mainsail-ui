@@ -1,6 +1,6 @@
 <div align="center">
   <img
-    src="src/assets/mainsail-ui.svg"
+    src="src/assets/img/mainsail-ui.svg"
     alt="Mainsail UI Logo"
     width="550px"
     padding="40px"
