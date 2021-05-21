@@ -3,6 +3,7 @@ import { create } from "@storybook/theming";
 export default create({
     base: "light",
     brandTitle: "Mainsail UI",
-    brandUrl: "http://shared.breezechms.com/mainsail-ui/",
+    brandUrl: "https://mainsail-ui.com",
+    brandImage: "mainsail-ui.svg",
     panelPosition: "right",
 });
