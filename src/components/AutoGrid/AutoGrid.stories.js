@@ -58,6 +58,7 @@ export default {
         docs: {
             description: {
                 component: `A responsive grid solution using CSS Grid - capable of nesting and auto layouts
+                \n- Check out a deeper [walk-through of AutoGrid](https://github.com/BreezeChMS/mainsail-ui/wiki/Introducing-AutoGrid)
                 \n- supply column count with \`cols\` & row count with \`rows\`
                 \n- specify auto count of columns or rows (Note: \`flow\` direction must match auto direction e.g. \`flow=col\` \`col=auto\`)
                 \n- Another nested **AutoGrid** can specify col/row span, and col/row start/end for ultimate control
