@@ -6,8 +6,7 @@
     padding="40px"
   />
   <br />
-  <br />
-  <p>The React-based UI kit of <a href="https://www.breezechms.com/">Breeze</a></p>
+  <p>The React UI kit of <a href="https://www.breezechms.com/">Breeze</a></p>
 </div>
 
 ---
@@ -18,7 +17,9 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Auto Release](https://img.shields.io/badge/release-auto.svg?colorA=888888&colorB=9B065A&label=auto)](https://github.com/intuit/auto)
 [![Uses Storybook](https://raw.githubusercontent.com/storybookjs/brand/master/badge/badge-storybook.svg)](https://storybook.js.org/)
-
+[![Linting & Tests](https://github.com/BreezeChMS/mainsail-ui/actions/workflows/test.yml/badge.svg)](https://github.com/BreezeChMS/mainsail-ui/actions/workflows/test.yml)
+[![Build](https://github.com/BreezeChMS/mainsail-ui/actions/workflows/mainsail-build.yml/badge.svg)](https://github.com/BreezeChMS/mainsail-ui/actions/workflows/mainsail-build.yml)
+  
 </div>
 
 ---
