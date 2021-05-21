@@ -1,24 +1,26 @@
-name: Build Mainsail Check 🔨
+name: Build Mainsail Check
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [pull_request]
 
 jobs:
   build:
-
+    name: Build Mainsail 🔨
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x]
-
+    timeout-minutes: 5
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: yarn build
+      - name: Checkout Pull Request Branch
+        uses: actions/checkout@v2
+
+      - name: Cache Node Modules
+        id: node-modules
+        uses: actions/cache@v1
+        with:
+          path: ui/node_modules/
+          key: ${{ runner.os }}-npm_directory-${{ github.head_ref }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.node-modules.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
+      - name: Run ESLINT
+        run: yarn build || { echo "Build Failed! (ಥ﹏ಥ)"; exit 1; }
