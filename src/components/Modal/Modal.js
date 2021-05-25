@@ -175,7 +175,9 @@ export const Modal = ({
                             className
                         )}
                         style={{ maxWidth, ...props.style }}>
-                        <div className="mainsail-modal-header">
+                        <div
+                            data-testid="modal-header"
+                            className="mainsail-modal-header">
                             <div className="header-section">
                                 {showBackButton ? (
                                     <Button
@@ -187,7 +189,11 @@ export const Modal = ({
                                 ) : null}
                             </div>
                             <div className="header-section">
-                                <h2 id={`${modalId}-title`}>{title}</h2>
+                                <h2
+                                    data-testid="modal-title"
+                                    id={`${modalId}-title`}>
+                                    {title}
+                                </h2>
                             </div>
                             <div className="header-section">
                                 <Button
@@ -200,6 +206,7 @@ export const Modal = ({
                         </div>
 
                         <div
+                            data-testid="modal-desc"
                             id={`${modalId}-desc`}
                             className={classify(
                                 "mainsail-modal-body",
@@ -208,7 +215,9 @@ export const Modal = ({
                             {children}
                         </div>
 
-                        <div className="mainsail-modal-footer">
+                        <div
+                            data-testid="modal-footer"
+                            className="mainsail-modal-footer">
                             {footer ? (
                                 footer
                             ) : (
