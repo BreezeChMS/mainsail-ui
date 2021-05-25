@@ -1,3 +1,37 @@
+# v1.0.3 (Tue May 25 2021)
+
+#### 🐛 Bug Fix
+
+- adds data-testid attributes to modal for easier testing of specific parts [#96](https://github.com/BreezeChMS/mainsail-ui/pull/96) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### ⚠️ Pushed to `master`
+
+- Update README.md ([@3CordGuy](https://github.com/3CordGuy))
+- adds status badges to readme ([@3CordGuy](https://github.com/3CordGuy))
+- update build check ([@3CordGuy](https://github.com/3CordGuy))
+- Update mainsail-build.yml ([@3CordGuy](https://github.com/3CordGuy))
+- update mainsail build workflow [skip chromatic] ([@3CordGuy](https://github.com/3CordGuy))
+- Create mainsail-build.yml ([@3CordGuy](https://github.com/3CordGuy))
+- restructures some things for gh pages sb deploy ([@3CordGuy](https://github.com/3CordGuy))
+- fixes readme link ([@3CordGuy](https://github.com/3CordGuy))
+- Add CNAME ([@alexortizrosado](https://github.com/alexortizrosado))
+
+#### 📝 Documentation
+
+- Doc updates [#95](https://github.com/BreezeChMS/mainsail-ui/pull/95) ([@3CordGuy](https://github.com/3CordGuy))
+- Fixes action [#94](https://github.com/BreezeChMS/mainsail-ui/pull/94) ([@3CordGuy](https://github.com/3CordGuy))
+- add favicon [#93](https://github.com/BreezeChMS/mainsail-ui/pull/93) ([@3CordGuy](https://github.com/3CordGuy))
+- Revert "try again [skip chromatic]" [#91](https://github.com/BreezeChMS/mainsail-ui/pull/91) ([@3CordGuy](https://github.com/3CordGuy))
+- try again [skip chromatic] [#90](https://github.com/BreezeChMS/mainsail-ui/pull/90) ([@3CordGuy](https://github.com/3CordGuy))
+- updates docs and readme with logo [skip chromatic] [#89](https://github.com/BreezeChMS/mainsail-ui/pull/89) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 2
+
+- Alex Ortiz-Rosado ([@alexortizrosado](https://github.com/alexortizrosado))
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.0.2 (Thu May 20 2021)
 
 #### 🐛 Bug Fix
