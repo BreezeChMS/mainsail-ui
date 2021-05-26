@@ -23,6 +23,7 @@ export default {
         FormLabel,
         FormHelpText,
         FormInputOptions,
+        FormInputIcon,
     },
     parameters: {
         docs: {
