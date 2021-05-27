@@ -17,6 +17,7 @@ a.mainsail-listgroup-item {
     &:focus {
         background: $mainsail-blue-light;
         outline: none;
+        text-decoration: none !important;
     }
 
     &.active {
