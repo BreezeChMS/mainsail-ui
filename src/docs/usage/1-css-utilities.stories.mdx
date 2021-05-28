@@ -340,11 +340,47 @@ Responsive designations for spacing can be applied. The syntax looks like `<brea
 
 ### Hiding
 
-| Class specifier | Pixels                      |
-| --------------: | --------------------------- |
-|       sm:hidden | Hides at sm- (md and under) |
-|       md:hidden | Hides at md (md to lg)      |
-|       lg:hidden | Hides at lg+ (lg and up)    |
+Resize the browser to see these utility classes at work.
+
+<Canvas>
+    <div className="body-text">
+        <h3>Visible at Specific Breakpoints</h3>
+        <div className="flex col mb-20">
+            <div className="p-48 bg-blue-primary text-white sm:visible">
+                sm:visible
+            </div>
+            <div className="p-48 bg-red-middle text-white md:visible">
+                md:visible
+            </div>
+            <div className="p-48 bg-green-middle text-white lg:visible">
+                lg:visible
+            </div>
+        </div>
+        <h3>Hidden at Specific Breakpoints</h3>
+        <div className="flex col space-y-8">
+            <div className="p-48 bg-blue-primary text-white sm:hidden">
+                sm:hidden (shown at everything but sm)
+            </div>
+            <div className="p-48 bg-red-middle text-white md:hidden">
+                md:hidden (shown at everything but md)
+            </div>
+            <div className="p-48 bg-green-middle text-white lg:hidden">
+                lg:hidden (shown at everything but lg)
+            </div>
+        </div>
+    </div>
+</Canvas>
+
+These work according to the following chart:
+
+| Class specifier | Pixels              |
+| --------------: | ------------------- |
+|      sm:visible | Visible only at sm- |
+|      md:visible | Visible only at md  |
+|      lg:visible | Visible only at lg+ |
+|       sm:hidden | Hides at sm-        |
+|       md:hidden | Hides at md         |
+|       lg:hidden | Hides at lg+        |
 
 While a few hiding (<code>display: none</code>) helpers exist (shown above), you may be better suited to conditionally unmount components at breakpoints using a `useBreakpoint` hook .
 

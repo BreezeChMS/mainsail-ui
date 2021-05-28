@@ -85,6 +85,15 @@ IconRight.args = {
     iconRight: Icon.names.forward,
 };
 
+export const IconRightChildFunction = Template.bind({});
+IconRightChildFunction.args = {
+    variant: Button.variants.primary,
+    text: "More",
+    iconRight: function forwardIconFunc({ side, size }) {
+        return <Icon className={side} size={size} name={Icon.names.forward} />;
+    },
+};
+
 export const IconOnly = Template.bind({});
 IconOnly.args = {
     variant: Button.variants.icon,

@@ -11,6 +11,7 @@ import {
     Tertiary,
     IconLeft,
     IconRight,
+    IconRightChildFunction,
     IconOnly,
     Intent,
     Link,
@@ -60,9 +61,27 @@ it("renders the button with a right icon", () => {
     expect(screen.getByRole("button").childNodes[1]).toHaveClass(
         "mainsail-icon"
     );
+    expect(screen.getByRole("img")).toBeInTheDocument();
     expect(screen.getByRole("button").childNodes[0]).toHaveTextContent(
         "Click me"
     );
+});
+
+it("renders the button with a right icon passed in as a function", () => {
+    render(
+        <IconRightChildFunction
+            {...IconRightChildFunction.args}
+            text="Click me"
+        />
+    );
+    expect(screen.getByRole("button").childNodes[1]).toHaveClass(
+        "mainsail-icon"
+    );
+    expect(screen.getByRole("button").childNodes[0]).toHaveTextContent(
+        "Click me"
+    );
+
+    expect(screen.getByRole("img")).toBeInTheDocument();
 });
 
 it("renders the button with only an icon", () => {
