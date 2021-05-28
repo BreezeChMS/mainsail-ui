@@ -10,6 +10,11 @@ const renderIcon = (i, { side, size }) => {
     if (typeof i === "string") {
         return <Icon name={i} className={classify(side)} size={size} />;
     }
+
+    if (typeof i === "function") {
+        return i({ side, size });
+    }
+
     return i;
 };
 
