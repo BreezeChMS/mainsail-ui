@@ -1,3 +1,21 @@
+# v1.0.4 (Fri May 28 2021)
+
+#### 🐛 Bug Fix
+
+- Button patches and more [#100](https://github.com/BreezeChMS/mainsail-ui/pull/100) ([@3CordGuy](https://github.com/3CordGuy))
+- adds important to listgroup item hover state [#99](https://github.com/BreezeChMS/mainsail-ui/pull/99) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- adds Form Field guide [skip chromatic] [#98](https://github.com/BreezeChMS/mainsail-ui/pull/98) ([@3CordGuy](https://github.com/3CordGuy))
+- Storybook guide video [#97](https://github.com/BreezeChMS/mainsail-ui/pull/97) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.0.3 (Tue May 25 2021)
 
 #### 🐛 Bug Fix
