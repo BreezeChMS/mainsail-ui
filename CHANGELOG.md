@@ -1,3 +1,15 @@
+# v1.0.5 (Fri May 28 2021)
+
+#### 🐛 Bug Fix
+
+- fixes tooltip sizing issue [#102](https://github.com/BreezeChMS/mainsail-ui/pull/102) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.0.4 (Fri May 28 2021)
 
 #### 🐛 Bug Fix
