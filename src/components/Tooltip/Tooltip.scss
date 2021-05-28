@@ -3,17 +3,13 @@
 /** Tooltip Component Styles */
 .mainsail-tooltip {
     @include mainsail-body-text-small();
+    box-sizing: border-box;
     position: relative;
-    align-items: center;
-    font-family: $font;
-    font-size: 0.75em;
     border-radius: $mainsail-tip-radius;
-    font-weight: 400;
     padding: 9px 8px;
     max-width: 170px;
     background-color: $mainsail-blue-dark;
     color: $mainsail-blue-light;
-    box-sizing: border-box;
 
     .tip-icon {
         cursor: pointer;
