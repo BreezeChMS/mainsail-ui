@@ -15,6 +15,11 @@ const toFileCase = (str) =>
         .join("");
 
 export const names = {
+    preferences: "preferences",
+    spreadsheet: "spreadsheet",
+    unarchive: "unarchive",
+    document: "document",
+    mailing_label: "mailing_label",
     warning: "warning",
     add: "add",
     apps: "apps",
