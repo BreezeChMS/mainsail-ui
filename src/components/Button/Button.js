@@ -83,12 +83,12 @@ export const Button = forwardRef(
                     data-loading={isLoading}
                     disabled={isDisabled || isLoading}
                     className={classify(
-                        { loading: isLoading, disabled: isDisabled },
                         "mainsail-button",
-                        className,
+                        { loading: isLoading, disabled: isDisabled },
                         variant,
                         textSize,
-                        intent
+                        intent,
+                        className
                     )}
                     {...props}>
                     {!loadingText ? <Spinner /> : null}
@@ -104,14 +104,14 @@ export const Button = forwardRef(
                 disabled={isDisabled || isLoading}
                 className={classify(
                     "mainsail-button",
-                    className,
                     variant,
                     textSize,
                     intent,
                     {
                         "text-small": textSize === "small",
                         "full-width": isFullWidth,
-                    }
+                    },
+                    className
                 )}
                 {...props}>
                 {iconLeft
