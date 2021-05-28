@@ -1,3 +1,15 @@
+# v1.1.0 (Fri May 28 2021)
+
+#### 🚀 Enhancement
+
+- Add new icons w/ better search [#103](https://github.com/BreezeChMS/mainsail-ui/pull/103) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.0.5 (Fri May 28 2021)
 
 #### 🐛 Bug Fix
