@@ -30,10 +30,6 @@ let iconList = [
         icon: names.view,
     },
     {
-        keyword: "chevron left",
-        icon: names.back,
-    },
-    {
         keyword: "plus",
         icon: names.add,
     },
