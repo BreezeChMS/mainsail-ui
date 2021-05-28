@@ -212,6 +212,42 @@
     }
 }
 
+.sm\:visible {
+    @include md-size-down() {
+        display: initial;
+    }
+    @include md-to-lg() {
+        display: none;
+    }
+    @include lg-size-up() {
+        display: none;
+    }
+}
+
+.md\:visible {
+    @include md-size-down() {
+        display: none;
+    }
+    @include md-to-lg() {
+        display: initial;
+    }
+    @include lg-size-up() {
+        display: none;
+    }
+}
+
+.lg\:visible {
+    @include md-size-down() {
+        display: none;
+    }
+    @include md-to-lg() {
+        display: none;
+    }
+    @include lg-size-up() {
+        display: initial;
+    }
+}
+
 @include md-size-down() {
     .sm\:hidden {
         display: none;
