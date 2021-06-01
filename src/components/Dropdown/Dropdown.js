@@ -325,7 +325,7 @@ Dropdown.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /** Default text to display */
     placeholder: PropTypes.string,
-    /** Array of dropdown menu choices must at a minimum contain keys `text` and `value`, optionally a `template` func can be supplied for custom component usage, along with `meta` data */
+    /** Array of dropdown menu choices must at a minimum contain keys `text` and `value`, optionally a `template` func can be supplied for custom component usage */
     options: PropTypes.arrayOf(
         PropTypes.shape({
             text: PropTypes.string,
@@ -338,7 +338,7 @@ Dropdown.propTypes = {
     isNative: PropTypes.bool,
     /** Show/Hide the caret icon when using default dropdown */
     hasCaret: PropTypes.bool,
-    /** Callback fired when a selection is made recieves ({...option}, changeEvent) as args  */
+    /** Callback fired when a selection is made; recieves ({ ...optionData }, changeEvent) as args  */
     onChange: PropTypes.func,
     /** Marks the dropdown/select as required */
     isRequired: PropTypes.bool,
