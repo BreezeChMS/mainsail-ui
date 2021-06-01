@@ -5,7 +5,7 @@ import { Button } from "components/Button";
 import { PopMenuItem } from "components/PopMenu";
 
 export default {
-    title: "Overlay/PopMenu",
+    title: "Overlay/PopMenu/PopMenu",
     component: PopMenu,
     subcomponents: { PopMenuItem },
     argTypes: {},

@@ -86,7 +86,7 @@ Actions.propTypes = {
     className: PropTypes.string,
     /** Style class to add to column header */
     headerClassName: PropTypes.string,
-    /** Excplicit Width allowed for the column, Note: passing an array of up to 3 values representing sm,md,lg breakpoints is supported */
+    /** Explicit Width allowed for the column such as "120px" or "30%", Note: passing an array of up to 3 values representing sm,md,lg breakpoints is supported */
     width: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.string),
