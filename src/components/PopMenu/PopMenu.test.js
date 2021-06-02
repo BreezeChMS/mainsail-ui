@@ -6,6 +6,7 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
 import { Basic } from "./PopMenu.stories";
+import { WithHeader, WithIcons } from "./PopMenuItem.stories";
 
 it("renders the popmenu when trigger item is clicked", async () => {
     render(<Basic {...Basic.args} />);
@@ -31,4 +32,25 @@ it("can be controlled with keyboard", async () => {
     userEvent.type(screen.getByRole("button"), "{esc}");
 
     expect(screen.queryByRole("menu")).not.toBeInTheDocument();
+});
+
+it("can render an item with isHeader properly", async () => {
+    render(<WithHeader {...WithHeader.args} />);
+
+    act(() => {
+        userEvent.click(screen.getByRole("button"));
+    });
+
+    expect(screen.getByText(WithHeader.args.text)).toBeInTheDocument();
+});
+
+it("can render an item with icons properly", async () => {
+    render(<WithIcons {...WithIcons.args} />);
+
+    act(() => {
+        userEvent.click(screen.getByRole("button"));
+    });
+
+    // Two choices with an icon each
+    expect(screen.getAllByRole("img").length).toBe(2);
 });
