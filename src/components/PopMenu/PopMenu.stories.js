@@ -2,6 +2,7 @@ import React from "react";
 
 import { PopMenu } from "./PopMenu";
 import { Button } from "components/Button";
+import { Icon } from "components/Icon";
 import { PopMenuItem } from "components/PopMenu";
 
 export default {
@@ -64,3 +65,42 @@ WithDivider.args = {
 WithDivider.parameters = {
     layout: "centered",
 };
+
+export const KitchenSink = (args) => (
+    <PopMenu hasPadding trigger={<Button text="Click me" />}>
+        <PopMenu.Item
+            color={PopMenu.Item.colors.dark}
+            icon={Icon.names.email}
+            text="Email"
+            {...args}
+        />
+        <PopMenu.Item
+            color={PopMenu.Item.colors.dark}
+            icon={Icon.names.text}
+            text="Text"
+        />
+        <hr />
+        <PopMenu.Item isHeader text="Exports" />
+        <PopMenu.Item
+            color={PopMenu.Item.colors.dark}
+            icon={Icon.names.document}
+            text="Document"
+        />
+        <PopMenu.Item
+            color={PopMenu.Item.colors.dark}
+            icon={Icon.names.spreadsheet}
+            text="Spreadsheet"
+        />
+        <hr />
+        <PopMenu.Item
+            color={PopMenu.Item.colors.dark}
+            icon={Icon.names.tag}
+            text="Add to Tags"
+        />
+        <PopMenu.Item
+            color={PopMenu.Item.colors.dark}
+            icon={Icon.names.archive}
+            text="Archive"
+        />
+    </PopMenu>
+);

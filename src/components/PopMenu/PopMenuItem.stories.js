@@ -1,11 +1,21 @@
 import React from "react";
 import { Button } from "components/Button";
+import { Icon } from "components/Icon";
 import { PopMenu } from "./PopMenu";
 
 export default {
-    title: "Overlay/PopMenu/PopMenuItem",
+    title: "Overlay/PopMenu/Item",
     component: PopMenu.Item,
-    argTypes: {},
+    argTypes: {
+        icon: {
+            name: "icon",
+            type: { name: "string" },
+            control: {
+                type: "select",
+            },
+            options: Object.keys(Icon.names),
+        },
+    },
     parameters: {
         controls: { sort: "requiredFirst" },
         docs: {
@@ -27,4 +37,25 @@ const ItemTemplate = (args) => (
 export const Basic = ItemTemplate.bind({});
 Basic.args = {
     text: "Change me",
+};
+
+export const WithIcons = (args) => (
+    <PopMenu trigger={<Button text="Click me" />}>
+        <PopMenu.Item icon={Icon.names.document} text="Document" {...args} />
+        <PopMenu.Item icon={Icon.names.spreadsheet} text="Spreadsheet" />
+    </PopMenu>
+);
+
+export const WithHeader = (args) => (
+    <PopMenu trigger={<Button text="Click me" />}>
+        <PopMenu.Item {...args} />
+        <PopMenu.Item icon={Icon.names.spreadsheet} text="Spreadsheet" />
+        <PopMenu.Item icon={Icon.names.document} text="Document" />
+    </PopMenu>
+);
+
+WithHeader.args = {
+    text: "Exports",
+    isHeader: true,
+    onClick: null,
 };
