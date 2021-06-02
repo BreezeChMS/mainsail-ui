@@ -48,6 +48,7 @@ export const PopMenu = ({
     placement,
     positioning,
     modifiers,
+    hasPadding,
     menuOffset,
     children,
     trigger,
@@ -179,7 +180,11 @@ export const PopMenu = ({
                     role="menu"
                     data-testid="pop-menu"
                     aria-expanded={isOpen ? "true" : "false"}
-                    className={classify("mainsail-pop-menu__menu", className)}
+                    className={classify(
+                        "mainsail-pop-menu__menu",
+                        { "py-6": hasPadding },
+                        className
+                    )}
                     ref={setPopperElement}
                     style={styles.popper}
                     {...attributes.popper}>
@@ -191,6 +196,8 @@ export const PopMenu = ({
 };
 
 PopMenu.propTypes = {
+    /** Defines the PopMenu with top and bottom padding */
+    hasPadding: PropTypes.bool,
     /** Number of pixels to offset the pop menu */
     menuOffset: PropTypes.number,
     /** Position the pop menu */
@@ -209,7 +216,7 @@ PopMenu.propTypes = {
     variant: PropTypes.oneOf(Object.values(variants)),
     /** (Optional) click handler */
     onClick: PropTypes.func,
-    /** Style class to add to component wrapper */
+    /** Style class to add to pop menu list */
     className: PropTypes.string,
 };
 
