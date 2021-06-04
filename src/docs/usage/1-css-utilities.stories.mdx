@@ -472,6 +472,11 @@ This example contains a `content-blur` that blurs all the children.
 
 Basic Mainsail typography classes are available.
 
+-   Headings
+-   Body
+-   Labeling text
+-   Button text
+
 ## Headings
 
 ```html
@@ -494,7 +499,7 @@ Basic Mainsail typography classes are available.
 
 ## Body text
 
-There are **4 sizes** of body text available: `lg`, `md` (default), `sm` and `xs`.
+**4 sizes** of body text exist: `lg`, `md` (default), `sm` and `xs`.
 
 ```jsx
 <p className="body-text lg">
@@ -516,17 +521,49 @@ There are **4 sizes** of body text available: `lg`, `md` (default), `sm` and `xs
 
 <Canvas>
     <div>
-        <p className="lg">
+        <p className="body-text lg mb-10">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit
         </p>
-        <p className="md">
+        <p className="body-text md mb-10">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit
         </p>
-        <p className="sm">
+        <p className="body-text sm mb-10">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit
         </p>
-        <p className="xs">
+        <p className="body-text xs mb-10">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit
         </p>
+    </div>
+</Canvas>
+
+## Label text
+
+**1 size** of label text exists:`sm`.
+
+> 💡 This is a text style for labeling UI content and not specifically for `<label/>` elements
+
+```jsx
+<p className="label-text sm text-neutral-3">Labeling Text</p>
+```
+
+<Canvas>
+    <div>
+        <p className="label-text sm text-neutral-3">Labeling Text</p>
+    </div>
+</Canvas>
+
+## Button text
+
+**2 sizes** of button text exist: `md` & `sm` (md can be omitted).
+
+```jsx
+<p className="button-text text-neutral-2">Button Text</p>
+<p className="button-text sm text-neutral-2">Button Text</p>
+```
+
+<Canvas>
+    <div>
+        <p className="button-text text-neutral-2">Regular Button Text</p>
+        <p className="button-text sm text-neutral-2">Small Button Text</p>
     </div>
 </Canvas>
