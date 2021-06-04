@@ -67,7 +67,7 @@ WithDivider.parameters = {
 };
 
 export const KitchenSink = (args) => (
-    <PopMenu hasPadding trigger={<Button text="Click me" />}>
+    <PopMenu hasPadding trigger={<Button text="Click me" />} {...args}>
         <PopMenu.Item
             color={PopMenu.Item.colors.dark}
             icon={Icon.names.email}

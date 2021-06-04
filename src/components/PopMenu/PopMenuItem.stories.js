@@ -39,6 +39,17 @@ Basic.args = {
     text: "Change me",
 };
 
+export const ItemColor = (args) => (
+    <PopMenu trigger={<Button text="Click me" />}>
+        <PopMenu.Item icon={Icon.names.document} text="Document" {...args} />
+        <PopMenu.Item
+            icon={Icon.names.spreadsheet}
+            text="Spreadsheet"
+            {...args}
+        />
+    </PopMenu>
+);
+
 export const WithIcons = (args) => (
     <PopMenu trigger={<Button text="Click me" />}>
         <PopMenu.Item icon={Icon.names.document} text="Document" {...args} />
