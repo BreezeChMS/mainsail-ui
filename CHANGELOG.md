@@ -1,3 +1,20 @@
+# v1.2.0 (Fri Jun 04 2021)
+
+#### 🚀 Enhancement
+
+- Improvements to popmenu [#106](https://github.com/BreezeChMS/mainsail-ui/pull/106) ([@3CordGuy](https://github.com/3CordGuy))
+- Util class improvements [#105](https://github.com/BreezeChMS/mainsail-ui/pull/105) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- fixes and clarifies some docs [skip chromatic] [#104](https://github.com/BreezeChMS/mainsail-ui/pull/104) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.1.0 (Fri May 28 2021)
 
 #### 🚀 Enhancement
