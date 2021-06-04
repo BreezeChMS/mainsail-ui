@@ -53,10 +53,12 @@ h4,
 
 p,
 .body-text {
+    @include mainsail-body-text-regular();
     font-family: $font;
     font-style: normal;
     font-weight: normal;
     color: $mainsail-neutral-1;
+
     &.md {
         @include mainsail-body-text-regular();
     }
@@ -71,6 +73,33 @@ p,
 
     &.xs {
         @include mainsail-body-text-tiny();
+    }
+}
+
+.label-text {
+    @include mainsail-label-text-small();
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 00.04em;
+    text-transform: uppercase;
+    &.sm {
+        @include mainsail-label-text-small();
+    }
+}
+
+.button-text {
+    font-family: $font;
+    font-style: normal;
+    font-weight: 500;
+    color: $mainsail-neutral-1;
+    @include mainsail-button-text-regular();
+
+    &.md {
+        @include mainsail-button-text-regular();
+    }
+
+    &.sm {
+        @include mainsail-button-text-small();
     }
 }
 

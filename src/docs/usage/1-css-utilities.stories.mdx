@@ -11,7 +11,9 @@ Mainsail comes with a few utility classes for working within the Mainsail design
 ## What's available?
 
 -   [Colors](#colors)
+-   [Sizing](#sizing) (Simple sizing utilities - not meant to replace AutoGrid/Flex)
 -   [Spacing](#spacing) (margins/padding with responsive designations available)
+-   [Visibility](#visibility) (showing/hiding with responsive designations available)
 -   [Corner Radius](#corner-radius)
 -   [Shadows & Overlays](#shadows--overlays)
 -   [Typography](#typography)
@@ -41,7 +43,9 @@ Uses the syntax `bg-<color>-<variant>`.
 
 <Canvas className="body-text sm">
     <div className="space-y-8">
-        <div class="bg-blue-primary rounded p-8">bg-blue-primary</div>
+        <div class="bg-blue-primary text-blue-light rounded p-8">
+            bg-blue-primary
+        </div>
         <div class="bg-blue-light rounded p-8">bg-blue-light</div>
         <div class="bg-blue-middle rounded p-8 text-blue-light">
             bg-blue-middle
@@ -216,6 +220,33 @@ Uses the syntax `rounded-<amount>`.
     </div>
 </Canvas>
 
+# Sizing
+
+These sizing utilities are not meant to be a replacement for AutoGrid or Flex components.
+
+> Note: At this time, responsive utilities do not exist for this because AutoGrid/Flex components can control sizing at breakpoints.
+
+|    Class | Amount |
+| -------: | ------ |
+| w-screen | 100vw  |
+|   w-full | 100%   |
+|    w-3/4 | 75%    |
+|    w-1/2 | 50%    |
+|    w-1/4 | 25%    |
+|    w-1/3 | 33.33% |
+|    w-2/3 | 66.66% |
+| h-screen | 100vh  |
+|   h-full | 100%   |
+
+<Canvas className="body-text sm">
+    <div className="space-y-8">
+        <div class="bg-blue-primary w-full p-10 text-white">w-full</div>
+        <div class="bg-blue-light w-3/4 p-10 text-blue-middle">w-3/4</div>
+        <div class="bg-blue-middle w-1/2 p-10 text-white">w-1/2</div>
+        <div class="bg-blue-dark w-1/4 h-full p-10 text-white">w-1/4</div>
+    </div>
+</Canvas>
+
 # Spacing
 
 For common Mainsail spec spacing margins and padding, you can use `p-<size>` and `m-<size>` classes.
@@ -229,7 +260,9 @@ These are controllable with an intuitive explicit sizing scale that comes from s
 | Class specifier | Pixels |
 | --------------: | ------ |
 |               0 | 0px    |
+|               2 | 2px    |
 |               4 | 4px    |
+|               6 | 6px    |
 |               8 | 8px    |
 |              10 | 10px   |
 |              12 | 12px   |
@@ -338,7 +371,7 @@ Responsive designations for spacing can be applied. The syntax looks like `<brea
     </div>
 </Canvas>
 
-### Hiding
+### Visibility
 
 Resize the browser to see these utility classes at work.
 
@@ -441,6 +474,11 @@ This example contains a `content-blur` that blurs all the children.
 
 Basic Mainsail typography classes are available.
 
+-   Headings
+-   Body
+-   Labeling text
+-   Button text
+
 ## Headings
 
 ```html
@@ -463,7 +501,7 @@ Basic Mainsail typography classes are available.
 
 ## Body text
 
-There are **4 sizes** of body text available: `lg`, `md` (default), `sm` and `xs`.
+**4 sizes** of body text exist: `lg`, `md` (default), `sm` and `xs`.
 
 ```jsx
 <p className="body-text lg">
@@ -485,17 +523,49 @@ There are **4 sizes** of body text available: `lg`, `md` (default), `sm` and `xs
 
 <Canvas>
     <div>
-        <p className="lg">
+        <p className="body-text lg mb-10">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit
         </p>
-        <p className="md">
+        <p className="body-text md mb-10">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit
         </p>
-        <p className="sm">
+        <p className="body-text sm mb-10">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit
         </p>
-        <p className="xs">
+        <p className="body-text xs mb-10">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit
         </p>
+    </div>
+</Canvas>
+
+## Label text
+
+**1 size** of label text exists:`sm`.
+
+> 💡 This is a text style for labeling UI content and not specifically for `<label/>` elements
+
+```jsx
+<p className="label-text sm text-neutral-3">Labeling Text</p>
+```
+
+<Canvas>
+    <div>
+        <p className="label-text sm text-neutral-3">Labeling Text</p>
+    </div>
+</Canvas>
+
+## Button text
+
+**2 sizes** of button text exist: `md` & `sm` (md can be omitted).
+
+```jsx
+<p className="button-text text-neutral-2">Button Text</p>
+<p className="button-text sm text-neutral-2">Button Text</p>
+```
+
+<Canvas>
+    <div>
+        <p className="button-text text-neutral-2">Regular Button Text</p>
+        <p className="button-text sm text-neutral-2">Small Button Text</p>
     </div>
 </Canvas>
