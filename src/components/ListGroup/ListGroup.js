@@ -15,13 +15,6 @@ const renderIcon = (i) => {
 };
 
 /**
- * Define and export enumerable prop values for use (then attach to component below)
- * e.g. export const colors = {
- *    color1: "color1"
- * }
- */
-
-/**
  * A complex styled list of clickable choices that uses **ListGroupItem** as children
  */
 export const ListGroup = ({ children, className, ...props }) => {

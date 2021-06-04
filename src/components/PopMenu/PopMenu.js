@@ -12,6 +12,7 @@ import {
     ENTER_KEY_CODE,
     SPACE_KEY_CODES,
 } from "utility/constants";
+import { Icon } from "components/Icon";
 
 import "./PopMenu.scss";
 
@@ -35,6 +36,11 @@ export const placements = {
     bottomEnd: "bottom-end",
 };
 
+export const colors = {
+    default: "default",
+    dark: "dark",
+};
+
 export const positionings = {
     fixed: "fixed",
     absolute: "absolute",
@@ -48,6 +54,7 @@ export const PopMenu = ({
     placement,
     positioning,
     modifiers,
+    hasPadding,
     menuOffset,
     children,
     trigger,
@@ -179,7 +186,11 @@ export const PopMenu = ({
                     role="menu"
                     data-testid="pop-menu"
                     aria-expanded={isOpen ? "true" : "false"}
-                    className={classify("mainsail-pop-menu__menu", className)}
+                    className={classify(
+                        "mainsail-pop-menu__menu",
+                        { "py-6": hasPadding },
+                        className
+                    )}
                     ref={setPopperElement}
                     style={styles.popper}
                     {...attributes.popper}>
@@ -191,6 +202,8 @@ export const PopMenu = ({
 };
 
 PopMenu.propTypes = {
+    /** Defines the PopMenu with top and bottom padding (before first option, after last option) */
+    hasPadding: PropTypes.bool,
     /** Number of pixels to offset the pop menu */
     menuOffset: PropTypes.number,
     /** Position the pop menu */
@@ -209,7 +222,7 @@ PopMenu.propTypes = {
     variant: PropTypes.oneOf(Object.values(variants)),
     /** (Optional) click handler */
     onClick: PropTypes.func,
-    /** Style class to add to component wrapper */
+    /** Style class to add to pop menu list */
     className: PropTypes.string,
 };
 
@@ -221,14 +234,32 @@ PopMenu.defaultProps = {
     menuOffset: 20,
 };
 
-export const PopMenuItem = ({ className, onClick, text, children }) => {
+export const PopMenuItem = ({
+    className,
+    icon,
+    isHeader,
+    color,
+    onClick,
+    text,
+    children,
+}) => {
+    if (isHeader) {
+        return (
+            <h5 className="mainsail-pop-menu__header">
+                {text}
+                {children}
+            </h5>
+        );
+    }
+
     return (
         <button
             type="button"
             role="menuitem"
             tabIndex="0"
             onClick={onClick}
-            className={classify("mainsail-pop-menu__item", className)}>
+            className={classify("mainsail-pop-menu__item", color, className)}>
+            {icon ? <Icon name={icon} /> : null}
             {text}
             {children}
         </button>
@@ -236,15 +267,29 @@ export const PopMenuItem = ({ className, onClick, text, children }) => {
 };
 
 PopMenuItem.propTypes = {
+    /** Define the color of the text of the Menu Items */
+    color: PropTypes.oneOf(Object.values(colors)),
+    /** Define a PopMenu.Item as header label text (not clickable) */
+    isHeader: PropTypes.bool,
     /** Optional text to display as menu item (used in lieu of passing children) */
     text: PropTypes.string,
+    /** Optional icon to display as button icon */
+    icon: PropTypes.oneOf(Object.values(Icon.names)),
     /** Optional callback to fire when menu item is clicked */
     onClick: PropTypes.func,
     /** Optional classes to provide to menu item */
     className: PropTypes.string,
 };
 
+PopMenuItem.defaultProps = {
+    color: colors.default,
+};
+
+PopMenuItem.iconNames = Icon.names;
+PopMenuItem.colors = colors;
 PopMenu.Item = PopMenuItem;
+
+PopMenu.displayName = "PopMenu";
 PopMenu.variants = variants;
 PopMenu.positionings = positionings;
 PopMenu.placements = placements;
