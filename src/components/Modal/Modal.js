@@ -188,18 +188,20 @@ export const Modal = ({
                             data-testid="modal-header"
                             className="mainsail-modal-header">
                             <div className="header-section">
-                                {showBackButton ? (
-                                    <Button
-                                        onClick={onClickBack}
-                                        variant={Button.variants.tertiary}
-                                        iconLeft={Icon.names.back}
-                                        text={
-                                            <span className="sm:hidden">
-                                                Back
-                                            </span>
-                                        }
-                                    />
-                                ) : null}
+                                {showBackButton
+                                    ? backButton || (
+                                          <Button
+                                              onClick={onClickBack}
+                                              variant={Button.variants.tertiary}
+                                              iconLeft={Icon.names.back}
+                                              text={
+                                                  <span className="sm:hidden">
+                                                      Back
+                                                  </span>
+                                              }
+                                          />
+                                      )
+                                    : null}
                             </div>
                             <div className="header-section">
                                 <h2

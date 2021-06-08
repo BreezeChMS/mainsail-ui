@@ -613,3 +613,23 @@ FocusHandling.parameters = {
         },
     },
 };
+
+export const CustomBackButton = Template.bind({});
+CustomBackButton.args = {
+    ...OverlayDismissable.args,
+    backButton: (
+        <Button
+            onClick={() => {}}
+            variant={Button.variants.tertiary}
+            text="Nope"
+        />
+    ),
+};
+CustomBackButton.parameters = {
+    docs: {
+        description: {
+            story:
+                "A modal have a custom back button supplied in lieu of the default callback `onClickBack`",
+        },
+    },
+};
