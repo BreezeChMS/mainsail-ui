@@ -31,8 +31,10 @@ export const Modal = ({
     isOpen,
     title,
     hasNoPadding,
+    isFullScreenMobile,
     onClose,
     onClickBack,
+    backButton,
     onConfirm,
     isLoading,
     confirmText,
@@ -49,10 +51,11 @@ export const Modal = ({
     initialFocusRef,
     onCloseFocusRef,
     className,
+    classNameFooter,
     children,
     ...props
 }) => {
-    const showBackButton = typeof onClickBack === "function";
+    const showBackButton = backButton || typeof onClickBack === "function";
     const [openClass, setOpenClass] = useState(isOpen ? "open" : "");
     const modalId = useUniqueId("modal");
     const modalRef = useRef(null);
@@ -102,8 +105,10 @@ export const Modal = ({
 
         if (isOpen) {
             blurRef.classList.add("content-blur");
+            document.body.classList.add("overflow-hidden");
         } else {
             blurRef.classList.remove("content-blur");
+            document.body.classList.remove("overflow-hidden");
         }
     }, [isOpen, blurContentRef]);
 
@@ -144,7 +149,11 @@ export const Modal = ({
 
     return (
         <WithPortal id="mainsail-modal" className="mainsail-modal-container">
-            <div className={classify("mainsail-modal", openClass)} {...props}>
+            <div
+                className={classify("mainsail-modal", openClass, {
+                    "mobile-fullscreen": isFullScreenMobile,
+                })}
+                {...props}>
                 {hasOverlay === true ? (
                     <Transition
                         animation={Transition.animations.fade}
@@ -179,14 +188,20 @@ export const Modal = ({
                             data-testid="modal-header"
                             className="mainsail-modal-header">
                             <div className="header-section">
-                                {showBackButton ? (
-                                    <Button
-                                        onClick={onClickBack}
-                                        variant={Button.variants.tertiary}
-                                        iconLeft={Icon.names.back}
-                                        text="Back"
-                                    />
-                                ) : null}
+                                {showBackButton
+                                    ? backButton || (
+                                          <Button
+                                              onClick={onClickBack}
+                                              variant={Button.variants.tertiary}
+                                              iconLeft={Icon.names.back}
+                                              text={
+                                                  <span className="sm:hidden">
+                                                      Back
+                                                  </span>
+                                              }
+                                          />
+                                      )
+                                    : null}
                             </div>
                             <div className="header-section">
                                 <h2
@@ -217,7 +232,10 @@ export const Modal = ({
 
                         <div
                             data-testid="modal-footer"
-                            className="mainsail-modal-footer">
+                            className={classify(
+                                "mainsail-modal-footer",
+                                classNameFooter
+                            )}>
                             {footer ? (
                                 footer
                             ) : (
@@ -262,6 +280,8 @@ Modal.propTypes = {
     style: PropTypes.object,
     /** Style class to add to modal wrapper */
     className: PropTypes.string,
+    /** Style class to add to footer wrapper (useful for applying a background color via utility class) */
+    classNameFooter: PropTypes.string,
     /** The title text of the modal */
     title: PropTypes.string.isRequired,
     /** The confirm button variant of the modal (if using default footer)*/
@@ -272,12 +292,16 @@ Modal.propTypes = {
     loadingText: PropTypes.string,
     /** Places the modal in a loading state for primary action button (if using default footer)*/
     isLoading: PropTypes.bool,
+    /** Stretches the mobile body to fill the screen more on smaller screens */
+    isFullScreenMobile: PropTypes.bool,
     /** The cancel button text of the modal (if using default footer)*/
     cancelText: PropTypes.string,
     /** Controls the visibility of the modal window */
     isOpen: PropTypes.bool,
     /** Callback fired when the modal back button is clicked */
     onClickBack: PropTypes.func,
+    /** Optional custom back button (uses default if not supplied) */
+    backButton: PropTypes.oneOfType([PropTypes.node, PropTypes.element]),
     /** Callback fired when the default confirm button is clicked */
     onConfirm: PropTypes.func,
     /** Callback fired when the default cancel button is clicked */
@@ -321,6 +345,7 @@ Modal.defaultProps = {
     intent: intents.default,
     hasOverlay: true,
     maxWidth: "500px",
+    isFullScreenMobile: false,
 };
 
 /*

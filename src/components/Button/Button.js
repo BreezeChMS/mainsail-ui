@@ -119,7 +119,7 @@ export const Button = forwardRef(
                     : null}
                 {!icon ? renderChild(text) : null}
                 {icon ? renderIcon(icon, { size: iconSize }) : null}
-                {children}
+                {renderChild(children)}
                 {iconRight
                     ? renderIcon(iconRight, { side: "right", size: iconSize })
                     : null}

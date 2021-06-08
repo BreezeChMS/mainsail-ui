@@ -110,10 +110,40 @@
             * + * {
                 margin-left: 10px;
             }
+
+            border-bottom-right-radius: $mainsail-modal-radius;
+            border-bottom-left-radius: $mainsail-modal-radius;
         }
 
         &.danger {
             border-top: 8px solid $mainsail-red-middle;
+        }
+    }
+
+    &.mobile-fullscreen {
+        @include sm-size-down {
+            &.open {
+                align-items: flex-end;
+            }
+
+            .mainsail-modal-header {
+                .header-section {
+                    h2 {
+                        @include h3;
+                    }
+                }
+            }
+
+            .mainsail-modal-content {
+                max-height: 90%;
+                min-height: 90%;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+
+                .mainsail-modal-body {
+                    max-height: calc(100% - 150px); // 150 = head + foot
+                }
+            }
         }
     }
 }

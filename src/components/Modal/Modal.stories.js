@@ -77,7 +77,7 @@ const Template = (args) => {
     };
 
     return (
-        <div id="app-body">
+        <div id="app-body" className="bg-neutral-6 p-20">
             <div className="body-text" ref={blurContent}>
                 <Modal
                     {...args}
@@ -315,6 +315,27 @@ ScrollingContent.parameters = {
         description: {
             story:
                 "If the modal body content is too tall, it will produce vertical scroll bars.",
+        },
+    },
+};
+
+export const FullScreenOnMobile = Template.bind({});
+FullScreenOnMobile.args = {
+    title: "Confirm",
+    classNameFooter: "bg-neutral-6",
+    confirmVariant: Button.variants.primary,
+    isDismissable: true,
+    onClickBack: null,
+    isFullScreenMobile: true,
+    onCancel: () => setModalTemplateOpen(false),
+    onConfirm: () => setModalTemplateOpen(false),
+    children: ScrollingContent.args.children,
+};
+FullScreenOnMobile.parameters = {
+    docs: {
+        description: {
+            story:
+                "Modals can be configured with `isFullScreenMobile` to fill the screen more when more content area is required on smaller screens.",
         },
     },
 };
@@ -589,6 +610,26 @@ FocusHandling.parameters = {
         description: {
             story:
                 "A modal can set focus on its body elements and also on DOM elements when it closes.",
+        },
+    },
+};
+
+export const CustomBackButton = Template.bind({});
+CustomBackButton.args = {
+    ...OverlayDismissable.args,
+    backButton: (
+        <Button
+            onClick={() => {}}
+            variant={Button.variants.tertiary}
+            text="Nope"
+        />
+    ),
+};
+CustomBackButton.parameters = {
+    docs: {
+        description: {
+            story:
+                "A modal have a custom back button supplied in lieu of the default callback `onClickBack`",
         },
     },
 };

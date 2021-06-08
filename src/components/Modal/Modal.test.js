@@ -10,10 +10,16 @@ import {
     ScrollingContent,
     OverlayDismissable,
     CustomButtonText,
+    CustomBackButton,
     FocusHandling,
 } from "./Modal.stories";
 
-it("can render a basic confirm modal in the open state", () => {
+it("can render with a custom backButton", () => {
+    render(<CustomBackButton {...CustomBackButton.args} isOpen={true} />);
+    expect(screen.getByText("Nope")).toBeInTheDocument();
+});
+
+it("can render in the open state", () => {
     render(<BasicConfirm {...BasicConfirm.args} isOpen={true} />);
     expect(screen.getByRole("dialog")).toBeInTheDocument();
     expect(screen.getByRole("dialog")).toHaveTextContent("Confirm");
