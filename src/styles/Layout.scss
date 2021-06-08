@@ -437,8 +437,13 @@
 
 .content-blur {
     filter: blur(3px);
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+
+.overflow-hidden {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
 }
 
 .content-overlay {
