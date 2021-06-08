@@ -1,3 +1,19 @@
+# v1.3.0 (Tue Jun 08 2021)
+
+#### 🚀 Enhancement
+
+- Mobile modal [#108](https://github.com/BreezeChMS/mainsail-ui/pull/108) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### ⚠️ Pushed to `master`
+
+- updates chromatic project token ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.2.0 (Fri Jun 04 2021)
 
 #### 🚀 Enhancement
