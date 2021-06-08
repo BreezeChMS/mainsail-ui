@@ -59,6 +59,21 @@ it("fires a provided onChange handler", () => {
     expect(onClick).toHaveBeenCalledWith("choice1");
 });
 
+it("fires a provided onChange handler when text is clicked", () => {
+    let onClick = jest.fn();
+    render(
+        <Basic
+            {...Basic.args}
+            name="choice"
+            value="choice1"
+            onChange={(e) => onClick(e.target.value)}
+        />
+    );
+
+    userEvent.click(screen.getByText(Basic.args.text));
+    expect(onClick).toHaveBeenCalledWith("choice1");
+});
+
 it("can be rendered disabled", () => {
     render(<Basic {...Basic.args} isDisabled />);
 
