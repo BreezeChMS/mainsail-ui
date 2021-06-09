@@ -50,7 +50,7 @@ export const Checkbox = ({
     useEffect(() => {
         checkboxRef.current.checked = isChecked || isDefaultChecked;
         checkboxRef.current.indeterminate = isIndeterminate;
-    });
+    }, [isIndeterminate, isChecked, isDefaultChecked]);
 
     return (
         <label
