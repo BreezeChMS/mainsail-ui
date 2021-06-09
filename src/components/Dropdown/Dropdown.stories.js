@@ -16,10 +16,7 @@ const FormControlTemplate = (args) => (
     <div
         style={{
             minHeight: "300px",
-            minWidth: "500px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            width: "400px",
         }}>
         <FormControl
             isDisabled={args.isDisabled}

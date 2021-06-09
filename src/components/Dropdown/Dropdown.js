@@ -286,14 +286,14 @@ export const Dropdown = ({
                     ref={setPopperElement}
                     style={styles.popper}
                     {...attributes.popper}>
-                    {options.map(({ template, ...item }) => (
+                    {options.map(({ template, ...item }, index) => (
                         <button
+                            key={`${index}_${item.value}`}
                             role="listitem"
                             aria-selected={
                                 selected && selected.value === item.value
                             }
                             tabIndex="0"
-                            key={item.value}
                             onClick={(e) =>
                                 !isDisabled && handleSelect(item, e)
                             }
