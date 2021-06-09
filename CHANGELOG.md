@@ -1,3 +1,15 @@
+# v1.3.2 (Wed Jun 09 2021)
+
+#### 🐛 Bug Fix
+
+- fixes a bug with missing checkbox ref deps [#113](https://github.com/BreezeChMS/mainsail-ui/pull/113) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.3.1 (Wed Jun 09 2021)
 
 #### 🐛 Bug Fix
