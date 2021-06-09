@@ -98,18 +98,22 @@ export const Modal = ({
 
     // Handle blurring of content
     useEffect(() => {
-        if (!blurContentRef) {
-            return;
-        }
-        let blurRef = blurContentRef.current;
+        let blurRef = blurContentRef && blurContentRef.current;
 
-        if (isOpen) {
+        if (blurRef && blurRef.classList && isOpen) {
             blurRef.classList.add("content-blur");
-            document.body.classList.add("overflow-hidden");
-        } else {
-            blurRef.classList.remove("content-blur");
-            document.body.classList.remove("overflow-hidden");
         }
+
+        // Always disable scroll on body
+        document.body.classList.add("overflow-hidden");
+
+        // Cleanup added classes on unmount
+        return () => {
+            blurRef &&
+                blurRef.classList &&
+                blurRef.classList.remove("content-blur");
+            document.body.classList.remove("overflow-hidden");
+        };
     }, [isOpen, blurContentRef]);
 
     useEffect(() => {
@@ -156,6 +160,7 @@ export const Modal = ({
                 {...props}>
                 {hasOverlay === true ? (
                     <Transition
+                        shouldAnimateOnMount
                         animation={Transition.animations.fade}
                         isActive={isOpen}>
                         <div
@@ -167,6 +172,7 @@ export const Modal = ({
                     </Transition>
                 ) : null}
                 <Transition
+                    shouldAnimateOnMount
                     animation={Transition.animations.fadeScale}
                     isActive={isOpen}
                     onEnter={() => {
