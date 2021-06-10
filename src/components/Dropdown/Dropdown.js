@@ -289,7 +289,7 @@ export const Dropdown = ({
                     {options.map(({ template, ...item }, index) => (
                         <button
                             key={`${index}_${item.value}`}
-                            role="listitem"
+                            role="option"
                             aria-selected={
                                 selected && selected.value === item.value
                             }
