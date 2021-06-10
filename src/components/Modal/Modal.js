@@ -199,13 +199,11 @@ export const Modal = ({
                                           <Button
                                               onClick={onClickBack}
                                               variant={Button.variants.tertiary}
-                                              iconLeft={Icon.names.back}
-                                              text={
-                                                  <span className="sm:hidden">
-                                                      Back
-                                                  </span>
-                                              }
-                                          />
+                                              iconLeft={Icon.names.back}>
+                                              <span className="sm:hidden">
+                                                  Back
+                                              </span>
+                                          </Button>
                                       )
                                     : null}
                             </div>
