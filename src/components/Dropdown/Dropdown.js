@@ -289,7 +289,7 @@ export const Dropdown = ({
                     {options.map(({ template, ...item }, index) => (
                         <button
                             key={`${index}_${item.value}`}
-                            role="listitem"
+                            role="option"
                             aria-selected={
                                 selected && selected.value === item.value
                             }
@@ -348,7 +348,7 @@ Dropdown.propTypes = {
     menuOffset: PropTypes.number,
     /** Position the dropdown menu */
     placement: PropTypes.oneOf(Object.values(placements)),
-    /** Positioning strategy of the dropdown menu */
+    /** Positioning strategy of the dropdown menu, [see this example for more info](https://stackblitz.com/edit/mainsail-fixed-dropdown-menu?file=src/App.js) */
     positioning: PropTypes.oneOf(Object.values(positionings)),
     /** Exposes a [Popperjs](https://popper.js.org/docs/v2/modifiers) api that enables further fine-tuning of dropdown menu. */
     modifiers: PropTypes.arrayOf(PropTypes.object),

@@ -40,7 +40,7 @@ it("can render an accurate list length", async () => {
     userEvent.click(screen.getByRole("button"));
 
     await waitFor(() => {
-        expect(screen.queryAllByRole("listitem").length).toBe(4);
+        expect(screen.queryAllByRole("option").length).toBe(4);
     });
 });
 
@@ -54,7 +54,7 @@ it("can render with a pre-selected value", async () => {
 
     await waitFor(() => {
         expect(
-            screen.queryAllByRole("listitem")[1].classList.contains("active")
+            screen.queryAllByRole("option")[1].classList.contains("active")
         ).toBe(true);
     });
 });
@@ -96,7 +96,7 @@ it("fires a provided onChange handler", () => {
     render(<Basic {...Basic.args} onChange={onClick} />);
 
     userEvent.click(screen.getByRole("button"));
-    userEvent.click(screen.queryAllByRole("listitem")[0]);
+    userEvent.click(screen.queryAllByRole("option")[0]);
 
     expect(onClick).toHaveBeenCalled();
 });
@@ -106,7 +106,7 @@ it("fires a provided onChange handler with supplied option data as args", () => 
     render(<Basic {...Basic.args} onChange={onClick} />);
 
     userEvent.click(screen.getByRole("button"));
-    userEvent.click(screen.queryAllByRole("listitem")[0]);
+    userEvent.click(screen.queryAllByRole("option")[0]);
 
     expect(onClick).toHaveBeenCalledWith(
         Basic.args.options[0], // first arg is the original option arg
@@ -119,7 +119,7 @@ it("fires a provided onChange handler with supplied option data as args when usi
     render(<CustomTrigger {...CustomTrigger.args} onChange={onClick} />);
 
     userEvent.click(screen.getByRole("button"));
-    userEvent.click(screen.queryAllByRole("listitem")[1]);
+    userEvent.click(screen.queryAllByRole("option")[1]);
 
     expect(onClick).toHaveBeenCalledWith(
         CustomTrigger.args.options[1], // first arg is the original option arg
@@ -143,7 +143,7 @@ it("displays the proper text when a choice is made", () => {
     render(<Basic {...Basic.args} />);
 
     userEvent.click(screen.getByRole("button"));
-    userEvent.click(screen.queryAllByRole("listitem")[0]);
+    userEvent.click(screen.queryAllByRole("option")[0]);
 
     expect(screen.getByRole("button").textContent).toBe(
         Basic.args.options[0].text
