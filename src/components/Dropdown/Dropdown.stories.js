@@ -10,6 +10,15 @@ export default {
     title: "Forms/Dropdown",
     component: Dropdown,
     argTypes: {},
+    parameters: {
+        docs: {
+            description: {
+                component: `A styled multiple choice alternative to a standard \`<select/>\` box. Uses [popperjs](https://popper.js.org/react-popper/) behind the scenes.
+
+            \n- **NOTE:** When desiring a dropdown menu that can appear outside an \`overflow:hidden\` parent, you will need to use the \`positioning\` prop set to "fixed". This will likely require a custom modifier to control the width of the dropdown menu. [See this example](https://stackblitz.com/edit/mainsail-fixed-dropdown-menu?file=src%2FApp.js).`,
+            },
+        },
+    },
 };
 
 const FormControlTemplate = (args) => (
