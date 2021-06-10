@@ -1,3 +1,15 @@
+# v1.3.4 (Thu Jun 10 2021)
+
+#### 🐛 Bug Fix
+
+- fixes modal back button getting wrong type to text [#115](https://github.com/BreezeChMS/mainsail-ui/pull/115) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.3.3 (Thu Jun 10 2021)
 
 #### 🐛 Bug Fix
