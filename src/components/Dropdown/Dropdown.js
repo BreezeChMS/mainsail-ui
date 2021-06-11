@@ -251,7 +251,8 @@ export const Dropdown = ({
                 <button
                     className={classify(
                         "mainsail-dropdown__toggle",
-                        isOpen && "open"
+                        isOpen && "open",
+                        hasCaret && "pr-30"
                     )}
                     type="button"
                     aria-haspopup={isOpen}

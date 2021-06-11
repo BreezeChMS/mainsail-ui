@@ -25,7 +25,7 @@ const FormControlTemplate = (args) => (
     <div
         style={{
             minHeight: "300px",
-            width: "400px",
+            width: "180px",
         }}>
         <FormControl
             isDisabled={args.isDisabled}
@@ -45,8 +45,9 @@ const Template = (args) => (
 
 export const Basic = FormControlTemplate.bind({});
 Basic.args = {
+    placeholder: "Choose wisely from this list",
     options: [
-        { text: "Frodo", value: 1 },
+        { text: "Frodo is the best hobbit pick this one", value: 1 },
         { text: "Samwise", value: 2 },
         { text: "Merry", value: 3 },
         { text: "Pippin", value: 4 },
@@ -239,7 +240,7 @@ CustomTrigger.parameters = {
             story: `Virtually any element can become a trigger. It is intended to be used on \`<Button/>\` components in this way.
                 \n**A couple things to Note**:
                 \n- This button supplies its own caret icon (click Show Code to see)
-                \n- The \`modifiers\` supplied are optionally added to ensure the popperjs menu is the same width as the parent ref trigger element (Button).`,
+                \n- The \`modifiers\` supplied are optionally added to ensure the popperjs menu is the same width as the parent ref trigger element (Button). [See this example for more details](https://stackblitz.com/edit/mainsail-fixed-dropdown-menu?file=src%2FApp.js).`,
         },
     },
 };

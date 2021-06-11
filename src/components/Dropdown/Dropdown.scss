@@ -5,8 +5,7 @@
     @include mainsail-body-text-regular;
     position: relative;
     margin-right: 0;
-    min-width: auto;
-    width: auto;
+    width: 100%;
     box-sizing: border-box;
 
     select.ms-select {
@@ -39,7 +38,7 @@
     button.mainsail-dropdown__toggle {
         @include mainsail-body-text-regular;
         text-align: left;
-        min-width: 100%;
+        width: 100%;
         color: $mainsail-neutral-2;
         background-color: $mainsail-white;
         padding: 7px;
@@ -47,6 +46,9 @@
         border-radius: $mainsail-input-border-radius;
         border: 1px solid $mainsail-input-border;
         cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         &.open,
         :focus,
@@ -96,15 +98,17 @@
         button.mainsail-dropdown__item {
             @include mainsail-body-text-regular;
             border: 0;
+            text-align: left;
             appearance: none;
             background: $mainsail-white;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
             padding: 4px 8px;
             cursor: pointer;
             color: $mainsail-neutral-2;
             line-height: 20px;
+            min-height: 28px;
 
             &:hover,
             &:active,
