@@ -1,3 +1,15 @@
+# v1.3.5 (Fri Jun 11 2021)
+
+#### 🐛 Bug Fix
+
+- patches dropdown css issues [#116](https://github.com/BreezeChMS/mainsail-ui/pull/116) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.3.4 (Thu Jun 10 2021)
 
 #### 🐛 Bug Fix
