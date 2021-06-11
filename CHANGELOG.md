@@ -1,3 +1,15 @@
+# v1.3.7 (Fri Jun 11 2021)
+
+#### 🐛 Bug Fix
+
+- adds transition slide up default animation [#118](https://github.com/BreezeChMS/mainsail-ui/pull/118) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.3.6 (Fri Jun 11 2021)
 
 #### 🐛 Bug Fix
