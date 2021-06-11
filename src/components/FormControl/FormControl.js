@@ -10,13 +10,6 @@ import "./FormControl.scss";
  *  This function cascades props down to immediate children for styling and functionality controlled by FormControl
  */
 const getPropsByChildType = ({ child, allChildNames, ...parentProps }) => {
-    if (!child.type.displayName && process.env.NODE_ENV === "development") {
-        console.warn(
-            `Child passed to <FormControl/> does not have assigned displayName`,
-            child
-        );
-    }
-
     switch (child.type.displayName) {
         case "Input":
         case "Textarea":
