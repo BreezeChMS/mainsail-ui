@@ -8,6 +8,7 @@ import "./Transition.scss";
 export const animations = {
     fade: "fade",
     fadeScale: "fade-scale",
+    fadeSlideUp: "fade-slide-up",
     fadeSlideDown: "fade-slide-down",
     fadeSlideLeft: "fade-slide-left",
     fadeSlideRight: "fade-slide-right",

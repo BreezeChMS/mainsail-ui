@@ -85,6 +85,11 @@ FadeAndSlideInDown.args = {
     animation: Transition.animations.fadeSlideDown,
 };
 
+export const FadeAndSlideInUp = Template.bind({});
+FadeAndSlideInUp.args = {
+    animation: Transition.animations.fadeSlideUp,
+};
+
 export const FadeAndSlideInRight = Template.bind({});
 FadeAndSlideInRight.args = {
     animation: Transition.animations.fadeSlideRight,
