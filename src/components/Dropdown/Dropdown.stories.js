@@ -45,7 +45,6 @@ const Template = (args) => (
 
 export const Basic = FormControlTemplate.bind({});
 Basic.args = {
-    placeholder: "Choose wisely from this list",
     options: [
         { text: "Frodo is the best hobbit pick this one", value: 1 },
         { text: "Samwise", value: 2 },
