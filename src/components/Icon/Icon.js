@@ -15,6 +15,21 @@ const toFileCase = (str) =>
         .join("");
 
 export const names = {
+	undo: "undo",
+	underline: "underline",
+	text_align_right: "text_align_right",
+	text_align_left: "text_align_left",
+	text_align_center: "text_align_center",
+	table: "table",
+	signature: "signature",
+	redo: "redo",
+	list_numbers: "list_numbers",
+	list_bullets: "list_bullets",
+	italic: "italic",
+	format_options: "format_options",
+	file: "file",
+	emoji: "emoji",
+	bold: "bold",
     preferences: "preferences",
     spreadsheet: "spreadsheet",
     unarchive: "unarchive",
