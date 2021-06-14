@@ -1,3 +1,15 @@
+# v1.4.2 (Mon Jun 14 2021)
+
+#### 🐛 Bug Fix
+
+- adds some minor tweaks to switcher [#122](https://github.com/BreezeChMS/mainsail-ui/pull/122) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.4.1 (Mon Jun 14 2021)
 
 #### 🐛 Bug Fix

@@ -35,12 +35,15 @@ export const useSwitcher = (config = {}) => {
 export const Switcher = ({
     children,
     className,
+    classNameChildren,
     isOverflowHidden,
     isOverflowHiddenX,
     isOverflowHiddenY,
     shouldUnmount,
     width,
+    minWidth,
     height,
+    minHeight,
     currentView,
     previousView,
     previousAnim,
@@ -57,7 +60,7 @@ export const Switcher = ({
                 isOverflowHiddenY && "overflow-hidden-y",
                 className
             )}
-            style={{ width, height }}>
+            style={{ width, height, minWidth, minHeight }}>
             {children.map((item, idx) => {
                 let isActive = currentView === idx + 1;
                 let anim = nextAnim;
@@ -78,7 +81,13 @@ export const Switcher = ({
                         isActive={isActive}
                         onEntered={onChangeBefore}
                         onExited={onChangeAfter}>
-                        <div className="absolute w-full h-full">{item}</div>
+                        <div
+                            className={classify(
+                                "mainsail-switcher__child absolute w-full h-full",
+                                classNameChildren
+                            )}>
+                            {item}
+                        </div>
                     </Transition>
                 );
             })}
@@ -91,6 +100,10 @@ Switcher.propTypes = {
     width: PropTypes.string,
     /** Height of transitionable view */
     height: PropTypes.string,
+    /** Minimum Width of transitionable view */
+    minWidth: PropTypes.string,
+    /** Minimum Height of transitionable view */
+    minHeight: PropTypes.string,
     /** Integer of currently viewed child (First view = 1) */
     currentView: PropTypes.number,
     /** (Optional) Integer of previously viewed child, required if animations of prev/next are different */
@@ -111,6 +124,8 @@ Switcher.propTypes = {
     onChangeBefore: PropTypes.func,
     /** (Optional) callback to fire after a transition change (after animation) */
     onChangeAfter: PropTypes.func,
+    /** Style class to add to all Switcher Children */
+    classNameChildren: PropTypes.string,
     /** Style class to add to component wrapper */
     className: PropTypes.string,
 };
@@ -124,8 +139,4 @@ Switcher.defaultProps = {
     height: "auto",
 };
 
-/*
- * Tip: Be sure to attach any prop enums separately for convenience
- * use the plural form of the prop name
- * Switcher.variants = variants
- */
+Switcher.animations = Transition.animations;
