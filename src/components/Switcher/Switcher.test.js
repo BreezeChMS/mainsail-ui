@@ -5,10 +5,10 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
-import { Primary } from "./Switcher.stories";
+import { Basic } from "./Switcher.stories";
 
 it("can switch between views and unmount them after switching", async () => {
-    render(<Primary {...Primary.args} />);
+    render(<Basic {...Basic.args} />);
     expect(screen.queryByTestId("view-1")).toBeInTheDocument();
 
     userEvent.click(screen.getByRole("button", { name: "2" }));

@@ -9,9 +9,10 @@ export default {
     parameters: {
         docs: {
             description: {
-                component: `A component that wraps children in a Transition and intelligently handles next/previous animations. Intended to utilize useSwitcher hook for convenient state
-                \n- \`useSwitcher\` is available to add a layer of convenience to handling multiple state objects in a single hook.
+                component: `A component that wraps children in a Transition and intelligently handles next/previous animations. Intended to utilize **useSwitcher** hook for convenient state management.
                 \n- **Note:** width and height of Switcher is intended to be explictly defined since child views are absolutely positioned in Switcher. You will likely need to define a height of your tallest child to maintain uniformity between transitions.
+                \n- Can utilize any available Transition.animation (or [custom](./?path=/story/animation-transition--custom)) for the forward/backwards animations.
+                \n- \`useSwitcher\` is available to add a layer of convenience to handling multiple state objects in a single hook. See this [live example on Stackblitz.](https://stackblitz.com/edit/react-view-transitioner?file=src/App.js)
              `,
             },
         },
@@ -80,8 +81,8 @@ const Template = (args) => {
     );
 };
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Basic = Template.bind({});
+Basic.args = {
     width: "640px",
     height: "640px",
     nextAnim: "fade-slide-left",
