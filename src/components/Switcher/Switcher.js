@@ -36,6 +36,8 @@ export const Switcher = ({
     children,
     className,
     isOverflowHidden,
+    isOverflowHiddenX,
+    isOverflowHiddenY,
     shouldUnmount,
     width,
     height,
@@ -50,7 +52,9 @@ export const Switcher = ({
         <div
             className={classify(
                 "mainsail-switcher relative",
-                isOverflowHidden && " overflow-hidden",
+                isOverflowHidden && "overflow-hidden",
+                isOverflowHiddenX && "overflow-hidden-x",
+                isOverflowHiddenY && "overflow-hidden-y",
                 className
             )}
             style={{ width, height }}>
@@ -99,6 +103,10 @@ Switcher.propTypes = {
     shouldUnmount: PropTypes.bool,
     /** Set the parent wrapper to have overflow hidden. (Warning: May show scrollbars during transition without) */
     isOverflowHidden: PropTypes.bool,
+    /** Set the parent wrapper to have overflow hidden. (Warning: May show scrollbars during transition without) */
+    isOverflowHiddenX: PropTypes.bool,
+    /** Set the parent wrapper to have overflow hidden. (Warning: May show scrollbars during transition without) */
+    isOverflowHiddenY: PropTypes.bool,
     /** (Optional) callback to fire on a transition change (before animation) */
     onChangeBefore: PropTypes.func,
     /** (Optional) callback to fire after a transition change (after animation) */
@@ -108,7 +116,9 @@ Switcher.propTypes = {
 };
 
 Switcher.defaultProps = {
-    isOverflowHidden: true,
+    isOverflowHidden: false,
+    isOverflowXHidden: true,
+    isOverflowYHidden: false,
     shouldUnmount: true,
     width: "100%",
     height: "auto",

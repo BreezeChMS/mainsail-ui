@@ -446,6 +446,14 @@
     overflow-y: hidden !important;
 }
 
+.overflow-hidden-x {
+    overflow-x: hidden !important;
+}
+
+.overflow-hidden-y {
+    overflow-y: hidden !important;
+}
+
 .content-overlay {
     background-color: $mainsail-overlay;
     z-index: 100;
