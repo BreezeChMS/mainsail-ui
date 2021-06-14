@@ -1,3 +1,20 @@
+# v1.4.0 (Mon Jun 14 2021)
+
+#### 🚀 Enhancement
+
+- Switcher [#120](https://github.com/BreezeChMS/mainsail-ui/pull/120) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🐛 Bug Fix
+
+- Add New Icons for the Text Editor [#119](https://github.com/BreezeChMS/mainsail-ui/pull/119) ([@christianpatrick](https://github.com/christianpatrick) [@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 2
+
+- Christian Helvin ([@christianpatrick](https://github.com/christianpatrick))
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.3.7 (Fri Jun 11 2021)
 
 #### 🐛 Bug Fix
