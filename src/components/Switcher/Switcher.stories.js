@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "components/core";
+import { Button, Transition } from "components/core";
 import { Switcher, useSwitcher } from "./Switcher";
 
 export default {
@@ -96,3 +96,5 @@ ChangeHandlers.args = {
     nextAnim: "fade-slide-up",
     previousAnim: "fade-slide-down",
 };
+
+Switcher.animations = Transition.animations;
