@@ -1,4 +1,5 @@
 // Components Global Export for plopjs
+export { Switcher } from "../Switcher";
 export { FormInputIcon } from "../FormInputIcon";
 export { NativeDatePicker } from "../NativeDatePicker";
 export { TimePicker } from "../TimePicker";
