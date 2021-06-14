@@ -27,8 +27,9 @@ const Template = (args) => {
         nextAnim,
         setView,
     } = useSwitcher({
-        nextAnim: args.nextAnim, // 'fade-slide-left',
-        previousAnim: args.previousAnim, // 'fade-slide-right'
+        currentView: args.currentView,
+        nextAnim: args.nextAnim,
+        previousAnim: args.previousAnim,
     });
     return (
         <>
@@ -39,6 +40,7 @@ const Template = (args) => {
                 <Button className="px-20" text="4" onClick={() => setView(4)} />
             </div>
             <Switcher
+                classNameChildren="p-20"
                 currentView={currentView}
                 previousView={previousView}
                 previousAnim={previousAnim}
