@@ -1,3 +1,15 @@
+# v1.4.4 (Tue Jun 15 2021)
+
+#### 🐛 Bug Fix
+
+- Patching switcher sizing [#124](https://github.com/BreezeChMS/mainsail-ui/pull/124) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.4.3 (Mon Jun 14 2021)
 
 #### 🐛 Bug Fix
