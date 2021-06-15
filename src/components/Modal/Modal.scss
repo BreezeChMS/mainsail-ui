@@ -89,10 +89,12 @@
 
         .mainsail-modal-body {
             @include mainsail-body-text-regular;
+            position: relative;
             flex-grow: 1;
             padding: 20px;
             overflow-y: auto;
             overflow-x: hidden;
+            min-height: 200px;
             max-height: calc(80% - 150px); // 150 = head + foot
 
             &.no-padding {
