@@ -1,3 +1,15 @@
+# v1.4.5 (Tue Jun 15 2021)
+
+#### 🐛 Bug Fix
+
+- fixes mobile fullscreen breakpoint [#125](https://github.com/BreezeChMS/mainsail-ui/pull/125) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.4.4 (Tue Jun 15 2021)
 
 #### 🐛 Bug Fix
