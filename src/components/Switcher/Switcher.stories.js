@@ -39,54 +39,66 @@ const Template = (args) => {
                 <Button className="px-20" text="3" onClick={() => setView(3)} />
                 <Button className="px-20" text="4" onClick={() => setView(4)} />
             </div>
-            <Switcher
-                classNameChildren="p-20"
-                currentView={currentView}
-                previousView={previousView}
-                previousAnim={previousAnim}
-                nextAnim={nextAnim}
-                {...args}>
-                <div data-testid="view-1" className="p-48 bg-blue-light">
-                    <h3>View 1</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Blanditiis, ipsam. Itaque animi et odio? Cum, nihil
-                        officia. Sint, perspiciatis fugiat?
-                    </p>
-                </div>
-                <div data-testid="view-2" className="p-48 bg-red-light">
-                    <h3>View 2</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Blanditiis, ipsam. Itaque animi et odio? Cum, nihil
-                        officia. Sint, perspiciatis fugiat?
-                    </p>
-                </div>
-                <div data-testid="view-3" className="p-48 bg-green-light">
-                    <h3>View 3</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Blanditiis, ipsam. Itaque animi et odio? Cum, nihil
-                        officia. Sint, perspiciatis fugiat?
-                    </p>
-                </div>
-                <div data-testid="view-4" className="p-48 bg-violet-light">
-                    <h3>View 4</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Blanditiis, ipsam. Itaque animi et odio? Cum, nihil
-                        officia. Sint, perspiciatis fugiat?
-                    </p>
-                </div>
-            </Switcher>
+            <p>
+                The Switcher will (by default) be set to{" "}
+                <code>position:absolute</code> and take up the full width and
+                height of its <code>position:relative</code> parent.
+            </p>
+            <div className="relative w-1/2 h-screen">
+                <Switcher
+                    currentView={currentView}
+                    previousView={previousView}
+                    previousAnim={previousAnim}
+                    nextAnim={nextAnim}
+                    {...args}>
+                    <div
+                        data-testid="view-1"
+                        className="p-20 w-full h-full bg-blue-light">
+                        <h3>View 1</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Blanditiis, ipsam. Itaque animi et odio? Cum,
+                            nihil officia. Sint, perspiciatis fugiat?
+                        </p>
+                    </div>
+                    <div
+                        data-testid="view-2"
+                        className="p-20 w-full h-full bg-red-light">
+                        <h3>View 2</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Blanditiis, ipsam. Itaque animi et odio? Cum,
+                            nihil officia. Sint, perspiciatis fugiat?
+                        </p>
+                    </div>
+                    <div
+                        data-testid="view-3"
+                        className="p-20 w-full h-full bg-green-light">
+                        <h3>View 3</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Blanditiis, ipsam. Itaque animi et odio? Cum,
+                            nihil officia. Sint, perspiciatis fugiat?
+                        </p>
+                    </div>
+                    <div
+                        data-testid="view-4"
+                        className="p-20 w-full h-full bg-violet-light">
+                        <h3>View 4</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Blanditiis, ipsam. Itaque animi et odio? Cum,
+                            nihil officia. Sint, perspiciatis fugiat?
+                        </p>
+                    </div>
+                </Switcher>
+            </div>
         </>
     );
 };
 
 export const Basic = Template.bind({});
 Basic.args = {
-    width: "640px",
-    height: "640px",
     nextAnim: "fade-slide-left",
     previousAnim: "fade-slide-right",
 };

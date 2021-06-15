@@ -5,4 +5,9 @@
     /* These properties are intended to be overridden by component props which utilize util classes */
     overflow-y: auto;
     overflow-x: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
