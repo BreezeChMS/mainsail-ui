@@ -43,7 +43,7 @@
         max-width: 100%;
         min-width: 100%;
 
-        @include sm-size-up {
+        @include md-size-up {
             min-width: 500px;
         }
 
