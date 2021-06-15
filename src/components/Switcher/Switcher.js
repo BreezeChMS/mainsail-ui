@@ -54,7 +54,7 @@ export const Switcher = ({
     return (
         <div
             className={classify(
-                "mainsail-switcher relative",
+                "mainsail-switcher",
                 isOverflowHidden && "overflow-hidden",
                 isOverflowHiddenX && "overflow-hidden-x",
                 isOverflowHiddenY && "overflow-hidden-y",
@@ -96,15 +96,15 @@ export const Switcher = ({
 };
 
 Switcher.propTypes = {
-    /** Width of transitionable view */
+    /** (Optional Override) Width of transitionable view */
     width: PropTypes.string,
-    /** Height of transitionable view */
+    /** (Optional Override) Height of transitionable view */
     height: PropTypes.string,
-    /** Minimum Width of transitionable view */
+    /** (Optional Override) Minimum Width of transitionable view */
     minWidth: PropTypes.string,
-    /** Minimum Height of transitionable view */
+    /** (Optional Override) Minimum Height of transitionable view */
     minHeight: PropTypes.string,
-    /** Integer of currently viewed child (First view = 1) */
+    /** (Optional Override) Integer of currently viewed child (First view = 1) */
     currentView: PropTypes.number,
     /** (Optional) Integer of previously viewed child, required if animations of prev/next are different */
     previousView: PropTypes.number,

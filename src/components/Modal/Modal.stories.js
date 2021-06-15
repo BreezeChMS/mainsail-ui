@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Modal } from "components/Modal";
 import { Button } from "components/Button";
 import { Checkbox } from "components/Checkbox";
-import { Transition } from "components/Transition";
+import { Switcher, useSwitcher } from "components/Switcher";
 import { ListGroup } from "components/ListGroup";
 import { Icon } from "components/Icon";
 import { Input } from "components/Input";
@@ -466,33 +466,32 @@ LoadingState.args = {
 
 export const MutiStepBody = (args) => {
     const [isModalOpen, setIsModalOpen] = useState(args.isOpen);
-    const [currentView, setCurrentView] = useState(1);
+    const {
+        currentView,
+        nextAnim,
+        previousAnim,
+        previousView,
+        setView,
+    } = useSwitcher({
+        nextAnim: "fade-slide-left",
+        previousAnim: "fade-slide-right",
+    });
 
     const ViewOne = () => (
-        <div
-            style={{
-                position: "absolute",
-                top: "0px",
-                left: "0px",
-            }}>
+        <div>
             <p className="body-text">
-                View One - This is the first view of a multi-step modal. The
-                footer is using the built-in buttons. Modal State managed
-                outside the Modal component.
+                <strong>View One</strong> - This is the first view of a
+                multi-step modal. The footer is using the built-in buttons.
+                Modal State managed outside the Modal component.
             </p>
         </div>
     );
     const ViewTwo = () => (
-        <div
-            style={{
-                position: "absolute",
-                top: "0px",
-                left: "0px",
-            }}>
+        <div>
             <p className="body-text">
-                View Two - When this modal closes the state will not be reset
-                until after the animation has finished. Reopen to see we are
-                back at Step 1.
+                <strong>View Two</strong> - When this modal closes the state
+                will not be reset until after the animation has finished. Reopen
+                to see we are back at Step 1.
             </p>
         </div>
     );
@@ -501,7 +500,7 @@ export const MutiStepBody = (args) => {
      * What we want to happen when the close animation is done
      */
     const handleOnClose = () => {
-        setCurrentView(1);
+        setView(1);
     };
 
     /**
@@ -512,31 +511,43 @@ export const MutiStepBody = (args) => {
         <div>
             <Modal
                 {...args}
+                hasNoPadding
+                isFullScreenMobile
                 isOpen={isModalOpen}
-                onClickBack={currentView === 2 ? () => setCurrentView(1) : null}
+                onClickBack={currentView === 2 ? () => setView(1) : null}
                 title={currentView === 1 ? "Step 1" : "Step 2"}
                 confirmText={currentView === 1 ? "Next" : "Done"}
                 onConfirm={
                     currentView === 1
-                        ? () => setCurrentView(2)
+                        ? () => setView(2)
                         : () => setIsModalOpen(false)
                 }
                 onClose={handleOnClose}
                 onCancel={() => setIsModalOpen(false)}>
-                <div style={{ position: "relative" }}>
-                    <Transition
-                        animation={Transition.animations.fadeSlideRight}
-                        isActive={currentView === 1}>
-                        <ViewOne />
-                    </Transition>
-                    <Transition
-                        animation={Transition.animations.fadeSlideLeft}
-                        isActive={currentView === 2}>
-                        <ViewTwo />
-                    </Transition>
-                </div>
+                <Switcher
+                    isOverflowHiddenX
+                    classNameChildren="p-20"
+                    currentView={currentView}
+                    previousView={previousView}
+                    nextAnim={nextAnim}
+                    previousAnim={previousAnim}>
+                    <ViewOne />
+                    <ViewTwo />
+                </Switcher>
             </Modal>
-            <Button text="Open Modal" onClick={() => setIsModalOpen(true)} />
+            <Button
+                className="mb-20"
+                text="Open Modal"
+                onClick={() => setIsModalOpen(true)}
+            />
+            <p>
+                A Multi-step modal example. Uses <strong>Switcher</strong> on
+                inner view components.
+            </p>
+            <p>
+                NOTE: If transitioning inner view components, an explicit body
+                height of modal <code>.mainsail-modal-body</code> is required.
+            </p>
         </div>
     );
 };
@@ -545,7 +556,7 @@ MutiStepBody.parameters = {
     docs: {
         description: {
             story:
-                "A Multi-step modal example. Uses `<Transition />` on inner view components.\nNOTE: If transitioning inner view components, absolute position may be necessary allow child view stacking in the DOM. `<ViewOne/>` and `<ViewTwo/` are absolutely positioned in the following example.",
+                "A Multi-step modal example. Uses `<Switcher />` on inner view components.\nNOTE: If transitioning inner view components, an explicit body height of modal `.mainsail-modal-body` is required.",
         },
     },
 };
