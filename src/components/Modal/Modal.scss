@@ -31,16 +31,11 @@
 
     .mainsail-modal-content {
         background-color: $mainsail-white;
-        min-height: 250px;
-
-        max-height: 80%;
         box-shadow: $mainsail-shadow-far;
         border-radius: $mainsail-modal-radius;
         z-index: 1;
         display: flex;
         flex-direction: column;
-
-        max-width: 100%;
         min-width: 100%;
 
         @include md-size-up {
@@ -87,6 +82,7 @@
             }
         }
 
+        /** Modal size is controlled via body content */
         .mainsail-modal-body {
             @include mainsail-body-text-regular;
             position: relative;
@@ -94,8 +90,13 @@
             padding: 20px;
             overflow-y: auto;
             overflow-x: hidden;
-            min-height: 200px;
+            min-height: 125px;
             max-height: calc(80% - 150px); // 150 = head + foot
+            width: 100%;
+
+            @include md-size-up {
+                min-width: 500px;
+            }
 
             &.no-padding {
                 padding: 0;

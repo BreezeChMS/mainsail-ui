@@ -128,16 +128,41 @@ BasicConfirm.args = {
     children: (
         <div>
             <p className="mb-20">
-                The size of the modal is defined by its content or the{" "}
-                <code>maxWidth</code> prop.
-                <br /> Modal height and padding is handled for you. If you need
-                to force height, style your content accordingly.
+                The size of the modal is defined by its body or optionally by
+                supplying <code>bodyWidth</code> and <code>bodyHeight</code>{" "}
+                props.
             </p>
 
             <p className="mb-20">
                 This example has no page wrapper or state mangagement. Because
                 of this, you can see the callbacks fire in the{" "}
                 <strong>Actions</strong> tab.
+            </p>
+        </div>
+    ),
+};
+
+export const ResponsiveHandling = (args) => <Modal {...args} />;
+ResponsiveHandling.args = {
+    isOpen: true,
+    title: "Confirm",
+    bodyWidth: ["100%", "500px", "700px"],
+    isDismissable: false,
+    onClickBack: null,
+    children: (
+        <div>
+            <p className="mb-20">
+                The width of the entire modal can be constraigned by{" "}
+                <code>maxWidth</code>, however specific width and height can be
+                controlled more directly via <code>bodyWidth</code> and{" "}
+                <code>bodyHeight</code> props.
+            </p>
+            <p className="mb-20">
+                A <strong>responsive array</strong> can be utilized here as
+                well. See this Story control for <code>bodyWidth</code> as an
+                example. Note: in order to maintain small screen support, supply
+                either <code>null</code> or <code>100%</code> for the sm
+                breakpoint.
             </p>
         </div>
     ),
@@ -464,7 +489,7 @@ LoadingState.args = {
     onConfirm: () => setModalTemplateOpen(false),
 };
 
-export const MutiStepBody = (args) => {
+export const MultiStepBody = (args) => {
     const [isModalOpen, setIsModalOpen] = useState(args.isOpen);
     const {
         currentView,
@@ -551,8 +576,11 @@ export const MutiStepBody = (args) => {
         </div>
     );
 };
-
-MutiStepBody.parameters = {
+MultiStepBody.args = {
+    bodyWidth: ["100%", "600px"],
+    bodyHeight: ["100%", "250px"],
+};
+MultiStepBody.parameters = {
     docs: {
         description: {
             story:
