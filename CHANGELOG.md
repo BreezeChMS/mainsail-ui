@@ -1,3 +1,15 @@
+# v1.5.0 (Wed Jun 16 2021)
+
+#### 🚀 Enhancement
+
+- Modal sizing improvements [#129](https://github.com/BreezeChMS/mainsail-ui/pull/129) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.4.7 (Wed Jun 16 2021)
 
 #### 🐛 Bug Fix
