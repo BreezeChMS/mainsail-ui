@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import { Button } from "components/Button";
 import { Icon } from "components/Icon";
-import { WithPortal, useKeydown, useUniqueId } from "utility/hooks";
+import {
+    WithPortal,
+    useKeydown,
+    useUniqueId,
+    useBreakpoint,
+} from "utility/hooks";
+import { convertFromResponsiveArray } from "utility/responsive";
 import { ESC_KEY_CODE, TAB_KEY_CODE } from "utility/constants";
 import { Transition } from "components/Transition";
 
@@ -48,6 +54,8 @@ export const Modal = ({
     isDismissable,
     blurContentRef,
     maxWidth,
+    bodyWidth,
+    bodyHeight,
     initialFocusRef,
     onCloseFocusRef,
     className,
@@ -59,6 +67,8 @@ export const Modal = ({
     const [openClass, setOpenClass] = useState(isOpen ? "open" : "");
     const modalId = useUniqueId("modal");
     const modalRef = useRef(null);
+
+    const breakpoint = useBreakpoint();
 
     useKeydown((e) => {
         if (e.charCode === ESC_KEY_CODE || e.keyCode === ESC_KEY_CODE) {
@@ -151,6 +161,22 @@ export const Modal = ({
             onCloseFocusRef.current.focus();
     };
 
+    const getResponsiveBodyStyles = ({ bodyWidth, bodyHeight }) => {
+        let styles = {};
+
+        if (bodyWidth) {
+            styles.width =
+                convertFromResponsiveArray(breakpoint, bodyWidth) || "";
+        }
+
+        if (bodyHeight) {
+            styles.height =
+                convertFromResponsiveArray(breakpoint, bodyHeight) || "";
+        }
+
+        return styles;
+    };
+
     return (
         <WithPortal id="mainsail-modal" className="mainsail-modal-container">
             <div
@@ -230,7 +256,13 @@ export const Modal = ({
                             className={classify(
                                 "mainsail-modal-body",
                                 hasNoPadding && "no-padding"
-                            )}>
+                            )}
+                            style={{
+                                ...getResponsiveBodyStyles({
+                                    bodyWidth,
+                                    bodyHeight,
+                                }),
+                            }}>
                             {children}
                         </div>
 
@@ -278,9 +310,19 @@ export const Modal = ({
 };
 
 Modal.propTypes = {
-    /** Max width of the modal (height is calculated based on viewport) */
+    /** Max width of the entire modal content */
     maxWidth: PropTypes.string,
-    /** Escape Hatch for modal content wrapper style */
+    /** Width of the modal body, can accept a responsive array of sizes (e.g. ["100%", "500px", "700px"]) */
+    bodyWidth: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
+    /** Height of the modal body, can accept a responsive array of sizes (e.g. ["100%", "500px", "700px"]) */
+    bodyHeight: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+    ]),
+    /** Escape Hatch for modal body wrapper style */
     style: PropTypes.object,
     /** Style class to add to modal wrapper */
     className: PropTypes.string,
@@ -348,7 +390,6 @@ Modal.defaultProps = {
     isDismissable: false,
     intent: intents.default,
     hasOverlay: true,
-    maxWidth: "500px",
     isFullScreenMobile: false,
 };
 

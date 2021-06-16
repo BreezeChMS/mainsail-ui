@@ -6,8 +6,8 @@
  * @returns
  */
 
-export const convertFromResponsiveArray = (breakpoints, mixed) => {
-    if (Array.isArray(mixed)) {
+export const convertFromResponsiveArray = (breakpoints = {}, mixed) => {
+    if (Array.isArray(mixed) && mixed.length) {
         let sizeToIndex = {
             sm: 0,
             md: 1,
@@ -15,7 +15,8 @@ export const convertFromResponsiveArray = (breakpoints, mixed) => {
         };
         let curIndex = sizeToIndex[breakpoints.name];
 
-        while (!mixed[curIndex]) {
+        // If not the smallest breakpoint, let's fall back a level and use that
+        while (curIndex !== 0 && !mixed[curIndex]) {
             curIndex--;
         }
 
