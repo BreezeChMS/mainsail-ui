@@ -70,11 +70,17 @@ export const Modal = ({
 
     const breakpoint = useBreakpoint();
 
-    useKeydown((e) => {
-        if (e.charCode === ESC_KEY_CODE || e.keyCode === ESC_KEY_CODE) {
-            handleDismiss();
-        }
-    });
+    useKeydown(
+        (e) => {
+            if (
+                isOpen &&
+                (e.charCode === ESC_KEY_CODE || e.keyCode === ESC_KEY_CODE)
+            ) {
+                handleDismiss();
+            }
+        },
+        [isOpen]
+    );
 
     // Handle focus trap
     useKeydown((e) => {
@@ -178,7 +184,9 @@ export const Modal = ({
     };
 
     return (
-        <WithPortal id="mainsail-modal" className="mainsail-modal-container">
+        <WithPortal
+            id={`mainsail-modal-${modalId}`}
+            className="mainsail-modal-container">
             <div
                 className={classify("mainsail-modal", openClass, {
                     "mobile-fullscreen": isFullScreenMobile,

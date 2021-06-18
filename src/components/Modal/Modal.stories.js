@@ -672,3 +672,66 @@ CustomBackButton.parameters = {
         },
     },
 };
+
+export const MultipleModals = () => {
+    const [isModalOneOpen, setIsModalOneOpen] = useState(false);
+    const [isModalTwoOpen, setIsModalTwoOpen] = useState(false);
+
+    return (
+        <div>
+            <Button
+                text="Open Modal 1"
+                onClick={() => setIsModalOneOpen(true)}
+            />
+            <Modal
+                isOpen={isModalOneOpen}
+                bodyWidth={["100%", "800px"]}
+                title="Is One Enough?"
+                onCancel={() => setIsModalOneOpen(false)}
+                onConfirm={() => setIsModalOneOpen(false)}>
+                <p className="mb-20">
+                    This story shows that you can call a modal open on top of
+                    another open modal.
+                </p>
+                <p className="text-neutral-5 mb-20">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptate porro debitis nesciunt expedita magnam quia in
+                    atque possimus, aperiam commodi explicabo quod facilis?
+                    Tempora omnis quae commodi nobis. Vel eaque doloribus quis
+                    amet magni rem laboriosam unde. Et harum, non eum quos omnis
+                    temporibus tempora explicabo ducimus sit quo iusto sint
+                    quod! Magni perspiciatis consequuntur, itaque alias repellat
+                    nesciunt rem velit ad tempora. At qui excepturi unde hic
+                    assumenda tempore. Maiores totam ducimus eius? Doloribus,
+                    aliquid modi ad quos iusto cumque delectus officia ea?
+                    Veniam, similique necessitatibus voluptas eius ab placeat
+                    voluptates maxime quod, alias pariatur, iusto libero
+                    veritatis officiis. Tempora deleniti magni hic eaque nam
+                    illum excepturi sapiente quidem animi ipsum alias iure at
+                    placeat, minus tempore. Distinctio vitae natus asperiores
+                    magni doloremque ad a officiis numquam, sed error, iste
+                    quidem eveniet ipsa sint rerum asperiores architecto? Hic,
+                    quae earum maxime quos itaque sequi eligendi fugiat quam
+                    tenetur eum laboriosam ipsam reiciendis pariatur.
+                </p>
+
+                <Button
+                    text="Open Modal 2"
+                    onClick={() => setIsModalTwoOpen(true)}
+                />
+            </Modal>
+            <Modal
+                isDismissable
+                isOpen={isModalTwoOpen}
+                title="Moar Modals!"
+                bodyWidth={["100%", "400px"]}
+                onCancel={() => setIsModalTwoOpen(false)}
+                onConfirm={() => setIsModalTwoOpen(false)}>
+                <p>
+                    This story shows that you can call a modal open on top of
+                    another open modal.
+                </p>
+            </Modal>
+        </div>
+    );
+};
