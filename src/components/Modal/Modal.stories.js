@@ -201,6 +201,7 @@ ScrollingContent.args = {
     title: "Confirm",
     isDismissable: false,
     onClickBack: null,
+    bodyWidth: ["100%", "600px"],
     onCancel: () => setModalTemplateOpen(false),
     onConfirm: () => setModalTemplateOpen(false),
     children: (
@@ -410,6 +411,7 @@ export const WithCustomFooter = Template.bind({});
 WithCustomFooter.args = {
     title: "Fancy Footwork",
     onClickBack: null,
+    bodyWidth: ["100%", "600px"],
     isDismissable: false,
     onCancel: () => setModalTemplateOpen(false),
     onConfirm: () => setModalTemplateOpen(false),
@@ -427,6 +429,7 @@ WithCustomFooter.args = {
                 <Checkbox text="Keep on" />
             </div>
             <Button
+                className="mr-10"
                 text="I'd rather not..."
                 variant={Button.variants.tertiary}
                 onClick={() => setModalTemplateOpen(false)}
@@ -450,6 +453,7 @@ WithCustomFooter.parameters = {
 
 export const CustomButtonText = Template.bind({});
 CustomButtonText.args = {
+    bodyWidth: ["100%", "600px"],
     onClickBack: null,
     title: "Get to Da Choppa",
     confirmText: "Do it naow!",
@@ -469,6 +473,7 @@ CustomButtonText.args = {
 export const LoadingState = Template.bind({});
 LoadingState.args = {
     onClickBack: null,
+    bodyWidth: ["100%", "600px"],
     title: "Confirm",
     confirmText: "Submit",
     loadingText: "Submitting",
