@@ -1,3 +1,15 @@
+# v1.5.2 (Mon Jun 21 2021)
+
+#### 🐛 Bug Fix
+
+- fixes multiple modal portal wrappers using same id [#132](https://github.com/BreezeChMS/mainsail-ui/pull/132) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.5.1 (Fri Jun 18 2021)
 
 #### 🐛 Bug Fix
