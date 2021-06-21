@@ -38,6 +38,17 @@
     @include spacing-modifiers($attribute: "margin-left");
 }
 
+.mr-auto {
+    margin-right: auto !important;
+}
+.ml-auto {
+    margin-left: auto !important;
+}
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
 .p {
     @include spacing-modifiers($attribute: "padding");
 }
