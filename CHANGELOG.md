@@ -1,3 +1,31 @@
+# v1.5.2 (Mon Jun 21 2021)
+
+#### 🐛 Bug Fix
+
+- fixes multiple modal portal wrappers using same id [#132](https://github.com/BreezeChMS/mainsail-ui/pull/132) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
+# v1.5.1 (Fri Jun 18 2021)
+
+#### 🐛 Bug Fix
+
+- fixes multiple modal portal wrappers using same id [#131](https://github.com/BreezeChMS/mainsail-ui/pull/131) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- improves some docs [#130](https://github.com/BreezeChMS/mainsail-ui/pull/130) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.5.0 (Wed Jun 16 2021)
 
 #### 🚀 Enhancement
