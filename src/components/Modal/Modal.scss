@@ -30,6 +30,7 @@
     }
 
     .mainsail-modal-content {
+        max-height: 80%;
         background-color: $mainsail-white;
         box-shadow: $mainsail-shadow-far;
         border-radius: $mainsail-modal-radius;
@@ -109,10 +110,6 @@
             flex-direction: row;
             align-items: center;
             justify-content: flex-end;
-
-            * + * {
-                margin-left: 10px;
-            }
 
             border-bottom-right-radius: $mainsail-modal-radius;
             border-bottom-left-radius: $mainsail-modal-radius;

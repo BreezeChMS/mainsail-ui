@@ -285,6 +285,7 @@ export const Modal = ({
                             ) : (
                                 <>
                                     <Button
+                                        className="mr-10"
                                         onClick={onCancel}
                                         variant={Button.variants.tertiary}
                                         text={
