@@ -413,6 +413,7 @@ WithCustomFooter.args = {
     onClickBack: null,
     bodyWidth: ["100%", "600px"],
     isDismissable: false,
+    classNameFooter: "bg-neutral-6",
     onCancel: () => setModalTemplateOpen(false),
     onConfirm: () => setModalTemplateOpen(false),
     children: (
