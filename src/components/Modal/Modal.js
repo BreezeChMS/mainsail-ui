@@ -321,12 +321,12 @@ export const Modal = ({
 Modal.propTypes = {
     /** Max width of the entire modal content */
     maxWidth: PropTypes.string,
-    /** Width of the modal body, can accept a responsive array of sizes (e.g. ["100%", "500px", "700px"]) */
+    /** Width of the modal body, can accept a responsive array of sizes (e.g. ["100%", "500px", "700px"]). [See example on Stackblitz](https://stackblitz.com/edit/mainsail-responsive-modal?file=src%2FApp.js)*/
     bodyWidth: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.string),
     ]),
-    /** Height of the modal body, can accept a responsive array of sizes (e.g. ["100%", "500px", "700px"]) */
+    /** Height of the modal body, can accept a responsive array of sizes (e.g. ["100%", "500px", "700px"]). [See example on Stackblitz](https://stackblitz.com/edit/mainsail-responsive-modal?file=src%2FApp.js)*/
     bodyHeight: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.arrayOf(PropTypes.string),
