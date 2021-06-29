@@ -13,6 +13,15 @@
             text-align: right;
             text-align-last: right;
 
+            &:not(:only-child) {
+                select,
+                button.mainsail-dropdown__toggle {
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                    border-right: transparent;
+                }
+            }
+
             .mainsail-dropdown__item {
                 align-items: flex-end;
                 flex-basis: 100%;
@@ -27,9 +36,6 @@
             padding-left: 12px;
             padding-right: 12px;
             text-align: center;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            border-right: transparent;
 
             &.open,
             :focus,
