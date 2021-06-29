@@ -67,6 +67,13 @@ Disabled.args = {
     isDisabled: true,
 };
 
+export const NoPeriod = Template.bind({});
+NoPeriod.args = {
+    placeholder: "00:00",
+    timeOptions: TIMES,
+    isPeriodHidden: true,
+};
+
 export const FixedPosition = Template.bind({});
 FixedPosition.args = {
     placeholder: "00:00",

@@ -36,6 +36,7 @@ export const TimePicker = forwardRef(
             isDisabled,
             isTimeDisabled,
             isPeriodDisabled,
+            isPeriodHidden,
             isRequired,
             timeOptions,
             placeholder,
@@ -43,6 +44,7 @@ export const TimePicker = forwardRef(
             positioning,
             placement,
             isNative,
+            period,
             value,
             modifiers = [],
             modifiersTime = [],
@@ -51,13 +53,15 @@ export const TimePicker = forwardRef(
         ref
     ) => {
         const [selectedTime, setSelectedTime] = useState(value);
-        const [selectedPeriod, setSelectedPeriod] = useState("AM");
+        const [selectedPeriod, setSelectedPeriod] = useState(
+            period.toUpperCase()
+        );
 
         const handleSelect = (type, value) => {
             if (type === "time") {
                 setSelectedTime(value);
             } else if (type === "period") {
-                setSelectedPeriod(value);
+                setSelectedPeriod(value.toUpperCase());
             }
         };
 
@@ -65,6 +69,14 @@ export const TimePicker = forwardRef(
             onChange &&
                 onChange({ time: selectedTime, period: selectedPeriod });
         }, [selectedTime, selectedPeriod, onChange]);
+
+        useEffect(() => {
+            setSelectedPeriod(period.toUpperCase());
+        }, [period]);
+
+        useEffect(() => {
+            setSelectedTime(value);
+        }, [value]);
 
         return (
             <div className={classify("mainsail-timepicker", className)}>
@@ -87,22 +99,23 @@ export const TimePicker = forwardRef(
                     }))}
                     onChange={({ value }) => handleSelect("time", value)}
                 />
-                <Dropdown
-                    isNative={isNative}
-                    className={classify("mainsail-timepicker__period")}
-                    defaultValue="AM"
-                    placeholder="AM"
-                    isDisabled={isDisabled || isPeriodDisabled}
-                    value={selectedPeriod}
-                    placement={placements.bottomStart}
-                    positioning={positioning}
-                    modifiers={[...modifiers, ...modifiersPeriod]}
-                    options={["AM", "PM"].map((option) => ({
-                        text: option,
-                        value: option,
-                    }))}
-                    onChange={({ value }) => handleSelect("period", value)}
-                />
+                {isPeriodHidden === true ? null : (
+                    <Dropdown
+                        isNative={isNative}
+                        className={classify("mainsail-timepicker__period")}
+                        placeholder={selectedPeriod}
+                        isDisabled={isDisabled || isPeriodDisabled}
+                        defaultValue={selectedPeriod}
+                        placement={placements.bottomStart}
+                        positioning={positioning}
+                        modifiers={[...modifiers, ...modifiersPeriod]}
+                        options={["AM", "PM"].map((option) => ({
+                            text: option,
+                            value: option,
+                        }))}
+                        onChange={({ value }) => handleSelect("period", value)}
+                    />
+                )}
             </div>
         );
     }
@@ -110,6 +123,7 @@ export const TimePicker = forwardRef(
 
 TimePicker.defaultProps = {
     placeholder: "00:00",
+    period: "PM",
     positioning: "absolute",
     timeOptions: [
         "12:00",
@@ -144,6 +158,8 @@ TimePicker.propTypes = {
     isNative: PropTypes.bool,
     /** Current selected value */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /** Value string for prop-controlled period AM/PM (case insensitive) */
+    period: PropTypes.oneOf(["AM", "PM", "am", "pm"]),
     /** Callback to fire when time/period change happens receives arguments { time, period } */
     onChange: PropTypes.func,
     /** Disables input field */
@@ -152,6 +168,8 @@ TimePicker.propTypes = {
     isTimeDisabled: PropTypes.bool,
     /** Disables period dropdown field */
     isPeriodDisabled: PropTypes.bool,
+    /** Hides period dropdown field */
+    isPeriodHidden: PropTypes.bool,
     /** Marks the form control as required */
     isRequired: PropTypes.bool,
     /** Style class to add to component wrapper */

@@ -5,7 +5,12 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
-import { Basic, Disabled, NativeDropdowns } from "./TimePicker.stories";
+import {
+    Basic,
+    Disabled,
+    NativeDropdowns,
+    NoPeriod,
+} from "./TimePicker.stories";
 
 it("renders the timepicker in the primary state", () => {
     render(<Basic {...Basic.args} />);
@@ -22,7 +27,7 @@ it("fires a provided onClick handler when selecting a time", () => {
 
     userEvent.click(screen.getByText("12:30"));
 
-    expect(onChange).toBeCalledWith({ time: "12:30", period: "AM" });
+    expect(onChange).toBeCalledWith({ time: "12:30", period: "PM" });
 });
 
 it("fires a provided onClick handler when selecting a time and a period", () => {
@@ -35,21 +40,28 @@ it("fires a provided onClick handler when selecting a time and a period", () => 
 
     userEvent.click(screen.getByText("12:30"));
 
-    expect(onChange).toBeCalledWith({ time: "12:30", period: "AM" });
-
-    userEvent.click(screen.getByText("AM"));
-
-    expect(screen.getByRole("listbox")).toBeInTheDocument();
+    expect(onChange).toBeCalledWith({ time: "12:30", period: "PM" });
 
     userEvent.click(screen.getByText("PM"));
 
-    expect(onChange).toBeCalledWith({ time: "12:30", period: "PM" });
+    expect(screen.getByRole("listbox")).toBeInTheDocument();
+
+    userEvent.click(screen.getByText("AM"));
+
+    expect(onChange).toBeCalledWith({ time: "12:30", period: "AM" });
 });
 
 it("can render as disabled", async () => {
     render(<Disabled {...Disabled.args} />);
     expect(screen.getAllByRole("button")[0]).toBeDisabled();
     expect(screen.getAllByRole("button")[1]).toBeDisabled();
+});
+
+it("can render without a period picker", async () => {
+    render(<NoPeriod {...NoPeriod.args} />);
+
+    expect(screen.queryByText("AM")).not.toBeInTheDocument();
+    expect(screen.queryByText("PM")).not.toBeInTheDocument();
 });
 
 it("can render both as a native select", async () => {
@@ -104,5 +116,5 @@ it("can be navigated with keyboard", async () => {
 
     userEvent.type(screen.getByText("1:00"), { text: "{enter}" });
 
-    expect(onChange).toBeCalledWith({ time: "1:00", period: "AM" });
+    expect(onChange).toBeCalledWith({ time: "1:00", period: "PM" });
 });
