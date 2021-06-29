@@ -1,3 +1,19 @@
+# v1.5.4 (Tue Jun 29 2021)
+
+#### 🐛 Bug Fix
+
+- adds multi-modifier support for TimePicker [#136](https://github.com/BreezeChMS/mainsail-ui/pull/136) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- Update docs [#134](https://github.com/BreezeChMS/mainsail-ui/pull/134) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.5.3 (Mon Jun 21 2021)
 
 #### 🐛 Bug Fix
