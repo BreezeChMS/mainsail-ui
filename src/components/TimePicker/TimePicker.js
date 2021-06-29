@@ -45,6 +45,8 @@ export const TimePicker = forwardRef(
             isNative,
             value,
             modifiers = [],
+            modifiersTime = [],
+            modifiersPeriod = [],
         },
         ref
     ) => {
@@ -78,7 +80,7 @@ export const TimePicker = forwardRef(
                     placement={placement}
                     positioning={positioning}
                     hasCaret={false}
-                    modifiers={modifiers}
+                    modifiers={[...modifiers, ...modifiersTime]}
                     options={timeOptions.map((option) => ({
                         text: option,
                         value: option,
@@ -93,7 +95,8 @@ export const TimePicker = forwardRef(
                     isDisabled={isDisabled || isPeriodDisabled}
                     value={selectedPeriod}
                     placement={placements.bottomStart}
-                    positioning={positionings.fixed}
+                    positioning={positioning}
+                    modifiers={[...modifiers, ...modifiersPeriod]}
                     options={["AM", "PM"].map((option) => ({
                         text: option,
                         value: option,
@@ -107,7 +110,7 @@ export const TimePicker = forwardRef(
 
 TimePicker.defaultProps = {
     placeholder: "00:00",
-    positioning: "fixed",
+    positioning: "absolute",
     timeOptions: [
         "12:00",
         "12:30",
@@ -161,8 +164,12 @@ TimePicker.propTypes = {
     placement: PropTypes.oneOf(Object.values(placements)),
     /** Positioning strategy of the dropdown menu */
     positioning: PropTypes.oneOf(Object.values(positionings)),
-    /** Exposes a [Popperjs](https://popper.js.org/docs/v2/modifiers) api that enables further fine-tuning of times dropdown menu. */
+    /** Exposes a [Popperjs](https://popper.js.org/docs/v2/modifiers) api that enables fine-tuning of **both** dropdown menus (will affect both dropdowns with same modifiers). */
     modifiers: PropTypes.arrayOf(PropTypes.object),
+    /** Exposes a [Popperjs](https://popper.js.org/docs/v2/modifiers) api that enables fine-tuning of **times** dropdown menu (to be used in lieu of `modifiers`). */
+    modifiersTime: PropTypes.arrayOf(PropTypes.object),
+    /** Exposes a [Popperjs](https://popper.js.org/docs/v2/modifiers) api that enables fine-tuning of **period** dropdown menu (to be used in lieu of `modifiers`). */
+    modifiersPeriod: PropTypes.arrayOf(PropTypes.object),
 };
 
 TimePicker.displayName = "TimePicker";

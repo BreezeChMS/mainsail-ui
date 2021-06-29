@@ -10,17 +10,22 @@
         flex-shrink: 0;
 
         &.mainsail-timepicker__time {
-            text-align: center;
-            text-align-last: center;
+            text-align: right;
+            text-align-last: right;
 
             .mainsail-dropdown__item {
                 align-items: flex-end;
                 flex-basis: 100%;
+                width: 100%;
+                padding-left: 12px;
+                padding-right: 12px;
             }
         }
 
         &.mainsail-timepicker__time button.mainsail-dropdown__toggle,
         &.mainsail-timepicker__time select {
+            padding-left: 12px;
+            padding-right: 12px;
             text-align: center;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
@@ -45,7 +50,7 @@
 
         .mainsail-dropdown__menu {
             z-index: 10000;
-            min-width: 74px;
+            min-width: 82px;
         }
     }
 }
