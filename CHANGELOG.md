@@ -1,3 +1,15 @@
+# v1.6.0 (Tue Jun 29 2021)
+
+#### 🚀 Enhancement
+
+- adds extra period controls [#137](https://github.com/BreezeChMS/mainsail-ui/pull/137) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.5.4 (Tue Jun 29 2021)
 
 #### 🐛 Bug Fix
