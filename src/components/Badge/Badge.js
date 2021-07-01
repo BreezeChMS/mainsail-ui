@@ -53,12 +53,12 @@ export const Badge = ({
     return (
         <span
             className={classify(
-                className,
                 "mainsail-badge",
                 color,
                 size,
                 variant,
-                isRounded ? "rounded" : "square"
+                isRounded ? "round" : "square",
+                className
             )}
             {...rest}>
             {variant !== ENUMS.variants.icon ? text : null}
