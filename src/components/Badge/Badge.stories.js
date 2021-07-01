@@ -33,6 +33,13 @@ Basic.args = {
     variant: BadgeComponent.variants.basic,
 };
 
+export const Round = Badge.bind({});
+Round.args = {
+    text: "Badge",
+    isRounded: true,
+    variant: BadgeComponent.variants.basic,
+};
+
 export const Removable = Badge.bind({});
 Removable.args = {
     text: "Removable",

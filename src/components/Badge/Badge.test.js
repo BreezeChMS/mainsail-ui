@@ -5,11 +5,17 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
-import { Basic, Removable } from "./Badge.stories";
+import { Basic, Round, Removable } from "./Badge.stories";
 
 it("renders the badge in the primary state", () => {
     render(<Basic {...Basic.args} />);
     expect(screen.getByText("Badge")).toBeInTheDocument();
+});
+
+it("renders the badge with the round style", () => {
+    render(<Round {...Round.args} />);
+    expect(screen.getByText("Badge")).toBeInTheDocument();
+    expect(screen.getByText("Badge").classList.contains("round")).toBe(true);
 });
 
 it("fires a provided onRemove handler", () => {
