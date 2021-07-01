@@ -24,7 +24,7 @@
     &.sm {
         @include mainsail-body-text-small();
         font-weight: 700;
-        padding: 5px 7px;
+        padding: 3px 7px;
 
         svg {
             height: 12px;
@@ -115,7 +115,7 @@
         }
     }
 
-    &.rounded {
+    &.round {
         border-radius: 9999px;
 
         button {
