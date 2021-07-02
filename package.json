@@ -23,7 +23,7 @@
     "build-icons": "npx @svgr/cli --icon --out-dir src/components/Icons src/assets/icons --replace-attr-values '#003462=currentColor'",
     "start": "start-storybook -p 6006 -s src/assets",
     "storybook": "start-storybook -p 6006 -s src/assets",
-    "build-storybook": "build-storybook -o docs-build -s src/assets",
+    "build-storybook": "build-storybook -o story-build -s src/assets",
     "deploy-storybook": "storybook-to-ghpages",
     "lint": "eslint \"src/**/*.js\" -c .eslintrc.json",
     "release": "auto shipit",
