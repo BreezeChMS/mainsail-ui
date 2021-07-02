@@ -36,6 +36,12 @@ module.exports = {
                     label: "Components",
                     position: "left",
                 },
+                // {
+                //     type: "doc",
+                //     docId: "utility-classes",
+                //     position: "left",
+                //     label: "Utility Classes",
+                // },
             ],
         },
         footer: {
@@ -45,7 +51,7 @@ module.exports = {
                     title: "Docs",
                     items: [
                         {
-                            label: "Tutorials",
+                            label: "Get Started",
                             to: "/docs/intro",
                         },
                     ],
