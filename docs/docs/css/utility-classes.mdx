@@ -18,14 +18,14 @@ Adding bespoke CSS per component for things that are constantly repeated adds to
 
 Applying the 80/20 principle, having these classes available helps us to get the 80% done with 20% of the code. (Where the 80% is common use cases for positioning, layout and style ... and the 20% can likely be reused throughout the app.)
 
-## Eww, how are these better than inline styles?
+### Eww, how are these better than inline styles?
 
 Utility classes are a fairly common styling pattern that offers [many benefits over inline styles](https://frontstuff.io/no-utility-classes-arent-the-same-as-inline-styles).
 
 The utilities listed on this page are modeled after the very popular [Tailwind CSS](https://2020.stateofcss.com/en-US/technologies/css-frameworks/).
 There are a number of differences, however. For example, not everything has responsive class designations baked-in. Mainsail only includes a small subset of the abilities of Tailwind to save on bundle size.
 
-# Colors
+## Colors
 
 Mainsail color classes are available.
 
@@ -201,7 +201,7 @@ Uses the syntax `text-<color>-<variant>`.
 
 ---
 
-# Corner Radius
+## Corner Radius
 
 Apply Mainsail corner radius via the `border-radius:` css property.
 
@@ -234,7 +234,7 @@ Uses the syntax `rounded-<amount>`.
 
 ---
 
-# Sizing
+## Sizing
 
 These sizing utilities are not meant to be a replacement for AutoGrid or Flex components.
 
@@ -263,7 +263,7 @@ These sizing utilities are not meant to be a replacement for AutoGrid or Flex co
 
 ---
 
-# Spacing
+## Spacing
 
 For common Mainsail spec spacing margins and padding, you can use `p-<size>` and `m-<size>` classes.
 
@@ -387,7 +387,7 @@ Responsive designations for spacing can be applied. The syntax looks like `<brea
     </div>
 </div>
 
-### Visibility
+## Visibility
 
 Resize the browser to see these utility classes at work.
 
@@ -432,7 +432,7 @@ While a few hiding (<code>display: none</code>) helpers exist (shown above), you
 
 > Note: `import { useBreakpoint } from "mainsail-ui"` — This hook can be used to provide responsive reactivity in JS components, but should be used at a higher level if possible because it responds to window resizing and should be used sparingly.
 
-# Shadows & Overlays
+## Shadows & Overlays
 
 Box shadows and overlay can be applied easily with the shadow utility classes.
 
@@ -481,7 +481,7 @@ This example contains a `content-blur` that blurs all the children.
 
 ---
 
-# Typography
+## Typography
 
 Basic Mainsail typography classes are available.
 
@@ -490,7 +490,7 @@ Basic Mainsail typography classes are available.
 -   Labeling text
 -   Button text
 
-## Headings
+### Headings
 
 ```html
 <h1>Hello World Hero</h1>
@@ -510,7 +510,7 @@ Basic Mainsail typography classes are available.
     </div>
 </div>
 
-## Body text
+### Body text
 
 **4 sizes** of body text exist: `lg`, `md` (default), `sm` and `xs`.
 
@@ -549,7 +549,7 @@ Basic Mainsail typography classes are available.
     </div>
 </div>
 
-## Label text
+### Label text
 
 **1 size** of label text exists:`sm`.
 
@@ -565,7 +565,7 @@ Basic Mainsail typography classes are available.
     </div>
 </div>
 
-## Button text
+### Button text
 
 **2 sizes** of button text exist: `md` & `sm` (md can be omitted).
 

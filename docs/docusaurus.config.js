@@ -9,8 +9,8 @@ module.exports = {
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
-    favicon: "img/favicon.ico",
-    organizationName: "facebook", // Usually your GitHub org/user name.
+    favicon: "img/favicon.png",
+    organizationName: "BreezeChMS", // Usually your GitHub org/user name.
     projectName: "mainsail-ui", // Usually your repo name.
     themeConfig: {
         navbar: {

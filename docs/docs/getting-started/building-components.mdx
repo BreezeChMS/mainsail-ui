@@ -25,9 +25,11 @@ Mainsail UI utilizes the fantastic [Plop JS](https://plopjs.com/) to make develo
 
 ```
 yarn scaffold component
-
-// Note: omitting the `component` argument will result in multiple choice prompts
 ```
+
+:::tip
+Note: omitting the `component` argument will result in multiple choice prompts
+:::
 
 This will prompt you for the following:
 
@@ -106,17 +108,16 @@ MyComponent.variants = variants
 Don't forget to start Storybook if you haven't:
 
 ```
-// Start Storybook
 yarn start
 ```
 
-**💡 A Storybook story is:**
+### A Storybook story is:
 
 -   an isolated use-case of a component
 -   able to provide a means of visual/functional operational testing on a unit and integration level
 -   just an exported react component (which means, you can use React and javascript to do whatever you want with it)
 
-**❓ What deserves a Story?**
+### What deserves a Story?
 
 -   if the component is supposed to behave a certain way, make a story for that behavior
 -   if you want to write a test for a specific behavior or action, make a story first (writing tests will be easier!)
@@ -204,7 +205,9 @@ export const Primary = () => <Button text="Button" />;
 Primary.storyName = "Fancier Name";
 ```
 
-💡 For more information on writing stories [see the official site](https://storybook.js.org/docs/react/writing-stories/introduction).
+:::tip
+For more information on writing stories [see the official site](https://storybook.js.org/docs/react/writing-stories/introduction).
+:::
 
 ## Writing the Tests 🧪
 
