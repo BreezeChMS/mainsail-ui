@@ -12,7 +12,6 @@ module.exports = {
     favicon: "img/favicon.png",
     organizationName: "BreezeChMS",
     projectName: "mainsail-ui",
-    plugins: [require.resolve("docusaurus-lunr-search")],
     themeConfig: {
         navbar: {
             logo: {
