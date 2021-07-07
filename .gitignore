@@ -122,6 +122,9 @@ dist
 /storybook-static
 /docs-build
 
+/docs/build
+/docs/.docusaurus
+
 # misc
 .DS_Store
 .env
