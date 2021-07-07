@@ -5,13 +5,14 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 module.exports = {
     title: "Mainsail UI",
     tagline: "The React UI kit of Breeze",
-    url: "https://your-docusaurus-test-site.com",
+    url: "https://mainsail-ui.com",
     baseUrl: "/",
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
     favicon: "img/favicon.png",
-    organizationName: "BreezeChMS", // Usually your GitHub org/user name.
-    projectName: "mainsail-ui", // Usually your repo name.
+    organizationName: "BreezeChMS",
+    projectName: "mainsail-ui",
+    plugins: [require.resolve("docusaurus-lunr-search")],
     themeConfig: {
         navbar: {
             logo: {
@@ -27,7 +28,7 @@ module.exports = {
                 },
                 { to: "/blog", label: "Blog", position: "left" },
                 {
-                    href: "https://github.com/BreezeChMS/mainsail-u",
+                    href: "https://github.com/BreezeChMS/mainsail-ui",
                     label: "GitHub",
                     position: "right",
                 },
@@ -36,12 +37,6 @@ module.exports = {
                     label: "Components",
                     position: "left",
                 },
-                // {
-                //     type: "doc",
-                //     docId: "utility-classes",
-                //     position: "left",
-                //     label: "Utility Classes",
-                // },
             ],
         },
         footer: {
@@ -52,6 +47,10 @@ module.exports = {
                     items: [
                         {
                             label: "Usage",
+                            to: "/docs/intro",
+                        },
+                        {
+                            label: "Development",
                             to: "/docs/intro",
                         },
                     ],
@@ -65,7 +64,7 @@ module.exports = {
                         },
                         {
                             label: "GitHub",
-                            href: "https://github.com/facebook/docusaurus",
+                            href: "https://github.com/BreezeChMS/mainsail-ui",
                         },
                     ],
                 },

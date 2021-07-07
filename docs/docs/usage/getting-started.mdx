@@ -14,8 +14,6 @@ yarn install mainsail-ui
 Import the component. Use the component.
 
 ```jsx
-import { Button } from "mainsail-ui";
-
 <Button text="Look at me" />;
 
 // or with children
@@ -38,9 +36,9 @@ When a component has a broad selection of different styles available, these styl
 ```
 
 <div className="space-x-10">
-  <Button text="Button" variant="primary" />
-  <Button text="Button" variant="secondary" />
-  <Button text="Button" variant="tertiary" />
+    <Button text="Button" variant="primary" />
+    <Button text="Button" variant="secondary" />
+    <Button text="Button" variant="tertiary" />
 </div>
 
 ## Intent vs Colors
@@ -63,8 +61,8 @@ _Note: In the case where any prop value is `default`, it can be omitted_
 ```
 
 <div className="space-x-10 mb-20">
-  <Button intent="default" text="Safe to Press" />
-  <Button intent="danger" text="Dragons Ahead!" />
+    <Button intent="default" text="Safe to Press" />
+    <Button intent="danger" text="Dragons Ahead!" />
 </div>
 
 ```jsx
@@ -75,9 +73,9 @@ _Note: In the case where any prop value is `default`, it can be omitted_
 ```
 
 <div className="bg-neutral-4 p-20 space-x-10">
-  <Icon name="text" color="default" />
-  <Icon name="text" color="light" />
-  <Icon name="text" color="dark" />
+    <Icon name="text" color="default" />
+    <Icon name="text" color="light" />
+    <Icon name="text" color="dark" />
 </div>
 
 ## Adding Spacing
@@ -90,8 +88,12 @@ There are some [utility classes](/docs/css/utility-classes) to add spacing helpe
 ```
 
 <div>
-  <Button variant={Button.variants.secondary} text="Cancel" className="mr-20" />
-  <Button text="Submit" />
+    <Button
+        variant={Button.variants.secondary}
+        text="Cancel"
+        className="mr-20"
+    />
+    <Button text="Submit" />
 </div>
 
 ## ENUM prop values (Recommended)
