@@ -32,7 +32,7 @@ module.exports = {
                     position: "right",
                 },
                 {
-                    href: "https://mainsail-ui.com/components",
+                    href: "/components",
                     label: "Components",
                     position: "left",
                 },
@@ -51,6 +51,10 @@ module.exports = {
                         {
                             label: "Development",
                             to: "/docs/intro",
+                        },
+                        {
+                            to: "/components",
+                            label: "Components",
                         },
                     ],
                 },

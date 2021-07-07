@@ -29,8 +29,8 @@ export default function Home() {
     const { siteConfig } = useDocusaurusContext();
     return (
         <Layout
-            title={`Hello from ${siteConfig.title}`}
-            description="Description will go into a meta tag in <head />">
+            title={`Let's Go! | ${siteConfig.title}`}
+            description="Mainsail UI is the Official React UI Kit of Breeze">
             <HomepageHeader />
             <main>
                 <HomepageFeatures />
