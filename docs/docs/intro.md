@@ -24,3 +24,9 @@ When you need to build a component or add to Mainsail UI, this is the place to c
 When you need to tweak styling for a component or shape some things outside the component library.
 
 [CSS Utilities 🎨](/docs/css/utility-classes)
+
+## Guides
+
+Detailed deep-dives for specific components and features.
+
+[Dig deeper 🧠](/docs/guides/animating-mainsail)
