@@ -4,7 +4,7 @@
 .mainsail-progress {
     display: flex;
     width: 100%;
-    min-height: 6px;
+    min-height: 4px;
     overflow: hidden;
     border-radius: 9999px;
     position: relative;
@@ -20,9 +20,11 @@
     }
 
     .mainsail-progress__bar {
-        height: 6px;
-        transition: width 0.2s;
+        padding-top: 4px;
+        transition: width 0.2s ease-in-out;
         background-color: $mainsail-blue-dark;
+        border-top-right-radius: 9999px;
+        border-bottom-right-radius: 9999px;
 
         &.default {
             background-color: $mainsail-blue-primary;

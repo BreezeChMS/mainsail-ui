@@ -26,7 +26,14 @@ export default {
 
 const Template = (args) => <ProgressBar {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Basic = Template.bind({});
+Basic.args = {
     percentage: 25,
+};
+
+export const LargerStyled = Template.bind({});
+LargerStyled.args = {
+    percentage: 66,
+    className: "border-blue-primary bg-white",
+    classNameBar: "bg-blue-primary py-12",
 };
