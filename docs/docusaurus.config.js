@@ -72,7 +72,7 @@ module.exports = {
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear()} Breeze. Built with Docusaurus.`,
+            copyright: `Copyright © ${new Date().getFullYear()} Breeze.`,
         },
         prism: {
             theme: lightCodeTheme,
