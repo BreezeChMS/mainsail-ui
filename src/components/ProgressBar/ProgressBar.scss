@@ -1,0 +1,39 @@
+@import "../../styles/Variables.scss";
+
+/** ProgressBar Component Styles */
+.mainsail-progress {
+    display: flex;
+    width: 100%;
+    min-height: 4px;
+    overflow: hidden;
+    border-radius: 9999px;
+    position: relative;
+
+    &.default {
+        background-color: $mainsail-neutral-5;
+    }
+    &.dark {
+        background-color: $mainsail-neutral-5;
+    }
+    &.light {
+        background-color: $mainsail-neutral-3;
+    }
+
+    .mainsail-progress__bar {
+        padding-top: 4px;
+        transition: width 0.2s ease-in-out;
+        background-color: $mainsail-blue-dark;
+        border-top-right-radius: 9999px;
+        border-bottom-right-radius: 9999px;
+
+        &.default {
+            background-color: $mainsail-blue-primary;
+        }
+        &.dark {
+            background-color: $mainsail-blue-dark;
+        }
+        &.light {
+            background-color: $mainsail-blue-light;
+        }
+    }
+}
