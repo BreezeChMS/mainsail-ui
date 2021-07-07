@@ -1,10 +1,7 @@
 import React from "react";
-import Layout from "@theme/Layout";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./components.module.css";
 
 export default function Components() {
-    const { siteConfig } = useDocusaurusContext();
     return (
         <iframe
             name="storybook"
