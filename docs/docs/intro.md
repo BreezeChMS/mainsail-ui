@@ -5,7 +5,7 @@ title: Intro
 
 # Introduction
 
-Mainsail documentation is broken up into three main sections:
+Mainsail documentation is broken up into four main sections:
 
 ## Usage
 
