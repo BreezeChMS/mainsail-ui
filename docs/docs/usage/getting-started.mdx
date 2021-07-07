@@ -59,7 +59,6 @@ In the case where any prop value is `default`, it can be omitted
 // Using Intent
 <Button intent="default" text="Safe to Press" />
 <Button intent="danger" text="Dragons Ahead!" />
-
 ```
 
 <div className="space-x-10 mb-20">
@@ -90,19 +89,13 @@ There are some [utility classes](/docs/css/utility-classes) to add spacing helpe
 ```
 
 <div>
-    <Button
-        variant={Button.variants.secondary}
-        text="Cancel"
-        className="mr-20"
-    />
+    <Button variant="secondary" text="Cancel" className="mr-20" />
     <Button text="Submit" />
 </div>
 
 ## ENUM prop values (Recommended)
 
 Like many modern component libraries, utilizing [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) helps development along by throwing errors to your console if you pass an improper type to a component prop. While this is true of Mainsail, you can also utilize exposed ENUM prop values for each component.
-
-> 🚨 The global exported ENUMS prop name object will be deprecated in the future in support of Component-specific ENUMS inclusion.
 
 **Do this:**
 
