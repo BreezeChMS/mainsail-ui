@@ -16,8 +16,8 @@ The library uses Prettier code styling for simplicity. Nothing else to report he
 When it comes to naming conventions, there are a some primary driving motivations behind all naming choices:
 
 -   **Readability** - keep it readable
--   **Reason-Ability** - keep it able to be immediately reasoned with
--   **Explicitness** - leave nothing ambiguous, "future me is dumb"
+-   **Reason-Ability** - keep it able to be immediately able to be reasoned with
+-   **Explicitness** - leave nothing ambiguous, #futureMeIsDumb
 -   **Specificity** - ordering of context can create clearer code
 
 ## Readability / Reason-Ability / Explicitness with Props

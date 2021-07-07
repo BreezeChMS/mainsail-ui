@@ -3,88 +3,24 @@ sidebar_position: 1
 title: Intro
 ---
 
-# Getting Started (Ex Nihilo)
+# Introduction
 
-![captain America](https://user-images.githubusercontent.com/30707961/114431656-bdaf2c00-9b8d-11eb-96d6-d48d25015511.png)
+Mainsail documentation is broken up into three main sections:
 
-There's a few necessary things we should go over first.
+## Usage
 
-## Environment Setup
+This section contains useful information pertinent to implementing Mainsail along with guides and tutorials for more intricate parts.
 
-**Clone the repo**
+[Start using Mainsail ⛵️](/docs/usage/getting-started)
 
-```bash
-git clone git@github.com:BreezeChMS/mainsail-ui.git
-```
+## Development
 
-**Install the depenedencies**
+When you need to build a component or add to Mainsail UI, this is the place to come to.
 
-```
-cd mainsail-ui
+[Start building 🔨](/docs/development/getting-started)
 
-yarn install
-```
+## CSS
 
-**Start Storybook**
+When you need to tweak styling for a component or shape some things outside the component library.
 
-```
-yarn start
-```
-
-You should now have storybook running with a message in your terminal similar to:
-
-```
-╭───────────────────────────────────────────────────╮
-│                                                   │
-│   Storybook 6.2.5 started                         │
-│   9.03 s for preview                              │
-│                                                   │
-│    Local:            http://localhost:6006/       │
-│    On your network:  http://192.168.1.36:6006/    │
-│                                                   │
-│   Read full changelog: https://git.io/fhFYe       │
-│                                                   │
-╰───────────────────────────────────────────────────╯
-```
-
-## Project Overview
-
-There are two primary portions of the Mainsail-UI dev environment.
-
-1. [Storybook](https://storybook.js.org/docs/react/writing-stories/introduction) - internally bundled by Webpack
-2. React Component development - bundled by Rollup
-
-#### What's in the `src` folder?
-
-The majority of the development of components will take place in the `src` folder.
-
-```
-src
-├─ assets
-|  ├─ fonts (for use locally in storybook - not bundled)
-|  └─ icons (original source svgs - has icon build process)
-├─ components
-├─ docs (for storybook documentation only)
-├─ styles (global scss files)
-|  ├─ Colors.scss   (color-related configurations)
-|  ├─ Layout.scss   (utility classes for spacing/layout)
-|  ├─ Reset.scss    (a reset used in storybook rendering)
-|  ├─ Text.scss     (text-related configurations)
-|  ├─ Utility.scss  (mixins used throughout scss)
-|  └─ Variables.scss(all global scss variables)
-
-```
-
-## Configure Your Editor
-
-The next big step requires its own section and comes highly recommended if you want the best development experience.
-
-See [Configuring Your Editor](/docs/getting-started/editor-config/)
-
-Note: Currently only VS Code instructions exist. If plugins exist for your preferred editor, please submit a PR to update these docs.
-
-## Review Some Project Design Decisions
-
-Before you start contributing any new code, review our conventions.
-
-See [Coding Style Guide](/docs/getting-started/style-guide/)
+[CSS Utilities 🎨](/docs/css/utility-classes)

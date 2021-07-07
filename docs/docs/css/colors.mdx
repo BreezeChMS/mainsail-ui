@@ -1,0 +1,175 @@
+import { AutoGrid } from "mainsail-ui";
+
+# Colors
+
+All Mainsail spec color classes are available.
+
+## Background Colors
+
+Applies Mainsail color to background `background-color:` css property.
+
+Uses the syntax `bg-<color>-<variant>`.
+
+<AutoGrid cols={2} gapCol={20} gapRow={48} className="body-text sm">
+    <div className="space-y-8">
+        <div className="bg-blue-primary text-blue-light rounded p-8">
+            bg-blue-primary
+        </div>
+        <div className="bg-blue-light rounded p-8">bg-blue-light</div>
+        <div className="bg-blue-middle rounded p-8 text-blue-light">
+            bg-blue-middle
+        </div>
+        <div className="bg-blue-dark rounded p-8 text-blue-light">
+            bg-blue-dark
+        </div>
+    </div>
+    <div className="space-y-8">
+        <div className="bg-green-light rounded p-8">bg-green-light</div>
+        <div className="bg-green-middle rounded p-8">bg-green-middle</div>
+        <div className="bg-green-dark rounded p-8 text-green-light">
+            bg-green-dark
+        </div>
+    </div>
+    <div className="space-y-8">
+        <div className="bg-violet-light rounded p-8">bg-violet-light</div>
+        <div className="bg-violet-middle rounded p-8 text-violet-light">
+            bg-violet-middle
+        </div>
+        <div className="bg-violet-dark rounded p-8 text-violet-light">
+            bg-violet-dark
+        </div>
+    </div>
+    <div className="space-y-8">
+        <div className="bg-orange-light rounded p-8">bg-orange-light</div>
+        <div className="bg-orange-middle rounded p-8">bg-orange-middle</div>
+        <div className="bg-orange-dark rounded p-8">bg-orange-dark</div>
+    </div>
+    <div className="space-y-8">
+        <div className="bg-red-light rounded p-8">bg-red-light</div>
+        <div className="bg-red-middle rounded p-8">bg-red-middle</div>
+        <div className="bg-red-dark rounded p-8 text-red-light">
+            bg-red-dark
+        </div>
+    </div>
+    <div className="space-y-8">
+        <div className="bg-pink-light rounded p-8">bg-pink-light</div>
+        <div className="bg-pink-middle rounded p-8">bg-pink-middle</div>
+        <div className="bg-pink-dark rounded p-8 text-pink-light">
+            bg-pink-dark
+        </div>
+    </div>
+    <div className="space-y-8">
+        <div className="bg-neutral-1 rounded p-8 text-neutral-6">
+            bg-neutral-1
+        </div>
+        <div className="bg-neutral-2 rounded p-8 text-neutral-6">
+            bg-neutral-2
+        </div>
+        <div className="bg-neutral-3 rounded p-8">bg-neutral-3</div>
+        <div className="bg-neutral-4 rounded p-8">bg-neutral-4</div>
+        <div className="bg-neutral-5 rounded p-8">bg-neutral-5</div>
+        <div className="bg-neutral-6 rounded p-8">bg-neutral-6</div>
+        <div className="bg-white rounded border-blue-light p-8">bg-white</div>
+    </div>
+</AutoGrid>
+
+## Text Colors
+
+Apply Mainsail color to text `color:` css property.
+
+Uses the syntax `text-<color>-<variant>`.
+
+<AutoGrid cols={2} gapCol={20} gapRow={48} className="body-text sm">
+    <div>
+        <div className="text-blue-primary p-8">text-blue-primary</div>
+        <div className="text-blue-light p-8">text-blue-light</div>
+        <div className="text-blue-middle p-8">text-blue-middle</div>
+        <div className="text-blue-dark p-8">text-blue-dark</div>
+    </div>
+    <div>
+        <div className="text-green-light p-8">text-green-light</div>
+        <div className="text-green-middle p-8">text-green-middle</div>
+        <div className="text-green-dark p-8">text-green-dark</div>
+    </div>
+    <div>
+        <div className="text-violet-light p-8">text-violet-light</div>
+        <div className="text-violet-middle p-8">text-violet-middle</div>
+        <div className="text-violet-dark p-8">text-violet-dark</div>
+    </div>
+    <div>
+        <div className="text-orange-light p-8">text-orange-light</div>
+        <div className="text-orange-middle p-8">text-orange-middle</div>
+        <div className="text-orange-dark p-8">text-orange-dark</div>
+    </div>
+    <div>
+        <div className="text-red-light p-8">text-red-light</div>
+        <div className="text-red-middle p-8">text-red-middle</div>
+        <div className="text-red-dark p-8">text-red-dark</div>
+    </div>
+    <div>
+        <div className="text-pink-light rounded p-8">text-pink-light</div>
+        <div className="text-pink-middle rounded p-8">text-pink-middle</div>
+        <div className="text-pink-dark rounded p-8 text-pink-light">
+            text-pink-dark
+        </div>
+    </div>
+    <div>
+        <div className="text-neutral-1 p-8">text-neutral-1</div>
+        <div className="text-neutral-2 p-8">text-neutral-2</div>
+        <div className="text-neutral-3 p-8">text-neutral-3</div>
+        <div className="text-neutral-4 p-8">text-neutral-4</div>
+        <div className="text-neutral-5 p-8">text-neutral-5</div>
+        <div className="text-neutral-6 bg-neutral-4 p-8">text-neutral-6</div>
+        <div className="text-white bg-neutral-3 p-8">text-white</div>
+    </div>
+</AutoGrid>
+
+## Border Colors
+
+Apply Mainsail border and color to text `color:` css property.
+
+Uses the syntax `text-<color>-<variant>`.
+
+<AutoGrid cols={2} gapCol={20} gapRow={48} className="body-text sm">
+    <div className="space-y-4">
+        <div className="border-blue-primary p-8">border-blue-primary</div>
+        <div className="border-blue-light p-8">border-blue-light</div>
+        <div className="border-blue-middle p-8">border-blue-middle</div>
+        <div className="border-blue-dark p-8">border-blue-dark</div>
+    </div>
+    <div className="space-y-4">
+        <div className="border-green-light p-8">border-green-light</div>
+        <div className="border-green-middle p-8">border-green-middle</div>
+        <div className="border-green-dark p-8">border-green-dark</div>
+    </div>
+    <div className="space-y-4">
+        <div className="border-violet-light p-8">border-violet-light</div>
+        <div className="border-violet-middle p-8">border-violet-middle</div>
+        <div className="border-violet-dark p-8">border-violet-dark</div>
+    </div>
+    <div className="space-y-4">
+        <div className="border-orange-light p-8">border-orange-light</div>
+        <div className="border-orange-middle p-8">border-orange-middle</div>
+        <div className="border-orange-dark p-8">border-orange-dark</div>
+    </div>
+    <div className="space-y-4">
+        <div className="border-red-light p-8">border-red-light</div>
+        <div className="border-red-middle p-8">border-red-middle</div>
+        <div className="border-red-dark p-8">border-red-dark</div>
+    </div>
+    <div className="space-y-4">
+        <div className="border-pink-light p-8">border-pink-light</div>
+        <div className="border-pink-middle p-8">border-pink-middle</div>
+        <div className="border-pink-dark p-8 border-pink-light">
+            border-pink-dark
+        </div>
+    </div>
+    <AutoGrid cols={2} gap={8}>
+        <div className="border-neutral-1 p-8">border-neutral-1</div>
+        <div className="border-neutral-2 p-8">border-neutral-2</div>
+        <div className="border-neutral-3 p-8">border-neutral-3</div>
+        <div className="border-neutral-4 p-8">border-neutral-4</div>
+        <div className="border-neutral-5 p-8">border-neutral-5</div>
+        <div className="border-neutral-6 p-8">border-neutral-6</div>
+    </AutoGrid>
+</AutoGrid>

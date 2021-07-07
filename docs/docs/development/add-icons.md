@@ -3,7 +3,9 @@ sidebar_position: 4
 title: Adding Icons
 ---
 
-# Adding Icons to Mainsail
+# Adding Icons
+
+## Follow the Steps
 
 If you need to an icon to the `mainsail-ui` icon set, follow the steps below.
 
