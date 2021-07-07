@@ -126,6 +126,8 @@ dist
 
 # Docusaurus
 /docs-build
+.docusaurus
+.cache-loader
 
 # misc
 .DS_Store
