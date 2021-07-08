@@ -129,6 +129,9 @@ dist
 .docusaurus
 .cache-loader
 
+/docs/build
+/docs/.docusaurus
+
 # misc
 .DS_Store
 .env

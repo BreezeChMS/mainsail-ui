@@ -1,4 +1,5 @@
 // Components Global Export for plopjs
+export { ProgressBar } from "../ProgressBar";
 export { Switcher, useSwitcher } from "../Switcher";
 export { FormInputIcon } from "../FormInputIcon";
 export { NativeDatePicker } from "../NativeDatePicker";

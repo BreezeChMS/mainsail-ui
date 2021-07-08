@@ -1,3 +1,19 @@
+# v1.7.0 (Wed Jul 07 2021)
+
+#### 🚀 Enhancement
+
+- Progress bar [#139](https://github.com/BreezeChMS/mainsail-ui/pull/139) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🐛 Bug Fix
+
+- MSAIL-1 badge rounded issue [#138](https://github.com/BreezeChMS/mainsail-ui/pull/138) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.6.0 (Tue Jun 29 2021)
 
 #### 🚀 Enhancement
