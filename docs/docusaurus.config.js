@@ -79,6 +79,7 @@ module.exports = {
             darkTheme: darkCodeTheme,
         },
     },
+    plugins: ["docusaurus-plugin-sass", "@docusaurus/theme-live-codeblock"],
     presets: [
         [
             "@docusaurus/preset-classic",
