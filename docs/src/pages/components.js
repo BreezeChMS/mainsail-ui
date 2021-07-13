@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import styles from "./components.module.css";
+import Layout from "@theme/Layout";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 export default function Components() {
+    const { siteConfig } = useDocusaurusContext();
     // Forward any storybook query strings to the iframe for storybook
     useEffect(() => {
         if (window) {
@@ -19,11 +22,16 @@ export default function Components() {
     }, []);
 
     return (
-        <iframe
-            id="storybook"
-            name="storybook"
-            className={styles.responsiveIframe}
-            src="https://master--6000b9fe63cdbd0021082b92.chromatic.com"
-        />
+        <Layout
+            title={`Let's Go! | ${siteConfig.title}`}
+            description="Mainsail UI is the Official React UI Kit of Breeze">
+            <iframe
+                style={{ paddingTop: "60px" }}
+                id="storybook"
+                name="storybook"
+                className={styles.responsiveIframe}
+                src="https://master--6000b9fe63cdbd0021082b92.chromatic.com"
+            />
+        </Layout>
     );
 }
