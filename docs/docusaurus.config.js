@@ -13,6 +13,9 @@ module.exports = {
     organizationName: "BreezeChMS",
     projectName: "mainsail-ui",
     themeConfig: {
+        colorMode: {
+            disableSwitch: true,
+        },
         navbar: {
             logo: {
                 alt: "Mainsail UI Logo",
