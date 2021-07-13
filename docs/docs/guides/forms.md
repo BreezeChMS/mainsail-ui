@@ -3,8 +3,6 @@ title: Forms
 sidebar_position: 3
 ---
 
-import { FormControl, Input, FormLabel, FormInputIcon } from "mainsail-ui";
-
 Form fields in Mainsail are set up to be as hands-off as possible while still offering some internal help to keep you from having to wire up style markup.
 
 ### What Mainsail can do for your forms
@@ -25,21 +23,21 @@ Form fields in Mainsail are set up to be as hands-off as possible while still of
 For deeper info on each, visit the various stories in Storybook for each Component.
 :::
 
--   [FormControl](./?path=/story/forms-formcontrol--basic-input) - the parent wrapper, provides `isInvalid` `isDisabled`, and more to children automatically; also supports AutoGrid features
--   [Checkbox](./?path=/story/forms-checkbox--basic) - an individual checkbox with a text label
--   [CheckboxGroup](./?path=/story/forms-checkboxgroup--basic) - a group of checkboxes (to be used inside a FormControl)
--   [Dropdown](./?path=/story/forms-dropdown--basic) - a multiple choice dropdown
--   [FormHelpText](./?path=/story/forms-formhelptext--primary) - the little helpful bits of text that sit neatly under an input
--   [FormInputIcon](./?path=/story/forms-forminputicon--basic&args=isDisabled:false) - an icon that gets situated inside an `<Input/>` field with proper focus/disabled styling applied for you
--   [FormInputOptions](./?path=/story/forms-forminputoptions--with-checkbox) - the parent wrapper
--   [FormLabel](./?path=/story/forms-formlabel--basic) - the text that labels a field for visual and accessibility purposes (no wiring necessary when paired inside a FormControl)
--   [Button](./?path=/story/forms-button--primary) - the ubiquitous button, also useful in forms
--   [Input](./?path=/story/forms-input--primary) - the universal `<input/>` field, styled per spec and ready to gain the perks of FormControl
--   [DatePicker (Native)](./?path=/story/forms-datepicker-native--basic) - an available styled NATIVE date picker - likely to be used in mobile situations, `react-datepicker` support inside FormControl exists as well
--   [Radio](/?path=/story/forms-radio--basic) - a simple radio button
--   [RadioGroup](./?path=/story/forms-radiogroup--basic) - a group of simple radio buttons
--   [Textarea](./?path=/story/forms-textarea--primary) - a section for multi-line input of text
--   [TimePicker](./?path=/story/forms-timepicker--basic) - a pre-styled dropdown for picking times, can be provided a list of times
+-   **Checkbox** - an individual checkbox with a text label
+-   **FormControl** - the parent wrapper, provides `isInvalid` `isDisabled`, and more to children automatically; also supports AutoGrid features
+-   **CheckboxGroup** - a group of checkboxes (to be used inside a FormControl)
+-   **Dropdown** - a multiple choice dropdown
+-   **FormHelpText** - the little helpful bits of text that sit neatly under an input
+-   **FormInputIcon** - an icon that gets situated inside an `<Input/>` field with proper focus/disabled styling applied for you
+-   **FormInputOptions** - the parent wrapper
+-   **FormLabel** - the text that labels a field for visual and accessibility purposes (no wiring necessary when paired inside a FormControl)
+-   **Button** - the ubiquitous button, also useful in forms
+-   **Input** - the universal `<input/>` field, styled per spec and ready to gain the perks of FormControl
+-   **DatePicker** - an available styled NATIVE date picker - likely to be used in mobile situations, `react-datepicker` support inside FormControl exists as well
+-   **Radio** - a simple radio button
+-   **RadioGroup** - a group of simple radio buttons
+-   **Textarea** - a section for multi-line input of text
+-   **TimePicker** - a pre-styled dropdown for picking times, can be provided a list of times
 
 ## Let's Layout Some Fields
 
@@ -88,7 +86,7 @@ You don't need to wire up your labels with your inputs when using `FormControl`.
 
 ## Columns and Layout
 
-`<FormControl/>` pairs well with AutoGrid. And since [AutoGrid](./?path=/story/react-guides-autogrid--page) is flexible enough to nest as needed. You can position and layout rows and columns in flexible ways that support automatic responsive behaviors with little effort.
+`<FormControl/>` pairs well with AutoGrid. And since [AutoGrid](/components?path=/story/react-guides-autogrid--page) is flexible enough to nest as needed. You can position and layout rows and columns in flexible ways that support automatic responsive behaviors with little effort.
 
 The props `colSpan` is supported natively on the `FormControl` for use inside `AutoGrid`. This allows you it to declare its own number of columns that it should stretch across.
 

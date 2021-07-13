@@ -3,8 +3,6 @@ sidebar_position: 3
 title: Building Components
 ---
 
-import { Button, Icon } from "mainsail-ui";
-
 # Building a Component
 
 ## Using Generators 🧞‍♂️

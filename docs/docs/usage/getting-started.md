@@ -3,9 +3,9 @@ title: Getting Started
 sidebar_position: 1
 ---
 
-import { Button, Icon } from "mainsail-ui";
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
-## Adding & Importing
+<!-- import { Button, Icon } from "mainsail-ui"; -->
 
 ```
 yarn install mainsail-ui
@@ -35,12 +35,6 @@ When a component has a broad selection of different styles available, these styl
 <Button variant="tertiary" />
 ```
 
-<div className="space-x-10">
-    <Button text="Button" variant="primary" />
-    <Button text="Button" variant="secondary" />
-    <Button text="Button" variant="tertiary" />
-</div>
-
 ## Intent vs Colors
 
 Some components (icons for example) have a small variety of colors available to use for aesthetic purposes. These are accessed via the **color** prop.
@@ -61,23 +55,12 @@ In the case where any prop value is `default`, it can be omitted
 <Button intent="danger" text="Dragons Ahead!" />
 ```
 
-<div className="space-x-10 mb-20">
-    <Button intent="default" text="Safe to Press" />
-    <Button intent="danger" text="Dragons Ahead!" />
-</div>
-
 ```jsx
 // Using Colors
 <Icon name="text" color="default"/>
 <Icon name="text" color="light"/>
 <Icon name="text" color="dark"/>
 ```
-
-<div className="bg-neutral-4 p-20 space-x-10">
-    <Icon name="text" color="default" />
-    <Icon name="text" color="light" />
-    <Icon name="text" color="dark" />
-</div>
 
 ## Adding Spacing
 
@@ -87,11 +70,6 @@ There are some [utility classes](/docs/css/utility-classes) to add spacing helpe
 <Button variant={Button.variants.secondary} text="Cancel" className="mr-20" />
 <Button variant={Button.variants.secondary} text="Do it" />
 ```
-
-<div>
-    <Button variant="secondary" text="Cancel" className="mr-20" />
-    <Button text="Submit" />
-</div>
 
 ## ENUM prop values (Recommended)
 

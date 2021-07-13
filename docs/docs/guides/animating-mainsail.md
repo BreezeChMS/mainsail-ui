@@ -3,9 +3,6 @@ title: Animating Things
 sidebar_position: 1
 ---
 
-import { useState } from "react";
-import { Transition, Switcher, useSwitcher } from "mainsail-ui";
-
 Mainsail provides a couple components to aid in animating transitions for components.
 
 ## Transition

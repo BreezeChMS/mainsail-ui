@@ -178,7 +178,7 @@ This results in clearer, more readable imports.
 
 The decision has been made to provide a convention to mitigate [magic string](https://softwareengineering.stackexchange.com/questions/365339/what-is-wrong-with-magic-strings) usage in/for this library.
 
-Props with enum type of values that are utilized in a component should have their values exposed and exported as such. See [Building a Component](<(./?path=/docs/react-developing-building-a-component--page)>) for more details.
+Props with enum type of values that are utilized in a component should have their values exposed and exported as such. See [Building a Component](/docs/development/building-components) for more details.
 
 For Example:
 
