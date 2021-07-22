@@ -82,7 +82,11 @@ module.exports = {
             darkTheme: darkCodeTheme,
         },
     },
-    plugins: ["docusaurus-plugin-sass", "@docusaurus/theme-live-codeblock"],
+    plugins: [
+        "docusaurus-plugin-sass",
+        "@docusaurus/theme-live-codeblock",
+        require.resolve("docusaurus-lunr-search"),
+    ],
     presets: [
         [
             "@docusaurus/preset-classic",
