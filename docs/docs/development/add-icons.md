@@ -7,7 +7,7 @@ title: Adding Icons
 
 ## Follow the Steps
 
-If you need to an icon to the `mainsail-ui` icon set, follow the steps below.
+If you need to add an icon (or icons) to the `mainsail-ui` icon set, follow the steps below.
 
 1.  Add your icon svg from figma to the `src/assets/icons/your-new-icon.svg` folder.
     -   This folder contains all original icon source files

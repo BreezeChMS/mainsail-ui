@@ -62,20 +62,41 @@ In the case where any prop value is `default`, it can be omitted
 <Icon name="text" color="dark"/>
 ```
 
-## Adding Spacing
+## Style Overrides
 
-There are some [utility classes](/docs/css/utility-classes) to add spacing helpers available for quick margins.
+### Colors
+
+All [color classes](/docs/css/colors/) apply an `!important` tag so that they will act as overrides on any component styling.
+
+### Adding Spacing
+
+There are some [utility classes](/docs/css/utility-classes) to add spacing helpers available for quick margins and padding.
 
 ```jsx
-<Button variant={Button.variants.secondary} text="Cancel" className="mr-20" />
-<Button variant={Button.variants.secondary} text="Do it" />
+// Applying a margin right of 20px to the first button
+<Button text="Cancel" className="mr-20" />
+<Button text="Do it" />
 ```
 
-## ENUM prop values (Recommended)
+See the [css utility classes section](/docs/css/utility-classes) for more details.
+
+## Props
+
+### className
+
+Most components in Mainsail UI pass through or append a `className` prop to the existing component's class attribute. Some components offer multiple `className` props with a unique designation where applicable.
+
+### Native Props
+
+Most native props that you might expect for a component to have may not be listed in the Storybook docs. Things like `onBlur` or `onFocus` are typically offered via `{...props}` spread into the internal component/element. In other words, they should just work when using a component even if they aren't documented. If you find a scenario where this isn't the case, please open a pull request.
+
+### Prop Naming
+
+You may notice prop names attempt to support alpha-sortable naming. While this may seem unusual at first, we feel that when you're looking for a prop that is prefixed with `gap`, it's easier to find the related sibling prop `gapCol` and `gapRow`. Mainsail strives to order things from broad to narrow specificity; this maintains that convention.
+
+### ENUM prop values (Recommended)
 
 Like many modern component libraries, utilizing [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) helps development along by throwing errors to your console if you pass an improper type to a component prop. While this is true of Mainsail, you can also utilize exposed ENUM prop values for each component.
-
-**Do this:**
 
 `import { Button } from "mainsail-ui"`
 
@@ -83,9 +104,7 @@ Like many modern component libraries, utilizing [PropTypes](https://reactjs.org/
 <Button variant={Button.variants.secondary} text="Nope" />
 ```
 
-This not only is less verbose but it also keeps the current usage and import smaller because you don't need to pull in unnecessary prop names from other components. When tree-shaking is available, this will help reduce size.
-
-### Why not just use strings?
+**Why not just use strings?**
 
 Utilizing these constants in this way, not only reduce the number of [magic strings](https://softwareengineering.stackexchange.com/questions/365339/what-is-wrong-with-magic-strings) in your codebase, but also make remembering the various prop values easy since most code editors and IDEs will provide auto-completion for such imported objects.
 
