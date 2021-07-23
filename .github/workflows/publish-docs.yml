@@ -1,21 +1,56 @@
-name: Docs Build & Deploy
+name: documentation 📖
+
 on:
+  pull_request:
+    branches: [documentation]
   push:
-    branches:
-      - "master"
+    branches: [documentation]
+
 jobs:
-  build-and-deploy:
-    name: Publish Docs 🦖
+  checks:
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
         with:
-          persist-credentials: false
-      - name: Install and Deploy 🚀
-        run: | # Install npm packages and Deploy the Storybook files
-          git checkout gh-pages && git rebase master
+          node-version: '12.x'
+      - name: Test Build
+        run: |
           cd ./docs
-          yarn install
-          yarn build
-          git push origin gh-pages
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
+          npm run build
+  gh-release:
+    name: Publish Docs 🦖
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
+      - name: Release to GitHub Pages
+        env:
+          USE_SSH: true
+          GIT_USER: git
+        run: |
+          cd ./docs
+          git config --global user.email "breeci@breezechms.com"
+          git config --global user.name "BREEZECI"
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
+          npm run deploy
