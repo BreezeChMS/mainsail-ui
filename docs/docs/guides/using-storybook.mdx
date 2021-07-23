@@ -1,0 +1,56 @@
+---
+title: Using Storybook
+sidebar_position: 0
+---
+
+<iframe
+    width="800"
+    height="773"
+    src="https://www.loom.com/embed/812da543b32e4c63b4f80c3d7d71abd0"
+    frameborder="0"
+    webkitallowfullscreen
+    mozallowfullscreen
+    allowfullscreen></iframe>
+
+---
+
+## Key Highlights
+
+### Canvas vs Docs
+
+![image](https://user-images.githubusercontent.com/30707961/119664083-faaf4500-be00-11eb-844a-709e22ba99cf.png)
+
+1. The **Canvas** and Docs tabs are your main navigation inside a particular component.
+
+Canvas is useful for testing the workings of the component on the whole. Visual tweaks, viewport behavior, props and actions are all available from this tab.
+
+2. Docs should be visited but probably not relied upon for testing the prop usage and controls because it's easier to anchor on a specific story first, then test those props inside the Canvas tab.
+
+---
+
+### Controls vs Actions
+
+![image](https://user-images.githubusercontent.com/30707961/119664460-5974be80-be01-11eb-898e-1f925b6e6885.png)
+
+1. **Controls** will give you a list of all the props that a component has been defined with (depending on how the story has been set up, it can be controlled with the live example from this panel)
+   ![image](https://user-images.githubusercontent.com/30707961/119667203-0fd9a300-be04-11eb-9656-952cdb8e69b2.png)
+
+    > A Note on Controls: Controls can be included or ignored in story setup. They can also be preset with anything defined as a prop value. This means the initial control for a prop may or may not be the actual _default_ value for that prop (which would be defined under the default column)
+
+2. **Actions** if wired up properly in the story, this tab will give a glimpse into the callbacks and functions that fire when certain actions are acted upon in the component.
+   ![image](https://user-images.githubusercontent.com/30707961/119667355-3697d980-be04-11eb-985a-1848f513976e.png)
+
+---
+
+### ViewPort Testing
+
+![image](https://user-images.githubusercontent.com/30707961/119665071-ffc0c400-be01-11eb-990f-3b61019cb390.png)
+
+Only available under the Canvas Tab of a story, you can test different viewport responsiveness with this button.
+
+| Size         | Breakpoint |
+| ------------ | ---------- |
+| Small Mobile | sm         |
+| Large Mobile | sm         |
+| Tablet       | md         |
+| none         | lg         |

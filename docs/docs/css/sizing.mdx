@@ -1,0 +1,26 @@
+# Sizing
+
+These sizing utilities are not meant to be a replacement for [AutoGrid](/components?path=/story/layout-grid-autogrid--simple-grid) or Flex components.
+
+> Note: At this time, responsive utilities do not exist for this because AutoGrid/Flex components can control sizing at breakpoints.
+
+|    Class | Amount |
+| -------: | ------ |
+| w-screen | 100vw  |
+|   w-full | 100%   |
+|    w-3/4 | 75%    |
+|    w-1/2 | 50%    |
+|    w-1/4 | 25%    |
+|    w-1/3 | 33.33% |
+|    w-2/3 | 66.66% |
+| h-screen | 100vh  |
+|   h-full | 100%   |
+
+<div className="body-text sm">
+    <div className="space-y-8">
+        <div className="bg-blue-primary w-full p-10 text-white">w-full</div>
+        <div className="bg-blue-light w-3/4 p-10 text-blue-middle">w-3/4</div>
+        <div className="bg-blue-middle w-1/2 p-10 text-white">w-1/2</div>
+        <div className="bg-blue-dark w-1/4 h-full p-10 text-white">w-1/4</div>
+    </div>
+</div>
