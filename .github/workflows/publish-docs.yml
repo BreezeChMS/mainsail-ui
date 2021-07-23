@@ -1,11 +1,11 @@
-name: Storybook Build & Deploy
+name: Docs Build & Deploy
 on:
   push:
     branches:
       - "master"
 jobs:
   build-and-deploy:
-    name: Publish Master Storybook 📕
+    name: Publish Docs 🦖
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -14,7 +14,8 @@ jobs:
           persist-credentials: false
       - name: Install and Deploy 🚀
         run: | # Install npm packages and Deploy the Storybook files
+          git checkout gh-pages && git rebase master
+          cd ./docs
           yarn install
-          yarn run deploy-storybook -- --ci --host-token-env-variable=GITHUB_TOKEN
-        env:
-          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+          yarn build
+          git push origin gh-pages
