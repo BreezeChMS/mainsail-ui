@@ -1,55 +1,18 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>Storybook</title><meta name="viewport" content="width=device-width,initial-scale=1"/><style>html, body {
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  * {
-    box-sizing: border-box;
-  }</style><script>/* globals window */
-  /* eslint-disable no-underscore-dangle */
-  try {
-    if (window.top !== window) {
-      window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.top.__REACT_DEVTOOLS_GLOBAL_HOOK__;
-    }
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.warn('unable to connect to top frame for connecting dev tools');
-  }
-
-  window.onerror = function onerror(message, source, line, column, err) {
-    if (window.CONFIG_TYPE !== 'DEVELOPMENT') return;
-    // eslint-disable-next-line no-var, vars-on-top
-    var xhr = new window.XMLHttpRequest();
-    xhr.open('POST', '/runtime-error');
-    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    xhr.send(
-      JSON.stringify({
-        /* eslint-disable object-shorthand */
-        message: message,
-        source: source,
-        line: line,
-        column: column,
-        error: err && { message: err.message, name: err.name, stack: err.stack },
-        origin: 'manager',
-        /* eslint-enable object-shorthand */
-      })
-    );
-  };</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="icon" type="image/png" href="/img/favicon.png" sizes="192x192"><style>#root[hidden],
-      #docs-root[hidden] {
-        display: none !important;
-      }</style></head><body><div id="root"></div><div id="docs-root"></div><script>window['CONFIG_TYPE'] = "PRODUCTION";
-            
-        
-            
-              window['LOGLEVEL'] = "info";
-            
-        
-            
-        
-            
-        
-            
-              window['DOCS_MODE'] = false;</script><script src="runtime~main.839a2501af4154696b58.manager.bundle.js"></script><script src="vendors~main.dfc626167764d74c2173.manager.bundle.js"></script><script src="main.994885c99fc11cfaeb9c.manager.bundle.js"></script></body></html>
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-beta.3">
+<link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Mainsail UI Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Mainsail UI Blog Atom Feed"><title data-react-helmet="true">Let&#x27;s Go! | Mainsail UI | Mainsail UI</title><meta data-react-helmet="true" property="og:title" content="Let&#x27;s Go! | Mainsail UI | Mainsail UI"><meta data-react-helmet="true" name="description" content="Mainsail UI is the Official React UI Kit of Breeze"><meta data-react-helmet="true" property="og:description" content="Mainsail UI is the Official React UI Kit of Breeze"><meta data-react-helmet="true" property="og:url" content="https://mainsail-ui.com/"><meta data-react-helmet="true" name="docusaurus_locale" content="en"><meta data-react-helmet="true" name="docusaurus_tag" content="default"><link data-react-helmet="true" rel="shortcut icon" href="/img/favicon.png"><link data-react-helmet="true" rel="canonical" href="https://mainsail-ui.com/"><link data-react-helmet="true" rel="alternate" href="https://mainsail-ui.com/" hreflang="en"><link data-react-helmet="true" rel="alternate" href="https://mainsail-ui.com/" hreflang="x-default"><script data-react-helmet="true">function maybeInsertBanner(){window.__DOCUSAURUS_INSERT_BASEURL_BANNER&&insertBanner()}function insertBanner(){var n=document.getElementById("docusaurus-base-url-issue-banner-container");if(n){n.innerHTML='\n<div id="docusaurus-base-url-issue-banner" style="border: thick solid red; background-color: rgb(255, 230, 179); margin: 20px; padding: 20px; font-size: 20px;">\n   <p style="font-weight: bold; font-size: 30px;">Your Docusaurus site did not load properly.</p>\n   <p>A very common reason is a wrong site <a href="https://docusaurus.io/docs/docusaurus.config.js/#baseurl" style="font-weight: bold;">baseUrl configuration</a>.</p>\n   <p>Current configured baseUrl = <span style="font-weight: bold; color: red;">/</span>  (default value)</p>\n   <p>We suggest trying baseUrl = <span id="docusaurus-base-url-issue-banner-suggestion-container" style="font-weight: bold; color: green;"></span></p>\n</div>\n';var e=document.getElementById("docusaurus-base-url-issue-banner-suggestion-container"),s=window.location.pathname,r="/"===s.substr(-1)?s:s+"/";e.innerHTML=r}}window.__DOCUSAURUS_INSERT_BASEURL_BANNER=!0,document.addEventListener("DOMContentLoaded",maybeInsertBanner)</script><link rel="stylesheet" href="/assets/css/styles.8767984f.css">
+<link rel="preload" href="/assets/js/runtime~main.2267d01a.js" as="script">
+<link rel="preload" href="/assets/js/main.297b8e81.js" as="script">
+</head>
+<body>
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){var t=null;try{t=localStorage.getItem("theme")}catch(t){}return t}();t(null!==e?e:"light")}()</script><div id="__docusaurus">
+<div id="docusaurus-base-url-issue-banner-container"></div><div><a href="#" class="skipToContent_1oUP">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><img src="/img/mainsail-ui.svg" alt="Mainsail UI Logo" class="themedImage_1VuW themedImage--light_3UqQ navbar__logo"><img src="/img/mainsail-ui.svg" alt="Mainsail UI Logo" class="themedImage_1VuW themedImage--dark_hz6m navbar__logo"></a><a class="navbar__item navbar__link" href="/docs/intro">Guides</a><a class="navbar__item navbar__link" href="/blog">Blog</a><a class="navbar__item navbar__link" href="/components">Components</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/BreezeChMS/mainsail-ui" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link"><span>GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></span></a><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input type="search" id="search_input_react" placeholder="Search" aria-label="Search" class="navbar__search-input search-bar"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div><div class="navbar-sidebar"><div class="navbar-sidebar__brand"><a class="navbar__brand" href="/"><img src="/img/mainsail-ui.svg" alt="Mainsail UI Logo" class="themedImage_1VuW themedImage--light_3UqQ navbar__logo"><img src="/img/mainsail-ui.svg" alt="Mainsail UI Logo" class="themedImage_1VuW themedImage--dark_hz6m navbar__logo"></a></div><div class="navbar-sidebar__items"><div class="menu"><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" href="/docs/intro">Guides</a></li><li class="menu__list-item"><a class="menu__link" href="/blog">Blog</a></li><li class="menu__list-item"><a href="https://github.com/BreezeChMS/mainsail-ui" target="_blank" rel="noopener noreferrer" class="menu__link"><span>GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></span></a></li><li class="menu__list-item"><a class="menu__link" href="/components">Components</a></li></ul></div></div></div></nav><div class="main-wrapper"><header class="hero hero--primary heroBanner_1ZBZ"><div class="container"><svg viewBox="0 0 960 300" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" class="mainLogo_2bb6"><path d="M541.713 209.8a.724.724 0 01-.688-.482.725.725 0 01.238-.807c27.3-21.606 57.776-57.809 46.73-121.01-1.246-7.135-2.383-14.666-3.929-22.549a.96.96 0 011.845-.507c19.41 55.623 23.633 100.772-1.213 141.562a7.38 7.38 0 01-6.236 3.514c-8.9.079-29.996.231-36.747.28z" fill="#006fba"></path><path d="M102.912 110.565h33.644l5.387 56.346h1.094l40.84-56.346h33.643l-31.279 99.427h-26.395l18.07-57.44h-.82l-39.968 56.62h-15.865l-4.215-57.031h-.82l-18.2 57.851H71.633l31.279-99.427zM230.801 190.954l-11.737 19.038h-29.14l64.122-99.465h36.911l1.54 99.465h-29.14l.242-19.038h-32.798zm33.055-20.204l.417-32.831h-.777l-20.24 32.831h20.6zM325.438 110.565h26.942l-31.279 99.427H294.16zM447.596 110.565l-31.279 99.427h-22.566s-17.858-48.004-19.346-51.97c-.093-.137-.187-.274-.324-.274h-.41l-16.436 52.244h-26.942l31.279-99.427h22.84l19.072 51.97h.82l16.35-51.97h26.942zM656.308 110.565l-31.279 99.427h-6.564a14.834 14.834 0 01-12.014-6.154c-2.898-3.83-3.674-8.753-2.255-13.266l25.17-80.007h26.942zM634.22 209.992l31.28-99.427h26.942l-24.438 77.682h40.209l-.99 3.145c-3.485 11.078-13.647 18.6-25.271 18.6H634.22z" fill="#003462" fill-rule="nonzero"></path><path d="M516.283 187.788c31.185-20.15 56.886-49.894 56.37-95.758a.938.938 0 011.855-.212c9.897 45.698 3.575 78.84-57.248 117.313a11.932 11.932 0 01-6.327 1.849c-8.537.044-30.851.142-38.853.177a.526.526 0 01-.202-.038c-.857.026-1.723.038-2.599.038-8.645 0-15.778-1.279-21.4-3.836-5.623-2.558-9.369-6.5-11.239-11.826-1.869-5.327-1.512-12.15 1.074-20.471h25.643c-.796 3.043-.839 5.601-.131 7.673s2.132 3.643 4.273 4.711c2.14 1.069 4.927 1.603 8.359 1.603 2.882 0 5.406-.356 7.572-1.069 2.167-.712 3.951-1.699 5.352-2.962 1.401-1.263 2.372-2.704 2.914-4.323.446-1.521.373-2.857-.221-4.006-.593-1.15-1.83-2.186-3.709-3.109-1.879-.922-4.536-1.788-7.973-2.598l-9.235-2.137c-8.206-1.91-14.137-5.107-17.794-9.592-3.656-4.484-4.246-10.612-1.769-18.382 1.954-6.314 5.385-11.842 10.293-16.586 4.908-4.743 10.815-8.442 17.721-11.097 6.906-2.655 14.293-3.983 22.161-3.983 8.03 0 14.552 1.344 19.567 4.031 5.015 2.688 8.351 6.468 10.007 11.341 1.656 4.872 1.477 10.563-.538 17.071h-25.837c.759-3.238.347-5.763-1.235-7.577-1.583-1.813-4.56-2.719-8.931-2.719-2.784 0-5.163.332-7.137.995-1.973.664-3.559 1.563-4.757 2.696-1.199 1.133-2.043 2.428-2.534 3.885-.564 1.587-.57 2.971-.019 4.153.551 1.181 1.695 2.201 3.433 3.059 1.737.858 4.069 1.627 6.996 2.307l7.609 1.749c5.138 1.165 9.365 2.703 12.682 4.613 3.316 1.911 5.816 4.153 7.5 6.727 1.683 2.574 2.611 5.464 2.785 8.669.173 3.205-.32 6.702-1.479 10.49a42.418 42.418 0 01-2.999 7.131z" fill="#003462"></path><path d="M895.886 98.912H788.8c-13.72 0-26.37 9.309-30.72 22.607l-35.256 107.806h107.043c13.746 0 26.42-9.326 30.776-22.65l35.243-107.763zm-79.142 31.8h17.928l-14.336 42.306c-1.705 5.03-4.377 9.378-8.016 13.043-3.639 3.665-7.934 6.492-12.886 8.48-4.952 1.989-10.254 2.983-15.908 2.983-5.696 0-10.347-.994-13.95-2.982-3.605-1.99-5.973-4.816-7.107-8.481-1.133-3.665-.847-8.013.857-13.043l14.337-42.305h17.928L781.78 171.47c-.692 2.043-.858 3.864-.498 5.466.36 1.6 1.188 2.854 2.484 3.756 1.295.903 2.964 1.355 5.006 1.355 2.064 0 4.044-.452 5.941-1.355a15.905 15.905 0 005.013-3.756 15.49 15.49 0 003.207-5.466l13.812-40.757zm46.175 0l-22.379 66.039h-17.928l22.38-66.038h17.927z" fill="#006fba"></path></svg><p class="body-text lg text-blue-dark mb-20">The React UI kit of Breeze</p><div><a class="button-text bg-blue-primary text-white rounded py-6 px-12" href="/docs/intro">Get Started - 5min ⏱️</a></div></div></header><main><section class="features_pzNA"><div class="container"><div class="row"><div class="col col--4"><div class="text--center"></div><div class="text--left padding-horiz--md"><h3>Easy to Use</h3><p>Mainsail strives to be flexible but intuitive, containing sensible defaults with escape hatches when necessary.</p></div></div><div class="col col--4"><div class="text--center"></div><div class="text--left padding-horiz--md"><h3>Build Faster</h3><p>Spend less time styling and more time building the UI with our pre-styled components.</p></div></div><div class="col col--4"><div class="text--center"></div><div class="text--left padding-horiz--md"><h3>Breeze-styled</h3><p>Components are styled to the Breeze UI design system. CSS utility classes are also available.</p></div></div></div></div></section></main></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/docs/intro">Usage</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/intro">Development</a></li><li class="footer__item"><a class="footer__link-item" href="/components">Components</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/BreezeChMS/mainsail-ui" target="_blank" rel="noopener noreferrer" class="footer__link-item"><span>GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_3J9K"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></span></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2021 Breeze.</div></div></div></footer></div>
+<script src="/assets/js/runtime~main.2267d01a.js"></script>
+<script src="/assets/js/main.297b8e81.js"></script>
+</body>
+</html>

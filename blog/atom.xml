@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://mainsail-ui.com/blog</id>
+    <title>Mainsail UI Blog</title>
+    <updated>2021-07-21T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://mainsail-ui.com/blog"/>
+    <subtitle>Mainsail UI Blog</subtitle>
+    <icon>https://mainsail-ui.com/img/favicon.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Making Progress]]></title>
+        <id>mainsail-progress-tip</id>
+        <link href="https://mainsail-ui.com/blog/mainsail-progress-tip"/>
+        <updated>2021-07-21T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Did you know Mainsail UI has a configurable progress bar?]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mainsail 1.7.0 is released]]></title>
+        <id>mainsail-release-170</id>
+        <link href="https://mainsail-ui.com/blog/mainsail-release-170"/>
+        <updated>2021-07-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Mainsail is now at 1.7.0 🎉]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Modal Sizing]]></title>
+        <id>mainsail-modal-tip</id>
+        <link href="https://mainsail-ui.com/blog/mainsail-modal-tip"/>
+        <updated>2021-06-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Modal sizing is primarily controlled by content. This means you only need to concern yourself with the size of the body.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mainsail 1.5.0 is released]]></title>
+        <id>mainsail-release-150</id>
+        <link href="https://mainsail-ui.com/blog/mainsail-release-150"/>
+        <updated>2021-06-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Mainsail is now at 1.5.0 🎉]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Mainsail 1.2.0 is released]]></title>
+        <id>mainsail-release-120</id>
+        <link href="https://mainsail-ui.com/blog/mainsail-release-120"/>
+        <updated>2021-06-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Mainsail is now at 1.2.0]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Icon Coloring Tip]]></title>
+        <id>mainsail-icon-tip</id>
+        <link href="https://mainsail-ui.com/blog/mainsail-icon-tip"/>
+        <updated>2021-05-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[When using the new `` from Mainsail-ui, you may find a special edge case that needs a different color than the 3 blues available from the color prop.]]></summary>
+    </entry>
+</feed>
