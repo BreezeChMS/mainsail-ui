@@ -1,3 +1,32 @@
+# v1.8.0 (Tue Aug 03 2021)
+
+#### 🚀 Enhancement
+
+- adds Move To Icon [#146](https://github.com/BreezeChMS/mainsail-ui/pull/146) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🐛 Bug Fix
+
+- Minor improvements [#147](https://github.com/BreezeChMS/mainsail-ui/pull/147) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### ⚠️ Pushed to `master`
+
+- remove storybook publishing on gh-pages ([@3CordGuy](https://github.com/3CordGuy))
+- Merge branch 'master' of github.com:BreezeChMS/mainsail-ui ([@3CordGuy](https://github.com/3CordGuy))
+- Revert "edits docs gh action" ([@3CordGuy](https://github.com/3CordGuy))
+- Merge branch 'gh-pages-fix' ([@3CordGuy](https://github.com/3CordGuy))
+- edits docs gh action ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- changes gh action for docs [#142](https://github.com/BreezeChMS/mainsail-ui/pull/142) ([@3CordGuy](https://github.com/3CordGuy))
+- Docusaurus [#140](https://github.com/BreezeChMS/mainsail-ui/pull/140) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.7.0 (Wed Jul 07 2021)
 
 #### 🚀 Enhancement
