@@ -15,6 +15,7 @@ const toFileCase = (str) =>
         .join("");
 
 export const names = {
+	move_to: "move_to",
 	undo: "undo",
 	underline: "underline",
 	text_align_right: "text_align_right",
