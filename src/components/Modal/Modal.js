@@ -51,6 +51,7 @@ export const Modal = ({
     footer,
     intent,
     hasOverlay,
+    isEscDisabled,
     isDismissable,
     blurContentRef,
     maxWidth,
@@ -74,6 +75,7 @@ export const Modal = ({
         (e) => {
             if (
                 isOpen &&
+                !isEscDisabled &&
                 (e.charCode === ESC_KEY_CODE || e.keyCode === ESC_KEY_CODE)
             ) {
                 handleDismiss();
@@ -369,6 +371,8 @@ Modal.propTypes = {
     hasNoPadding: PropTypes.bool,
     /** Controls whether or not clicking the overlay can dismiss the modal */
     isDismissable: PropTypes.bool,
+    /** Disables ESC key dismissal of the modal */
+    isEscDisabled: PropTypes.bool,
     /** An (optional) ref to apply a blur to while modal is open */
     blurContentRef: PropTypes.oneOfType([
         PropTypes.func,
@@ -400,6 +404,7 @@ Modal.defaultProps = {
     intent: intents.default,
     hasOverlay: true,
     isFullScreenMobile: false,
+    isEscDisabled: false,
 };
 
 /*
