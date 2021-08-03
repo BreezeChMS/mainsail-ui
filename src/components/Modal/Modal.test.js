@@ -42,6 +42,23 @@ it("can be dismissed by hitting esc", async () => {
     });
 });
 
+it("can not be dismissed by hitting esc when configured as such", async () => {
+    render(
+        <ScrollingContent
+            {...ScrollingContent.args}
+            isOpen={true}
+            isEscDisabled={true}
+        />
+    );
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+
+    userEvent.type(screen.getByRole("dialog"), "{esc}");
+
+    await waitFor(() => {
+        expect(screen.queryByRole("dialog")).toBeInTheDocument();
+    });
+});
+
 it("can be dismissed by hitting the x", async () => {
     render(<ScrollingContent {...ScrollingContent.args} isOpen={true} />);
 
