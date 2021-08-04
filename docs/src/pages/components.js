@@ -23,7 +23,7 @@ export default function Components() {
 
     return (
         <Layout
-            title={`Let's Go! | ${siteConfig.title}`}
+            title={`${siteConfig.title}`}
             description="Mainsail UI is the Official React UI Kit of Breeze">
             <iframe
                 style={{ paddingTop: "60px" }}
