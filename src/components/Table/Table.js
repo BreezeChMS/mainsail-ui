@@ -131,8 +131,9 @@ export const Table = ({
     };
 
     /** Render the table row wrapper */
-    const renderRow = (row, idx) => {
+    const renderRow = (row) => {
         /** This Func injects Row Data/Props to Row Children (Cols) */
+        let usableKey = Object.keys(row)[1];
         let columns = (data) =>
             columnArray.map((child) => {
                 let columnChildren = child.props.field
@@ -157,8 +158,9 @@ export const Table = ({
         return (
             <div
                 role="row"
-                key={`row-${row.id || idx}`}
+                key={`row-${row.id}-${usableKey}`}
                 className={classify("mainsail-table__row")}>
+                {console.log(row)}
                 {isSelectable ? (
                     <div className="mainsail-table__row-selector">
                         <Checkbox
@@ -183,7 +185,7 @@ export const Table = ({
                     <div className="mainsail-table__header-selector"></div>
                 ) : null}
 
-                {columnConfigArray.map((hCol, i) => {
+                {columnConfigArray.map((hCol) => {
                     let sort = getSortDirByField(hCol.field);
 
                     let hidesOnCurrentBreakpoint =
@@ -194,7 +196,7 @@ export const Table = ({
 
                     return (
                         <div
-                            key={i}
+                            key={`field-${hCol.field}`}
                             style={hCol.style}
                             role="columnheader"
                             aria-sort={
