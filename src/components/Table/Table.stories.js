@@ -57,6 +57,13 @@ const officeRowData = [
         age: 42,
         occupation: "Human Resources",
     },
+    {
+        id: 2,
+        first_name: "Michael",
+        last_name: "Scott",
+        age: 41,
+        occupation: "Manager",
+    },
 ];
 
 const Template = (args) => (

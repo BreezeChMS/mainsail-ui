@@ -131,9 +131,10 @@ export const Table = ({
     };
 
     /** Render the table row wrapper */
-    const renderRow = (row) => {
-        /** This Func injects Row Data/Props to Row Children (Cols) */
-        let usableKey = Object.keys(row)[1];
+    /** This Func injects Row Data/Props to Row Children (Cols) */
+    const renderRow = (row, idx) => {
+        let usableKey = row[Object.keys(row)[1]] || idx;
+
         let columns = (data) =>
             columnArray.map((child) => {
                 let columnChildren = child.props.field
@@ -160,7 +161,6 @@ export const Table = ({
                 role="row"
                 key={`row-${row.id}-${usableKey}`}
                 className={classify("mainsail-table__row")}>
-                {console.log(row)}
                 {isSelectable ? (
                     <div className="mainsail-table__row-selector">
                         <Checkbox
