@@ -1,3 +1,28 @@
+# v1.9.0 (Fri Aug 13 2021)
+
+#### 🚀 Enhancement
+
+- attempts to improve how keys are used for table rows [#153](https://github.com/BreezeChMS/mainsail-ui/pull/153) ([@3CordGuy](https://github.com/3CordGuy))
+- Adds SearchInput component [#152](https://github.com/BreezeChMS/mainsail-ui/pull/152) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- Updates Docusaurus for new deploy [#149](https://github.com/BreezeChMS/mainsail-ui/pull/149) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🔩 Dependency Updates
+
+- Bump hosted-git-info from 2.8.8 to 2.8.9 [#110](https://github.com/BreezeChMS/mainsail-ui/pull/110) ([@dependabot[bot]](https://github.com/dependabot[bot]) [@3CordGuy](https://github.com/3CordGuy))
+- Bump ws from 6.2.1 to 6.2.2 [#107](https://github.com/BreezeChMS/mainsail-ui/pull/107) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump dns-packet from 1.3.1 to 1.3.4 [#101](https://github.com/BreezeChMS/mainsail-ui/pull/101) ([@dependabot[bot]](https://github.com/dependabot[bot]) [@3CordGuy](https://github.com/3CordGuy))
+- Bump handlebars from 4.7.6 to 4.7.7 [#70](https://github.com/BreezeChMS/mainsail-ui/pull/70) ([@dependabot[bot]](https://github.com/dependabot[bot]) [@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.8.0 (Tue Aug 03 2021)
 
 #### 🚀 Enhancement
