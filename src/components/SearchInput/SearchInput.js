@@ -79,7 +79,7 @@ SearchInput.propTypes = {
     /** Style class to add to component wrapper */
     className: PropTypes.string,
     /** Whether or not to show the clear button */
-    hasClearButton: PropTypes.string,
+    hasClearButton: PropTypes.bool,
 };
 
 SearchInput.defaultProps = {
