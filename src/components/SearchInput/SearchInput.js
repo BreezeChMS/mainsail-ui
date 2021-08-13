@@ -42,8 +42,7 @@ export const SearchInput = forwardRef(
         return (
             <div
                 data-testid="search-input"
-                className={classify("mainsail-search-input w-full", className)}
-                {...props}>
+                className={classify("mainsail-search-input w-full", className)}>
                 <input
                     ref={ref}
                     className="mainsail-search-input__input"
