@@ -196,7 +196,7 @@ export const Table = ({
 
                     return (
                         <div
-                            key={`field-${hCol.field}`}
+                            key={`field-${hCol.field || hCol.label}`}
                             style={hCol.style}
                             role="columnheader"
                             aria-sort={
