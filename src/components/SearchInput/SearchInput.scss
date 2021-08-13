@@ -1,0 +1,60 @@
+@import "../../styles/Variables.scss";
+
+/** SearchInput Component Styles */
+.mainsail-search-input {
+    position: relative;
+    box-sizing: border-box;
+
+    .mainsail-icon.input-icon {
+        position: absolute;
+        pointer-events: none;
+        left: 16px;
+        top: 12px;
+
+        svg {
+            color: $mainsail-neutral-4;
+        }
+    }
+
+    .mainsail-button.clear-button {
+        position: absolute;
+        right: 9px;
+        top: 7px;
+        cursor: pointer;
+        border-radius: $mainsail-pill-radius !important;
+    }
+
+    .mainsail-search-input__input {
+        @include mainsail-body-text-regular;
+        padding-left: 42px;
+        padding-right: 42px;
+        height: 40px;
+        width: 100% !important;
+        border-radius: $mainsail-pill-radius;
+        border: 1px solid $mainsail-neutral-5;
+        background: #ffffff;
+        box-sizing: border-box;
+
+        &:active,
+        &:focus {
+            outline: none;
+            border-color: $mainsail-blue-primary;
+            border: 1px solid $mainsail-blue-primary;
+            box-shadow: $mainsail-shadow-near;
+        }
+        &:focus + .mainsail-icon {
+            opacity: 1;
+            svg {
+                color: $mainsail-blue-primary !important;
+            }
+        }
+
+        &::placeholder {
+            color: $mainsail-neutral-4 !important;
+        }
+
+        @include disabled;
+
+        @include readonly;
+    }
+}
