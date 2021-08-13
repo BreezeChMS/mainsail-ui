@@ -1,3 +1,15 @@
+# v1.9.1 (Fri Aug 13 2021)
+
+#### 🐛 Bug Fix
+
+- fixes minor bugs in table and search input [#154](https://github.com/BreezeChMS/mainsail-ui/pull/154) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.9.0 (Fri Aug 13 2021)
 
 #### 🚀 Enhancement
