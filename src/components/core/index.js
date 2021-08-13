@@ -1,4 +1,5 @@
 // Components Global Export for plopjs
+export { SearchInput } from "../SearchInput";
 export { ProgressBar } from "../ProgressBar";
 export { Switcher, useSwitcher } from "../Switcher";
 export { FormInputIcon } from "../FormInputIcon";
