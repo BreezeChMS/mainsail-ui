@@ -1,3 +1,15 @@
+# v1.9.2 (Fri Aug 13 2021)
+
+#### 🐛 Bug Fix
+
+- fixes duplicate key issue on row, removes console [#155](https://github.com/BreezeChMS/mainsail-ui/pull/155) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.9.1 (Fri Aug 13 2021)
 
 #### 🐛 Bug Fix
