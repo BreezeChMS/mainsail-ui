@@ -76,7 +76,7 @@ export const Switcher = ({
                 return (
                     <Transition
                         shouldUnmount={shouldUnmount}
-                        key={idx}
+                        key={item.key || idx}
                         animation={anim}
                         isActive={isActive}
                         onEntered={onChangeBefore}
