@@ -122,8 +122,11 @@ export const Modal = ({
             blurRef.classList.add("content-blur");
         }
 
-        // Always disable scroll on body
-        document.body.classList.add("overflow-hidden");
+        if (isOpen) {
+            document.body.classList.add("overflow-hidden");
+        } else if (!isOpen) {
+            document.body.classList.remove("overflow-hidden");
+        }
 
         // Cleanup added classes on unmount
         return () => {
