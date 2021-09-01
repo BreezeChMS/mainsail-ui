@@ -26,6 +26,8 @@ export const FlexRow = ({
     children,
     alignItems,
     isFullWidth,
+    shouldWrap,
+    shouldWrapReverse,
     justifyContent,
     className,
     ...props
@@ -38,6 +40,8 @@ export const FlexRow = ({
                 isFullWidth && "full-width",
                 alignItems && `align-${alignItems}`,
                 justifyContent && `justify-${justifyContent}`,
+                shouldWrap && "wrap",
+                shouldWrapReverse && "wrap-reverse",
                 className
             )}
             {...props}>
@@ -47,6 +51,10 @@ export const FlexRow = ({
 };
 
 FlexRow.propTypes = {
+    /** Sets flex row to wrap elements  */
+    shouldWrap: PropTypes.bool,
+    /** Sets flex row to wrap elements in reverse  */
+    shouldWrapReverse: PropTypes.bool,
     /** Sets width to maximum  */
     isFullWidth: PropTypes.bool,
     /** Style class to add to component wrapper */

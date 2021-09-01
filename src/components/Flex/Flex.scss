@@ -21,9 +21,14 @@
     &.row {
         display: flex;
         flex-direction: row;
-        flex-flow: row wrap;
-        margin-right: auto;
-        margin-left: auto;
+    }
+
+    &.wrap {
+        flex-wrap: wrap;
+    }
+
+    &.wrap-reverse {
+        flex-wrap: wrap-reverse;
     }
 
     .column {
