@@ -68,6 +68,7 @@ FlexRow.propTypes = {
 FlexRow.defaultProps = {
     alignItems: alignItems.flexStart,
     justifyContent: justifyContent.flexStart,
+    shouldWrap: true,
 };
 FlexRow.alignItems = alignItems;
 FlexRow.justifyContent = justifyContent;
