@@ -367,7 +367,8 @@
         justify-content: center;
     }
 
-    &.col {
+    &.col,
+    &.column {
         flex-direction: column;
     }
 

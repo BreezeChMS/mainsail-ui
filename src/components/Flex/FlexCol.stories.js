@@ -42,12 +42,13 @@ const Template = (args) => (
             Control the dark blue <code>FlexCol</code> with params
         </span>
         <FlexRow
+            shouldWrap={true}
             alignItems={FlexRow.alignItems.center}
             className="border border-blue-light bg-blue-light">
             <FlexCol
-                {...args}
                 className="border border-blue-light bg-blue-dark"
-                style={colStyle}>
+                style={colStyle}
+                {...args}>
                 <span>😃</span>
                 <span>😃</span>
                 <span>😃</span>
@@ -106,6 +107,7 @@ const Template = (args) => (
 
 export const Basic = Template.bind({});
 Basic.args = {
+    sm: 4,
     alignItems: FlexCol.alignItems.center,
     justifyContent: FlexCol.justifyContent.center,
 };
