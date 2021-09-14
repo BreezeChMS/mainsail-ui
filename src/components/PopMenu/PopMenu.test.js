@@ -34,7 +34,7 @@ it("can be controlled with keyboard", async () => {
     expect(screen.queryByRole("menu")).not.toBeInTheDocument();
 });
 
-it.only("can be closed on item click", async () => {
+it("can be closed on item click", async () => {
     render(<Basic {...Basic.args} />);
 
     act(() => {
