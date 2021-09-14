@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.BREEZECI_TOKEN }}
+          token: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
       - name: Prepare repository
         run: git fetch --unshallow --tags
@@ -34,7 +34,7 @@ jobs:
       - name: Create Release 🚀
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.BREEZECI_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
         run: |
           yarn install --frozen-lockfile
           yarn build
