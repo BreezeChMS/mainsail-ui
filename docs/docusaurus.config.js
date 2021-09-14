@@ -84,7 +84,6 @@ module.exports = {
     },
     plugins: [
         "docusaurus-plugin-sass",
-        "@docusaurus/theme-live-codeblock",
         require.resolve("docusaurus-lunr-search"),
     ],
     presets: [
