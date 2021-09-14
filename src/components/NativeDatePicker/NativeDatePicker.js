@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
-import { Icon } from "components/core";
+import { Icon } from "../Icon";
 
 import "./NativeDatePicker.scss";
 

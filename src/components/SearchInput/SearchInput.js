@@ -1,6 +1,7 @@
 import React, { forwardRef, useState } from "react";
 import PropTypes from "prop-types";
-import { Icon, Button } from "components/core";
+import { Icon } from "../Icon";
+import { Button } from "../Button";
 import { classify } from "utility/classify";
 
 import "./SearchInput.scss";
