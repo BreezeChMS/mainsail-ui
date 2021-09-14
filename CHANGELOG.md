@@ -1,3 +1,41 @@
+# v1.9.5 (Tue Sep 14 2021)
+
+#### 🐛 Bug Fix
+
+- improves docs in storybook [#166](https://github.com/BreezeChMS/mainsail-ui/pull/166) ([@3CordGuy](https://github.com/3CordGuy))
+- Expose breakpoint in table [#165](https://github.com/BreezeChMS/mainsail-ui/pull/165) ([@3CordGuy](https://github.com/3CordGuy))
+- Close pop menu fix [#161](https://github.com/BreezeChMS/mainsail-ui/pull/161) ([@3CordGuy](https://github.com/3CordGuy))
+- Improvements to basic flex components [#160](https://github.com/BreezeChMS/mainsail-ui/pull/160) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### ⚠️ Pushed to `master`
+
+- updates all tokens in a last attempt hail-mary ([@3CordGuy](https://github.com/3CordGuy))
+- attempts to fix ci 5 ([@3CordGuy](https://github.com/3CordGuy))
+- attempts to fix ci 4 ([@3CordGuy](https://github.com/3CordGuy))
+- attempts to fix ci 3 ([@3CordGuy](https://github.com/3CordGuy))
+- attempts to fix the ci ([@3CordGuy](https://github.com/3CordGuy))
+- Merge branch 'master' of github.com:BreezeChMS/mainsail-ui ([@3CordGuy](https://github.com/3CordGuy))
+- attempts to fix ci ([@3CordGuy](https://github.com/3CordGuy))
+- try to fix NPM gh action ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- removes stuff that makes things break docs [#164](https://github.com/BreezeChMS/mainsail-ui/pull/164) ([@3CordGuy](https://github.com/3CordGuy))
+- Repo updates [#159](https://github.com/BreezeChMS/mainsail-ui/pull/159) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🔩 Dependency Updates
+
+- Bump react-dev-utils from 11.0.2 to 11.0.4 [#112](https://github.com/BreezeChMS/mainsail-ui/pull/112) ([@dependabot[bot]](https://github.com/dependabot[bot]) [@3CordGuy](https://github.com/3CordGuy))
+- Bump url-parse from 1.5.1 to 1.5.3 in /docs [#151](https://github.com/BreezeChMS/mainsail-ui/pull/151) ([@dependabot[bot]](https://github.com/dependabot[bot]) [@3CordGuy](https://github.com/3CordGuy))
+- Bump ssri from 6.0.1 to 6.0.2 [#111](https://github.com/BreezeChMS/mainsail-ui/pull/111) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.9.4 (Wed Aug 25 2021)
 
 #### 🐛 Bug Fix
