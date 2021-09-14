@@ -28,3 +28,10 @@ WithClearButton.args = {
     placeholder: "Search for people",
     hasClearButton: true,
 };
+WithClearButton.parameters = {
+    docs: {
+        description: {
+            story: "Note: Will only be visible when search terms are present",
+        },
+    },
+};
