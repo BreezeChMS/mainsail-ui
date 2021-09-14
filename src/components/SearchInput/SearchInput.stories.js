@@ -18,11 +18,13 @@ const Template = (args) => <SearchInput {...args} />;
 
 export const Basic = Template.bind({});
 Basic.args = {
+    onChange: () => {},
     placeholder: "Search for people",
 };
 
 export const WithClearButton = Template.bind({});
 WithClearButton.args = {
+    onChange: () => {},
     placeholder: "Search for people",
     hasClearButton: true,
 };
