@@ -143,6 +143,13 @@ export const Table = ({
                 let skeleton = renderSkeleton(
                     Math.floor(Math.random() * 4) + 0
                 );
+                let shouldHide =
+                    child.props.hideOnBreakpoints &&
+                    child.props.hideOnBreakpoints.includes(breakpoint.name)
+                        ? true
+                        : false;
+
+                if (shouldHide === true) return null;
 
                 return cloneElement(child, {
                     ...child.props,

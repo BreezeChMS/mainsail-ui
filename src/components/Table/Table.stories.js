@@ -248,6 +248,7 @@ export const WithActions = (args) => (
         <Column field="occupation" align={Column.alignments.left} />
         <Actions
             label="Actions"
+            hideOnBreakpoints={["sm"]}
             menuOptions={
                 <>
                     <PopMenuItem text="Choice 1" />
@@ -256,6 +257,15 @@ export const WithActions = (args) => (
             }>
             <Button variant={Button.variants.tertiary} text="Edit" />
         </Actions>
+        <Actions
+            label="Actions"
+            hideOnBreakpoints={["md", "lg"]}
+            menuOptions={
+                <>
+                    <PopMenuItem text="Only Mobile 1" />
+                    <PopMenuItem text="Only Mobile 2" />
+                </>
+            }></Actions>
     </Table>
 );
 WithActions.args = {
