@@ -55,6 +55,8 @@ export const PopMenu = ({
     positioning,
     modifiers,
     hasPadding,
+    onClick,
+    shouldCloseOnClick,
     menuOffset,
     children,
     trigger,
@@ -192,6 +194,10 @@ export const PopMenu = ({
                         className
                     )}
                     ref={setPopperElement}
+                    onClick={(e) => {
+                        typeof onClick === "function" && onClick(e);
+                        shouldCloseOnClick ? setIsOpen(false) : null;
+                    }}
                     style={styles.popper}
                     {...attributes.popper}>
                     {children}
@@ -202,6 +208,8 @@ export const PopMenu = ({
 };
 
 PopMenu.propTypes = {
+    /** Whether or not the menu should remain open when an item is clicked */
+    shouldCloseOnClick: PropTypes.bool,
     /** Defines the PopMenu with top and bottom padding (before first option, after last option) */
     hasPadding: PropTypes.bool,
     /** Number of pixels to offset the pop menu */
@@ -220,13 +228,14 @@ PopMenu.propTypes = {
     ]).isRequired,
     /** Controls overall visual appearance */
     variant: PropTypes.oneOf(Object.values(variants)),
-    /** (Optional) click handler */
+    /** (Optional) click handler for menu */
     onClick: PropTypes.func,
     /** Style class to add to pop menu list */
     className: PropTypes.string,
 };
 
 PopMenu.defaultProps = {
+    shouldCloseOnClick: true,
     variant: variants.borderless,
     placement: placements.bottomEnd,
     modifiers: [],
