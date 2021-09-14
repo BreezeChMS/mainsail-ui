@@ -13,6 +13,12 @@ const alignments = {
     right: "right",
 };
 
+const breakpoints = {
+    sm: "sm",
+    md: "md",
+    lg: "lg",
+};
+
 /**
  * Row Actions for a Table
  **/
@@ -48,6 +54,7 @@ export const Actions = ({
             </div>
             {menuOptions ? (
                 <PopMenu
+                    shouldCloseOnClick
                     modifiers={modifiers}
                     menuOffset={-6}
                     positioning={PopMenu.positionings.fixed}
@@ -82,6 +89,10 @@ Actions.propTypes = {
         PropTypes.func,
         PropTypes.node,
     ]),
+    /** An array of breakpoints at which the column should hide (unmount)  */
+    hideOnBreakpoints: PropTypes.arrayOf(
+        PropTypes.oneOf(Object.values(breakpoints))
+    ),
     /** Style class to add to component */
     className: PropTypes.string,
     /** Style class to add to column header */
