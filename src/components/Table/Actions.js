@@ -48,6 +48,7 @@ export const Actions = ({
             </div>
             {menuOptions ? (
                 <PopMenu
+                    shouldCloseOnClick
                     modifiers={modifiers}
                     menuOffset={-6}
                     positioning={PopMenu.positionings.fixed}

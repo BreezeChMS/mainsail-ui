@@ -34,6 +34,22 @@ it("can be controlled with keyboard", async () => {
     expect(screen.queryByRole("menu")).not.toBeInTheDocument();
 });
 
+it("can be closed on item click", async () => {
+    render(<Basic {...Basic.args} />);
+
+    act(() => {
+        userEvent.click(screen.getByRole("button"));
+    });
+
+    expect(screen.getByRole("menu")).toBeInTheDocument();
+
+    act(() => {
+        userEvent.click(screen.getByText("Choice 1"));
+    });
+
+    expect(screen.queryByRole("menu")).not.toBeInTheDocument();
+});
+
 it("can render an item with isHeader properly", async () => {
     render(<WithHeader {...WithHeader.args} />);
 

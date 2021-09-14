@@ -40,6 +40,7 @@ const DividedTemplate = (args) => (
 
 export const Basic = Template.bind({});
 Basic.args = {
+    shouldCloseOnClick: true,
     trigger: <Button text="Menu" />,
     variant: PopMenu.variants.borderless,
 };
