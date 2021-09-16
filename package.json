@@ -1,6 +1,6 @@
 {
   "name": "mainsail-ui",
-  "version": "1.9.5",
+  "version": "1.10.0",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.module.js",
