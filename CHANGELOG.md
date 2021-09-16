@@ -1,3 +1,21 @@
+# v1.10.0 (Thu Sep 16 2021)
+
+#### 🚀 Enhancement
+
+- Bump color-string from 1.5.4 to 1.6.0 [#141](https://github.com/BreezeChMS/mainsail-ui/pull/141) ([@dependabot[bot]](https://github.com/dependabot[bot]) [@3CordGuy](https://github.com/3CordGuy))
+
+#### 🐛 Bug Fix
+
+- Rickdestree/icons sept 16 21 [#167](https://github.com/BreezeChMS/mainsail-ui/pull/167) ([@drinkdecaf](https://github.com/drinkdecaf))
+
+#### Authors: 3
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+- Rick ([@drinkdecaf](https://github.com/drinkdecaf))
+
+---
+
 # v1.9.5 (Tue Sep 14 2021)
 
 #### 🐛 Bug Fix
