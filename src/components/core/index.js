@@ -2,6 +2,7 @@
 import "./index.scss";
 
 // Components Global Export for plopjs
+export { Avatar } from "../Avatar";
 export { SearchInput } from "../SearchInput";
 export { ProgressBar } from "../ProgressBar";
 export { Switcher, useSwitcher } from "../Switcher";
