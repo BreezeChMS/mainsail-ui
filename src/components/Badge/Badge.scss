@@ -47,6 +47,15 @@
         svg {
             color: $mainsail-blue-middle;
         }
+
+        &.inverted {
+            background-color: $mainsail-blue-middle;
+            color: $mainsail-blue-light;
+
+            svg {
+                color: $mainsail-blue-light;
+            }
+        }
     }
 
     &.green {
@@ -55,6 +64,15 @@
 
         svg {
             color: $mainsail-green-middle;
+        }
+
+        &.inverted {
+            background-color: $mainsail-green-middle;
+            color: $mainsail-green-light;
+
+            svg {
+                color: $mainsail-green-light;
+            }
         }
     }
 
@@ -65,6 +83,15 @@
         svg {
             color: $mainsail-violet-middle;
         }
+
+        &.inverted {
+            background-color: $mainsail-violet-middle;
+            color: $mainsail-violet-light;
+
+            svg {
+                color: $mainsail-violet-light;
+            }
+        }
     }
 
     &.orange {
@@ -73,6 +100,15 @@
 
         svg {
             color: $mainsail-orange-middle;
+        }
+
+        &.inverted {
+            background-color: $mainsail-orange-middle;
+            color: $mainsail-orange-light;
+
+            svg {
+                color: $mainsail-orange-light;
+            }
         }
     }
 
@@ -83,6 +119,15 @@
         svg {
             color: $mainsail-pink-middle;
         }
+
+        &.inverted {
+            background-color: $mainsail-pink-middle;
+            color: $mainsail-pink-light;
+
+            svg {
+                color: $mainsail-pink-light;
+            }
+        }
     }
 
     &.red {
@@ -92,6 +137,15 @@
         svg {
             color: $mainsail-red-middle;
         }
+
+        &.inverted {
+            background-color: $mainsail-red-middle;
+            color: $mainsail-red-light;
+
+            svg {
+                color: $mainsail-red-light;
+            }
+        }
     }
 
     &.neutral {
@@ -100,6 +154,15 @@
 
         svg {
             color: $mainsail-neutral-2;
+        }
+
+        &.inverted {
+            background-color: $mainsail-neutral-2;
+            color: $mainsail-neutral-5;
+
+            svg {
+                color: $mainsail-neutral-5;
+            }
         }
     }
 
