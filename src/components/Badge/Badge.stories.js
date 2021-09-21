@@ -33,6 +33,13 @@ Basic.args = {
     variant: BadgeComponent.variants.basic,
 };
 
+export const InvertedColor = Badge.bind({});
+InvertedColor.args = {
+    text: "Badge",
+    hasColorInverted: true,
+    variant: BadgeComponent.variants.basic,
+};
+
 export const Round = Badge.bind({});
 Round.args = {
     text: "Badge",

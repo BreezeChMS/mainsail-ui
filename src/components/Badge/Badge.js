@@ -43,6 +43,7 @@ export const Badge = ({
     variant,
     size,
     isRounded,
+    hasColorInverted,
     onRemove,
     ...rest
 }) => {
@@ -56,6 +57,7 @@ export const Badge = ({
                 size,
                 variant,
                 isRounded ? "round" : "square",
+                hasColorInverted && "inverted",
                 className
             )}
             {...rest}>
@@ -89,6 +91,8 @@ Badge.propTypes = {
     size: PropTypes.oneOf(Object.keys(sizes)),
     /** Creates a fully rounded badge */
     isRounded: PropTypes.bool,
+    /** Inverts color scheme (text/background reversed) */
+    hasColorInverted: PropTypes.bool,
 };
 
 Badge.defaultProps = {
