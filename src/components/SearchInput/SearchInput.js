@@ -4,8 +4,6 @@ import { Icon } from "../Icon";
 import { Button } from "../Button";
 import { classify } from "utility/classify";
 
-import "./SearchInput.scss";
-
 /**
  * A styled search input with icons and support for clearing search terms (native props passed to input)
  **/

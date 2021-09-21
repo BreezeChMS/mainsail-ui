@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import { Dropdown } from "components/Dropdown";
 
-import "./TimePicker.scss";
-
 export const placements = {
     auto: "auto",
     top: "top",

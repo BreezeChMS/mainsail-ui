@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import { Icon } from "../Icon";
 
-import "./NativeDatePicker.scss";
-
 /**
  * Styles the default native/browser date input for a more consistent look (useful for Mobile)
  **/

@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 
-import "./FormHelpText.scss";
-
 /**
  * Define and export enumerable prop values for use (then attach to component below)
  * e.g. export const colors = {

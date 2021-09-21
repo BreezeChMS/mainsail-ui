@@ -5,8 +5,6 @@ import { PopMenu } from "components/PopMenu";
 import { Icon } from "components/Icon";
 import { generateColumnWidthStyle } from "utility/responsive";
 
-import "./Table.scss";
-
 const alignments = {
     left: "left",
     center: "center",

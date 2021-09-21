@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 
-import "./FormLabel.scss";
-
 /**
  * @deprecated since version 7.0 - use directly attached ComponentName.<propNames>.value; e.g. Button.variants.secondary
  */

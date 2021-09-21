@@ -1,3 +1,6 @@
+// Entry point for all scss
+import "./index.scss";
+
 // Components Global Export for plopjs
 export { SearchInput } from "../SearchInput";
 export { ProgressBar } from "../ProgressBar";

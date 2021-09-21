@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import { Icon } from "components/Icon/Icon";
 
-import "./Badge.scss";
-
 export const sizes = {
     sm: "sm",
     lg: "lg",

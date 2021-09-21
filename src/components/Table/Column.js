@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import { generateColumnWidthStyle } from "utility/responsive";
 
-import "./Table.scss";
-
 const alignments = {
     left: "left",
     center: "center",

@@ -4,8 +4,6 @@ import { classify } from "utility/classify";
 import { useUniqueId } from "utility/hooks";
 import { isFragment } from "react-is";
 
-import "./FormControl.scss";
-
 /**
  *  This function cascades props down to immediate children for styling and functionality controlled by FormControl
  */
