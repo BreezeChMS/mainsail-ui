@@ -1,3 +1,16 @@
+# v1.11.0 (Tue Sep 21 2021)
+
+#### 🚀 Enhancement
+
+- adds Avatar image display component [#172](https://github.com/BreezeChMS/mainsail-ui/pull/172) ([@3CordGuy](https://github.com/3CordGuy))
+- Badge color inversion [#171](https://github.com/BreezeChMS/mainsail-ui/pull/171) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.10.1 (Tue Sep 21 2021)
 
 #### 🐛 Bug Fix
