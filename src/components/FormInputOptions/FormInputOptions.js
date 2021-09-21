@@ -3,8 +3,6 @@ import { isFragment } from "react-is";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 
-import "./FormInputOptions.scss";
-
 /**
  * Attach input field options to a form control
  **/

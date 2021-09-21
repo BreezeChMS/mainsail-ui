@@ -18,8 +18,6 @@ import {
     ESC_KEY_CODE,
 } from "utility/constants";
 
-import "./Dropdown.scss";
-
 export const placements = {
     auto: "auto",
     top: "top",

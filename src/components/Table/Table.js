@@ -11,8 +11,6 @@ import { generateColumnWidthStyle } from "utility/responsive";
 import { ARIA_TRANSLATIONS } from "utility/constants";
 import { Checkbox } from "components/Checkbox";
 
-import "./Table.scss";
-
 export const variants = {
     bordered: "bordered",
     open: "open",

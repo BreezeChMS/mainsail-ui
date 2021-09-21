@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { usePopper } from "react-popper";
 import { classify } from "utility/classify";
 
-import "./Tooltip.scss";
-
 const getOffset = (placement, offset = 8) => {
     let DIST = offset;
     const DEFAULT_OFFSET = [0, DIST];

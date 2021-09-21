@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 
-import "./ProgressBar.scss";
-
 export const colors = {
     default: "default",
     dark: "dark",

@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import { names, colors, Icon } from "components/Icon";
 
-import "./FormInputIcon.scss";
-
 /**
  * An icon that displays in a Form Input (for use as a child of FormControl)
  **/

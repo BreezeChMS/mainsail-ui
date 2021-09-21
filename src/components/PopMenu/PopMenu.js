@@ -14,8 +14,6 @@ import {
 } from "utility/constants";
 import { Icon } from "components/Icon";
 
-import "./PopMenu.scss";
-
 export const variants = {
     borderless: "borderless",
 };

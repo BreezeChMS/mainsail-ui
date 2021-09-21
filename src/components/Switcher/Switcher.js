@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { Transition } from "components/Transition";
 import { classify } from "utility/classify";
 
-import "./Switcher.scss";
-
 export const useSwitcher = (config = {}) => {
     const [currentView, setCurrentView] = useState(1);
     const [prevView, setPrevView] = useState(1);

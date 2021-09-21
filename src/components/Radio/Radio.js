@@ -3,8 +3,6 @@ import { isFragment } from "react-is";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 
-import "./Radio.scss";
-
 export const colors = {
     blue: "blue",
     green: "green",

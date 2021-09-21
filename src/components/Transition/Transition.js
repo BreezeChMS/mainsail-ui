@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import { CSSTransition } from "react-transition-group";
 
-import "./Transition.scss";
-
 export const animations = {
     fade: "fade",
     fadeScale: "fade-scale",

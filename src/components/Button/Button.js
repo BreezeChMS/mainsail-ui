@@ -4,8 +4,6 @@ import { Icon } from "components/Icon";
 import { Spinner } from "components/Spinner";
 import { classify } from "utility/classify";
 
-import "./Button.scss";
-
 const renderIcon = (i, { side, size }) => {
     if (typeof i === "string") {
         return <Icon name={i} className={classify(side)} size={size} />;

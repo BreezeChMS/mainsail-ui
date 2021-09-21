@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 import CheckIcon from "components/Icons/Check";
 
-import "./Checkbox.scss";
-
 export const colors = {
     blue: "blue",
     green: "green",
