@@ -1,3 +1,15 @@
+# v1.10.1 (Tue Sep 21 2021)
+
+#### 🐛 Bug Fix
+
+- Fix duplicate css injections [#169](https://github.com/BreezeChMS/mainsail-ui/pull/169) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.10.0 (Thu Sep 16 2021)
 
 #### 🚀 Enhancement
