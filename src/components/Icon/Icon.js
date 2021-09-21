@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import * as MainsailIcon from "components/Icons";
 import { classify } from "utility/classify";
 
-import "./Icon.scss";
-
 const toFileCase = (str) =>
     str
         .split("_")
@@ -15,24 +13,24 @@ const toFileCase = (str) =>
         .join("");
 
 export const names = {
-	phone: "phone",
-	learn: "learn",
-	move_to: "move_to",
-	undo: "undo",
-	underline: "underline",
-	text_align_right: "text_align_right",
-	text_align_left: "text_align_left",
-	text_align_center: "text_align_center",
-	table: "table",
-	signature: "signature",
-	redo: "redo",
-	list_numbers: "list_numbers",
-	list_bullets: "list_bullets",
-	italic: "italic",
-	format_options: "format_options",
-	file: "file",
-	emoji: "emoji",
-	bold: "bold",
+    phone: "phone",
+    learn: "learn",
+    move_to: "move_to",
+    undo: "undo",
+    underline: "underline",
+    text_align_right: "text_align_right",
+    text_align_left: "text_align_left",
+    text_align_center: "text_align_center",
+    table: "table",
+    signature: "signature",
+    redo: "redo",
+    list_numbers: "list_numbers",
+    list_bullets: "list_bullets",
+    italic: "italic",
+    format_options: "format_options",
+    file: "file",
+    emoji: "emoji",
+    bold: "bold",
     preferences: "preferences",
     spreadsheet: "spreadsheet",
     unarchive: "unarchive",

@@ -5,8 +5,6 @@ import { useKeydown } from "utility/hooks";
 import { Icon } from "components/Icon";
 import { SPACE_KEY_CODES, ENTER_KEY_CODE } from "utility/constants";
 
-import "./ListGroup.scss";
-
 const renderIcon = (i) => {
     if (typeof i === "string") {
         return <Icon name={i} />;

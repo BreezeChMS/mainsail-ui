@@ -13,8 +13,6 @@ import { convertFromResponsiveArray } from "utility/responsive";
 import { ESC_KEY_CODE, TAB_KEY_CODE } from "utility/constants";
 import { Transition } from "components/Transition";
 
-import "./Modal.scss";
-
 export const intents = {
     default: "default",
     danger: "danger",

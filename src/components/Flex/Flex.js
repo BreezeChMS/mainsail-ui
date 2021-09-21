@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 
-import "./Flex.scss";
-
 export const alignItems = {
     flexStart: "flex-start",
     center: "center",

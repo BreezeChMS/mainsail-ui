@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { classify } from "utility/classify";
 
-import "./AutoGrid.scss";
-
 export const flows = {
     row: "row",
     col: "col",
