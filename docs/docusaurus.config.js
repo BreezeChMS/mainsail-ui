@@ -66,7 +66,7 @@ module.exports = {
                         },
                         {
                             to: "/docs/css/utility-classes/",
-                            label: "CSS",
+                            label: "Css",
                         },
                     ],
                 },
