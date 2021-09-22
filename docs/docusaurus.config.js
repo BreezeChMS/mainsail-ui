@@ -23,22 +23,27 @@ module.exports = {
             },
             items: [
                 {
+                    href: "https://github.com/BreezeChMS/mainsail-ui",
+                    label: "GitHub",
+                    position: "right",
+                },
+                {
                     type: "doc",
                     docId: "intro",
                     position: "left",
                     label: "Guides",
                 },
-                { to: "/blog", label: "Blog", position: "left" },
                 {
-                    href: "https://github.com/BreezeChMS/mainsail-ui",
-                    label: "GitHub",
-                    position: "right",
+                    href: "/docs/css/utility-classes/",
+                    label: "CSS",
+                    position: "left",
                 },
                 {
                     href: "/components",
                     label: "Components",
                     position: "left",
                 },
+                { to: "/blog", label: "Blog", position: "left" },
             ],
         },
         footer: {
@@ -58,6 +63,10 @@ module.exports = {
                         {
                             to: "/components",
                             label: "Components",
+                        },
+                        {
+                            to: "/docs/css/utility-classes/",
+                            label: "CSS",
                         },
                     ],
                 },
