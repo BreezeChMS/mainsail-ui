@@ -1,3 +1,20 @@
+# v1.11.1 (Wed Sep 29 2021)
+
+#### 🐛 Bug Fix
+
+- removes reset from being bundled with index [#175](https://github.com/BreezeChMS/mainsail-ui/pull/175) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- makes links to CSS sections more immediately accessible [#174](https://github.com/BreezeChMS/mainsail-ui/pull/174) ([@3CordGuy](https://github.com/3CordGuy))
+- updates blog with changes for 1.11.0 [#173](https://github.com/BreezeChMS/mainsail-ui/pull/173) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 1
+
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.11.0 (Tue Sep 21 2021)
 
 #### 🚀 Enhancement
