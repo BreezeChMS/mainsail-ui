@@ -24,6 +24,10 @@ export default {
         },
     },
     parameters: {
+        docs: {
+            // opt-out of inline rendering
+            inlineStories: false,
+        },
         controls: { sort: "requiredFirst" },
     },
 };

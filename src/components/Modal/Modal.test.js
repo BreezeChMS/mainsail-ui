@@ -221,7 +221,11 @@ it("will handle focus on elements when opened and closed", async () => {
 
     expect(screen.queryByRole("dialog")).toBeInTheDocument();
 
-    expect(screen.getByRole("textbox", { name: "Modal Input" })).toHaveFocus();
+    await waitFor(() => {
+        expect(
+            screen.getByRole("textbox", { name: "Modal Input" })
+        ).toHaveFocus();
+    });
 
     userEvent.click(screen.getByRole("button", { name: "Cancel" }));
 
@@ -240,8 +244,11 @@ it("will trap focus on elements when opened", async () => {
 
     expect(screen.queryByRole("dialog")).toBeInTheDocument();
 
-    expect(screen.getByRole("textbox", { name: "Modal Input" })).toHaveFocus();
-
+    await waitFor(() => {
+        expect(
+            screen.getByRole("textbox", { name: "Modal Input" })
+        ).toHaveFocus();
+    });
     userEvent.tab();
 
     expect(screen.getByRole("button", { name: "Cancel" })).toHaveFocus();

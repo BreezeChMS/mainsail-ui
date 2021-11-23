@@ -66,6 +66,7 @@ export const Modal = ({
     const [openClass, setOpenClass] = useState(isOpen ? "open" : "");
     const modalId = useUniqueId("modal");
     const modalRef = useRef(null);
+    const [portalMounted, setPortalMounted] = useState(false);
 
     const breakpoint = useBreakpoint();
 
@@ -81,6 +82,13 @@ export const Modal = ({
         },
         [isOpen]
     );
+
+    // Handle mounting of portal on initial open
+    useEffect(() => {
+        if (isOpen) {
+            setPortalMounted(true);
+        }
+    }, [isOpen]);
 
     // Handle focus trap
     useKeydown((e) => {
@@ -135,12 +143,12 @@ export const Modal = ({
         };
     }, [isOpen, blurContentRef]);
 
-    useEffect(() => {
+    const handleInitialFocus = () => {
         if (isOpen && initialFocusRef) {
             initialFocusRef.current &&
                 initialFocusRef.current.focus({ preventScroll: true });
         }
-    }, [initialFocusRef, onCloseFocusRef, isOpen]);
+    };
 
     /**
      * We need to handle all dismisses
@@ -163,6 +171,7 @@ export const Modal = ({
      */
     const handleOnClose = () => {
         setOpenClass("");
+        setPortalMounted(false);
         onClose && onClose();
 
         onCloseFocusRef &&
@@ -185,6 +194,10 @@ export const Modal = ({
 
         return styles;
     };
+
+    if (!portalMounted) {
+        return null;
+    }
 
     return (
         <WithPortal
@@ -212,6 +225,9 @@ export const Modal = ({
                     shouldAnimateOnMount
                     animation={Transition.animations.fadeScale}
                     isActive={isOpen}
+                    onEntered={() => {
+                        handleInitialFocus();
+                    }}
                     onEnter={() => {
                         setOpenClass("open");
                     }}
