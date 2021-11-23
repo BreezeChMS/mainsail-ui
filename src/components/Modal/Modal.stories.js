@@ -35,32 +35,6 @@ export default {
 let setModalTemplateOpen;
 
 /**
- * Simple Basic Modal Template
- */
-const BasicTemplate = (args) => {
-    let [isOpen, setIsOpen] = useState(args.isOpen);
-
-    if (!isOpen) {
-        return <Button onClick={() => setIsOpen(true)} text="Open Modal" />;
-    }
-
-    return (
-        <Modal
-            {...args}
-            onConfirm={() => {
-                setIsOpen(false);
-                args.onConfirm && args.onConfirm();
-            }}
-            onCancel={() => {
-                setIsOpen(false);
-                args.onCancel && args.onCancel();
-            }}
-            isOpen={args.isOpen}
-        />
-    );
-};
-
-/**
  * Template is a state-ful wrapper around the Modal component
  */
 const Template = (args) => {
@@ -148,8 +122,9 @@ const Template = (args) => {
     );
 };
 
-export const BasicConfirm = BasicTemplate.bind({});
+export const BasicConfirm = (args) => <Modal {...args} />;
 BasicConfirm.args = {
+    isOpen: true,
     title: "Confirm",
     maxWidth: "600px",
     isDismissable: false,
