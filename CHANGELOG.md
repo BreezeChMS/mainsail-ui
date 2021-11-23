@@ -1,3 +1,28 @@
+# v1.11.2 (Tue Nov 23 2021)
+
+#### 🐛 Bug Fix
+
+- Unmount modal portals [#177](https://github.com/BreezeChMS/mainsail-ui/pull/177) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 📝 Documentation
+
+- Adds hooks docs [#176](https://github.com/BreezeChMS/mainsail-ui/pull/176) ([@3CordGuy](https://github.com/3CordGuy))
+
+#### 🔩 Dependency Updates
+
+- Bump tmpl from 1.0.4 to 1.0.5 [#170](https://github.com/BreezeChMS/mainsail-ui/pull/170) ([@dependabot[bot]](https://github.com/dependabot[bot]) [@3CordGuy](https://github.com/3CordGuy))
+- Bump prismjs from 1.24.1 to 1.25.0 in /docs [#168](https://github.com/BreezeChMS/mainsail-ui/pull/168) ([@dependabot[bot]](https://github.com/dependabot[bot]) [@3CordGuy](https://github.com/3CordGuy))
+- Bump axios from 0.21.1 to 0.21.4 [#163](https://github.com/BreezeChMS/mainsail-ui/pull/163) ([@dependabot[bot]](https://github.com/dependabot[bot]) [@3CordGuy](https://github.com/3CordGuy))
+- Bump path-parse from 1.0.6 to 1.0.7 [#150](https://github.com/BreezeChMS/mainsail-ui/pull/150) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump url-parse from 1.4.7 to 1.5.3 [#148](https://github.com/BreezeChMS/mainsail-ui/pull/148) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+
+---
+
 # v1.11.1 (Wed Sep 29 2021)
 
 #### 🐛 Bug Fix
