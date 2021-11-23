@@ -143,12 +143,12 @@ export const Modal = ({
         };
     }, [isOpen, blurContentRef]);
 
-    useEffect(() => {
+    const handleInitialFocus = () => {
         if (isOpen && initialFocusRef) {
             initialFocusRef.current &&
                 initialFocusRef.current.focus({ preventScroll: true });
         }
-    }, [initialFocusRef, onCloseFocusRef, isOpen]);
+    };
 
     /**
      * We need to handle all dismisses
@@ -225,6 +225,9 @@ export const Modal = ({
                     shouldAnimateOnMount
                     animation={Transition.animations.fadeScale}
                     isActive={isOpen}
+                    onEntered={() => {
+                        handleInitialFocus();
+                    }}
                     onEnter={() => {
                         setOpenClass("open");
                     }}

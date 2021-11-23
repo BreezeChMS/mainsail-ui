@@ -24,11 +24,41 @@ export default {
         },
     },
     parameters: {
+        docs: {
+            // opt-out of inline rendering
+            inlineStories: false,
+        },
         controls: { sort: "requiredFirst" },
     },
 };
 
 let setModalTemplateOpen;
+
+/**
+ * Simple Basic Modal Template
+ */
+const BasicTemplate = (args) => {
+    let [isOpen, setIsOpen] = useState(args.isOpen);
+
+    if (!isOpen) {
+        return <Button onClick={() => setIsOpen(true)} text="Open Modal" />;
+    }
+
+    return (
+        <Modal
+            {...args}
+            onConfirm={() => {
+                setIsOpen(false);
+                args.onConfirm && args.onConfirm();
+            }}
+            onCancel={() => {
+                setIsOpen(false);
+                args.onCancel && args.onCancel();
+            }}
+            isOpen={args.isOpen}
+        />
+    );
+};
 
 /**
  * Template is a state-ful wrapper around the Modal component
@@ -118,9 +148,8 @@ const Template = (args) => {
     );
 };
 
-export const BasicConfirm = (args) => <Modal {...args} />;
+export const BasicConfirm = BasicTemplate.bind({});
 BasicConfirm.args = {
-    isOpen: true,
     title: "Confirm",
     maxWidth: "600px",
     isDismissable: false,
