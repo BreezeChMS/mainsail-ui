@@ -32,7 +32,7 @@
 
 ## Getting Started
 
-[View the current Storybook for more documentation and usage details.](https://mainsail-ui.com)
+[View the current Storybook for more documentation and usage details.](https://mainsail-ui.com/docs/intro)
 
 ---
 
@@ -58,6 +58,6 @@ import { Button } from "mainsail-ui";
 
 ---
 
-## Contributing
+## Contributing & Development
 
-Please see the dev docs for valuable information on [Contributing](https://mainsail-ui.com/?path=/story/react-developing-getting-started--page).
+Please see the dev docs for valuable information on [Contributing](https://mainsail-ui.com/docs/development/getting-started).
