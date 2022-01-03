@@ -11,6 +11,11 @@ jobs:
       - name: Checkout Pull Request Branch
         uses: actions/checkout@v2
 
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
       - name: Cache Node Modules
         id: node-modules
         uses: actions/cache@v1
@@ -32,6 +37,11 @@ jobs:
     steps:
       - name: Checkout Pull Request Branch
         uses: actions/checkout@v2
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
 
       - name: Cache Node Modules
         id: node-modules
