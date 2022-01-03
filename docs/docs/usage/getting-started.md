@@ -11,7 +11,13 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 yarn install mainsail-ui
 ```
 
-Import the component. Use the component.
+Import the component.
+
+```js
+import { Button } from "mainsail-ui";
+```
+
+Use the component.
 
 ```jsx
 <Button text="Look at me" />;
