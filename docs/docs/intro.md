@@ -9,7 +9,7 @@ Mainsail documentation is broken up into four main sections:
 
 ## Usage
 
-[Add Mainsail to your project ⛵️](/docs/usage/getting-started)
+[Use Mainsail in your project ⛵️](/docs/usage/getting-started)
 
 This section contains useful information pertinent to implementing Mainsail along with guides and tutorials for more intricate parts.
 
