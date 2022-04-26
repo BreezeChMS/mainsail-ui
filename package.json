@@ -6,6 +6,9 @@
   "module": "dist/index.module.js",
   "files": [
     "dist/index.js",
+    "dist/index.js.map",
+    "dist/index.module.js",
+    "dist/index.module.js.map",
     "README.md",
     "LICENSE"
   ],
