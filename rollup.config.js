@@ -24,6 +24,10 @@ export default {
             file: pkg.main,
             format: "cjs",
         },
+        /**
+         * Note: This is a future facing output
+         * May not be necessary at the moment
+         */
         {
             sourcemap: true,
             file: pkg.module,
