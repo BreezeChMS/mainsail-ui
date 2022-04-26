@@ -52,7 +52,7 @@ export const ENUMS = {
 };
 
 /**
- * A basic, interactive button with configurable options
+ * A simple interactive button with configurable options
  **/
 export const Button = forwardRef(
     (
