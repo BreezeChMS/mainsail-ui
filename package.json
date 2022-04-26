@@ -95,7 +95,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "fuse.js": "^6.4.6",
     "lodash": "^4.17.21",
-    "node-sass": "^7.0.1",
+    "node-sass": "4.14.1",
     "path": "^0.12.7",
     "plop": "^2.7.4",
     "postcss": "^8.2.10",
