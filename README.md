@@ -32,7 +32,7 @@
 
 ## Getting Started
 
-[View the Mainsail UI website for more documentation and usage details.](https://mainsail-ui.com/docs/intro)
+[View the Mainsail UI storybook for more documentation and usage details.](https://master--6000b9fe63cdbd0021082b92.chromatic.com/)
 
 ---
 
