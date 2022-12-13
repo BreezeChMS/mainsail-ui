@@ -407,7 +407,7 @@ $spacing: (
 @mixin spacing-modifiers($attribute: "margin") {
     @each $name, $size in $spacing {
         &-#{$name} {
-            #{$attribute}: $size !important;
+            #{$attribute}: $size;
         }
     }
 }
@@ -415,7 +415,7 @@ $spacing: (
 @mixin spacing-between($attribute: "margin") {
     @each $name, $size in $spacing {
         &-#{$name} > * + * {
-            #{$attribute}: $size !important;
+            #{$attribute}: $size;
         }
     }
 }
@@ -423,43 +423,43 @@ $spacing: (
 @mixin color-modifiers($attribute: "background-color") {
     @each $name, $color in $blue {
         &-blue-#{$name} {
-            #{$attribute}: $color !important;
+            #{$attribute}: $color;
             @content;
         }
     }
     @each $name, $color in $green {
         &-green-#{$name} {
-            #{$attribute}: $color !important;
+            #{$attribute}: $color;
             @content;
         }
     }
     @each $name, $color in $violet {
         &-violet-#{$name} {
-            #{$attribute}: $color !important;
+            #{$attribute}: $color;
             @content;
         }
     }
     @each $name, $color in $orange {
         &-orange-#{$name} {
-            #{$attribute}: $color !important;
+            #{$attribute}: $color;
             @content;
         }
     }
     @each $name, $color in $red {
         &-red-#{$name} {
-            #{$attribute}: $color !important;
+            #{$attribute}: $color;
             @content;
         }
     }
     @each $name, $color in $pink {
         &-pink-#{$name} {
-            #{$attribute}: $color !important;
+            #{$attribute}: $color;
             @content;
         }
     }
     @each $name, $color in $neutral {
         &-neutral-#{$name} {
-            #{$attribute}: $color !important;
+            #{$attribute}: $color;
             @content;
         }
     }
