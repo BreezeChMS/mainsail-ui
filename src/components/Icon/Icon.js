@@ -139,7 +139,6 @@ export const ENUMS = {
 export const Icon = ({ name, size, color, className, isDisabled, ...rest }) => {
     const fileCase = toFileCase(name);
     const SvgIcon = MainsailIcon[fileCase];
-    console.log(SvgIcon);
 
     if (!SvgIcon) {
         console.warn(
