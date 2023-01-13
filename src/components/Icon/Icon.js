@@ -74,6 +74,7 @@ export const names = {
     list: "list",
     location: "location",
     lock: "lock",
+    lock_fill: "lock_fill",
     logout: "logout",
     merge: "merge",
     message: "message",
@@ -138,6 +139,7 @@ export const ENUMS = {
 export const Icon = ({ name, size, color, className, isDisabled, ...rest }) => {
     const fileCase = toFileCase(name);
     const SvgIcon = MainsailIcon[fileCase];
+    console.log(SvgIcon);
 
     if (!SvgIcon) {
         console.warn(

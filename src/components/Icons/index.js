@@ -44,6 +44,7 @@ export { default as ListNumbers } from './ListNumbers'
 export { default as List } from './List'
 export { default as Location } from './Location'
 export { default as Lock } from './Lock'
+export { default as LockFill } from "./LockFill"
 export { default as Logout } from './Logout'
 export { default as MailingLabel } from './MailingLabel'
 export { default as Merge } from './Merge'
