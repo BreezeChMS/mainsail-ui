@@ -74,6 +74,7 @@ export const names = {
     list: "list",
     location: "location",
     lock: "lock",
+    lock_fill: "lock_fill",
     logout: "logout",
     merge: "merge",
     message: "message",
