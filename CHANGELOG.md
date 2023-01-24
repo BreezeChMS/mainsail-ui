@@ -1,3 +1,23 @@
+# v1.11.4 (Tue Jan 24 2023)
+
+#### 🐛 Bug Fix
+
+- Fix Icon whitespace [#227](https://github.com/BreezeChMS/mainsail-ui/pull/227) ([@azzamaurice](https://github.com/azzamaurice))
+- BRZE-298 re-do [#226](https://github.com/BreezeChMS/mainsail-ui/pull/226) ([@rellison27](https://github.com/rellison27))
+- BRZE-298 [#225](https://github.com/BreezeChMS/mainsail-ui/pull/225) ([@rellison27](https://github.com/rellison27))
+
+#### ⚠️ Pushed to `master`
+
+- switches site to storybook via chromatic ([@3CordGuy](https://github.com/3CordGuy))
+
+#### Authors: 3
+
+- Aaron Maurice ([@azzamaurice](https://github.com/azzamaurice))
+- Josh Weaver ([@3CordGuy](https://github.com/3CordGuy))
+- Rashaun Ellison ([@rellison27](https://github.com/rellison27))
+
+---
+
 # v1.11.2 (Tue Nov 23 2021)
 
 #### 🐛 Bug Fix
