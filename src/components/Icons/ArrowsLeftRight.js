@@ -8,11 +8,11 @@ const SvgArrowsLeftRight = (props) => (
         xmlns="http://www.w3.org/2000/svg"
         {...props}>
         <g
-            clip-path="url(#a)"
+            clipPath="url(#a)"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2">
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2">
                 <path
                     d="m22 18 4 4-4 4"
                 />
